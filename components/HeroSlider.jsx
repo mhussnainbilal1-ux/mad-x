@@ -11,7 +11,7 @@ titleLineTwo: "TO SHELF",
     description:
       "OEM and private-label MMA, boxing, BJJ and fitness products engineered, sampled, manufactured and packed for ambitious combat sports brands.",
     image:
-      "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=2000&q=90",
+      "/images/slider/slide1.png",
   },
   {
     kicker: "OEM • PRIVATE LABEL • CUSTOM DEVELOPMENT",
@@ -19,9 +19,9 @@ titleLineTwo: "TO SHELF",
     titleLineTwo: "TO DELIVERY",
     description:
       "We help combat sports brands develop custom materials, colors, logos, sizing, packaging and performance specifications.",
-    image:
-      "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=2000&q=90",
-  },
+      image:
+      "/images/slider/slide2.png",
+     },
   {
     kicker: "BOXING • MMA • BJJ • FITNESS",
     titleLineOne: "YOUR VISION",
@@ -29,8 +29,7 @@ titleLineTwo: "TO SHELF",
     description:
       "Reliable manufacturing, quality control and export-ready packaging for growing brands, gyms, distributors and retailers.",
     image:
-      "https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=2000&q=90",
-  },
+    "/images/slider/slide3.png",  },
 ];
 
 export default function HeroSlider() {

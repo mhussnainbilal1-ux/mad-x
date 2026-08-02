@@ -3,32 +3,21 @@ import { rdxCategories } from "@/data/rdxCategories";
 
 const categoryImages = {
   boxing:
-    "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1200&q=85",
+    "/images/category/cat-boxing.png",
 
   mma:
-    "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=1200&q=85",
+  "/images/category/mma.png",
 
   fitness:
-    "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=85",
-
-  yoga:
-    "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85",
+  "/images/category/fitness.png",
 
   apparel:
-    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=85",
-
+  "/images/category/apparal.png",
+  yoga:
+  "/images/category/yoga.png",
   collections:
-    "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=85",
-
-  kids:
-    "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=85",
-
-  sale:
-    "https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1200&q=85",
-
-  "gift-card":
-    "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1200&q=85",
-};
+  "/images/category/collection.png",
+ };
 
 const categoryLabels = {
   boxing: "GLOVES • BAGS • PROTECTION",

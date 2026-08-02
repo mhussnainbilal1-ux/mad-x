@@ -35,7 +35,21 @@ const steps = [
 export default function Page() {
   return (
     <main>
-      <section className="pageHero">
+      <section className="pageHero"
+      style={{
+        background: `
+        linear-gradient(
+          90deg,
+          rgba(6, 17, 32, 0.98) 0%,
+          rgba(6, 17, 32, 0.75) 35%,
+          rgba(6, 17, 32, 0.35) 70%,
+          rgba(6, 17, 32, 0) 100%
+        ),
+          url("/images/factory/banner-factory.png") center/cover no-repeat
+        `,
+        minHeight:"500px"
+      }}
+      >
         <div className="shell">
           <span className="kicker">FACTORY PROCESS</span>
           <h1>From approved sample to shipment.</h1>
@@ -62,8 +76,9 @@ export default function Page() {
         <div className="shell split">
           <div className="largeImage">
             <img
-              src="https://images.unsplash.com/photo-1517438322307-e67111335449?auto=format&fit=crop&w=1400&q=85"
+              src="/images/factory/MAD-X-Factory.png"
               alt="Factory production"
+              style={{width:"800px", height:"100%"}}
             />
           </div>
           <div className="copy">

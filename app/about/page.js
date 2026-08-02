@@ -3,7 +3,21 @@ export const metadata = { title: "About Us" };
 export default function Page() {
   return (
     <main>
-      <section className="pageHero aboutHero">
+      <section className="pageHero aboutHero"
+      style={{
+        background: `
+        linear-gradient(
+          90deg,
+          rgba(6, 17, 32, 0.98) 0%,
+          rgba(6, 17, 32, 0.75) 35%,
+          rgba(6, 17, 32, 0.35) 70%,
+          rgba(6, 17, 32, 0) 100%
+        ),
+          url("/images/factory/banner-about.png") center/cover no-repeat
+        `,
+        minHeight:"500px"
+      }}
+      >
         <div className="shell">
           <span className="kicker">ABOUT IRONCLAD</span>
           <h1>Crafted in Sialkot. Built for the world.</h1>
