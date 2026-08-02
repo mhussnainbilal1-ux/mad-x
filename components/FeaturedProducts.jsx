@@ -27,7 +27,7 @@ export default function FeaturedProducts({
           </Link>
         </div>
 
-        <div className="productGrid">
+        <div className="productGridMainPage">
           {randomProducts.slice(0, limit).map((product) => (
             <ProductCard
               key={product.slug}

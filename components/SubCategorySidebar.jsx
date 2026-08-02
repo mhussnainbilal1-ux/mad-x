@@ -39,7 +39,7 @@ export default function SubCategorySidebar({
                 }`}
               >
                 <Link
-                  scroll={false}
+                  scroll={true}
                   href={`/products?category=${encodeURIComponent(
                     category.name
                   )}`}
@@ -52,7 +52,7 @@ export default function SubCategorySidebar({
                 {isActive && (
                   <div className="sidebarSubcategories">
                     <Link
-                      scroll={false}
+                      scroll={true}
                       href={`/products?category=${encodeURIComponent(
                         category.name
                       )}`}
@@ -65,7 +65,7 @@ export default function SubCategorySidebar({
 
                     {category.groups.map((group) => (
                       <Link
-                        scroll={false}
+                        scroll={true}
                         key={group.name}
                         href={`/products?category=${encodeURIComponent(
                           category.name
