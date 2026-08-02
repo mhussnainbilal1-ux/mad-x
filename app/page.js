@@ -1,31 +1,13 @@
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-import { products } from "@/data/products";
+import CategorySection from "@/components/CategorySection"
+import FeaturedProducts from "@/components/FeaturedProducts";
+import HeroSlider from "@/components/HeroSlider";
 export default function Home() {
   return (
     <main>
       <section className="hero">
-        <div className="shell heroCopy">
-          <span className="kicker">SIALKOT • PAKISTAN • GLOBAL EXPORT</span>
-          <h1>
-            YOUR BRAND.
-            <br />
-            OUR FACTORY.
-          </h1>
-          <p>
-            OEM and private-label MMA, boxing, BJJ and fitness products
-            engineered, sampled, manufactured and packed for ambitious combat
-            sports brands.
-          </p>
-          <div className="heroActions">
-            <Link className="button red" href="/quote">
-              Request a Quote
-            </Link>
-            <Link className="button ghost" href="/products">
-              Explore Products
-            </Link>
-          </div>
-        </div>
+        <HeroSlider />
       </section>
       <section className="stats">
         <div className="shell statsGrid">
@@ -47,73 +29,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section">
-        <div className="shell">
-          <div className="heading">
-            <div>
-              <span className="kicker dark">Manufacturing capabilities</span>
-              <h2>Built for combat sports brands</h2>
-            </div>
-            <p>
-              From first sketches to retail-ready packaging, every stage is
-              designed around your specifications, brand identity and target
-              market.
-            </p>
-          </div>
-          <div className="categoryGrid">
-            <Link className="categoryCard" href="/products?category=Boxing">
-              <img
-                src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1200&q=85"
-                alt="Boxing gear"
-              />
-              <div>
-                <span>GLOVES • PADS • PROTECTION</span>
-                <h3>Boxing</h3>
-                <b>View range →</b>
-              </div>
-            </Link>
-            <Link className="categoryCard" href="/products?category=MMA">
-              <img
-                src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=1200&q=85"
-                alt="MMA gear"
-              />
-              <div>
-                <span>GLOVES • SHORTS • PROTECTION</span>
-                <h3>MMA</h3>
-                <b>View range →</b>
-              </div>
-            </Link>
-            <Link className="categoryCard" href="/products?category=BJJ">
-              <img
-                src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1200&q=85"
-                alt="BJJ gear"
-              />
-              <div>
-                <span>GIS • RASH GUARDS • BELTS</span>
-                <h3>BJJ & No-Gi</h3>
-                <b>View range →</b>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
+      
+    <CategorySection/>
+
       <section className="section cream">
-        <div className="shell">
-          <div className="heading">
-            <div>
-              <span className="kicker dark">Popular development programs</span>
-              <h2>Products ready for your label</h2>
-            </div>
-            <Link className="textLink" href="/products">
-              View complete range →
-            </Link>
-          </div>
-          <div className="productGrid">
-            {products.slice(0, 4).map((p) => (
-              <ProductCard key={p.slug} product={p} />
-            ))}
-          </div>
-        </div>
+        <FeaturedProducts limit={18} />
       </section>
       <section className="section">
         <div className="shell split">

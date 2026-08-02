@@ -15,18 +15,14 @@ export default function ProductBrowser({ products }) {
     [products, q, cat],
   );
   return (
-    <>
-      <div className="filters">
+    <div >
+      <div className="filters" style={{ display:"flex", justifyContent:"space-between"}}>
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Search products..."
+          placeholder="Search products name under the category..."
         />
-        <select value={cat} onChange={(e) => setCat(e.target.value)}>
-          {cats.map((x) => (
-            <option key={x}>{x}</option>
-          ))}
-        </select>
+      
         <LinkButton />
       </div>
       <div className="resultsBar">
@@ -38,7 +34,7 @@ export default function ProductBrowser({ products }) {
           <ProductCard key={p.slug} product={p} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 function LinkButton() {
