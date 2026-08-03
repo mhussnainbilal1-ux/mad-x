@@ -3,7 +3,9 @@ export default function ProductCard({ product }) {
   return (
     <article className="productCard">
       <Link href={`/products/${product.slug}`} className="productMedia">
-        <img src={product.image} alt={product.name} />
+        <img src={product.image} alt={product.name}
+        
+         />
         <span className="pill">OEM READY</span>
       </Link>
       <div className="productBody">

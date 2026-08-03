@@ -1,6 +1,6 @@
 import ProductBrowser from "@/components/ProductBrowser";
 import SubCategorySidebar from "@/components/SubCategorySidebar";
-import { products } from "@/data/products";
+import { products } from "@/lib/products";
 import { rdxCategories } from "@/data/rdxCategories";
 
 export const metadata = {

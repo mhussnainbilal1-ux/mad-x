@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-import { products } from "@/data/products";
+import { products } from "../lib/products";
 
 export default function FeaturedProducts({
   title = "Products ready for your label",

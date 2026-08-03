@@ -1,24 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
-
+import MadXLogo from "@/components/Logo"
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
+
+    checkScreen(); // initial check
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
 
   return (
     <>
       <div className="announcement">
         <span>OEM &amp; PRIVATE LABEL COMBAT SPORTS MANUFACTURING</span>
-        <a href="mailto:sales@ironcladfightwear.com">
-          sales@ironcladfightwear.com
+        <a href="mailto:sales@madx.com">
+          sales@madxfightwear.com
         </a>
       </div>
 
       <header className="header">
         <div className="shell navRow">
-        <button
+          <button
             className="menuButton"
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation"
@@ -27,14 +37,17 @@ export default function Header() {
             ☰
           </button>
           <Link href="/" className="brand" onClick={() => setOpen(false)}>
-            <span className="brandMark">IC</span>
-            <span>
-              <b>IRONCLAD</b>
-              <small>FIGHTWEAR</small>
-            </span>
+            <img
+              style={{
+                width: "200px",
+                height: "auto",
+                marginLeft: isMobile ? "32px" : "-32px"
+              }}
+              src="/images/common/logo2.png"
+            />
           </Link>
 
-         
+
 
           <nav className={`nav ${open ? "open" : ""}`}>
             <Link href="/" onClick={() => setOpen(false)}>

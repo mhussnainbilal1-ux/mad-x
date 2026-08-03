@@ -4,8 +4,8 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
   title: {
-    default: "Ironclad Fightwear | OEM Combat Sports Manufacturer",
-    template: "%s | Ironclad Fightwear",
+    default: "MAD-X Fightwear | OEM Combat Sports Manufacturer",
+    template: "%s | MAD-X Fightwear",
   },
   description:
     "OEM and private-label MMA, boxing, BJJ and fitness gear manufacturer in Sialkot, Pakistan.",

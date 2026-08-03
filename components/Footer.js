@@ -5,11 +5,13 @@ export default function Footer() {
       <div className="shell footerGrid">
         <div>
           <Link href="/" className="brand footerBrand">
-            <span className="brandMark light">IC</span>
-            <span>
-              <b>IRONCLAD</b>
-              <small>FIGHTWEAR</small>
-            </span>
+          <img
+              style={{
+                width: "200px",
+                height: "auto",
+                marginLeft: "-32px"
+              }}
+              src="/images/common/logo2.png"/>
           </Link>
           <p>
             OEM and private-label MMA, boxing, BJJ and fitness gear manufactured

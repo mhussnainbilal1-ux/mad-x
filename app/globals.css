@@ -1830,3 +1830,18 @@ html[data-theme="dark"] .success {
     min-width: auto;
   }
 }
+
+.madXLogo {
+  width: 280px;
+  height: auto;
+
+  --logo-accent: #cc0f15;
+  --logo-text: #172d51;
+  --logo-outline: #ffffff;
+}
+
+.dark .madXLogo {
+  --logo-accent: #cc0f15;
+  --logo-text: #ffffff;
+  --logo-outline: #202020;
+}

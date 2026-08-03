@@ -45,7 +45,7 @@ export default function Home() {
             />
           </div>
           <div className="copy">
-            <span className="kicker dark">Why Ironclad</span>
+            <span className="kicker dark">Why MAD-X</span>
             <h2>A manufacturing partner, not just a supplier</h2>
             <p>
               We help brands develop products that match their price point,
