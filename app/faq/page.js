@@ -32,7 +32,21 @@ const faqs = [
 export default function Page() {
   return (
     <main>
-      <section className="pageHero">
+      <section className="pageHero"
+       style={{
+        background: `
+        linear-gradient(
+          90deg,
+          rgba(6, 17, 32, 0.98) 0%,
+          rgba(6, 17, 32, 0.75) 35%,
+          rgba(6, 17, 32, 0.35) 70%,
+          rgba(6, 17, 32, 0) 100%
+        ),
+          url("/images/factory/banner-faq.png") center/cover no-repeat
+        `,
+        minHeight:"500px"
+      }}
+      >
         <div className="shell">
           <span className="kicker">FREQUENTLY ASKED QUESTIONS</span>
           <h1>Before you begin.</h1>

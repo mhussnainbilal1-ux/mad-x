@@ -3,7 +3,21 @@ export const metadata = { title: "Request a Quote" };
 export default function Page() {
   return (
     <main>
-      <section className="pageHero wholesaleHero">
+      <section className="pageHero wholesaleHero"
+        style={{
+          background: `
+          linear-gradient(
+            90deg,
+            rgba(6, 17, 32, 0.98) 0%,
+            rgba(6, 17, 32, 0.75) 35%,
+            rgba(6, 17, 32, 0.35) 70%,
+            rgba(6, 17, 32, 0) 100%
+          ),
+            url("/images/factory/banner-quote.png") center/cover no-repeat
+          `,
+          minHeight:"500px"
+        }}
+      >
         <div className="shell">
           <span className="kicker">REQUEST A QUOTE</span>
           <h1>Start your private-label project.</h1>
