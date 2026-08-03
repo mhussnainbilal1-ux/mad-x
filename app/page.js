@@ -39,7 +39,8 @@ export default function Home() {
         <div className="shell split">
           <div className="largeImage">
             <img
-              src="https://images.unsplash.com/photo-1517438322307-e67111335449?auto=format&fit=crop&w=1400&q=85"
+            style={{height:"100%", widht:"auto"}}
+              src="/images/common/partner.png"
               alt="Combat sports manufacturing"
             />
           </div>

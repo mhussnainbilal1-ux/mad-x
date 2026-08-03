@@ -49,7 +49,8 @@ export default function Page() {
           </div>
           <div className="largeImage">
             <img
-              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85"
+            style={{width:"100%", height:"auto"}}
+              src="/images/common/about.png"
               alt="Production team"
             />
           </div>
