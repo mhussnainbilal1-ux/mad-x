@@ -301,27 +301,228 @@
         ]
       },
       {
-        "slug": "heavy-punching-bag1",
-        "name": "Heavy Punching Bag",
-      
+        "slug": "training-gloves13",
+        "name": "Training Boxing Gloves",
+    
         "category": "Boxing",
-        "subCategory": "Punch Bags",
-        "type": "Heavy Bags",
-      
-        "summary": "Professional heavy punching bag designed for boxing, kickboxing, MMA, and fitness training.",
-      
-        "materials": "Synthetic or Genuine Leather",
-      
-        "moq": "100 Pieces",
-      
+        "subCategory": "Boxing Gloves",
+        "type": "Training Gloves",
+    
+        "summary": "Premium training gloves for daily gym sessions.",
+    
+        "materials": "Cowhide Leather",
+    
+        "moq": "100 Pairs",
+    
         "lead": "25-35 Days",
-      
-        "image": "/images/products/boxing/punchbag/1.png",
-      
+    
+        "image": "/images/products/boxing/13.png",
+    
         "features": [
-          "High-density layered filling",
-          "Reinforced hanging straps",
-          "Double-stitched construction",
+          "Multi-layer foam",
+          "Attached thumb",
+          "Velcro closure",
+          "Custom branding"
+        ]
+      },
+      {
+        "slug": "training-gloves14",
+        "name": "Training Boxing Gloves",
+    
+        "category": "Boxing",
+        "subCategory": "Boxing Gloves",
+        "type": "Training Gloves",
+    
+        "summary": "Premium training gloves for daily gym sessions.",
+    
+        "materials": "Cowhide Leather",
+    
+        "moq": "100 Pairs",
+    
+        "lead": "25-35 Days",
+    
+        "image": "/images/products/boxing/14.png",
+    
+        "features": [
+          "Multi-layer foam",
+          "Attached thumb",
+          "Velcro closure",
+          "Custom branding"
+        ]
+      },
+    
+      {
+        "slug": "training-gloves15",
+        "name": "Training Boxing Gloves",
+    
+        "category": "Boxing",
+        "subCategory": "Boxing Gloves",
+        "type": "Training Gloves",
+    
+        "summary": "Premium training gloves for daily gym sessions.",
+    
+        "materials": "Cowhide Leather",
+    
+        "moq": "100 Pairs",
+    
+        "lead": "25-35 Days",
+    
+        "image": "/images/products/boxing/15.png",
+    
+        "features": [
+          "Multi-layer foam",
+          "Attached thumb",
+          "Velcro closure",
+          "Custom branding"
+        ]
+      },
+      {
+        "slug": "training-gloves16",
+        "name": "Training Boxing Gloves",
+    
+        "category": "Boxing",
+        "subCategory": "Boxing Gloves",
+        "type": "Training Gloves",
+    
+        "summary": "Premium training gloves for daily gym sessions.",
+    
+        "materials": "Cowhide Leather",
+    
+        "moq": "100 Pairs",
+    
+        "lead": "25-35 Days",
+    
+        "image": "/images/products/boxing/16.png",
+    
+        "features": [
+          "Multi-layer foam",
+          "Attached thumb",
+          "Velcro closure",
+          "Custom branding"
+        ]
+      },
+      {
+        "slug": "training-gloves17",
+        "name": "Training Boxing Gloves",
+    
+        "category": "Boxing",
+        "subCategory": "Boxing Gloves",
+        "type": "Training Gloves",
+    
+        "summary": "Premium training gloves for daily gym sessions.",
+    
+        "materials": "Cowhide Leather",
+    
+        "moq": "100 Pairs",
+    
+        "lead": "25-35 Days",
+    
+        "image": "/images/products/boxing/17.png",
+    
+        "features": [
+          "Multi-layer foam",
+          "Attached thumb",
+          "Velcro closure",
+          "Custom branding"
+        ]
+      },
+      {
+        "slug": "training-gloves18",
+        "name": "Training Boxing Gloves",
+    
+        "category": "Boxing",
+        "subCategory": "Boxing Gloves",
+        "type": "Training Gloves",
+    
+        "summary": "Premium training gloves for daily gym sessions.",
+    
+        "materials": "Cowhide Leather",
+    
+        "moq": "100 Pairs",
+    
+        "lead": "25-35 Days",
+    
+        "image": "/images/products/boxing/18.png",
+    
+        "features": [
+          "Multi-layer foam",
+          "Attached thumb",
+          "Velcro closure",
+          "Custom branding"
+        ]
+      },
+      {
+        "slug": "training-gloves19",
+        "name": "Training Boxing Gloves",
+    
+        "category": "Boxing",
+        "subCategory": "Boxing Gloves",
+        "type": "Training Gloves",
+    
+        "summary": "Premium training gloves for daily gym sessions.",
+    
+        "materials": "Cowhide Leather",
+    
+        "moq": "100 Pairs",
+    
+        "lead": "25-35 Days",
+    
+        "image": "/images/products/boxing/19.png",
+    
+        "features": [
+          "Multi-layer foam",
+          "Attached thumb",
+          "Velcro closure",
+          "Custom branding"
+        ]
+      },
+      {
+        "slug": "training-gloves20",
+        "name": "Training Boxing Gloves",
+    
+        "category": "Boxing",
+        "subCategory": "Boxing Gloves",
+        "type": "Training Gloves",
+    
+        "summary": "Premium training gloves for daily gym sessions.",
+    
+        "materials": "Cowhide Leather",
+    
+        "moq": "100 Pairs",
+    
+        "lead": "25-35 Days",
+    
+        "image": "/images/products/boxing/20.png",
+    
+        "features": [
+          "Multi-layer foam",
+          "Attached thumb",
+          "Velcro closure",
+          "Custom branding"
+        ]
+      },
+      {
+        "slug": "training-gloves21",
+        "name": "Training Boxing Gloves",
+    
+        "category": "Boxing",
+        "subCategory": "Boxing Gloves",
+        "type": "Training Gloves",
+    
+        "summary": "Premium training gloves for daily gym sessions.",
+    
+        "materials": "Cowhide Leather",
+    
+        "moq": "100 Pairs",
+    
+        "lead": "25-35 Days",
+    
+        "image": "/images/products/boxing/21.png",
+    
+        "features": [
+          "Multi-layer foam",
+          "Attached thumb",
+          "Velcro closure",
           "Custom branding"
         ]
       }
