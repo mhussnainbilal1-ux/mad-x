@@ -138,5 +138,61 @@
       "Sweat-resistant inner lining",
       "Custom logo and color options"
     ]
+  },
+  {
+    "index": 6,
+    "slug": "boxing-head-guard6",
+    "name": "Boxing Head Guard",
+  
+    "category": "Boxing",
+    "subCategory": "Protective Gear",
+    "type": "Head Guard",
+  
+    "summary": "Professional boxing head guard designed for superior impact protection during sparring and training sessions.",
+  
+    "materials": "Genuine Leather or Premium Synthetic Leather",
+  
+    "moq": "100 Pieces",
+  
+    "lead": "25-35 Days",
+  
+    "image": "/images/products/boxing/headguard/6.png",
+  
+    "features": [
+      "Multi-layer shock-absorbing foam",
+      "Full cheek protection",
+      "Adjustable lace-up and hook-and-loop closure",
+      "Open-top ventilation design",
+      "Sweat-resistant inner lining",
+      "Custom logo and color options"
+    ]
+  },
+  {
+    "index": 7,
+    "slug": "boxing-head-guard7",
+    "name": "Boxing Head Guard",
+  
+    "category": "Boxing",
+    "subCategory": "Protective Gear",
+    "type": "Head Guard",
+  
+    "summary": "Professional boxing head guard designed for superior impact protection during sparring and training sessions.",
+  
+    "materials": "Genuine Leather or Premium Synthetic Leather",
+  
+    "moq": "100 Pieces",
+  
+    "lead": "25-35 Days",
+  
+    "image": "/images/products/boxing/headguard/7.png",
+  
+    "features": [
+      "Multi-layer shock-absorbing foam",
+      "Full cheek protection",
+      "Adjustable lace-up and hook-and-loop closure",
+      "Open-top ventilation design",
+      "Sweat-resistant inner lining",
+      "Custom logo and color options"
+    ]
   }
 ]
