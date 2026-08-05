@@ -1,5 +1,6 @@
 [
     {
+      "index":1,
       "slug": "training-gloves",
       "name": "Training Boxing Gloves",
   
@@ -26,6 +27,7 @@
     }
     ,
     {
+      "index":2,
         "slug": "training-gloves2",
         "name": "Training Boxing Gloves",
     
@@ -51,6 +53,7 @@
         ]
       },
       {
+        "index":3,
         "slug": "training-gloves3",
         "name": "Training Boxing Gloves",
     
@@ -76,6 +79,7 @@
         ]
       },
       {
+        "index":4,
         "slug": "training-gloves4",
         "name": "Training Boxing Gloves",
     
@@ -101,6 +105,7 @@
         ]
       },
       {
+        "index":5,
         "slug": "training-gloves5",
         "name": "Training Boxing Gloves",
     
@@ -126,6 +131,7 @@
         ]
       },
       {
+        "index":6,
         "slug": "training-gloves6",
         "name": "Training Boxing Gloves",
     
@@ -151,6 +157,7 @@
         ]
       },
       {
+        "index":7,
         "slug": "training-gloves7",
         "name": "Training Boxing Gloves",
     
@@ -176,6 +183,7 @@
         ]
       },
       {
+        "index":8,
         "slug": "training-gloves8",
         "name": "Training Boxing Gloves",
     
@@ -201,6 +209,7 @@
         ]
       },
       {
+        "index":9,
         "slug": "training-gloves9",
         "name": "Training Boxing Gloves",
     
@@ -226,6 +235,7 @@
         ]
       },
       {
+        "index":10,
         "slug": "training-gloves10",
         "name": "Training Boxing Gloves",
     
@@ -251,6 +261,7 @@
         ]
       },
       {
+        "index":11,
         "slug": "training-gloves11",
         "name": "Training Boxing Gloves",
     
@@ -276,6 +287,7 @@
         ]
       },
       {
+        "index":12,
         "slug": "training-gloves12",
         "name": "Training Boxing Gloves",
     
@@ -301,6 +313,7 @@
         ]
       },
       {
+        "index":13,
         "slug": "training-gloves13",
         "name": "Training Boxing Gloves",
     
@@ -326,6 +339,7 @@
         ]
       },
       {
+        "index":14,
         "slug": "training-gloves14",
         "name": "Training Boxing Gloves",
     
@@ -352,6 +366,7 @@
       },
     
       {
+        "index":15,
         "slug": "training-gloves15",
         "name": "Training Boxing Gloves",
     
@@ -377,6 +392,7 @@
         ]
       },
       {
+        "index":16,
         "slug": "training-gloves16",
         "name": "Training Boxing Gloves",
     
@@ -402,6 +418,7 @@
         ]
       },
       {
+        "index":17,
         "slug": "training-gloves17",
         "name": "Training Boxing Gloves",
     
@@ -427,6 +444,7 @@
         ]
       },
       {
+        "index":18,
         "slug": "training-gloves18",
         "name": "Training Boxing Gloves",
     
@@ -452,6 +470,7 @@
         ]
       },
       {
+        "index":19,
         "slug": "training-gloves19",
         "name": "Training Boxing Gloves",
     
@@ -477,6 +496,7 @@
         ]
       },
       {
+        "index":20,
         "slug": "training-gloves20",
         "name": "Training Boxing Gloves",
     
@@ -502,6 +522,7 @@
         ]
       },
       {
+        "index":21,
         "slug": "training-gloves21",
         "name": "Training Boxing Gloves",
     

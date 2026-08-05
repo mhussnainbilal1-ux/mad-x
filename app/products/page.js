@@ -16,7 +16,7 @@ export default async function Page({ searchParams }) {
   const selectedSubCategory =
     params?.subCategory || "";
 
-  const filteredProducts = products.filter((product) => {
+  let filteredProducts = products.filter((product) => {
     const matchesCategory =
       product.category === selectedCategory;
 
@@ -27,11 +27,20 @@ export default async function Page({ searchParams }) {
     return matchesCategory && matchesSubCategory;
   });
 
+  if (
+    selectedCategory === "Boxing" &&
+    !selectedSubCategory
+  ) {
+    filteredProducts = [...filteredProducts].sort(
+      (a, b) => a.index - b.index
+    );
+  }
+
   return (
     <main>
       <section className="pageHero"
-      style={{
-        background: `
+        style={{
+          background: `
         linear-gradient(
           90deg,
           rgba(6, 17, 32, 0.98) 0%,
@@ -41,8 +50,8 @@ export default async function Page({ searchParams }) {
         ),
           url("/images/factory/banner-product.png") center/cover no-repeat
         `,
-        minHeight:"500px"
-      }}
+          minHeight: "500px"
+        }}
       >
         <div className="shell">
           <span className="kicker">
