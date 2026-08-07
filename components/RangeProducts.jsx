@@ -5,6 +5,12 @@ export default function RangeProducts({ index, skipType }) {
   const range = getProductRange(index, skipType)
 
   return (
+    <>
+    {
+      range.length>0 &&   <p>Related Products</p>
+    }
+  
+   
     <div
       style={{
         display: "grid",
@@ -51,6 +57,7 @@ export default function RangeProducts({ index, skipType }) {
         </Link>
       ))}
     </div>
+    </>
 
   );
 }

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products } from "@/lib/products";
 import  RangeProducts  from "../../../components/RangeProducts"
-import Image from 'next/image'
+import ImageZoomWrapper from '../../../components/ImageZoomWrapper';
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
@@ -20,13 +20,24 @@ export default async function Page({ params }) {
   if (!p) notFound();
   return (
     <main>
+      
       <section className="detailSection">
         <div className="shell detailGrid">
           <div className="detailMedia">
+          <ImageZoomWrapper>
+         
            <img src={p.image} alt={p.name} 
             loading="lazy"
             decoding="async"
+            style={{
+              width: "100%",
+              display: "block",
+              userSelect: "none",
+              pointerEvents: "none",
+            }}
            />
+           </ImageZoomWrapper>
+           
            <RangeProducts index={p.index} skipType={p.type}/>
           </div>
           <div className="detailCopy">
