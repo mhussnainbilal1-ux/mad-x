@@ -1,11 +1,13 @@
 import Link from "next/link";
 import {getProductSeries} from "../util/common"
+import Image from 'next/image'
 export default function ProductCard({ product }) {
   return (
     <article className="productCard">
       <Link href={`/products/${product.slug}`} className="productMedia">
-        <img src={product.image} alt={product.name}
-        
+       <img src={product.image} alt={product.name}
+         loading="lazy"
+         decoding="async"
          />
         <span className="pill">OEM READY</span>
       </Link>

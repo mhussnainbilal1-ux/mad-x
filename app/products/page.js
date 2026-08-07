@@ -1,13 +1,17 @@
+
+
 import ProductBrowser from "@/components/ProductBrowser";
 import SubCategorySidebar from "@/components/SubCategorySidebar";
 import { products } from "@/lib/products";
 import { rdxCategories } from "@/data/rdxCategories";
-
+import MobileSideMenu from "../../components/MobileSideMenu";
+import MobileOnly from "../../components/MobileOnly"
 export const metadata = {
   title: "Products",
 };
 
-export default async function Page({ searchParams }) {
+export default async function Page({ searchParams }) {  
+
   const params = await searchParams;
 
   const selectedCategory =
@@ -38,6 +42,7 @@ export default async function Page({ searchParams }) {
 
   return (
     <main>
+       <MobileSideMenu/>
       <section className="pageHero"
         style={{
           background: `
@@ -71,12 +76,20 @@ export default async function Page({ searchParams }) {
       <section className="section">
         <div className="shell">
           <div className="productsCatalogueLayout">
-            <SubCategorySidebar
-              selectedCategory={selectedCategory}
-              selectedSubCategory={
-                selectedSubCategory
-              }
-            />
+            <MobileOnly>
+              <MobileSideMenu />
+            </MobileOnly>
+           {/* {
+             isMobile?<></>:
+             <SubCategorySidebar
+             selectedCategory={selectedCategory}
+             selectedSubCategory={
+               selectedSubCategory
+             }
+           />
+           } */}
+            
+            
 
             <div className="productsCatalogueContent">
               <div className="catalogueTitleRow">
@@ -121,3 +134,4 @@ export default async function Page({ searchParams }) {
     </main>
   );
 }
+

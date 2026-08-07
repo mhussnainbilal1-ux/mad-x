@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image'
 export default function Footer() {
   return (
     <footer className="footer">
@@ -11,6 +12,8 @@ export default function Footer() {
                 height: "auto",
                 marginLeft: "-32px"
               }}
+              loading="lazy"
+              decoding="async"
               src="/images/common/logo2.png"/>
           </Link>
           <p>

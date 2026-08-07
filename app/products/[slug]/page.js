@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products } from "@/lib/products";
+import  RangeProducts  from "../../../components/RangeProducts"
+import Image from 'next/image'
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
@@ -10,15 +12,22 @@ export async function generateMetadata({ params }) {
   return { title: p?.name || "Product" };
 }
 export default async function Page({ params }) {
+ 
   const { slug } = await params;
   const p = products.find((x) => x.slug === slug);
+
+
   if (!p) notFound();
   return (
     <main>
       <section className="detailSection">
         <div className="shell detailGrid">
           <div className="detailMedia">
-            <img src={p.image} alt={p.name} />
+           <img src={p.image} alt={p.name} 
+            loading="lazy"
+            decoding="async"
+           />
+           <RangeProducts index={p.index} skipType={p.type}/>
           </div>
           <div className="detailCopy">
             <Link className="back" href="/products">

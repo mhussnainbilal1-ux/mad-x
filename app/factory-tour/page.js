@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image'
 export const metadata = { title: "Factory Tour" };
 const steps = [
   [
@@ -75,10 +76,12 @@ export default function Page() {
       <section className="section cream">
         <div className="shell split">
           <div className="largeImage">
-            <img
+           <img
               src="/images/factory/MAD-X-Factory.png"
               alt="Factory production"
               style={{width:"800px", height:"100%"}}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="copy">

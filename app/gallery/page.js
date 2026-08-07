@@ -1,3 +1,4 @@
+import Image from 'next/image'
 export const metadata = { title: "Gallery" };
 const images = [
   [
@@ -56,7 +57,10 @@ export default function Page() {
         <div className="shell galleryGrid">
           {images.map((x) => (
             <figure key={x[1]}>
-              <img src={x[0]} alt={x[1]} />
+             <img src={x[0]} alt={x[1]} 
+              loading="lazy"
+              decoding="async"
+             />
               <figcaption>{x[1]}</figcaption>
             </figure>
           ))}

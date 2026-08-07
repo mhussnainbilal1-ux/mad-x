@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Image from 'next/image'
 
 const slides = [
   {
@@ -89,7 +90,9 @@ export default function HeroSlider() {
             }`}
             aria-hidden={activeSlide !== index}
           >
-            <img
+           <img
+            loading="lazy"
+            decoding="async"
               src={slide.image}
               alt=""
               className="heroSlideImage"

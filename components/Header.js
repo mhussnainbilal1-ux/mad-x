@@ -1,5 +1,5 @@
 "use client";
-
+import Image from 'next/image'
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -37,7 +37,9 @@ export default function Header() {
             ☰
           </button>
           <Link href="/" className="brand" onClick={() => setOpen(false)}>
-            <img
+           <img
+            loading="lazy"
+            decoding="async"
               style={{
                 width: "200px",
                 height: "auto",

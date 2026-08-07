@@ -3,6 +3,7 @@ import ProductCard from "@/components/ProductCard";
 import CategorySection from "@/components/CategorySection"
 import FeaturedProducts from "@/components/FeaturedProducts";
 import HeroSlider from "@/components/HeroSlider";
+import Image from 'next/image'
 export default function Home() {
   return (
     <main>
@@ -38,10 +39,12 @@ export default function Home() {
       <section className="section">
         <div className="shell split">
           <div className="largeImage">
-            <img
+           <img
             style={{height:"100%", widht:"auto"}}
               src="/images/common/partner.png"
               alt="Combat sports manufacturing"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="copy">

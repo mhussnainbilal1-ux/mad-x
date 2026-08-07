@@ -1,5 +1,6 @@
 import Link from "next/link";
 export const metadata = { title: "About Us" };
+import Image from 'next/image'
 export default function Page() {
   return (
     <main>
@@ -48,10 +49,12 @@ export default function Page() {
             </Link>
           </div>
           <div className="largeImage">
-            <img
+           <img
             style={{width:"100%", height:"auto"}}
               src="/images/common/about.png"
               alt="Production team"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

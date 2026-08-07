@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { rdxCategories } from "@/data/rdxCategories";
+import Image from 'next/image'
 
 const categoryImages = {
   boxing:
@@ -63,9 +64,11 @@ export default function CategorySection() {
               href={`/products?category=${category.name}`}
               className="categoryCard"
             >
-              <img
+             <img
                 src={categoryImages[category.slug]}
                 alt={category.name}
+                loading="lazy"
+                decoding="async"
               />
 
               <div>
