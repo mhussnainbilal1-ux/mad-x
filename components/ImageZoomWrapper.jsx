@@ -2,17 +2,24 @@
 
 import { useState } from "react";
 import { RotateCcw } from "lucide-react";
+import useIsMobile from "@/app/hooks/useIsMobile";
+
 export default function ImageZoomWrapper({ children }) {
+  const isMobile = useIsMobile();
+
   const [zoom, setZoom] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [dragging, setDragging] = useState(false);
   const [start, setStart] = useState({ x: 0, y: 0 });
+
   const resetImage = () => {
     setZoom(1);
     setPosition({ x: 0, y: 0 });
   };
 
   const handlePointerDown = (e) => {
+    if (isMobile) return;
+
     setDragging(true);
 
     setStart({
@@ -24,7 +31,7 @@ export default function ImageZoomWrapper({ children }) {
   };
 
   const handlePointerMove = (e) => {
-    if (!dragging) return;
+    if (isMobile || !dragging) return;
 
     setPosition({
       x: e.clientX - start.x,
@@ -33,12 +40,13 @@ export default function ImageZoomWrapper({ children }) {
   };
 
   const handlePointerUp = () => {
+    if (isMobile) return;
+
     setDragging(false);
   };
 
   return (
-    <div>
-
+    <>
       <div
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
@@ -47,8 +55,13 @@ export default function ImageZoomWrapper({ children }) {
         style={{
           width: "100%",
           overflow: "hidden",
-          cursor: dragging ? "grabbing" : "grab",
-          touchAction: "none",
+          cursor: isMobile
+            ? "default"
+            : dragging
+              ? "grabbing"
+              : "grab",
+
+          touchAction: isMobile ? "auto" : "none",
         }}
       >
         <div
@@ -58,14 +71,15 @@ export default function ImageZoomWrapper({ children }) {
               scale(${zoom})
             `,
             transformOrigin: "center",
-            transition: dragging ? "none" : "transform 0.15s ease",
+            transition: dragging
+              ? "none"
+              : "transform 0.15s ease",
           }}
         >
           {children}
         </div>
       </div>
 
-      {/* ZOOM SLIDER */}
       <div
         style={{
           display: "flex",
@@ -82,7 +96,9 @@ export default function ImageZoomWrapper({ children }) {
           max="3"
           step="0.05"
           value={zoom}
-          onChange={(e) => setZoom(Number(e.target.value))}
+          onChange={(e) =>
+            setZoom(Number(e.target.value))
+          }
           style={{
             flex: 1,
             cursor: "pointer",
@@ -98,6 +114,7 @@ export default function ImageZoomWrapper({ children }) {
         >
           {Math.round(zoom * 100)}%
         </span>
+
         <button
           onClick={resetImage}
           title="Reset image"
@@ -117,15 +134,18 @@ export default function ImageZoomWrapper({ children }) {
           <RotateCcw size={18} />
         </button>
       </div>
+
       <p
-  style={{
-    fontSize: "13px",
-    color: "var(--muted)",
-    textAlign: "center",
-  }}
->
-  Drag to explore details • Slide to zoom
-</p>
-    </div>
+        style={{
+          fontSize: "13px",
+          color: "var(--muted)",
+          textAlign: "center",
+        }}
+      >
+        {isMobile
+          ? "Slide to zoom"
+          : "Drag to explore details • Slide to zoom"}
+      </p>
+    </>
   );
 }
