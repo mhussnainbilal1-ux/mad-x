@@ -9,7 +9,7 @@ export default function ProductCard({ product }) {
          loading="lazy"
          decoding="async"
          />
-        <span className="pill">OEM READY</span>
+        <span className="pill">{getProductSeries(product.index)}</span>
       </Link>
       <div className="productBody">
         <span className="productCategory">{product.category}</span>
@@ -31,8 +31,8 @@ export default function ProductCard({ product }) {
               verticalAlign: "bottom",
             }}
           >
-            {getProductSeries(product.index)}
-            {/* {product.type} */}
+            {/* {getProductSeries(product.index)} */}
+            {product.type}
           </span>
           <Link href={`/products/${product.slug}`}>View details →</Link>
         </div>

@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import { getProductRange } from "../lib/common";
 
@@ -7,7 +8,50 @@ export default function RangeProducts({ index, skipType }) {
   return (
     <>
     {
-      range.length>0 &&   <p>Related Products</p>
+      range.length>0 &&   <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "10px",
+        margin: "24px 0 14px",
+      }}
+    >
+      <span
+        style={{
+          width: "5px",
+          height: "26px",
+          borderRadius: "10px",
+          background: "#E51B2A",
+          animation: "relatedPulse 1.8s ease-in-out infinite",
+        }}
+      />
+    
+      <p
+        style={{
+          margin: 0,
+          fontSize: "20px",
+          fontWeight: "700",
+          color: "var(--ink)",
+          letterSpacing: "0.3px",
+        }}
+      >
+        Related Products
+      </p>
+    
+      <style jsx>{`
+        @keyframes relatedPulse {
+          0%, 100% {
+            transform: scaleY(1);
+            opacity: 1;
+          }
+    
+          50% {
+            transform: scaleY(0.65);
+            opacity: 0.55;
+          }
+        }
+      `}</style>
+    </div>
     }
   
    
