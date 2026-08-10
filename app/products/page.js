@@ -16,21 +16,21 @@ export default async function Page({ searchParams }) {
 
   const selectedCategory =
     params?.category || rdxCategories[0].name;
-
+  
   const selectedSubCategory =
     params?.subCategory || "";
-
+  
   let filteredProducts = products.filter((product) => {
     const matchesCategory =
       product.category === selectedCategory;
-
+  
     const matchesSubCategory =
       !selectedSubCategory ||
-      product.subCategory === selectedSubCategory;
-
+      product.subCategory?.includes(selectedSubCategory);
+  
     return matchesCategory && matchesSubCategory;
   });
-
+  
   if (
     selectedCategory === "Boxing" &&
     !selectedSubCategory

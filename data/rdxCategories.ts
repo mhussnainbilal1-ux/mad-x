@@ -10,10 +10,7 @@ export const rdxCategories: ProductCategory[] = [
     name: "Boxing",
     slug: "boxing",
     groups: [
-      {
-        name: "Approved Ranges",
-        items: ["IBA Approved Boxing Range"],
-      },
+      
       {
         name: "Boxing Gloves",
         items: [
@@ -78,10 +75,7 @@ export const rdxCategories: ProductCategory[] = [
     name: "MMA",
     slug: "mma",
     groups: [
-      {
-        name: "Approved Ranges",
-        items: ["IMMAF Approved Range", "Wako Approved Range"],
-      },
+      
       {
         name: "MMA Gloves",
         items: ["Sparring Gloves", "Training Gloves", "Kids Grappling Gloves"],
