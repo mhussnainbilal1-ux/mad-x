@@ -1,14 +1,22 @@
-import Link from "next/link";
-import { rdxCategories } from "@/data/rdxCategories";
 
-export default function SubCategorySidebar({
-  selectedCategory,
-  selectedSubCategory,
-}) {
+"use client";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { rdxCategories } from "@/data/rdxCategories";
+export default function SubCategorySidebar() {
+  const searchParams = useSearchParams();
+
+  const selectedCategory = searchParams.get("category");
+  const selectedSubCategory = searchParams.get("subCategory");
+
   const activeCategory =
     rdxCategories.find(
       (category) => category.name === selectedCategory
     ) || rdxCategories[0];
+
+  console.log("Category:", selectedCategory);
+  console.log("Sub Category:", selectedSubCategory);
+  console.log("Active Category:", activeCategory);
 
   return (
     <aside className="subcategorySidebar">

@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 const PAGE_SIZE = 21;
 
 export default function ProductBrowser({ products }) {
+  console.log("products", products.length)
   const [q, setQ] = useState("");
   const [cat, setCat] = useState("All");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -32,7 +33,7 @@ export default function ProductBrowser({ products }) {
     () =>
       products.filter(
         (p) =>
-          (cat === "All" || p.category === cat) &&
+          // (cat === "All" || p.category === cat) &&
           p.name.toLowerCase().includes(q.toLowerCase()),
       ),
     [products, q, cat],
@@ -78,7 +79,7 @@ export default function ProductBrowser({ products }) {
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Search products name under the category..."
+          placeholder="Search products name..."
         />
 
         <LinkButton />

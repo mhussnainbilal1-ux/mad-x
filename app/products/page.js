@@ -40,9 +40,14 @@ export default async function Page({ searchParams }) {
     );
   }
 
+
+  console.log("ggg",{selectedCategory,selectedSubCategory })
   return (
     <main>
-       <MobileSideMenu/>
+       <MobileSideMenu 
+       selectedCategory={selectedCategory}
+       selectedSubCategory={selectedSubCategory}
+       />
       <section className="pageHero"
         style={{
           background: `
@@ -77,18 +82,12 @@ export default async function Page({ searchParams }) {
         <div className="shell">
           <div className="productsCatalogueLayout">
             <MobileOnly>
-              <MobileSideMenu />
+              <MobileSideMenu
+               selectedCategory={selectedCategory}
+               selectedSubCategory={selectedSubCategory}
+              />
             </MobileOnly>
-           {/* {
-             isMobile?<></>:
-             <SubCategorySidebar
-             selectedCategory={selectedCategory}
-             selectedSubCategory={
-               selectedSubCategory
-             }
-           />
-           } */}
-            
+           
             
 
             <div className="productsCatalogueContent">

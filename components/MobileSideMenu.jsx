@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import { SlidersHorizontal } from "lucide-react";
 import SubCategorySidebar from "./SubCategorySidebar";
 import { usePathname, useSearchParams } from "next/navigation";
-export default function MobileSideMenu() {
+export default function MobileSideMenu(
+  {selectedCategory,
+  selectedSubCategory}) {
   const [open, setOpen] = useState(false);
 
   const [isMobile, setIsMobile] = useState(false);
@@ -126,7 +128,10 @@ useEffect(() => {
               ×
             </button>
 
-            <SubCategorySidebar />
+            <SubCategorySidebar 
+             selectedCategory={selectedCategory}
+             selectedSubCategory={selectedSubCategory}
+            />
           </div>
         </div>
       )}
