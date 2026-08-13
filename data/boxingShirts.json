@@ -1,0 +1,142 @@
+[
+    {
+        "index": 1,
+        "slug": "boxing-shirt1",
+        "name": "Professional Boxing Shirt",
+      
+        "category": "Boxing",
+        "subCategory": "Boxing Apparel, Training Apparel",
+        "type": "Boxing Shirts",
+      
+        "summary": "Lightweight professional boxing shirt designed for training, sparring, competition and team wear.",
+      
+        "materials": "Premium Polyester or Performance Interlock Fabric",
+      
+        "moq": "100 Pieces",
+      
+        "lead": "25-35 Days",
+      
+        "image": "/images/products/boxing/shirts/1.png",
+      
+        "features": [
+          "Lightweight breathable fabric",
+          "Moisture-wicking construction",
+          "Flexible unrestricted fit",
+          "Reinforced stitching",
+          "Suitable for training and competition",
+          "Custom logo, colors and designs"
+        ]
+      },
+      {
+        "index": 2,
+        "slug": "boxing-shirt2",
+        "name": "Professional Boxing Shirt",
+      
+        "category": "Boxing",
+        "subCategory": "Boxing Apparel, Training Apparel",
+        "type": "Boxing Shirts",
+      
+        "summary": "Lightweight professional boxing shirt designed for training, sparring, competition and team wear.",
+      
+        "materials": "Premium Polyester or Performance Interlock Fabric",
+      
+        "moq": "100 Pieces",
+      
+        "lead": "25-35 Days",
+      
+        "image": "/images/products/boxing/shirts/2.png",
+      
+        "features": [
+          "Lightweight breathable fabric",
+          "Moisture-wicking construction",
+          "Flexible unrestricted fit",
+          "Reinforced stitching",
+          "Suitable for training and competition",
+          "Custom logo, colors and designs"
+        ]
+      },
+      {
+        "index": 3,
+        "slug": "boxing-shirt3",
+        "name": "Professional Boxing Shirt",
+      
+        "category": "Boxing",
+        "subCategory": "Boxing Apparel, Training Apparel",
+        "type": "Boxing Shirts",
+      
+        "summary": "Lightweight professional boxing shirt designed for training, sparring, competition and team wear.",
+      
+        "materials": "Premium Polyester or Performance Interlock Fabric",
+      
+        "moq": "100 Pieces",
+      
+        "lead": "25-35 Days",
+      
+        "image": "/images/products/boxing/shirts/3.png",
+      
+        "features": [
+          "Lightweight breathable fabric",
+          "Moisture-wicking construction",
+          "Flexible unrestricted fit",
+          "Reinforced stitching",
+          "Suitable for training and competition",
+          "Custom logo, colors and designs"
+        ]
+      },
+      {
+        "index": 4,
+        "slug": "boxing-shirt4",
+        "name": "Professional Boxing Shirt",
+      
+        "category": "Boxing",
+        "subCategory": "Boxing Apparel, Training Apparel",
+        "type": "Boxing Shirts",
+      
+        "summary": "Lightweight professional boxing shirt designed for training, sparring, competition and team wear.",
+      
+        "materials": "Premium Polyester or Performance Interlock Fabric",
+      
+        "moq": "100 Pieces",
+      
+        "lead": "25-35 Days",
+      
+        "image": "/images/products/boxing/shirts/4.png",
+      
+        "features": [
+          "Lightweight breathable fabric",
+          "Moisture-wicking construction",
+          "Flexible unrestricted fit",
+          "Reinforced stitching",
+          "Suitable for training and competition",
+          "Custom logo, colors and designs"
+        ]
+      },
+      {
+        "index": 5,
+        "slug": "boxing-shirt5",
+        "name": "Professional Boxing Shirt",
+      
+        "category": "Boxing",
+        "subCategory": "Boxing Apparel, Training Apparel",
+        "type": "Boxing Shirts",
+      
+        "summary": "Lightweight professional boxing shirt designed for training, sparring, competition and team wear.",
+      
+        "materials": "Premium Polyester or Performance Interlock Fabric",
+      
+        "moq": "100 Pieces",
+      
+        "lead": "25-35 Days",
+      
+        "image": "/images/products/boxing/shirts/5.png",
+      
+        "features": [
+          "Lightweight breathable fabric",
+          "Moisture-wicking construction",
+          "Flexible unrestricted fit",
+          "Reinforced stitching",
+          "Suitable for training and competition",
+          "Custom logo, colors and designs"
+        ]
+      }
+]

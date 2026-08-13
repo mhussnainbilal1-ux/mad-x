@@ -1,0 +1,86 @@
+[
+    {
+        "index": 1,
+        "slug": "rash-guard1",
+        "name": "Professional Rash Guard",
+      
+        "category": "Boxing",
+        "subCategory": "Boxing Apparel, Training Apparel",
+        "type": "Rash Guards",
+      
+        "summary": "High-performance compression rash guard designed for boxing, MMA, grappling, BJJ and intensive training.",
+      
+        "materials": "Premium Polyester and Spandex Performance Fabric",
+      
+        "moq": "100 Pieces",
+      
+        "lead": "25-35 Days",
+      
+        "image": "/images/products/boxing/rashguard/1.png",
+      
+        "features": [
+          "Stretchable compression-fit fabric",
+          "Moisture-wicking and quick-dry construction",
+          "Breathable performance material",
+          "Flatlock seams for reduced irritation",
+          "Flexible unrestricted movement",
+          "Custom sublimation, logo, colors and designs"
+        ]
+      },
+      {
+        "index": 2,
+        "slug": "rash-guard2",
+        "name": "Professional Rash Guard",
+      
+        "category": "Boxing",
+        "subCategory": "Boxing Apparel, Training Apparel",
+        "type": "Rash Guards",
+      
+        "summary": "High-performance compression rash guard designed for boxing, MMA, grappling, BJJ and intensive training.",
+      
+        "materials": "Premium Polyester and Spandex Performance Fabric",
+      
+        "moq": "100 Pieces",
+      
+        "lead": "25-35 Days",
+      
+        "image": "/images/products/boxing/rashguard/2.png",
+      
+        "features": [
+          "Stretchable compression-fit fabric",
+          "Moisture-wicking and quick-dry construction",
+          "Breathable performance material",
+          "Flatlock seams for reduced irritation",
+          "Flexible unrestricted movement",
+          "Custom sublimation, logo, colors and designs"
+        ]
+      },
+      {
+        "index": 3,
+        "slug": "rash-guard3",
+        "name": "Professional Rash Guard",
+      
+        "category": "Boxing",
+        "subCategory": "Boxing Apparel, Training Apparel",
+        "type": "Rash Guards",
+      
+        "summary": "High-performance compression rash guard designed for boxing, MMA, grappling, BJJ and intensive training.",
+      
+        "materials": "Premium Polyester and Spandex Performance Fabric",
+      
+        "moq": "100 Pieces",
+      
+        "lead": "25-35 Days",
+      
+        "image": "/images/products/boxing/rashguard/3.png",
+      
+        "features": [
+          "Stretchable compression-fit fabric",
+          "Moisture-wicking and quick-dry construction",
+          "Breathable performance material",
+          "Flatlock seams for reduced irritation",
+          "Flexible unrestricted movement",
+          "Custom sublimation, logo, colors and designs"
+        ]
+      }
+]
