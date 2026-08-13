@@ -1,0 +1,30 @@
+[
+    {
+        "index": 1,
+        "slug": "mma-grappling-gloves1",
+        "name": "MMA Grappling Gloves",
+      
+        "category": "MMA",
+        "subCategory": "MMA Gloves, Training Equipment",
+        "type": "MMA Grappling Gloves",
+      
+        "summary": "Professional MMA grappling gloves designed for grappling, striking, ground training and mixed martial arts practice.",
+      
+        "materials": "Genuine Leather or Premium Synthetic Leather",
+      
+        "moq": "100 Pairs",
+      
+        "lead": "25-35 Days",
+      
+        "image": "/images/products/mma/grapplinggloves/1.png",
+      
+        "features": [
+          "Open-finger design for improved grip",
+          "Protective knuckle padding",
+          "Flexible construction for grappling",
+          "Secure adjustable wrist closure",
+          "Durable reinforced stitching",
+          "Custom logo, colors and designs"
+        ]
+      }
+]
