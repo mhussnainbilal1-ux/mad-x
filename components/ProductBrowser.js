@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState, useRef } from "react";
 import ProductCard from "./ProductCard";
 import { useSearchParams } from "next/navigation";
+import {products as allProducts} from "@/lib/products"
 const PAGE_SIZE = 21;
 
 export default function ProductBrowser({ products }) {
@@ -29,15 +30,17 @@ export default function ProductBrowser({ products }) {
     ...new Set(products.map((p) => p.category)),
   ];
 
-  const list = useMemo(
-    () =>
-      products.filter(
-        (p) =>
-          // (cat === "All" || p.category === cat) &&
-          p.name.toLowerCase().includes(q.toLowerCase()),
-      ),
-    [products, q, cat],
-  );
+  const list = useMemo(() => {
+    if (q !== "") {
+      return allProducts.filter((p) =>
+        p.name.toLowerCase().includes(q.toLowerCase())
+      );
+    }
+  
+    return products.filter(
+      (p) => cat === "All" || p.category === cat
+    );
+  }, [products, allProducts, q, cat]);
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);

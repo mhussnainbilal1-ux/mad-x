@@ -4,8 +4,8 @@
     "slug": "punch-bag1",
     "name": "Professional Punch Bag",
   
-    "category": "Boxing",
-    "subCategory": "Training Equipment, Punch Bags",
+    "category": "Boxing, MMA",
+    "subCategory": "Training Equipment, Punch Bags, MMA Punch Bags",
     "type": "Punch Bags",
   
     "summary": "Heavy-duty punch bag designed for boxing, kickboxing, MMA and Muay Thai training.",
@@ -17,6 +17,34 @@
     "lead": "25-35 Days",
   
     "image": "/images/products/boxing/punchbag/1.png",
+  
+    "features": [
+      "Heavy-duty construction",
+      "Reinforced hanging straps",
+      "High-impact shock absorption",
+      "Durable reinforced stitching",
+      "Suitable for heavy training",
+      "Custom logo, colors and sizes"
+    ]
+  },
+  {
+    
+    "slug": "punch-bag2",
+    "name": "Professional Punch Bag",
+  
+    "category": "Boxing, MMA",
+    "subCategory": "Training Equipment, Punch Bags, MMA Punch Bags",
+    "type": "Punch Bags",
+  
+    "summary": "Heavy-duty punch bag designed for boxing, kickboxing, MMA and Muay Thai training.",
+  
+    "materials": "Genuine Leather or Premium Synthetic Leather",
+  
+    "moq": "50 Pieces",
+  
+    "lead": "25-35 Days",
+  
+    "image": "/images/products/boxing/punchbag/2.png",
   
     "features": [
       "Heavy-duty construction",

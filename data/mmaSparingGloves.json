@@ -5,7 +5,7 @@
         "name": "MMA Sparring Gloves",
       
         "category": "MMA",
-        "subCategory": "MMA Gloves, Training Equipment, Protective Gear",
+        "subCategory": "MMA Gloves, Training Equipment, ",
         "type": "MMA Sparring Gloves",
       
         "summary": "Professional MMA sparring gloves designed for striking, grappling, mixed martial arts training and controlled sparring.",
@@ -33,7 +33,7 @@
         "name": "MMA Sparring Gloves",
       
         "category": "MMA",
-        "subCategory": "MMA Gloves, Training Equipment, Protective Gear",
+        "subCategory": "MMA Gloves, Training Equipment, ",
         "type": "MMA Sparring Gloves",
       
         "summary": "Professional MMA sparring gloves designed for striking, grappling, mixed martial arts training and controlled sparring.",
@@ -61,7 +61,7 @@
         "name": "MMA Sparring Gloves",
       
         "category": "MMA",
-        "subCategory": "MMA Gloves, Training Equipment, Protective Gear",
+        "subCategory": "MMA Gloves, Training Equipment, ",
         "type": "MMA Sparring Gloves",
       
         "summary": "Professional MMA sparring gloves designed for striking, grappling, mixed martial arts training and controlled sparring.",
@@ -89,7 +89,7 @@
         "name": "MMA Sparring Gloves",
       
         "category": "MMA",
-        "subCategory": "MMA Gloves, Training Equipment, Protective Gear",
+        "subCategory": "MMA Gloves, Training Equipment, ",
         "type": "MMA Sparring Gloves",
       
         "summary": "Professional MMA sparring gloves designed for striking, grappling, mixed martial arts training and controlled sparring.",
@@ -101,6 +101,34 @@
         "lead": "25-35 Days",
       
         "image": "/images/products/mma/sparringgloves/4.png",
+      
+        "features": [
+          "Multi-layer impact-absorbing padding",
+          "Open-palm design for secure grappling",
+          "Reinforced knuckle protection",
+          "Adjustable wrist support",
+          "Durable reinforced stitching",
+          "Custom logo, colors and designs"
+        ]
+      },
+      {
+        "index": 5,
+        "slug": "mma-sparring-gloves5",
+        "name": "MMA Sparring Gloves",
+      
+        "category": "MMA",
+        "subCategory": "MMA Gloves, Training Equipment, ",
+        "type": "MMA Sparring Gloves",
+      
+        "summary": "Professional MMA sparring gloves designed for striking, grappling, mixed martial arts training and controlled sparring.",
+      
+        "materials": "Genuine Leather or Premium Synthetic Leather",
+      
+        "moq": "100 Pairs",
+      
+        "lead": "25-35 Days",
+      
+        "image": "/images/products/mma/sparringgloves/5.png",
       
         "features": [
           "Multi-layer impact-absorbing padding",

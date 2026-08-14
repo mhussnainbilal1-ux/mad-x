@@ -1,5 +1,4 @@
 
-
 import ProductBrowser from "@/components/ProductBrowser";
 import SubCategorySidebar from "@/components/SubCategorySidebar";
 import { products } from "@/lib/products";
@@ -22,7 +21,7 @@ export default async function Page({ searchParams }) {
   
   let filteredProducts = products.filter((product) => {
     const matchesCategory =
-      product.category === selectedCategory;
+    product.category?.includes(selectedCategory)
   
     const matchesSubCategory =
       !selectedSubCategory ||
