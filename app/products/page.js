@@ -116,13 +116,12 @@ export default async function Page({ searchParams }) {
                 />
               ) : (
                 <div className="emptyProducts">
-                  <h3>No products added yet</h3>
+                  <h3>Comming Soon</h3>
 
                   <p>
-                    Products for this subcategory will appear
-                    here after they are added to
-                    <code> products.js</code>.
-                  </p>
+  Interested in this product? Request a sample to check the quality, materials,
+  design, and craftsmanship before placing your bulk order.
+</p>
                 </div>
               )}
             </div>
