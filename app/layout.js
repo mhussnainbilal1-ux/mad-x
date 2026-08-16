@@ -16,26 +16,9 @@ export const metadata = {
   },
 };
 
-const themeScript = `
-(function () {
-  try {
-    var saved = localStorage.getItem('madx-sports-theme');
-    var theme = saved === 'light' || saved === 'dark' ? saved : 'dark';
-    document.documentElement.dataset.theme = theme;
-    document.documentElement.style.colorScheme = theme;
-  } catch (e) {
-    document.documentElement.dataset.theme = 'dark';
-    document.documentElement.style.colorScheme = 'dark';
-  }
-})();
-`;
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
       <body>
         <Header />
         {children}

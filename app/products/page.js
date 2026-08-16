@@ -1,9 +1,7 @@
 
 import ProductBrowser from "@/components/ProductBrowser";
-import SubCategorySidebar from "@/components/SubCategorySidebar";
 import { products } from "@/lib/products";
 import { rdxCategories } from "@/data/rdxCategories";
-import MobileSideMenu from "../../components/MobileSideMenu";
 import MobileOnly from "../../components/MobileOnly"
 export const metadata = {
   title: "Products",
@@ -23,9 +21,13 @@ export default async function Page({ searchParams }) {
     const matchesCategory =
     product.category?.includes(selectedCategory)
   
-    const matchesSubCategory =
-      !selectedSubCategory ||
-      product.subCategory?.includes(selectedSubCategory);
+    const matchesSubCategory = !selectedSubCategory
+      ? true
+      : selectedSubCategory === "Coaching Equipment"
+        ? [product.name, product.type, product.subCategory].some((value) =>
+            value?.includes("Focus"),
+          )
+        : product.subCategory?.includes(selectedSubCategory);
   
     return matchesCategory && matchesSubCategory;
   });
@@ -41,10 +43,6 @@ export default async function Page({ searchParams }) {
 
   return (
     <main>
-       <MobileSideMenu 
-       selectedCategory={selectedCategory}
-       selectedSubCategory={selectedSubCategory}
-       />
       <section className="pageHero"
         style={{
           background: `
@@ -57,7 +55,7 @@ export default async function Page({ searchParams }) {
         ),
           url("/images/factory/banner-product.png") center/cover no-repeat
         `,
-          minHeight: "500px"
+          minHeight: "360px"
         }}
       >
         <div className="shell">
@@ -78,12 +76,10 @@ export default async function Page({ searchParams }) {
       <section className="section">
         <div className="shell">
           <div className="productsCatalogueLayout">
-            <MobileOnly>
-              <MobileSideMenu
-               selectedCategory={selectedCategory}
-               selectedSubCategory={selectedSubCategory}
-              />
-            </MobileOnly>
+            <MobileOnly
+              selectedCategory={selectedCategory}
+              selectedSubCategory={selectedSubCategory}
+            />
            
             
 
@@ -100,12 +96,6 @@ export default async function Page({ searchParams }) {
                   </h2>
                 </div>
 
-                <span className="productResultCount">
-                  {filteredProducts.length}{" "}
-                  {filteredProducts.length === 1
-                    ? "product"
-                    : "products"}
-                </span>
               </div>
 
               {filteredProducts.length > 0 ? (
@@ -114,12 +104,15 @@ export default async function Page({ searchParams }) {
                 />
               ) : (
                 <div className="emptyProducts">
-                  <h3>Comming Soon</h3>
+                  <h3>Coming Soon</h3>
 
                   <p>
-  Interested in this product? Request a sample to check the quality, materials,
-  design, and craftsmanship before placing your bulk order.
-</p>
+                    Interested in this range? Tell us what you need and we can
+                    review custom development options for your brand.
+                  </p>
+                  <a className="button navy" href="/quote">
+                    Discuss this product
+                  </a>
                 </div>
               )}
             </div>
@@ -129,4 +122,3 @@ export default async function Page({ searchParams }) {
     </main>
   );
 }
-

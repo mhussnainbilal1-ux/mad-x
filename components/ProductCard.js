@@ -2,6 +2,8 @@ import Link from "next/link";
 import { getProductSeries } from "../util/common"
 import Image from 'next/image'
 export default function ProductCard({ product }) {
+  const series = getProductSeries(product.index);
+
   return (
     <article className="productCard">
       <Link href={`/products/${product.slug}`} className="productMedia">
@@ -14,7 +16,7 @@ export default function ProductCard({ product }) {
           height={500}
     
         />
-        <span className="pill">{getProductSeries(product.index)}</span>
+        {series && <span className="pill">{series}</span>}
       </Link>
       <div className="productBody">
         <span className="productCategory">{product.category}</span>

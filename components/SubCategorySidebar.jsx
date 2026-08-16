@@ -14,10 +14,6 @@ export default function SubCategorySidebar() {
       (category) => category.name === selectedCategory
     ) || rdxCategories[0];
 
-  console.log("Category:", selectedCategory);
-  console.log("Sub Category:", selectedSubCategory);
-  console.log("Active Category:", activeCategory);
-
   return (
     <aside className="subcategorySidebar">
       <div className="subcategorySidebarHeader">
@@ -31,7 +27,7 @@ export default function SubCategorySidebar() {
           .filter(
             (category) =>
               category.groups.length > 0 &&
-              !["sale", "gift-card", "collections"].includes(
+              !["sale", "gift-card"].includes(
                 category.slug
               )
           )

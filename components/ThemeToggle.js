@@ -6,13 +6,17 @@ export default function ThemeToggle() {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
-    const current = document.documentElement.dataset.theme || "dark";
+    const saved = localStorage.getItem("madx-sports-theme");
+    const current = saved === "light" || saved === "dark" ? saved : "dark";
+    document.documentElement.dataset.theme = current;
+    document.documentElement.style.colorScheme = current;
     setTheme(current);
   }, []);
 
   function toggleTheme() {
     const next = theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
+    document.documentElement.style.colorScheme = next;
     localStorage.setItem("madx-sports-theme", next);
     setTheme(next);
   }

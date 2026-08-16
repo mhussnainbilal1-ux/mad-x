@@ -17,6 +17,23 @@ export default function MobileSideMenu(
     setOpen(false);
   }, [pathname, searchParams]);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [open]);
+
 useEffect(() => {
   const checkMobile = () => {
     setIsMobile(window.innerWidth <= 768);
@@ -36,6 +53,8 @@ useEffect(() => {
     <>
       <button
         onClick={() => setOpen(true)}
+        aria-expanded={open}
+        aria-controls="mobile-category-drawer"
         style={{
           position: "fixed",
           bottom: "20px",
@@ -85,6 +104,7 @@ useEffect(() => {
       {open && (
         <div
           onClick={() => setOpen(false)}
+          role="presentation"
           style={{
             position: "fixed",
             inset: 0,
@@ -94,6 +114,10 @@ useEffect(() => {
           }}
         >
           <div
+            id="mobile-category-drawer"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Product categories"
             onClick={(e) => e.stopPropagation()}
             style={{
               position: "absolute",
@@ -114,6 +138,7 @@ useEffect(() => {
           >
             <button
               onClick={() => setOpen(false)}
+              aria-label="Close product categories"
               style={{
                 border: "none",
                 fontSize: "24px",
