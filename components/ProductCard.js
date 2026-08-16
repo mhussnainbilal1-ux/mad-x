@@ -7,7 +7,7 @@ export default function ProductCard({ product }) {
       <Link href={`/products/${product.slug}`} className="productMedia">
 
 
-        <Image
+        <img
           src={product.image}
           alt={product.name}
           width={500}

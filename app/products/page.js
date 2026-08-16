@@ -39,8 +39,6 @@ export default async function Page({ searchParams }) {
     );
   }
 
-
-  console.log("ggg",{selectedCategory,selectedSubCategory })
   return (
     <main>
        <MobileSideMenu 
