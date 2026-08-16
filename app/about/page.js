@@ -20,7 +20,7 @@ export default function Page() {
       }}
       >
         <div className="shell">
-          <span className="kicker">ABOUT MAD-X</span>
+          <span className="kicker">ABOUT MADX SPORTS</span>
           <h1>Crafted in Sialkot. Built for the world.</h1>
           <p>
             We combine combat sports product knowledge, skilled workmanship and
@@ -34,7 +34,7 @@ export default function Page() {
             <span className="kicker dark">Our story</span>
             <h2>From manufacturing heritage to modern brand partnerships</h2>
             <p>
-             MAD-X Fightwear is positioned as an OEM and private-label
+             MADX Sports is positioned as an OEM and private-label
               manufacturing partner for boxing, MMA, BJJ and fitness companies.
               We focus on transparent communication, repeatable quality and
               product development that fits each customer's market.

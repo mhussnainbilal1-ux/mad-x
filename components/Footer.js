@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="shell footerBottom">
-        <span>© 2026 Ironclad Fightwear</span>
+        <span>© 2026 MADX Sports</span>
         <span>Built for brands that fight forward.</span>
       </div>
     </footer>

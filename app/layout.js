@@ -4,17 +4,22 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
   title: {
-    default: "MAD-X Fightwear | OEM Combat Sports Manufacturer",
-    template: "%s | MAD-X Fightwear",
+    default: "MADX Sports | OEM Combat Sports Manufacturer",
+    template: "%s | MADX Sports",
   },
   description:
     "OEM and private-label MMA, boxing, BJJ and fitness gear manufacturer in Sialkot, Pakistan.",
+  icons: {
+    icon: "/images/common/favicon.png",
+    shortcut: "/images/common/favicon.png",
+    apple: "/images/common/favicon.png",
+  },
 };
 
 const themeScript = `
 (function () {
   try {
-    var saved = localStorage.getItem('ironclad-theme');
+    var saved = localStorage.getItem('madx-sports-theme');
     var theme = saved === 'light' || saved === 'dark' ? saved : 'dark';
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;

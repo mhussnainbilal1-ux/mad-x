@@ -4,8 +4,10 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
 import MadXLogo from "@/components/Logo"
+import { rdxCategories } from "@/data/rdxCategories";
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -21,8 +23,8 @@ export default function Header() {
     <>
       <div className="announcement">
         <span>OEM &amp; PRIVATE LABEL COMBAT SPORTS MANUFACTURING</span>
-        <a href="mailto:sales@madx.com">
-          sales@madxfightwear.com
+        <a href="mailto:sales@madxsports.com">
+          sales@madxsports.com
         </a>
       </div>
 
@@ -30,7 +32,10 @@ export default function Header() {
         <div className="shell navRow">
           <button
             className="menuButton"
-            onClick={() => setOpen(!open)}
+            onClick={() => {
+              setOpen(!open);
+              if (open) setCategoriesOpen(false);
+            }}
             aria-label="Toggle navigation"
             aria-expanded={open}
           >
@@ -58,6 +63,31 @@ export default function Header() {
             <Link href="/products" onClick={() => setOpen(false)}>
               Products
             </Link>
+            <div className={`navDropdown ${categoriesOpen ? "open" : ""}`}>
+              <button
+                type="button"
+                className="navDropdownToggle"
+                onClick={() => setCategoriesOpen(!categoriesOpen)}
+                aria-expanded={categoriesOpen}
+                aria-controls="category-navigation"
+              >
+                Categories <span className="navDropdownChevron" aria-hidden="true" />
+              </button>
+              <div className="navDropdownMenu" id="category-navigation">
+                {rdxCategories.map((category) => (
+                  <Link
+                    key={category.slug}
+                    href={`/products?category=${encodeURIComponent(category.name)}`}
+                    onClick={() => {
+                      setCategoriesOpen(false);
+                      setOpen(false);
+                    }}
+                  >
+                    {category.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
             <Link href="/factory-tour" onClick={() => setOpen(false)}>
               Factory
             </Link>

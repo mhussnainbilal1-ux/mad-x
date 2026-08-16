@@ -13,7 +13,7 @@ export default function ThemeToggle() {
   function toggleTheme() {
     const next = theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
-    localStorage.setItem("ironclad-theme", next);
+    localStorage.setItem("madx-sports-theme", next);
     setTheme(next);
   }
 

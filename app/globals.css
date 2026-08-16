@@ -117,6 +117,78 @@ textarea {
 .nav a:hover:after {
   right: 0;
 }
+.navDropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.navDropdownToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 29px 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+.navDropdownChevron {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface-3);
+  transition: transform 0.25s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.navDropdownChevron:after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 5px;
+  height: 5px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+.navDropdownToggle:hover .navDropdownChevron {
+  border-color: var(--red);
+  background: color-mix(in srgb, var(--red) 12%, var(--surface));
+}
+.navDropdownMenu {
+  position: absolute;
+  top: calc(100% - 10px);
+  left: 50%;
+  z-index: 60;
+  display: none;
+  width: 190px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transform: translateX(-50%);
+}
+.navDropdown:hover .navDropdownMenu,
+.navDropdown.open .navDropdownMenu {
+  display: grid;
+}
+.navDropdown.open .navDropdownChevron {
+  transform: rotate(180deg);
+}
+.nav .navDropdownMenu a {
+  padding: 11px 12px;
+  border-radius: 5px;
+  color: var(--ink);
+}
+.nav .navDropdownMenu a:hover {
+  background: var(--surface-3);
+}
+.nav .navDropdownMenu a:after {
+  display: none;
+}
 .navCta,
 .button {
   display: inline-flex;
@@ -741,12 +813,45 @@ textarea {
     flex-direction: column;
     padding: 22px;
     border-bottom: 1px solid var(--line);
+    max-height: calc(100vh - 78px);
+    overflow-y: auto;
   }
   .nav.open {
     display: flex;
   }
   .nav a {
     padding: 8px;
+  }
+  .navDropdown {
+    display: block;
+  }
+  .navDropdownToggle {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px;
+    text-align: left;
+  }
+  .navDropdownMenu {
+    position: static;
+    width: auto;
+    margin: 5px 0 4px 12px;
+    padding: 4px 0 4px 12px;
+    border: 0;
+    border-left: 2px solid var(--red);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+  .navDropdown:not(.open) .navDropdownMenu {
+    display: none;
+  }
+  .navDropdown.open .navDropdownMenu {
+    display: grid;
+  }
+  .nav .navDropdownMenu a {
+    padding: 9px 12px;
   }
   .categoryGrid,
   .productGrid,
@@ -1099,11 +1204,22 @@ html[data-theme="dark"] .success {
 
   position: sticky;
   top: 110px;
+  max-height: calc(100vh - 130px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  overflow: hidden;
+}
+
+.subcategorySidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.subcategorySidebar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--line);
 }
 
 .subcategorySidebarHeader {
@@ -1317,6 +1433,9 @@ html[data-theme="dark"] .success {
   .subcategorySidebar{
       grid-column:auto;
       position:static;
+      max-height:none;
+      overflow-y:visible;
+      overscroll-behavior:auto;
   }
 
   .productsCatalogueContent{

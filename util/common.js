@@ -14,7 +14,7 @@ const productSeries = [
   " Eclipse",
   " Tempest",
   " Nemesis",
-  " Ironclad",
+  " MADX Sports",
   " Savage",
   " Reign",
   " Berserker",

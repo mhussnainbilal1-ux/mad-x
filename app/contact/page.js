@@ -34,7 +34,7 @@ export default function Page() {
             <h2>Speak with our manufacturing team</h2>
             <div className="contactCard">
               <b>Email</b>
-              <span>sales@ironcladfightwear.com</span>
+              <span>sales@madxsports.com</span>
             </div>
             <div className="contactCard">
               <b>WhatsApp</b>

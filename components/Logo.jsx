@@ -6,7 +6,7 @@ export default function MadXLogo({ className }) {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       role="img"
-      aria-label="MAD X logo"
+      aria-label="MADX Sports logo"
     >
       {/* Red X */}
       <path

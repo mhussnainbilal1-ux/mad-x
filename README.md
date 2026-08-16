@@ -1,4 +1,4 @@
-# Ironclad Fightwear — Next.js Manufacturer Website
+# MADX Sports — Next.js Manufacturer Website
 
 A complete quotation-only website for an MMA, boxing, BJJ and fitness gear manufacturer. Customers can browse products and submit inquiries, but cannot place online orders.
 
