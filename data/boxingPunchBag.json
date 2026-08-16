@@ -1,58 +1,42 @@
 [
   {
-    
-    "slug": "punch-bag1",
-    "name": "Punch Bag",
-  
+    "slug": "classic-black-hanging-heavy-punch-bag",
+    "name": "Classic Black Hanging Heavy Bag",
     "category": "Boxing, MMA",
     "subCategory": "Training Equipment, Punch Bags, MMA Punch Bags",
-    "type": "Punch Bags",
-  
-    "summary": "Heavy-duty punch bag designed for boxing, kickboxing, MMA and Muay Thai training.",
-  
-    "materials": "Genuine Leather or Premium Synthetic Leather",
-  
+    "type": "Hanging Heavy Punch Bag",
+    "summary": "Classic black cylindrical heavy bag with reinforced suspension webbing and chain hardware for boxing, kickboxing and general striking practice.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Reinforced Webbing and Metal Hardware",
     "moq": "50 Pieces",
-  
     "lead": "25-35 Days",
-  
     "image": "/images/products/boxing/punchbag/1.png",
-  
     "features": [
-      "Heavy-duty construction",
-      "Reinforced hanging straps",
-      "High-impact shock absorption",
-      "Durable reinforced stitching",
-      "Suitable for heavy training",
+      "Cylindrical full-length striking surface",
+      "Four reinforced webbing suspension straps",
+      "Metal chain and hanging ring assembly",
+      "Reinforced upper attachment patches",
+      "Clean central branding area",
       "Custom logo, colors and sizes"
     ]
   },
   {
-    
-    "slug": "punch-bag2",
-    "name": "Punch Bag",
-  
+    "slug": "volcano-graphic-hanging-heavy-punch-bag",
+    "name": "Volcano Graphic Hanging Heavy Bag",
     "category": "Boxing, MMA",
     "subCategory": "Training Equipment, Punch Bags, MMA Punch Bags",
-    "type": "Punch Bags",
-  
-    "summary": "Heavy-duty punch bag designed for boxing, kickboxing, MMA and Muay Thai training.",
-  
-    "materials": "Genuine Leather or Premium Synthetic Leather",
-  
+    "type": "Hanging Heavy Punch Bag",
+    "summary": "Long cylindrical heavy bag with vivid volcano artwork, four chain suspension points and a bottom tether ring for a distinctive combat-training setup.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Metal Hanging Hardware",
     "moq": "50 Pieces",
-  
     "lead": "25-35 Days",
-  
     "image": "/images/products/boxing/punchbag/2.png",
-  
     "features": [
-      "Heavy-duty construction",
-      "Reinforced hanging straps",
-      "High-impact shock absorption",
-      "Durable reinforced stitching",
-      "Suitable for heavy training",
-      "Custom logo, colors and sizes"
+      "Long cylindrical striking surface",
+      "Four reinforced chain attachment points",
+      "Metal chain and hanging ring assembly",
+      "Bottom tether ring",
+      "Full-height graphic and branding area",
+      "Custom artwork, logo, colors and sizes"
     ]
   }
-  ]
+]

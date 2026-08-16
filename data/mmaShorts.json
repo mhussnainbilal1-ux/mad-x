@@ -1,114 +1,58 @@
 [
-    {
-  "index": 1,
-  "slug": "mma-shorts1",
-  "name": "MMA Shorts",
-
-  "category": "MMA",
-  "subCategory": "MMA Apparel, Training Apparel",
-  "type": "MMA Shorts",
-
-  "summary": "Professional MMA shorts designed for striking, grappling, mixed martial arts training, sparring and competition.",
-
-  "materials": "Premium Polyester or Performance Stretch Fabric",
-
-  "moq": "100 Pieces",
-
-  "lead": "25-35 Days",
-
-  "image": "/images/products/mma/shorts/1.png",
-
-  "features": [
-    "Lightweight breathable construction",
-    "Flexible stretch fabric for unrestricted movement",
-    "Secure adjustable waistband",
-    "Reinforced stitching for durability",
-    "Suitable for training, sparring and competition",
-    "Custom logo, colors and designs"
-  ]
-},
-{
-  "index": 2,
-  "slug": "mma-shorts2",
-  "name": "MMA Shorts",
-
-  "category": "MMA",
-  "subCategory": "MMA Apparel, Training Apparel",
-  "type": "MMA Shorts",
-
-  "summary": "Professional MMA shorts designed for striking, grappling, mixed martial arts training, sparring and competition.",
-
-  "materials": "Premium Polyester or Performance Stretch Fabric",
-
-  "moq": "100 Pieces",
-
-  "lead": "25-35 Days",
-
-  "image": "/images/products/mma/shorts/2.png",
-
-  "features": [
-    "Lightweight breathable construction",
-    "Flexible stretch fabric for unrestricted movement",
-    "Secure adjustable waistband",
-    "Reinforced stitching for durability",
-    "Suitable for training, sparring and competition",
-    "Custom logo, colors and designs"
-  ]
-},
-{
-  "index": 3,
-  "slug": "mma-shorts3",
-  "name": "MMA Shorts",
-
-  "category": "MMA",
-  "subCategory": "MMA Apparel, Training Apparel",
-  "type": "MMA Shorts",
-
-  "summary": "Professional MMA shorts designed for striking, grappling, mixed martial arts training, sparring and competition.",
-
-  "materials": "Premium Polyester or Performance Stretch Fabric",
-
-  "moq": "100 Pieces",
-
-  "lead": "25-35 Days",
-
-  "image": "/images/products/mma/shorts/3.png",
-
-  "features": [
-    "Lightweight breathable construction",
-    "Flexible stretch fabric for unrestricted movement",
-    "Secure adjustable waistband",
-    "Reinforced stitching for durability",
-    "Suitable for training, sparring and competition",
-    "Custom logo, colors and designs"
-  ]
-},
-{
-  "index": 4,
-  "slug": "mma-shorts4",
-  "name": "MMA Shorts",
-
-  "category": "MMA",
-  "subCategory": "MMA Apparel, Training Apparel",
-  "type": "MMA Shorts",
-
-  "summary": "Professional MMA shorts designed for striking, grappling, mixed martial arts training, sparring and competition.",
-
-  "materials": "Premium Polyester or Performance Stretch Fabric",
-
-  "moq": "100 Pieces",
-
-  "lead": "25-35 Days",
-
-  "image": "/images/products/mma/shorts/4.png",
-
-  "features": [
-    "Lightweight breathable construction",
-    "Flexible stretch fabric for unrestricted movement",
-    "Secure adjustable waistband",
-    "Reinforced stitching for durability",
-    "Suitable for training, sparring and competition",
-    "Custom logo, colors and designs"
-  ]
-}
+  {
+    "index": 1,
+    "slug": "apex-crimson-crown-mma-shorts",
+    "name": "Apex Crimson Crown MMA Shorts",
+    "category": "MMA",
+    "subCategory": "MMA Apparel, Training Apparel",
+    "type": "MMA Fight Shorts",
+    "summary": "Black MMA fight shorts with red crown artwork, a fixed waistband, secure front closure and side vents for unrestricted movement.",
+    "materials": "Premium Polyester or Performance Stretch Fabric",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/mma/shorts/1.png",
+    "features": ["Black and crimson crown artwork", "Secure hook-and-loop front closure", "Fixed performance waistband", "Side-leg movement vents", "Reinforced stress-point stitching", "Custom logo, colors and designs"]
+  },
+  {
+    "index": 2,
+    "slug": "vortex-blue-crown-mma-shorts",
+    "name": "Vortex Blue Crown MMA Shorts",
+    "category": "MMA",
+    "subCategory": "MMA Apparel, Training Apparel",
+    "type": "MMA Fight Shorts",
+    "summary": "Blue MMA fight shorts with large crown graphics, a fixed waistband and vented legs designed for striking and grappling mobility.",
+    "materials": "Premium Polyester or Performance Stretch Fabric",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/mma/shorts/2.png",
+    "features": ["Layered blue crown graphics", "Secure hook-and-loop front closure", "Fixed performance waistband", "Side-leg movement vents", "Lightweight training construction", "Custom logo, colors and designs"]
+  },
+  {
+    "index": 3,
+    "slug": "inferno-championship-cage-mma-shorts",
+    "name": "Inferno Championship Cage MMA Shorts",
+    "category": "MMA",
+    "subCategory": "MMA Apparel, Training Apparel",
+    "type": "MMA Fight Shorts",
+    "summary": "Grey MMA fight shorts featuring championship belt and cage artwork, with a fixed waistband and side vents for dynamic training.",
+    "materials": "Premium Polyester or Performance Stretch Fabric",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/mma/shorts/3.png",
+    "features": ["Championship belt and cage artwork", "Secure hook-and-loop front closure", "Fixed performance waistband", "Side-leg movement vents", "Reinforced seams for training", "Custom logo, colors and designs"]
+  },
+  {
+    "index": 4,
+    "slug": "tornado-orange-impact-mma-shorts",
+    "name": "Tornado Orange Impact MMA Shorts",
+    "category": "MMA",
+    "subCategory": "MMA Apparel, Training Apparel",
+    "type": "MMA Fight Shorts",
+    "summary": "Orange, purple and grey MMA fight shorts with bold abstract graphics, a secure fixed waist and side vents for free leg movement.",
+    "materials": "Premium Polyester or Performance Stretch Fabric",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/mma/shorts/4.png",
+    "features": ["Orange and purple impact graphics", "Secure hook-and-loop front closure", "Fixed performance waistband", "Side-leg movement vents", "Lightweight flexible construction", "Custom logo, colors and designs"]
+  }
 ]

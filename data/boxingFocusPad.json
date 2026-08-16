@@ -1,198 +1,149 @@
 [
-    {
-      "index": 1,
-      "slug": "focus-pad1",
-      "name": "Focus Pads",
-  
-      "category": "Boxing, MMA",
-      "subCategory": "Training Equipment, Coaching Equipment",
-      "type": "Focus Pads",
-  
-      "summary": "Lightweight curved focus pads designed for boxing, kickboxing, MMA and Muay Thai training.",
-  
-      "materials": "Genuine Leather or Premium Synthetic Leather",
-  
-      "moq": "100 Pairs",
-  
-      "lead": "25-35 Days",
-  
-      "image": "/images/products/boxing/focuspad/1.png",
-  
-      "features": [
-        "Multi-layer impact foam",
-        "Curved ergonomic design",
-        "Secure wrist support",
-        "Breathable hand compartment",
-        "Lightweight construction",
-        "Custom logo and colors"
-      ]
-    },
-    {
-      "index": 2,
-      "slug": "focus-pad2",
-      "name": "Focus Pads",
-  
-      "category": "Boxing, MMA",
-      "subCategory": "Training Equipment, Coaching Equipment",
-      "type": "Focus Pads",
-  
-      "summary": "Lightweight curved focus pads designed for boxing, kickboxing, MMA and Muay Thai training.",
-  
-      "materials": "Genuine Leather or Premium Synthetic Leather",
-  
-      "moq": "100 Pairs",
-  
-      "lead": "25-35 Days",
-  
-      "image": "/images/products/boxing/focuspad/2.png",
-  
-      "features": [
-        "Multi-layer impact foam",
-        "Curved ergonomic design",
-        "Secure wrist support",
-        "Breathable hand compartment",
-        "Lightweight construction",
-        "Custom logo and colors"
-      ]
-    },
-    {
-      "index": 3,
-      "slug": "focus-pad3",
-      "name": "Focus Pads",
-  
-      "category": "Boxing, MMA",
-      "subCategory": "Training Equipment, Coaching Equipment",
-      "type": "Focus Pads",
-  
-      "summary": "Lightweight curved focus pads designed for boxing, kickboxing, MMA and Muay Thai training.",
-  
-      "materials": "Genuine Leather or Premium Synthetic Leather",
-  
-      "moq": "100 Pairs",
-  
-      "lead": "25-35 Days",
-  
-      "image": "/images/products/boxing/focuspad/3.png",
-  
-      "features": [
-        "Multi-layer impact foam",
-        "Curved ergonomic design",
-        "Secure wrist support",
-        "Breathable hand compartment",
-        "Lightweight construction",
-        "Custom logo and colors"
-      ]
-    },
-    {
-        "index": 4,
-        "slug": "focus-pad4",
-        "name": "Focus Pads",
-    
-        "category": "Boxing, MMA",
-        "subCategory": "Training Equipment, Coaching Equipment",
-        "type": "Focus Pads",
-    
-        "summary": "Lightweight curved focus pads designed for boxing, kickboxing, MMA and Muay Thai training.",
-    
-        "materials": "Genuine Leather or Premium Synthetic Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/focuspad/4.png",
-    
-        "features": [
-          "Multi-layer impact foam",
-          "Curved ergonomic design",
-          "Secure wrist support",
-          "Breathable hand compartment",
-          "Lightweight construction",
-          "Custom logo and colors"
-        ]
-      },
-      {
-        "index": 5,
-        "slug": "focus-pad5",
-        "name": "Focus Pads",
-    
-        "category": "Boxing, MMA",
-        "subCategory": "Training Equipment, Coaching Equipment",
-        "type": "Focus Pads",
-    
-        "summary": "Lightweight curved focus pads designed for boxing, kickboxing, MMA and Muay Thai training.",
-    
-        "materials": "Genuine Leather or Premium Synthetic Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/focuspad/5.png",
-    
-        "features": [
-          "Multi-layer impact foam",
-          "Curved ergonomic design",
-          "Secure wrist support",
-          "Breathable hand compartment",
-          "Lightweight construction",
-          "Custom logo and colors"
-        ]
-      },
-      {
-        "index": 6,
-        "slug": "focus-pad6",
-        "name": "Focus Pads",
-    
-        "category": "Boxing, MMA",
-        "subCategory": "Training Equipment, Coaching Equipment",
-        "type": "Focus Pads",
-    
-        "summary": "Lightweight curved focus pads designed for boxing, kickboxing, MMA and Muay Thai training.",
-    
-        "materials": "Genuine Leather or Premium Synthetic Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/focuspad/6.png",
-    
-        "features": [
-          "Multi-layer impact foam",
-          "Curved ergonomic design",
-          "Secure wrist support",
-          "Breathable hand compartment",
-          "Lightweight construction",
-          "Custom logo and colors"
-        ]
-      },
-      {
-        "index": 7,
-        "slug": "focus-pad7",
-        "name": "Focus Pads",
-    
-        "category": "Boxing, MMA",
-        "subCategory": "Training Equipment, Coaching Equipment",
-        "type": "Focus Pads",
-    
-        "summary": "Lightweight curved focus pads designed for boxing, kickboxing, MMA and Muay Thai training.",
-    
-        "materials": "Genuine Leather or Premium Synthetic Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/focuspad/7.png",
-    
-        "features": [
-          "Multi-layer impact foam",
-          "Curved ergonomic design",
-          "Secure wrist support",
-          "Breathable hand compartment",
-          "Lightweight construction",
-          "Custom logo and colors"
-        ]
-      }
-  ]
+  {
+    "index": 1,
+    "slug": "apex-black-red-curved-focus-mitts",
+    "name": "Apex Black & Red Focus Mitts",
+    "category": "Boxing, MMA",
+    "subCategory": "Training Equipment, Coaching Equipment",
+    "type": "Curved Focus Mitts",
+    "summary": "Black curved focus mitts with red and grey graphics, a central target marking and a padded hand compartment for boxing and combat-sports coaching drills.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/focuspad/1.png",
+    "features": [
+      "Curved oval striking surface",
+      "High-visibility target marking",
+      "Padded finger channels",
+      "Breathable mesh hand compartment",
+      "Adjustable hook-and-loop wrist strap",
+      "Custom colors, graphics and branding"
+    ]
+  },
+  {
+    "index": 2,
+    "slug": "vortex-black-red-target-focus-mitts",
+    "name": "Vortex Black & Red Target Mitts",
+    "category": "Boxing, MMA",
+    "subCategory": "Training Equipment, Coaching Equipment",
+    "type": "Curved Focus Mitts",
+    "summary": "Black and red curved focus mitts with contrast binding, a circular strike target and an open-backed hand compartment for fast coaching combinations.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/focuspad/2.png",
+    "features": [
+      "Curved oval striking surface",
+      "Contrast circular target",
+      "Perforated padded finger channels",
+      "Breathable mesh hand compartment",
+      "Adjustable hook-and-loop wrist strap",
+      "Custom colors, graphics and branding"
+    ]
+  },
+  {
+    "index": 3,
+    "slug": "inferno-flame-curved-focus-mitts",
+    "name": "Inferno Flame Focus Mitts",
+    "category": "Boxing, MMA",
+    "subCategory": "Training Equipment, Coaching Equipment",
+    "type": "Curved Focus Mitts",
+    "summary": "Black curved focus mitts with vivid red flame graphics, contrast edging and a centered target for boxing, kickboxing and MMA pad work.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/focuspad/3.png",
+    "features": [
+      "Curved oval striking surface",
+      "High-contrast target marking",
+      "Perforated padded finger channels",
+      "Breathable mesh hand compartment",
+      "Adjustable hook-and-loop wrist strap",
+      "Custom flame artwork and branding"
+    ]
+  },
+  {
+    "index": 4,
+    "slug": "tornado-eagle-curved-focus-mitts",
+    "name": "Tornado Eagle Focus Mitts",
+    "category": "Boxing, MMA",
+    "subCategory": "Training Equipment, Coaching Equipment",
+    "type": "Curved Focus Mitts",
+    "summary": "Burgundy curved focus mitts featuring full-panel eagle artwork, dark edge binding and a supported open hand compartment for coaching sessions.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Mesh Hand Panels",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/focuspad/4.png",
+    "features": [
+      "Curved oval striking surface",
+      "Full-panel eagle graphic",
+      "Padded finger channels",
+      "Breathable mesh hand compartment",
+      "Adjustable hook-and-loop wrist strap",
+      "Custom artwork, colors and branding"
+    ]
+  },
+  {
+    "index": 5,
+    "slug": "race-blue-checkered-curved-focus-mitts",
+    "name": "Race Checkered Focus Mitts",
+    "category": "Boxing, MMA",
+    "subCategory": "Training Equipment, Coaching Equipment",
+    "type": "Curved Focus Mitts",
+    "summary": "Navy and blue curved focus mitts with checkered racing graphics, bright blue trim and a white strike target for precision pad training.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/focuspad/5.png",
+    "features": [
+      "Curved oval striking surface",
+      "High-visibility white target",
+      "Perforated padded finger channels",
+      "Breathable mesh hand compartment",
+      "Adjustable hook-and-loop wrist strap",
+      "Custom checkered graphics and branding"
+    ]
+  },
+  {
+    "index": 6,
+    "slug": "brutal-silver-bull-curved-focus-mitts",
+    "name": "Brutal Silver Bull Focus Mitts",
+    "category": "Boxing, MMA",
+    "subCategory": "Training Equipment, Coaching Equipment",
+    "type": "Curved Focus Mitts",
+    "summary": "Metallic silver and navy curved focus mitts with subtle bull artwork, a centered strike target and a ventilated hand compartment.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/focuspad/6.png",
+    "features": [
+      "Curved oval striking surface",
+      "Circular precision target",
+      "Perforated padded finger channels",
+      "Breathable mesh hand compartment",
+      "Adjustable hook-and-loop wrist strap",
+      "Custom metallic colors and branding"
+    ]
+  },
+  {
+    "index": 7,
+    "slug": "rampage-burgundy-target-focus-mitts",
+    "name": "Rampage Burgundy Target Mitts",
+    "category": "Boxing, MMA",
+    "subCategory": "Training Equipment, Coaching Equipment",
+    "type": "Curved Focus Mitts",
+    "summary": "Cream and burgundy curved focus mitts with copper-colored trim, distressed graphics and a dark central target for coached striking drills.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/focuspad/7.png",
+    "features": [
+      "Curved oval striking surface",
+      "High-contrast central target",
+      "Perforated padded finger channels",
+      "Breathable mesh hand compartment",
+      "Adjustable hook-and-loop wrist strap",
+      "Custom colors, graphics and branding"
+    ]
+  }
+]

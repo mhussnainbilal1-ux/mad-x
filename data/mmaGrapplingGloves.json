@@ -1,58 +1,30 @@
 [
-    {
-        "index": 1,
-        "slug": "mma-grappling-gloves1",
-        "name": "MMA Grappling Gloves",
-      
-        "category": "MMA",
-        "subCategory": "MMA Gloves, Training Equipment",
-        "type": "MMA Grappling Gloves",
-      
-        "summary": "Professional MMA grappling gloves designed for grappling, striking, ground training and mixed martial arts practice.",
-      
-        "materials": "Genuine Leather or Premium Synthetic Leather",
-      
-        "moq": "100 Pairs",
-      
-        "lead": "25-35 Days",
-      
-        "image": "/images/products/mma/grapplinggloves/1.png",
-      
-        "features": [
-          "Open-finger design for improved grip",
-          "Protective knuckle padding",
-          "Flexible construction for grappling",
-          "Secure adjustable wrist closure",
-          "Durable reinforced stitching",
-          "Custom logo, colors and designs"
-        ]
-      },
-      {
-        "index": 2,
-        "slug": "mma-grappling-gloves2",
-        "name": "MMA Grappling Gloves",
-      
-        "category": "MMA",
-        "subCategory": "MMA Gloves, Training Equipment",
-        "type": "MMA Grappling Gloves",
-      
-        "summary": "Professional MMA grappling gloves designed for grappling, striking, ground training and mixed martial arts practice.",
-      
-        "materials": "Genuine Leather or Premium Synthetic Leather",
-      
-        "moq": "100 Pairs",
-      
-        "lead": "25-35 Days",
-      
-        "image": "/images/products/mma/grapplinggloves/2.png",
-      
-        "features": [
-          "Open-finger design for improved grip",
-          "Protective knuckle padding",
-          "Flexible construction for grappling",
-          "Secure adjustable wrist closure",
-          "Durable reinforced stitching",
-          "Custom logo, colors and designs"
-        ]
-      }
+  {
+    "index": 1,
+    "slug": "apex-impact-black-brown-mma-grappling-gloves",
+    "name": "Apex Impact Black & Brown Grappling Gloves",
+    "category": "MMA",
+    "subCategory": "MMA Gloves, Training Equipment",
+    "type": "Open-Palm MMA Grappling Gloves",
+    "summary": "Black and brown open-palm MMA gloves with an impact graphic, articulated finger padding and an extended wrist wrap for grappling and striking drills.",
+    "materials": "Genuine Leather or Premium Synthetic Leather",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/mma/grapplinggloves/1.png",
+    "features": ["Open-palm fingerless construction", "Segmented knuckle and finger padding", "Black and brown impact artwork", "Extended wraparound wrist strap", "Reinforced finger loops and stitching", "Custom logo, colors and designs"]
+  },
+  {
+    "index": 2,
+    "slug": "vortex-silver-strike-mma-grappling-gloves",
+    "name": "Vortex Silver Strike Grappling Gloves",
+    "category": "MMA",
+    "subCategory": "MMA Gloves, Training Equipment",
+    "type": "Open-Palm MMA Grappling Gloves",
+    "summary": "Black and white open-palm MMA gloves with angular silver graphics, padded fingers and a long wrist strap for controlled grappling and striking practice.",
+    "materials": "Genuine Leather or Premium Synthetic Leather",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/mma/grapplinggloves/2.png",
+    "features": ["Open-palm fingerless construction", "Padded knuckle and finger sections", "Silver angular strike graphic", "Extended adjustable wrist wrap", "Reinforced seams and finger loops", "Custom logo, colors and designs"]
+  }
 ]

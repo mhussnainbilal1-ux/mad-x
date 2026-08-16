@@ -1,171 +1,44 @@
 [
   {
-    "index": 1,
-    "slug": "boxing-shorts1",
-    "name": "Boxing Shorts",
-
-    "category": "Boxing, Apparel",
-    "subCategory": "Boxing Apparel, Training Apparel",
-    "type": "Boxing Shorts",
-
-    "summary": "Lightweight professional boxing shorts designed for training, sparring and competition.",
-
-    "materials": "Premium Satin or Polyester Fabric",
-
-    "moq": "100 Pieces",
-
-    "lead": "25-35 Days",
-
-    "image": "/images/products/boxing/shorts/1.png",
-
-    "features": [
-      "Lightweight breathable fabric",
-      "Wide elastic waistband",
-      "Flexible unrestricted fit",
-      "Reinforced stitching",
-      "Suitable for training and competition",
-      "Custom logo, colors and designs"
-    ]
+    "index": 1, "slug": "apex-black-grey-skull-boxing-shorts", "name": "Apex Skull Boxing Shorts",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Satin Boxing Shorts",
+    "summary": "Black and grey boxing shorts with red accents, large skull artwork, a wide ribbed waistband and deep side vents.",
+    "materials": "Premium Satin or Polyester Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shorts/1.png",
+    "features": ["Wide multi-row elastic waistband", "Large front skull artwork", "Deep contrast side vents", "Loose boxing cut", "Front waistband branding panel", "Custom sublimation, colors and branding"]
   },
   {
-    "index": 2,
-    "slug": "boxing-shorts2",
-    "name": "Boxing Shorts",
-
-    "category": "Boxing, Apparel",
-    "subCategory": "Boxing Apparel, Training Apparel",
-    "type": "Boxing Shorts",
-
-    "summary": "Lightweight professional boxing shorts designed for training, sparring and competition.",
-
-    "materials": "Premium Satin or Polyester Fabric",
-
-    "moq": "100 Pieces",
-
-    "lead": "25-35 Days",
-
-    "image": "/images/products/boxing/shorts/2.png",
-
-    "features": [
-      "Lightweight breathable fabric",
-      "Wide elastic waistband",
-      "Flexible unrestricted fit",
-      "Reinforced stitching",
-      "Suitable for training and competition",
-      "Custom logo, colors and designs"
-    ]
+    "index": 2, "slug": "vortex-blue-orange-boxing-shorts", "name": "Vortex Blue & Orange Boxing Shorts",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Satin Boxing Shorts",
+    "summary": "Royal-blue boxing shorts with black and orange angular graphics, a wide black waistband and orange-bound side vents.",
+    "materials": "Premium Satin or Polyester Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shorts/2.png",
+    "features": ["Wide multi-row elastic waistband", "Asymmetrical angular graphics", "Deep contrast side vents", "Loose boxing cut", "Multiple branding areas", "Custom sublimation, colors and branding"]
   },
   {
-    "index": 3,
-    "slug": "boxing-shorts3",
-    "name": "Boxing Shorts",
-
-    "category": "Boxing, Apparel",
-    "subCategory": "Boxing Apparel, Training Apparel",
-    "type": "Boxing Shorts",
-
-    "summary": "Lightweight professional boxing shorts designed for training, sparring and competition.",
-
-    "materials": "Premium Satin or Polyester Fabric",
-
-    "moq": "100 Pieces",
-
-    "lead": "25-35 Days",
-
-    "image": "/images/products/boxing/shorts/3.png",
-
-    "features": [
-      "Lightweight breathable fabric",
-      "Wide elastic waistband",
-      "Flexible unrestricted fit",
-      "Reinforced stitching",
-      "Suitable for training and competition",
-      "Custom logo, colors and designs"
-    ]
+    "index": 3, "slug": "inferno-white-red-orange-boxing-shorts", "name": "Inferno White, Red & Orange Boxing Shorts",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Satin Boxing Shorts",
+    "summary": "White boxing shorts with red, grey and orange speed graphics, a wide white waistband and orange-trimmed side vents.",
+    "materials": "Premium Satin or Polyester Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shorts/3.png",
+    "features": ["Wide multi-row elastic waistband", "Multi-color speed graphics", "Deep bound side vents", "Loose boxing cut", "Front waistband branding panel", "Custom sublimation, colors and branding"]
   },
   {
-    "index": 4,
-    "slug": "boxing-shorts4",
-    "name": "Boxing Shorts",
-
-    "category": "Boxing, Apparel",
-    "subCategory": "Boxing Apparel, Training Apparel",
-    "type": "Boxing Shorts",
-
-    "summary": "Lightweight professional boxing shorts designed for training, sparring and competition.",
-
-    "materials": "Premium Satin or Polyester Fabric",
-
-    "moq": "100 Pieces",
-
-    "lead": "25-35 Days",
-
-    "image": "/images/products/boxing/shorts/4.png",
-
-    "features": [
-      "Lightweight breathable fabric",
-      "Wide elastic waistband",
-      "Flexible unrestricted fit",
-      "Reinforced stitching",
-      "Suitable for training and competition",
-      "Custom logo, colors and designs"
-    ]
+    "index": 4, "slug": "tornado-grey-tiger-boxing-shorts", "name": "Tornado Grey Tiger Boxing Shorts",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Satin Boxing Shorts",
+    "summary": "Grey boxing shorts with large monochrome tiger artwork, claw graphics, black binding and a broad ribbed waistband.",
+    "materials": "Premium Satin or Polyester Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shorts/4.png",
+    "features": ["Wide multi-row elastic waistband", "Large front tiger artwork", "Deep black-bound side vents", "Loose boxing cut", "Front waistband branding panel", "Custom sublimation, colors and branding"]
   },
   {
-    "index": 5,
-    "slug": "boxing-shorts5",
-    "name": "Boxing Shorts",
-
-    "category": "Boxing, Apparel",
-    "subCategory": "Boxing Apparel, Training Apparel",
-    "type": "Boxing Shorts",
-
-    "summary": "Lightweight professional boxing shorts designed for training, sparring and competition.",
-
-    "materials": "Premium Satin or Polyester Fabric",
-
-    "moq": "100 Pieces",
-
-    "lead": "25-35 Days",
-
-    "image": "/images/products/boxing/shorts/5.png",
-
-    "features": [
-      "Lightweight breathable fabric",
-      "Wide elastic waistband",
-      "Flexible unrestricted fit",
-      "Reinforced stitching",
-      "Suitable for training and competition",
-      "Custom logo, colors and designs"
-    ]
+    "index": 5, "slug": "race-black-red-white-boxing-shorts", "name": "Race Black, Red & White Boxing Shorts",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Satin Boxing Shorts",
+    "summary": "Black boxing shorts with red and white sweeping graphics, a wide black waistband and red-trimmed side vents.",
+    "materials": "Premium Satin or Polyester Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shorts/5.png",
+    "features": ["Wide multi-row elastic waistband", "Asymmetrical three-color graphics", "Deep red-bound side vents", "Loose boxing cut", "Multiple branding areas", "Custom sublimation, colors and branding"]
   },
   {
-    "index": 6,
-    "slug": "boxing-shorts6",
-    "name": "Boxing Shorts",
-
-    "category": "Boxing, Apparel",
-    "subCategory": "Boxing Apparel, Training Apparel",
-    "type": "Boxing Shorts",
-
-    "summary": "Lightweight professional boxing shorts designed for training, sparring and competition.",
-
-    "materials": "Premium Satin or Polyester Fabric",
-
-    "moq": "100 Pieces",
-
-    "lead": "25-35 Days",
-
-    "image": "/images/products/boxing/shorts/6.png",
-
-    "features": [
-      "Lightweight breathable fabric",
-      "Wide elastic waistband",
-      "Flexible unrestricted fit",
-      "Reinforced stitching",
-      "Suitable for training and competition",
-      "Custom logo, colors and designs"
-    ]
+    "index": 6, "slug": "brutal-black-red-boxing-shorts", "name": "Brutal Black & Red Boxing Shorts",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Satin Boxing Shorts",
+    "summary": "Black boxing shorts with bold red angular and brush graphics, red binding, a wide waistband and deep side vents.",
+    "materials": "Premium Satin or Polyester Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shorts/6.png",
+    "features": ["Wide multi-row elastic waistband", "Bold red graphic panels", "Deep red-bound side vents", "Loose boxing cut", "Multiple branding areas", "Custom sublimation, colors and branding"]
   }
-
 ]

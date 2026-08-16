@@ -1,198 +1,149 @@
 [
-    {
+  {
     "index": 1,
-    "slug": "boxing-head-guard1",
-    "name": "Boxing Head Guard",
-  
+    "slug": "apex-black-red-face-bar-boxing-headguard",
+    "name": "Apex Black & Red Face-Bar Headguard",
     "category": "Boxing",
     "subCategory": "Training Equipment, Protective Gear",
-    "type": "Head Guard",
-  
-    "summary": "Professional boxing head guard designed for superior impact protection during sparring and training sessions.",
-  
-    "materials": "Genuine Leather or Premium Synthetic Leather",
-  
+    "type": "Face-Bar Boxing Headguard",
+    "summary": "Black and red boxing headguard with a rigid grey face frame, padded side coverage and multiple adjustment points for controlled sparring sessions.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Molded Face Frame",
     "moq": "100 Pieces",
-  
     "lead": "25-35 Days",
-  
     "image": "/images/products/boxing/headguard/1.png",
-  
     "features": [
-      "Multi-layer shock-absorbing foam",
-      "Full cheek protection",
-      "Adjustable lace-up and hook-and-loop closure",
-      "Open-top ventilation design",
-      "Sweat-resistant inner lining",
-      "Custom logo and color options"
+      "Rigid full-face frame",
+      "Padded crown, sides and rear",
+      "Openings for forward visibility",
+      "Top, side and chin adjustment straps",
+      "Contrast padded inner lining",
+      "Custom colors, graphics and branding"
     ]
   },
   {
     "index": 2,
-    "slug": "boxing-head-guard2",
-    "name": "Boxing Head Guard",
-  
+    "slug": "vortex-white-frame-boxing-headguard",
+    "name": "Vortex White-Frame Boxing Headguard",
     "category": "Boxing",
     "subCategory": "Training Equipment, Protective Gear",
-    "type": "Head Guard",
-  
-    "summary": "Professional boxing head guard designed for superior impact protection during sparring and training sessions.",
-  
-    "materials": "Genuine Leather or Premium Synthetic Leather",
-  
+    "type": "Face-Bar Boxing Headguard",
+    "summary": "Black boxing headguard with red graphics, a high-contrast white face frame and padded ear coverage for a distinctive sparring setup.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Molded Face Frame",
     "moq": "100 Pieces",
-  
     "lead": "25-35 Days",
-  
     "image": "/images/products/boxing/headguard/2.png",
-  
     "features": [
-      "Multi-layer shock-absorbing foam",
-      "Full cheek protection",
-      "Adjustable lace-up and hook-and-loop closure",
-      "Open-top ventilation design",
-      "Sweat-resistant inner lining",
-      "Custom logo and color options"
+      "Rigid full-face frame",
+      "Padded crown, sides and ears",
+      "Openings for forward visibility",
+      "Top, side and chin adjustment straps",
+      "Contrast padded inner lining",
+      "Custom frame colors, graphics and branding"
     ]
   },
   {
     "index": 3,
-    "slug": "boxing-head-guard3",
-    "name": "Boxing Head Guard",
-  
+    "slug": "inferno-open-face-sparring-headguard",
+    "name": "Inferno Open-Face Sparring Headguard",
     "category": "Boxing",
     "subCategory": "Training Equipment, Protective Gear",
-    "type": "Head Guard",
-  
-    "summary": "Professional boxing head guard designed for superior impact protection during sparring and training sessions.",
-  
-    "materials": "Genuine Leather or Premium Synthetic Leather",
-  
+    "type": "Open-Face Boxing Headguard",
+    "summary": "Black open-face sparring headguard with red flame graphics, forehead padding and covered ear sections designed to maintain a wide field of view.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options",
     "moq": "100 Pieces",
-  
     "lead": "25-35 Days",
-  
     "image": "/images/products/boxing/headguard/3.png",
-  
     "features": [
-      "Multi-layer shock-absorbing foam",
-      "Full cheek protection",
-      "Adjustable lace-up and hook-and-loop closure",
-      "Open-top ventilation design",
-      "Sweat-resistant inner lining",
-      "Custom logo and color options"
+      "Wide open-face construction",
+      "Padded forehead and side panels",
+      "Covered ear sections",
+      "Open-top segmented crown",
+      "Adjustable top and chin closures",
+      "Custom flame artwork and branding"
     ]
   },
   {
     "index": 4,
-    "slug": "boxing-head-guard4",
-    "name": "Boxing Head Guard",
-  
+    "slug": "tornado-burgundy-cheek-boxing-headguard",
+    "name": "Tornado Burgundy Cheek Headguard",
     "category": "Boxing",
     "subCategory": "Training Equipment, Protective Gear",
-    "type": "Head Guard",
-  
-    "summary": "Professional boxing head guard designed for superior impact protection during sparring and training sessions.",
-  
-    "materials": "Genuine Leather or Premium Synthetic Leather",
-  
+    "type": "Cheek-Protection Boxing Headguard",
+    "summary": "Burgundy boxing headguard with integrated cheek padding, a broad forehead panel and ventilated crown sections for sparring and training.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Mesh Crown Panels",
     "moq": "100 Pieces",
-  
     "lead": "25-35 Days",
-  
     "image": "/images/products/boxing/headguard/4.png",
-  
     "features": [
-      "Multi-layer shock-absorbing foam",
-      "Full cheek protection",
-      "Adjustable lace-up and hook-and-loop closure",
-      "Open-top ventilation design",
-      "Sweat-resistant inner lining",
-      "Custom logo and color options"
+      "Integrated cheek protection",
+      "Broad padded forehead panel",
+      "Padded ear openings",
+      "Ventilated open-top crown",
+      "Adjustable side and rear closures",
+      "Custom colors and private labeling"
     ]
   },
   {
     "index": 5,
-    "slug": "boxing-head-guard5",
-    "name": "Boxing Head Guard",
-  
+    "slug": "race-checkered-cheek-boxing-headguard",
+    "name": "Race Checkered Cheek Headguard",
     "category": "Boxing",
     "subCategory": "Training Equipment, Protective Gear",
-    "type": "Head Guard",
-  
-    "summary": "Professional boxing head guard designed for superior impact protection during sparring and training sessions.",
-  
-    "materials": "Genuine Leather or Premium Synthetic Leather",
-  
+    "type": "Cheek-Protection Boxing Headguard",
+    "summary": "Navy cheek-protection headguard with blue, red and white racing graphics, padded ear openings and a ventilated segmented crown.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Mesh Crown Panels",
     "moq": "100 Pieces",
-  
     "lead": "25-35 Days",
-  
     "image": "/images/products/boxing/headguard/5.png",
-  
     "features": [
-      "Multi-layer shock-absorbing foam",
-      "Full cheek protection",
-      "Adjustable lace-up and hook-and-loop closure",
-      "Open-top ventilation design",
-      "Sweat-resistant inner lining",
-      "Custom logo and color options"
+      "Integrated cheek protection",
+      "Padded forehead and side panels",
+      "Padded ear openings",
+      "Ventilated segmented crown",
+      "Adjustable top and rear closures",
+      "Custom checkered graphics and branding"
     ]
   },
   {
     "index": 6,
-    "slug": "boxing-head-guard6",
-    "name": "Boxing Head Guard",
-  
+    "slug": "brutal-silver-bull-cheek-boxing-headguard",
+    "name": "Brutal Silver Bull Cheek Headguard",
     "category": "Boxing",
     "subCategory": "Training Equipment, Protective Gear",
-    "type": "Head Guard",
-  
-    "summary": "Professional boxing head guard designed for superior impact protection during sparring and training sessions.",
-  
-    "materials": "Genuine Leather or Premium Synthetic Leather",
-  
+    "type": "Cheek-Protection Boxing Headguard",
+    "summary": "Silver and navy sparring headguard with bull artwork, extended cheek padding, padded ear openings and a ventilated crown.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Mesh Crown Panels",
     "moq": "100 Pieces",
-  
     "lead": "25-35 Days",
-  
     "image": "/images/products/boxing/headguard/6.png",
-  
     "features": [
-      "Multi-layer shock-absorbing foam",
-      "Full cheek protection",
-      "Adjustable lace-up and hook-and-loop closure",
-      "Open-top ventilation design",
-      "Sweat-resistant inner lining",
-      "Custom logo and color options"
+      "Extended cheek protection",
+      "Padded forehead and side panels",
+      "Padded ear openings",
+      "Ventilated segmented crown",
+      "Adjustable top and rear closures",
+      "Custom metallic colors and branding"
     ]
   },
   {
     "index": 7,
-    "slug": "boxing-head-guard7",
-    "name": "Boxing Head Guard",
-  
+    "slug": "rampage-burgundy-white-cheek-boxing-headguard",
+    "name": "Rampage Burgundy & White Cheek Headguard",
     "category": "Boxing",
     "subCategory": "Training Equipment, Protective Gear",
-    "type": "Head Guard",
-  
-    "summary": "Professional boxing head guard designed for superior impact protection during sparring and training sessions.",
-  
-    "materials": "Genuine Leather or Premium Synthetic Leather",
-  
+    "type": "Cheek-Protection Boxing Headguard",
+    "summary": "Burgundy and white sparring headguard with distressed graphics, extended cheek padding, mesh lining and adjustable chin support.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Mesh Inner Panels",
     "moq": "100 Pieces",
-  
     "lead": "25-35 Days",
-  
     "image": "/images/products/boxing/headguard/7.png",
-  
     "features": [
-      "Multi-layer shock-absorbing foam",
-      "Full cheek protection",
-      "Adjustable lace-up and hook-and-loop closure",
-      "Open-top ventilation design",
-      "Sweat-resistant inner lining",
-      "Custom logo and color options"
+      "Extended cheek protection",
+      "Broad padded forehead panel",
+      "Padded ear openings",
+      "Ventilated crown and inner panels",
+      "Adjustable top, rear and chin closures",
+      "Custom colors, graphics and branding"
     ]
   }
 ]

@@ -1,550 +1,296 @@
 [
-    {
-      "index":1,
-      "slug": "training-gloves1",
-      "name": "Boxing Gloves",
-  
-      "category": "Boxing",
-      "subCategory": "Boxing Gloves",
-      "type": "Boxing Gloves",
-  
-      "summary": "Premium Boxing Gloves for daily gym sessions.",
-  
-      "materials": "Cowhide Leather",
-  
-      "moq": "100 Pairs",
-  
-      "lead": "25-35 Days",
-  
-      "image": "/images/products/boxing/1.png",
-  
-      "features": [
-        "Multi-layer foam",
-        "Attached thumb",
-        "Velcro closure",
-        "Custom branding"
-      ]
-    }
-    ,
-    {
-      "index":2,
-        "slug": "training-gloves2",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/2.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":3,
-        "slug": "training-gloves3",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/3.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":4,
-        "slug": "training-gloves4",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/4.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":5,
-        "slug": "training-gloves5",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/5.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":6,
-        "slug": "training-gloves6",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/6.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":7,
-        "slug": "training-gloves7",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/7.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":8,
-        "slug": "training-gloves8",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/8.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":9,
-        "slug": "training-gloves9",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/9.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":10,
-        "slug": "training-gloves10",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/10.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":11,
-        "slug": "training-gloves11",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/11.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":12,
-        "slug": "training-gloves12",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/12.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":13,
-        "slug": "training-gloves13",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/13.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":14,
-        "slug": "training-gloves14",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/14.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-    
-      {
-        "index":15,
-        "slug": "training-gloves15",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/15.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":16,
-        "slug": "training-gloves16",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/16.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":17,
-        "slug": "training-gloves17",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/17.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":18,
-        "slug": "training-gloves18",
-        "name": " Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/18.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":19,
-        "slug": "training-gloves19",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/19.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":20,
-        "slug": "training-gloves20",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/20.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      },
-      {
-        "index":21,
-        "slug": "training-gloves21",
-        "name": "Boxing Gloves",
-    
-        "category": "Boxing",
-        "subCategory": "Boxing Gloves",
-        "type": "Boxing Gloves",
-    
-        "summary": "Premium Boxing Gloves for daily gym sessions.",
-    
-        "materials": "Cowhide Leather",
-    
-        "moq": "100 Pairs",
-    
-        "lead": "25-35 Days",
-    
-        "image": "/images/products/boxing/21.png",
-    
-        "features": [
-          "Multi-layer foam",
-          "Attached thumb",
-          "Velcro closure",
-          "Custom branding"
-        ]
-      }
-  ]
+  {
+    "index": 1,
+    "slug": "apex-black-red-training-boxing-gloves",
+    "name": "Apex Black & Red Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Black training boxing gloves with red graphic accents, a broad wrist strap and a ventilated palm for regular bag, pad and gym sessions.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/1.png",
+    "features": ["Contoured padded fist profile", "Attached thumb construction", "Ventilated palm panel", "Wide hook-and-loop wrist closure", "Custom colors, graphics and branding"]
+  },
+  {
+    "index": 2,
+    "slug": "vortex-black-red-training-boxing-gloves",
+    "name": "Vortex Black & Red Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Black and red training gloves with high-contrast printed graphics, a supportive cuff and palm ventilation for everyday boxing workouts.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/2.png",
+    "features": ["Rounded padded striking surface", "Attached thumb construction", "Perforated palm area", "Wide hook-and-loop wrist closure", "Custom colors, graphics and branding"]
+  },
+  {
+    "index": 3,
+    "slug": "inferno-flame-training-boxing-gloves",
+    "name": "Inferno Flame Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Black training boxing gloves featuring a vivid red flame graphic, contrast trim and an adjustable wrist strap for gym training.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/3.png",
+    "features": ["Protective padded fist profile", "Attached thumb construction", "Ventilated palm section", "Secure hook-and-loop wrist strap", "Custom flame artwork and branding"]
+  },
+  {
+    "index": 4,
+    "slug": "tornado-eagle-training-boxing-gloves",
+    "name": "Tornado Eagle Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Burgundy training gloves with detailed eagle artwork, black mesh palm panels and a wide adjustable cuff for a distinctive private-label range.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options with Mesh Palm Panels",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/4.png",
+    "features": ["Full-panel eagle graphic", "Attached thumb construction", "Breathable mesh palm sections", "Wide hook-and-loop wrist closure", "Custom artwork, colors and branding"]
+  },
+  {
+    "index": 5,
+    "slug": "race-blue-checkered-training-boxing-gloves",
+    "name": "Race Checkered Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Navy and blue boxing gloves with checkered racing graphics, contrast trim and a supportive wrist strap for regular training sessions.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/5.png",
+    "features": ["Checkered full-color graphic", "Attached thumb construction", "Perforated palm area", "Wide hook-and-loop wrist closure", "Custom colors, graphics and branding"]
+  },
+  {
+    "index": 6,
+    "slug": "brutal-silver-bull-training-boxing-gloves",
+    "name": "Brutal Silver Bull Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Metallic silver and navy training gloves with bull artwork, contrast piping and a broad wrist strap for a bold gym-ready presentation.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/6.png",
+    "features": ["Metallic-effect outer finish", "Attached thumb construction", "Ventilated palm panel", "Wide hook-and-loop wrist closure", "Custom artwork, colors and branding"]
+  },
+  {
+    "index": 7,
+    "slug": "rampage-skull-training-boxing-gloves",
+    "name": "Rampage Skull Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Burgundy training boxing gloves with large skull artwork, copper-colored trim and mesh palm sections for an expressive custom collection.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options with Mesh Palm Panels",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/7.png",
+    "features": ["Full-panel skull graphic", "Attached thumb construction", "Breathable mesh palm sections", "Wide hook-and-loop wrist closure", "Custom artwork, colors and branding"]
+  },
+  {
+    "index": 8,
+    "slug": "havoc-green-flag-training-boxing-gloves",
+    "name": "Havoc Green Flag Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Deep green training gloves with crescent-and-star graphics, silver accents, palm mesh and a reinforced adjustable cuff.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options with Mesh Palm Panels",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/8.png",
+    "features": ["Crescent-and-star graphic treatment", "Attached thumb construction", "Breathable mesh palm sections", "Wide hook-and-loop wrist closure", "Custom national colors and branding"]
+  },
+  {
+    "index": 9,
+    "slug": "onyx-monochrome-training-boxing-gloves",
+    "name": "Onyx Monochrome Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Clean black-and-white training gloves with oversized branding, a streamlined fist shape and a wide wrist closure.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/9.png",
+    "features": ["High-contrast panel layout", "Attached thumb construction", "Palm ventilation holes", "Wide hook-and-loop wrist closure", "Custom logo placement and colors"]
+  },
+  {
+    "index": 10,
+    "slug": "titan-black-red-training-boxing-gloves",
+    "name": "Titan Black, White & Red Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Black, white and red training gloves with brush-stroke graphics, an attached thumb and an adjustable padded cuff.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/10.png",
+    "features": ["Three-color graphic panels", "Attached thumb construction", "Palm ventilation holes", "Wide hook-and-loop wrist closure", "Custom graphics and private labeling"]
+  },
+  {
+    "index": 11,
+    "slug": "rogue-navy-blue-training-boxing-gloves",
+    "name": "Rogue Navy & Blue Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Navy, royal blue and white training boxing gloves with dynamic brush graphics and a supportive wraparound wrist strap.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/11.png",
+    "features": ["Three-color graphic panels", "Attached thumb construction", "Palm ventilation holes", "Wide hook-and-loop wrist closure", "Custom graphics and private labeling"]
+  },
+  {
+    "index": 12,
+    "slug": "dominion-green-stripe-training-boxing-gloves",
+    "name": "Dominion Green Stripe Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Green and white training gloves with clean racing stripes, a shaped thumb and a broad matching wrist strap.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/12.png",
+    "features": ["Clean striped panel design", "Attached thumb construction", "Palm ventilation holes", "Wide hook-and-loop wrist closure", "Custom colors, logos and striping"]
+  },
+  {
+    "index": 13,
+    "slug": "eclipse-champion-art-training-boxing-gloves",
+    "name": "Eclipse Champion Art Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Black training gloves featuring monochrome champion artwork, a padded fist profile and a wide branded wrist cuff.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/13.png",
+    "features": ["Full-panel monochrome artwork", "Attached thumb construction", "Palm ventilation holes", "Wide hook-and-loop wrist closure", "Custom photographic graphics and branding"]
+  },
+  {
+    "index": 14,
+    "slug": "tempest-city-fight-training-boxing-gloves",
+    "name": "Tempest City Fight Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Black training gloves with a monochrome rooftop boxing scene, understated branding and an adjustable padded wrist cuff.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/14.png",
+    "features": ["Full-panel city fight artwork", "Attached thumb construction", "Palm ventilation holes", "Wide hook-and-loop wrist closure", "Custom photographic graphics and branding"]
+  },
+  {
+    "index": 15,
+    "slug": "nemesis-champion-training-boxing-gloves",
+    "name": "Nemesis Champion Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Black training boxing gloves with dramatic champion artwork, a contoured padded body and a secure wraparound wrist strap.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/15.png",
+    "features": ["Full-panel champion artwork", "Attached thumb construction", "Palm ventilation holes", "Wide hook-and-loop wrist closure", "Custom photographic graphics and branding"]
+  },
+  {
+    "index": 16,
+    "slug": "ironclad-impact-lace-up-boxing-gloves",
+    "name": "Ironclad Impact Lace-Up Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Lace-Up Boxing Gloves",
+    "summary": "Black boxing gloves with monochrome impact artwork and a traditional lace-up wrist shown for a close, adjustable fit.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/16.png",
+    "features": ["Traditional lace-up wrist", "Full-panel impact artwork", "Attached thumb construction", "Palm ventilation holes", "Custom artwork and private labeling"]
+  },
+  {
+    "index": 17,
+    "slug": "savage-summit-lace-up-boxing-gloves",
+    "name": "Savage Summit Lace-Up Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Lace-Up Boxing Gloves",
+    "summary": "Black lace-up boxing gloves with dark summit artwork and the motivational statement “Top Is Always Empty” across the outer panel.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/17.png",
+    "features": ["Traditional lace-up wrist", "Full-panel summit artwork", "Attached thumb construction", "Palm ventilation holes", "Custom statements, artwork and branding"]
+  },
+  {
+    "index": 18,
+    "slug": "reign-lone-fighter-lace-up-boxing-gloves",
+    "name": "Reign Lone Fighter Lace-Up Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Lace-Up Boxing Gloves",
+    "summary": "Black lace-up boxing gloves featuring a monochrome lone-fighter scene and an extended wrist profile for a traditional presentation.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/18.png",
+    "features": ["Traditional lace-up wrist", "Full-panel fighter artwork", "Attached thumb construction", "Palm ventilation holes", "Custom artwork and private labeling"]
+  },
+  {
+    "index": 19,
+    "slug": "berserker-grey-fighter-training-boxing-gloves",
+    "name": "Berserker Grey Fighter Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Grey training gloves with complementary monochrome boxer artwork across the pair and broad branded wrist cuffs.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/19.png",
+    "features": ["Coordinated left-and-right artwork", "Contoured padded fist profile", "Supportive wrist cuff", "Contrast black trim", "Custom photographic graphics and branding"]
+  },
+  {
+    "index": 20,
+    "slug": "velocity-arsenal-lace-up-boxing-gloves",
+    "name": "Velocity Arsenal Lace-Up Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Lace-Up Boxing Gloves",
+    "summary": "Black and white lace-up boxing gloves with high-contrast illustrated artwork, mesh palm panels and an extended wrist profile.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options with Mesh Palm Panels",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/20.png",
+    "features": ["Traditional lace-up wrist", "High-contrast illustrated graphic", "Breathable mesh palm sections", "Attached thumb construction", "Custom artwork and private labeling"]
+  },
+  {
+    "index": 21,
+    "slug": "prime-red-split-logo-training-boxing-gloves",
+    "name": "Prime Red Split-Logo Training Gloves",
+    "category": "Boxing",
+    "subCategory": "Boxing Gloves",
+    "type": "Training Boxing Gloves",
+    "summary": "Deep red training gloves with a split MAD-X graphic across the pair, textured outer panels and wide branded wrist straps.",
+    "materials": "Cowhide Leather or Premium Synthetic Leather Options",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/21.png",
+    "features": ["Coordinated split-logo artwork", "Contoured padded fist profile", "Wide hook-and-loop wrist closure", "Contrast black trim", "Custom colors, graphics and branding"]
+  }
+]

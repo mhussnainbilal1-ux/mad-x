@@ -1,142 +1,37 @@
 [
-    {
-        "index": 1,
-        "slug": "boxing-shirt1",
-        "name": "Boxing Shirt",
-      
-        "category": "Boxing, Apparel",
-        "subCategory": "Boxing Apparel, Training Apparel",
-        "type": "Boxing Shirts",
-      
-        "summary": "Lightweight professional boxing shirt designed for training, sparring, competition and team wear.",
-      
-        "materials": "Premium Polyester or Performance Interlock Fabric",
-      
-        "moq": "100 Pieces",
-      
-        "lead": "25-35 Days",
-      
-        "image": "/images/products/boxing/shirts/1.png",
-      
-        "features": [
-          "Lightweight breathable fabric",
-          "Moisture-wicking construction",
-          "Flexible unrestricted fit",
-          "Reinforced stitching",
-          "Suitable for training and competition",
-          "Custom logo, colors and designs"
-        ]
-      },
-      {
-        "index": 2,
-        "slug": "boxing-shirt2",
-        "name": "Boxing Shirt",
-      
-        "category": "Boxing, Apparel",
-        "subCategory": "Boxing Apparel, Training Apparel",
-        "type": "Boxing Shirts",
-      
-        "summary": "Lightweight professional boxing shirt designed for training, sparring, competition and team wear.",
-      
-        "materials": "Premium Polyester or Performance Interlock Fabric",
-      
-        "moq": "100 Pieces",
-      
-        "lead": "25-35 Days",
-      
-        "image": "/images/products/boxing/shirts/2.png",
-      
-        "features": [
-          "Lightweight breathable fabric",
-          "Moisture-wicking construction",
-          "Flexible unrestricted fit",
-          "Reinforced stitching",
-          "Suitable for training and competition",
-          "Custom logo, colors and designs"
-        ]
-      },
-      {
-        "index": 3,
-        "slug": "boxing-shirt3",
-        "name": "Boxing Shirt",
-      
-        "category": "Boxing, Apparel",
-        "subCategory": "Boxing Apparel, Training Apparel",
-        "type": "Boxing Shirts",
-      
-        "summary": "Lightweight professional boxing shirt designed for training, sparring, competition and team wear.",
-      
-        "materials": "Premium Polyester or Performance Interlock Fabric",
-      
-        "moq": "100 Pieces",
-      
-        "lead": "25-35 Days",
-      
-        "image": "/images/products/boxing/shirts/3.png",
-      
-        "features": [
-          "Lightweight breathable fabric",
-          "Moisture-wicking construction",
-          "Flexible unrestricted fit",
-          "Reinforced stitching",
-          "Suitable for training and competition",
-          "Custom logo, colors and designs"
-        ]
-      },
-      {
-        "index": 4,
-        "slug": "boxing-shirt4",
-        "name": "Boxing Shirt",
-      
-        "category": "Boxing, Apparel",
-        "subCategory": "Boxing Apparel, Training Apparel",
-        "type": "Boxing Shirts",
-      
-        "summary": "Lightweight professional boxing shirt designed for training, sparring, competition and team wear.",
-      
-        "materials": "Premium Polyester or Performance Interlock Fabric",
-      
-        "moq": "100 Pieces",
-      
-        "lead": "25-35 Days",
-      
-        "image": "/images/products/boxing/shirts/4.png",
-      
-        "features": [
-          "Lightweight breathable fabric",
-          "Moisture-wicking construction",
-          "Flexible unrestricted fit",
-          "Reinforced stitching",
-          "Suitable for training and competition",
-          "Custom logo, colors and designs"
-        ]
-      },
-      {
-        "index": 5,
-        "slug": "boxing-shirt5",
-        "name": "Boxing Shirt",
-      
-        "category": "Boxing, Apparel",
-        "subCategory": "Boxing Apparel, Training Apparel",
-        "type": "Boxing Shirts",
-      
-        "summary": "Lightweight professional boxing shirt designed for training, sparring, competition and team wear.",
-      
-        "materials": "Premium Polyester or Performance Interlock Fabric",
-      
-        "moq": "100 Pieces",
-      
-        "lead": "25-35 Days",
-      
-        "image": "/images/products/boxing/shirts/5.png",
-      
-        "features": [
-          "Lightweight breathable fabric",
-          "Moisture-wicking construction",
-          "Flexible unrestricted fit",
-          "Reinforced stitching",
-          "Suitable for training and competition",
-          "Custom logo, colors and designs"
-        ]
-      }
+  {
+    "index": 1, "slug": "apex-white-black-red-boxing-training-shirt", "name": "Apex White, Black & Red Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "White short-sleeve training shirt with asymmetrical black and red brush graphics, contrast sleeve trim and multiple branding placements.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/1.png",
+    "features": ["Short-sleeve crew-neck construction", "Asymmetrical three-color artwork", "Contrast collar and sleeve trim", "Straight athletic hem", "Multiple logo placement areas", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 2, "slug": "vortex-metallic-red-black-boxing-training-shirt", "name": "Vortex Metallic Red & Black Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "Red and black short-sleeve training shirt with a metallic-effect finish, diagonal color blocking and contrast sleeve bands.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/2.png",
+    "features": ["Short-sleeve crew-neck construction", "Diagonal two-color panel design", "Metallic-effect graphic treatment", "Contrast collar and sleeve bands", "Front and hem branding areas", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 3, "slug": "inferno-blue-lightning-boxing-training-shirt", "name": "Inferno Blue Lightning Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "Black short-sleeve training shirt with electric-blue lightning and diagonal brush graphics across the front and sleeves.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/3.png",
+    "features": ["Short-sleeve crew-neck construction", "Full-front lightning artwork", "Coordinated sleeve graphics", "Straight athletic hem", "Central chest branding area", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 4, "slug": "tornado-eagle-eye-boxing-training-shirt", "name": "Tornado Eagle Eye Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "Black short-sleeve training shirt with a large eagle-eye illustration and red, blue and grey claw-style graphics.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/4.png",
+    "features": ["Short-sleeve crew-neck construction", "Large front eagle artwork", "Multi-color claw graphics", "Straight athletic hem", "Central chest branding area", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 5, "slug": "race-burgundy-fire-boxing-training-shirt", "name": "Race Burgundy Fire Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "Burgundy short-sleeve training shirt with orange flame and smoke artwork sweeping diagonally across the torso and sleeves.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/5.png",
+    "features": ["Short-sleeve crew-neck construction", "Full-front flame artwork", "Coordinated sleeve graphics", "Straight athletic hem", "Central chest branding area", "Custom sublimation, colors and branding"]
+  }
 ]

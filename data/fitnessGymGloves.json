@@ -1,0 +1,65 @@
+[
+  {
+    "index": 1,
+    "slug": "wrist-wrap-gym-gloves1",
+    "name": "Wrist Wrap Gym Gloves",
+    "category": "Fitness",
+    "subCategory": "Gym Gloves",
+    "type": "Heavy Weight Lifting Gloves",
+    "summary": "Fingerless gym gloves with extended wrist wraps, designed to provide palm protection, grip support and wrist stability during weightlifting and strength training.",
+    "materials": "Synthetic Leather, Breathable Mesh and Elastic Wrist Wrap",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/fitness/gymgloves/1.png",
+    "features": [
+      "Padded palm for training comfort",
+      "Textured grip panels",
+      "Extended adjustable wrist wrap",
+      "Fingerless design for natural movement",
+      "Reinforced stitching for durability",
+      "Custom logo, colors and designs"
+    ]
+  },
+  {
+    "index": 2,
+    "slug": "leather-workout-gloves2",
+    "name": "Leather Workout Gloves",
+    "category": "Fitness",
+    "subCategory": "Gym Gloves",
+    "type": "Training & Gym Gloves",
+    "summary": "Classic fingerless workout gloves designed to improve grip and protect the palms during general gym training, resistance exercises and weightlifting.",
+    "materials": "Synthetic Leather, Stretch Fabric and Elastic Cuff",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/fitness/gymgloves/2.png",
+    "features": [
+      "Protective padded palm",
+      "Flexible stretch back panel",
+      "Adjustable hook-and-loop wrist closure",
+      "Fingerless construction for improved dexterity",
+      "Reinforced high-contact areas",
+      "Custom logo, colors and designs"
+    ]
+  },
+  {
+    "index": 3,
+    "slug": "padded-fitness-gloves3",
+    "name": "Padded Fitness Gloves",
+    "category": "Fitness",
+    "subCategory": "Gym Gloves",
+    "type": "Fitness & Workout Gloves",
+    "summary": "Lightweight fingerless fitness gloves with a padded palm and adjustable wrist closure for comfortable grip support during workouts and strength training.",
+    "materials": "Breathable Stretch Fabric, Synthetic Leather and Foam Padding",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/fitness/gymgloves/3.png",
+    "features": [
+      "Cushioned palm protection",
+      "Breathable flexible back panel",
+      "Secure adjustable wrist closure",
+      "Fingerless design for freedom of movement",
+      "Ergonomic panel construction",
+      "Custom logo, colors and designs"
+    ]
+  }
+]

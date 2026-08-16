@@ -1,199 +1,100 @@
 [
-    {
-  "index": 1,
-  "slug": "weight-lifting-belt1",
-  "name": "Weight Lifting Belt",
-
-  "category": "Fitness",
-  "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
-  "type": "Powerlifting Belts",
-
-  "summary": "Professional weight lifting belt designed to provide strong lower-back and core support during weightlifting, powerlifting, bodybuilding and strength training.",
-
-  "materials": "Genuine Leather, Premium Synthetic Leather or Heavy-Duty Nylon",
-
-  "moq": "100 Pieces",
-
-  "lead": "25-35 Days",
-
-  "image": "/images/products/fitness/weightliftingBelts/1.png",
-
-  "features": [
-    "Strong lower-back and core support",
-    "Heavy-duty adjustable buckle closure",
-    "Reinforced stitching for durability",
-    "Comfortable padded interior",
-    "Suitable for weightlifting and powerlifting",
-    "Custom logo, colors and designs"
-  ]
-},
- {
-  "index": 2,
-  "slug": "weight-lifting-belt2",
-  "name": "Weight Lifting Belt",
-
-  "category": "Fitness",
-  "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
-  "type": "Powerlifting Belts",
-
-  "summary": "Professional weight lifting belt designed to provide strong lower-back and core support during weightlifting, powerlifting, bodybuilding and strength training.",
-
-  "materials": "Genuine Leather, Premium Synthetic Leather or Heavy-Duty Nylon",
-
-  "moq": "100 Pieces",
-
-  "lead": "25-35 Days",
-
-  "image": "/images/products/fitness/weightliftingBelts/2.png",
-
-  "features": [
-    "Strong lower-back and core support",
-    "Heavy-duty adjustable buckle closure",
-    "Reinforced stitching for durability",
-    "Comfortable padded interior",
-    "Suitable for weightlifting and powerlifting",
-    "Custom logo, colors and designs"
-  ]
-},
-{
-  "index": 3,
-  "slug": "weight-lifting-belt3",
-  "name": "Weight Lifting Belt",
-
-  "category": "Fitness",
-  "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
-  "type": "Powerlifting Belts",
-
-  "summary": "Professional weight lifting belt designed to provide strong lower-back and core support during weightlifting, powerlifting, bodybuilding and strength training.",
-
-  "materials": "Genuine Leather, Premium Synthetic Leather or Heavy-Duty Nylon",
-
-  "moq": "100 Pieces",
-
-  "lead": "25-35 Days",
-
-  "image": "/images/products/fitness/weightliftingBelts/3.png",
-
-  "features": [
-    "Strong lower-back and core support",
-    "Heavy-duty adjustable buckle closure",
-    "Reinforced stitching for durability",
-    "Comfortable padded interior",
-    "Suitable for weightlifting and powerlifting",
-    "Custom logo, colors and designs"
-  ]
-},
-{
-  "index": 4,
-  "slug": "weight-lifting-belt4",
-  "name": "Weight Lifting Belt",
-
-  "category": "Fitness",
-  "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
-  "type": "Powerlifting Belts",
-
-  "summary": "Professional weight lifting belt designed to provide strong lower-back and core support during weightlifting, powerlifting, bodybuilding and strength training.",
-
-  "materials": "Genuine Leather, Premium Synthetic Leather or Heavy-Duty Nylon",
-
-  "moq": "100 Pieces",
-
-  "lead": "25-35 Days",
-
-  "image": "/images/products/fitness/weightliftingBelts/4.png",
-
-  "features": [
-    "Strong lower-back and core support",
-    "Heavy-duty adjustable buckle closure",
-    "Reinforced stitching for durability",
-    "Comfortable padded interior",
-    "Suitable for weightlifting and powerlifting",
-    "Custom logo, colors and designs"
-  ]
-},
-{
-  "index": 5,
-  "slug": "nylon-weight-lifting-belt5",
-  "name": "Nylon Weight Lifting Belt",
-
-  "category": "Fitness",
-  "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
-  "type": "Nylon",
-
-  "summary": "Professional nylon weight lifting belt designed to provide firm lower-back and core support during weightlifting, bodybuilding, functional fitness and strength training.",
-
-  "materials": "Heavy-Duty Nylon with Reinforced Webbing",
-
-  "moq": "100 Pieces",
-
-  "lead": "25-35 Days",
-
-  "image": "/images/products/fitness/weightliftingBelts/5.png",
-
-  "features": [
-    "Heavy-duty durable nylon construction",
-    "Strong lower-back and core support",
-    "Secure adjustable hook-and-loop closure",
-    "Lightweight and flexible design",
-    "Reinforced stitching for long-lasting durability",
-    "Custom logo, colors and designs"
-  ]
-},
-{
-  "index": 6,
-  "slug": "weightlifting-neoprene-gym-belt6",
-  "name": "Neoprene Gym Belt",
-
-  "category": "Fitness",
-  "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
-  "type": "Neoprene Gym Belts",
-
-  "summary": "Professional neoprene gym belt designed to provide comfortable lower-back and core support during weightlifting, bodybuilding, fitness workouts and strength training.",
-
-  "materials": "Premium Neoprene with Heavy-Duty Nylon Webbing",
-
-  "moq": "100 Pieces",
-
-  "lead": "25-35 Days",
-
-  "image": "/images/products/fitness/weightliftingBelts/6.png",
-
-  "features": [
-    "Premium flexible neoprene construction",
-    "Supportive lower-back and core design",
-    "Secure adjustable hook-and-loop closure",
-    "Lightweight and comfortable fit",
-    "Reinforced stitching for enhanced durability",
-    "Custom logo, colors and designs"
-  ]
-},
-{
-  "index": 7,
-  "slug": "weight-training-dipping-belt-with-chain7",
-  "name": "Dipping Belt With Chain",
-
-  "category": "Fitness",
-  "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
-  "type": "Dipping Belts",
-
-  "summary": "Heavy-duty dipping belt with chain designed for weighted dips, pull-ups, chin-ups and strength training exercises requiring additional resistance.",
-
-  "materials": "Heavy-Duty Nylon or Neoprene with Steel Chain",
-
-  "moq": "100 Pieces",
-
-  "lead": "25-35 Days",
-
-  "image": "/images/products/fitness/weightliftingBelts/7.png",
-
-  "features": [
-    "Heavy-duty durable belt construction",
-    "Strong steel chain for attaching weight plates",
-    "Comfortable contoured back support",
-    "Secure adjustable chain and carabiner closure",
-    "Suitable for weighted dips and pull-ups",
-    "Reinforced stitching for enhanced durability",
-    "Custom logo, colors and designs"
-  ]
-}
+  {
+    "index": 1,
+    "slug": "apex-dog-graphic-lever-powerlifting-belt",
+    "name": "Apex Dog Graphic Lever Powerlifting Belt",
+    "category": "Fitness",
+    "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
+    "type": "Lever Powerlifting Belt",
+    "summary": "Black powerlifting belt with a rigid profile, dog graphic and lever-style closure for firm support during heavy strength training.",
+    "materials": "Genuine Leather or Premium Synthetic Leather with Metal Lever",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/fitness/weightliftingBelts/1.png",
+    "features": ["Rigid wide-back support", "Quick-lock metal lever closure", "Bold dog graphic exterior", "Reinforced edge stitching", "Designed for squats and heavy lifts", "Custom logo, colors and designs"]
+  },
+  {
+    "index": 2,
+    "slug": "vortex-black-red-double-prong-powerlifting-belt",
+    "name": "Vortex Black & Red Double-Prong Powerlifting Belt",
+    "category": "Fitness",
+    "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
+    "type": "Double-Prong Powerlifting Belt",
+    "summary": "Black powerlifting belt with red trim, a wide supportive body and double-prong buckle for secure adjustment under heavy loads.",
+    "materials": "Genuine Leather or Premium Synthetic Leather with Steel Buckle",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/fitness/weightliftingBelts/2.png",
+    "features": ["Wide rigid support profile", "Secure double-prong buckle", "Black and red contrast finish", "Multiple adjustment holes", "Reinforced stitching and belt loop", "Custom logo, colors and designs"]
+  },
+  {
+    "index": 3,
+    "slug": "inferno-blue-double-prong-powerlifting-belt",
+    "name": "Inferno Blue Double-Prong Powerlifting Belt",
+    "category": "Fitness",
+    "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
+    "type": "Double-Prong Powerlifting Belt",
+    "summary": "Solid blue powerlifting belt with a structured wide back and double-prong hardware for dependable core support and fit adjustment.",
+    "materials": "Genuine Leather or Premium Synthetic Leather with Steel Buckle",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/fitness/weightliftingBelts/3.png",
+    "features": ["Structured wide-back construction", "Double-prong buckle closure", "Solid blue exterior", "Multiple fit adjustment holes", "Reinforced perimeter stitching", "Custom logo, colors and designs"]
+  },
+  {
+    "index": 4,
+    "slug": "tornado-blue-checkered-double-prong-powerlifting-belt",
+    "name": "Tornado Blue Checkered Double-Prong Powerlifting Belt",
+    "category": "Fitness",
+    "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
+    "type": "Double-Prong Powerlifting Belt",
+    "summary": "Blue and black checkered powerlifting belt with a rigid support panel and double-prong buckle for demanding lifting sessions.",
+    "materials": "Genuine Leather or Premium Synthetic Leather with Steel Buckle",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/fitness/weightliftingBelts/4.png",
+    "features": ["Wide rigid lumbar support", "Double-prong buckle closure", "Blue and black checkered finish", "Multiple adjustment positions", "Reinforced edge construction", "Custom logo, colors and designs"]
+  },
+  {
+    "index": 5,
+    "slug": "race-black-red-nylon-weightlifting-belt",
+    "name": "Race Black & Red Nylon Weightlifting Belt",
+    "category": "Fitness",
+    "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
+    "type": "Nylon Weightlifting Belt",
+    "summary": "Black and red flexible gym belt with a broad lumbar panel, webbing strap and hook-and-loop closure for adjustable everyday lifting support.",
+    "materials": "Heavy-Duty Nylon and Neoprene with Reinforced Webbing",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/fitness/weightliftingBelts/5.png",
+    "features": ["Broad contoured lumbar panel", "Adjustable webbing support strap", "Secure hook-and-loop fastening", "Integrated metal guide ring", "Lightweight flexible construction", "Custom logo, colors and designs"]
+  },
+  {
+    "index": 6,
+    "slug": "brutal-black-purple-padded-gym-belt",
+    "name": "Brutal Black & Purple Padded Gym Belt",
+    "category": "Fitness",
+    "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
+    "type": "Padded Gym Belt",
+    "summary": "Black and purple padded lifting belt with a shaped lumbar section and adjustable webbing closure for comfortable training support.",
+    "materials": "Premium Neoprene with Heavy-Duty Nylon Webbing",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/fitness/weightliftingBelts/6.png",
+    "features": ["Padded contoured back panel", "Adjustable webbing closure", "Roller buckle and hook-and-loop fastening", "Black and purple contrast design", "Flexible lightweight fit", "Custom logo, colors and designs"]
+  },
+  {
+    "index": 7,
+    "slug": "rampage-chain-dipping-belt",
+    "name": "Rampage Chain Dipping Belt",
+    "category": "Fitness",
+    "subCategory": "Weightlifting Belts, Training Equipment, Gym Accessories",
+    "type": "Dipping Belt With Chain",
+    "summary": "Black and grey contoured dipping belt supplied with a steel chain for adding weight plates to dips, pull-ups and chin-ups.",
+    "materials": "Heavy-Duty Nylon or Neoprene with Steel Chain",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/fitness/weightliftingBelts/7.png",
+    "features": ["Contoured padded back support", "Heavy-duty steel loading chain", "Secure carabiner attachment", "Reinforced webbing anchor points", "Suitable for weighted dips and pull-ups", "Custom logo, colors and designs"]
+  }
 ]
