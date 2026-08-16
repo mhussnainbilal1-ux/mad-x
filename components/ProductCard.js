@@ -1,22 +1,27 @@
 import Link from "next/link";
-import {getProductSeries} from "../util/common"
+import { getProductSeries } from "../util/common"
 import Image from 'next/image'
 export default function ProductCard({ product }) {
   return (
     <article className="productCard">
       <Link href={`/products/${product.slug}`} className="productMedia">
-       <img src={product.image} alt={product.name}
-         loading="lazy"
-         decoding="async"
-         />
+
+
+        <Image
+          src={product.image}
+          alt={product.name}
+          width={500}
+          height={500}
+    
+        />
         <span className="pill">{getProductSeries(product.index)}</span>
       </Link>
       <div className="productBody">
         <span className="productCategory">{product.category}</span>
         <h3>{product.name}</h3>
-        
-          {/* <h3> {getProductSeries(product.index)}</h3> */}
-         
+
+        {/* <h3> {getProductSeries(product.index)}</h3> */}
+
 
         <div className="productBottom">
           <span

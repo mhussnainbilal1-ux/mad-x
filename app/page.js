@@ -39,13 +39,16 @@ export default function Home() {
       <section className="section">
         <div className="shell split">
           <div className="largeImage">
-           <img
-            style={{height:"100%", widht:"auto"}}
-              src="/images/common/partner.png"
-              alt="Combat sports manufacturing"
-              loading="lazy"
-              decoding="async"
-            />
+
+
+            
+                    <Image
+                      src="/images/common/partner.png"
+                      alt={"Combat sports manufacturing"}
+                      width={500}
+                      height={500}
+                
+                    />
           </div>
           <div className="copy">
             <span className="kicker dark">Why MAD-X</span>
