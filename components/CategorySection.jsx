@@ -44,16 +44,15 @@ export default function CategorySection() {
         <div className="heading">
           <div>
             <span className="kicker dark">
-              Manufacturing Capabilities
+              Product Capabilities
             </span>
 
-            <h2>Built for combat sports brands</h2>
+            <h2>Choose what you want to manufacture</h2>
           </div>
 
           <p>
-            From first sketches to retail-ready packaging,
-            every stage is designed around your specifications,
-            brand identity and target market.
+            Explore customizable product ranges that can be developed around
+            your materials, construction, colors, branding and packaging.
           </p>
         </div>
 

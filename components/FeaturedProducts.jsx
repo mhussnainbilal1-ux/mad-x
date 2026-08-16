@@ -3,8 +3,8 @@ import ProductCard from "@/components/ProductCard";
 import { products } from "../lib/products";
 
 export default function FeaturedProducts({
-  title = "Products ready for your label",
-  subtitle = "Popular development programs",
+  title = "Products we can manufacture for your brand",
+  subtitle = "Private-label product range",
   limit = 18,
   background = "cream",
 }) {

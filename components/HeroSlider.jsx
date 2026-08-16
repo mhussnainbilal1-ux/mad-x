@@ -6,29 +6,29 @@ import Image from 'next/image'
 
 const slides = [
   {
-    kicker: "SIALKOT • PAKISTAN • GLOBAL EXPORT",
-    titleLineOne: "FROM SKETCH",
-titleLineTwo: "TO SHELF",
+    kicker: "CUSTOM MANUFACTURING • SIALKOT, PAKISTAN",
+    titleLineOne: "BUILT FOR",
+titleLineTwo: "YOUR BRAND",
     description:
-      "OEM and private-label MMA, boxing, BJJ and fitness products engineered, sampled, manufactured and packed for ambitious combat sports brands.",
+      "MADX Sports manufactures private-label boxing, MMA, fitness and performance apparel—from product development and sampling to bulk production and export-ready packaging.",
     image:
       "/images/slider/slide1.png",
   },
   {
     kicker: "OEM • PRIVATE LABEL • CUSTOM DEVELOPMENT",
-    titleLineOne: "FROM DESIGN",
-    titleLineTwo: "TO DELIVERY",
+    titleLineOne: "YOUR DESIGN",
+    titleLineTwo: "YOUR IDENTITY",
     description:
-      "We help combat sports brands develop custom materials, colors, logos, sizing, packaging and performance specifications.",
+      "Develop custom materials, colors, artwork, sizing, labels and packaging around your market position and product requirements.",
       image:
       "/images/slider/slide2.png",
      },
   {
-    kicker: "BOXING • MMA • BJJ • FITNESS",
-    titleLineOne: "YOUR VISION",
-    titleLineTwo: "OUR FACTORY",
+    kicker: "PRODUCTION • QUALITY CONTROL • EXPORT PACKING",
+    titleLineOne: "FROM SAMPLE",
+    titleLineTwo: "TO SHIPMENT",
     description:
-      "Reliable manufacturing, quality control and export-ready packaging for growing brands, gyms, distributors and retailers.",
+      "A structured workflow keeps approvals, bulk manufacturing, quality inspection and retail-ready packing clear from start to finish.",
     image:
     "/images/slider/slide3.png",  },
 ];
@@ -180,4 +180,3 @@ export default function HeroSlider() {
     </section>
   );
 }
-
