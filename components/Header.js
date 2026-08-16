@@ -71,7 +71,7 @@ export default function Header() {
                 aria-expanded={categoriesOpen}
                 aria-controls="category-navigation"
               >
-                Categories <span className="navDropdownChevron" aria-hidden="true" />
+                Categories
               </button>
               <div className="navDropdownMenu" id="category-navigation">
                 {rdxCategories.map((category) => (

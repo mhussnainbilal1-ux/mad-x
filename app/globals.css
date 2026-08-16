@@ -125,37 +125,12 @@ textarea {
 .navDropdownToggle {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
   padding: 29px 0;
   border: 0;
   color: inherit;
   background: transparent;
   font: inherit;
   cursor: pointer;
-}
-.navDropdownChevron {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--surface-3);
-  transition: transform 0.25s ease, border-color 0.2s ease, background 0.2s ease;
-}
-.navDropdownChevron:after {
-  content: "";
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  width: 5px;
-  height: 5px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(45deg);
-}
-.navDropdownToggle:hover .navDropdownChevron {
-  border-color: var(--red);
-  background: color-mix(in srgb, var(--red) 12%, var(--surface));
 }
 .navDropdownMenu {
   position: absolute;
@@ -174,9 +149,6 @@ textarea {
 .navDropdown:hover .navDropdownMenu,
 .navDropdown.open .navDropdownMenu {
   display: grid;
-}
-.navDropdown.open .navDropdownChevron {
-  transform: rotate(180deg);
 }
 .nav .navDropdownMenu a {
   padding: 11px 12px;
@@ -841,6 +813,261 @@ textarea {
 .galleryGrid figcaption {
   padding: 14px;
   font-weight: 800;
+}
+
+/* Gallery showcase */
+.galleryHero {
+  min-height: 520px;
+  display: grid;
+  align-items: center;
+}
+.galleryHero h1 {
+  max-width: 900px;
+}
+.galleryHero p {
+  max-width: 680px;
+}
+.galleryHeroActions,
+.galleryFinalActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.galleryFinalActions {
+  justify-content: center;
+}
+.galleryFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.galleryFilters button {
+  padding: 10px 17px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--surface);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.galleryFilters button:hover,
+.galleryFilters button.active {
+  border-color: var(--red);
+  color: #fff;
+  background: var(--red);
+}
+.galleryEditorialGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.galleryEditorialCard {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card-bg);
+  box-shadow: var(--soft-shadow);
+}
+.galleryEditorialCard.featured {
+  grid-column: span 2;
+}
+.galleryImageButton {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: var(--surface-3);
+  cursor: zoom-in;
+}
+.galleryEditorialCard.featured .galleryImageButton {
+  aspect-ratio: 2 / 1;
+}
+.galleryImageButton img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.galleryEditorialCard:hover .galleryImageButton img {
+  transform: scale(1.035);
+}
+.galleryZoom {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(6, 17, 32, 0.72);
+  backdrop-filter: blur(8px);
+  font-size: 22px;
+}
+.galleryCardBody {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+.galleryCardBody span,
+.galleryLightboxCaption span {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.galleryCardBody h3 {
+  margin: 7px 0 8px;
+}
+.galleryCardBody p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.galleryCardBody a {
+  flex: 0 0 auto;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+}
+.galleryLightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  padding: 24px;
+  place-items: center;
+  background: rgba(2, 7, 14, 0.92);
+  backdrop-filter: blur(10px);
+}
+.galleryLightboxDialog {
+  position: relative;
+  width: min(1100px, 100%);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  color: #fff;
+  background: #07101f;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+}
+.galleryLightboxDialog > img {
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  background: #03070d;
+}
+.galleryLightboxClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(3, 7, 13, 0.8);
+  font-size: 27px;
+  cursor: pointer;
+}
+.galleryLightboxCaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 22px;
+}
+.galleryLightboxCaption h3 {
+  margin: 5px 0 0;
+}
+.galleryLightboxCaption a {
+  font-weight: 800;
+}
+.galleryLightboxArrow {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(3, 7, 13, 0.78);
+  font-size: 22px;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.galleryLightboxArrow.previous {
+  left: 16px;
+}
+.galleryLightboxArrow.next {
+  right: 16px;
+}
+
+@media (max-width: 900px) {
+  .galleryEditorialGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .galleryEditorialCard.featured {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 620px) {
+  .galleryHero {
+    min-height: 480px;
+  }
+  .galleryHeroActions,
+  .galleryFinalActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .galleryFilters {
+    flex-wrap: nowrap;
+    margin-right: -18px;
+    padding-right: 18px;
+    overflow-x: auto;
+  }
+  .galleryFilters button {
+    flex: 0 0 auto;
+  }
+  .galleryEditorialGrid {
+    grid-template-columns: 1fr;
+  }
+  .galleryEditorialCard.featured {
+    grid-column: auto;
+  }
+  .galleryEditorialCard.featured .galleryImageButton,
+  .galleryImageButton {
+    aspect-ratio: 4 / 3;
+  }
+  .galleryCardBody,
+  .galleryLightboxCaption {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .galleryLightbox {
+    padding: 12px;
+  }
+  .galleryLightboxArrow {
+    top: auto;
+    bottom: 94px;
+    transform: none;
+  }
 }
 .blogGrid {
   display: grid;

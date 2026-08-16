@@ -1,69 +1,66 @@
-import Image from 'next/image'
-export const metadata = { title: "Gallery" };
-const images = [
-  [
-    "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1000&q=85",
-    "Boxing development",
-  ],
-  [
-    "https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1000&q=85",
-    "BJJ range",
-  ],
-  [
-    "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1000&q=85",
-    "Performance apparel",
-  ],
-  [
-    "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=1000&q=85",
-    "MMA training",
-  ],
-  [
-    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=85",
-    "Fitness equipment",
-  ],
-  [
-    "https://images.unsplash.com/photo-1517438322307-e67111335449?auto=format&fit=crop&w=1000&q=85",
-    "Manufacturing process",
-  ],
-];
+import Link from "next/link";
+import GalleryShowcase from "@/components/GalleryShowcase";
+
+export const metadata = {
+  title: "Gallery",
+  description:
+    "Explore MADX Sports product development, boxing, MMA, fitness, apparel, quality-control and packaging capabilities.",
+};
+
 export default function Page() {
   return (
     <main>
-      <section className="pageHero"
-      style={{
-        background: `
-        linear-gradient(
-          90deg,
-          rgba(6, 17, 32, 0.98) 0%,
-          rgba(6, 17, 32, 0.75) 35%,
-          rgba(6, 17, 32, 0.35) 70%,
-          rgba(6, 17, 32, 0) 100%
-        ),
-          url("/images/factory/banner-gallery.png") center/cover no-repeat
-        `,
-        minHeight:"500px"
-      }}
+      <section
+        className="pageHero galleryHero"
+        style={{
+          background: `
+            linear-gradient(
+              90deg,
+              rgba(6, 17, 32, 0.98) 0%,
+              rgba(6, 17, 32, 0.76) 38%,
+              rgba(6, 17, 32, 0.22) 100%
+            ),
+            url("/images/factory/banner-gallery.png") center/cover no-repeat
+          `,
+        }}
       >
         <div className="shell">
-          <span className="kicker">PRODUCT & FACTORY GALLERY</span>
-          <h1>Built, branded and prepared for market.</h1>
+          <span className="kicker">PRODUCT &amp; MANUFACTURING GALLERY</span>
+          <h1>Developed with purpose. Built for your brand.</h1>
           <p>
-            Replace these demonstration images with your own factory, products,
-            team and packaging photography before launch.
+            Explore product categories and the development, inspection and
+            packing work behind private-label manufacturing.
           </p>
+          <div className="galleryHeroActions">
+            <a className="button red" href="#gallery-showcase">
+              Explore gallery
+            </a>
+            <Link className="button ghost" href="/quote">
+              Request a quote
+            </Link>
+          </div>
         </div>
       </section>
-      <section className="section">
-        <div className="shell galleryGrid">
-          {images.map((x) => (
-            <figure key={x[1]}>
-             <img src={x[0]} alt={x[1]} 
-              loading="lazy"
-              decoding="async"
-             />
-              <figcaption>{x[1]}</figcaption>
-            </figure>
-          ))}
+
+      <GalleryShowcase />
+
+      <section className="section darkPanel">
+        <div className="shell center">
+          <span className="kicker">CUSTOM PRODUCT DEVELOPMENT</span>
+          <h2>Want to build a collection around your brand?</h2>
+          <p>
+            Share your product idea, reference sample or tech pack. We will
+            review the requirements and outline the next steps for sampling and
+            production.
+          </p>
+          <div className="galleryFinalActions">
+            <Link className="button red" href="/quote">
+              Start your project
+            </Link>
+            <Link className="button ghost" href="/products">
+              Explore products
+            </Link>
+          </div>
         </div>
       </section>
     </main>
