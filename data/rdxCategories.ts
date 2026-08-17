@@ -234,7 +234,7 @@ export const rdxCategories: ProductCategory[] = [
     slug: "apparel",
     groups: [
       {
-        name: "Active Wear",
+        name: "T-Shirts & Tops",
         items: ["T-Shirts", "Trousers", "Vest"],
       },
       {
