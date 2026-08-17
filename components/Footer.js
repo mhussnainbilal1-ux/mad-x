@@ -6,15 +6,18 @@ export default function Footer() {
       <div className="shell footerGrid">
         <div>
           <Link href="/" className="brand footerBrand">
-          <img
+          <Image
+              src="/images/common/logo2.png"
+              alt="MADX Sports"
+              width={200}
+              height={80}
+              sizes="200px"
               style={{
                 width: "200px",
                 height: "auto",
                 marginLeft: "-32px"
               }}
-              loading="lazy"
-              decoding="async"
-              src="/images/common/logo2.png"/>
+          />
           </Link>
           <p>
             OEM and private-label MMA, boxing, BJJ and fitness gear manufactured

@@ -42,15 +42,18 @@ export default function Header() {
             ☰
           </button>
           <Link href="/" className="brand" onClick={() => setOpen(false)}>
-           <img
-            loading="lazy"
-            decoding="async"
+           <Image
+              src="/images/common/logo2.png"
+              alt="MADX Sports"
+              width={200}
+              height={80}
+              priority
+              sizes="200px"
               style={{
                 width: "200px",
                 height: "auto",
                 marginLeft: isMobile ? "32px" : "-32px"
               }}
-              src="/images/common/logo2.png"
             />
           </Link>
 

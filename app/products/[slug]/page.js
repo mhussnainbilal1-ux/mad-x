@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { products } from "@/lib/products";
 import  RangeProducts  from "../../../components/RangeProducts"
 import ImageZoomWrapper from '../../../components/ImageZoomWrapper';
+import Image from "next/image";
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
@@ -26,9 +27,12 @@ export default async function Page({ params }) {
           <div className="detailMedia">
           <ImageZoomWrapper>
          
-           <img src={p.image} alt={p.name} 
-            loading="lazy"
-            decoding="async"
+           <Image src={p.image} alt={p.name}
+            width={900}
+            height={900}
+            priority
+            sizes="(max-width: 900px) 100vw, 55vw"
+            quality={78}
             style={{
               width: "100%",
               display: "block",

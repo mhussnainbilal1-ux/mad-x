@@ -90,11 +90,15 @@ export default function HeroSlider() {
             }`}
             aria-hidden={activeSlide !== index}
           >
-           <img
-            loading="lazy"
-            decoding="async"
+           <Image
               src={slide.image}
               alt=""
+              fill
+              priority={index === 0}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "low"}
+              sizes="100vw"
+              quality={76}
               className="heroSlideImage"
             />
 

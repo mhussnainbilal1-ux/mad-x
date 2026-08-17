@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const galleryItems = [
   {
@@ -180,7 +181,15 @@ export default function GalleryShowcase() {
                 onClick={() => setActiveIndex(index)}
                 aria-label={`Open ${item.title}`}
               >
-                <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes={index === 0 && visibleItems.length > 2
+                    ? "(max-width: 768px) 100vw, 66vw"
+                    : "(max-width: 768px) 100vw, 33vw"}
+                  quality={72}
+                />
                 <span className="galleryZoom" aria-hidden="true">＋</span>
               </button>
               <div className="galleryCardBody">

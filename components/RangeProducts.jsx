@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link";
+import Image from "next/image";
 import { getProductRange } from "../lib/common";
 
 export default function RangeProducts({ index, skipType }) {
@@ -86,9 +87,13 @@ export default function RangeProducts({ index, skipType }) {
               cursor: "pointer",
             }}
           >
-            <img
+            <Image
               src={product.image}
               alt={product.name}
+              width={50}
+              height={50}
+              sizes="50px"
+              quality={65}
               style={{
                 width: "50px",
                 height: "50px",

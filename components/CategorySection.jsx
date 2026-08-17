@@ -63,11 +63,12 @@ export default function CategorySection() {
               href={`/products?category=${category.name}`}
               className="categoryCard"
             >
-             <img
+             <Image
                 src={categoryImages[category.slug]}
                 alt={category.name}
-                loading="lazy"
-                decoding="async"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                quality={75}
               />
 
               <div>

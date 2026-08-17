@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getProductSeries } from "../util/common"
-import Image from 'next/image'
+import Image from "next/image";
 export default function ProductCard({ product }) {
   const series = getProductSeries(product.index);
 
@@ -9,12 +9,13 @@ export default function ProductCard({ product }) {
       <Link href={`/products/${product.slug}`} className="productMedia">
 
 
-        <img
+        <Image
           src={product.image}
           alt={product.name}
           width={500}
           height={500}
-    
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          quality={72}
         />
         {series && <span className="pill">{series}</span>}
       </Link>
