@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState, useRef } from "react";
 import ProductCard from "./ProductCard";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { products as allProducts } from "@/lib/products";
 const PAGE_SIZE = 21;
 
 export default function ProductBrowser({ products }) {
@@ -19,14 +18,14 @@ export default function ProductBrowser({ products }) {
         block: "start",
       });
     }, 100);
-  
+
     return () => window.clearTimeout(timeoutId);
   }, [searchParams]);
-  
+
   const list = useMemo(() => {
     const query = q.trim().toLowerCase();
     const matches = query
-      ? allProducts.filter((product) =>
+      ? products.filter((product) =>
           [
             product.name,
             product.type,
@@ -48,26 +47,20 @@ export default function ProductBrowser({ products }) {
     return list.slice(0, visibleCount);
   }, [list, visibleCount]);
 
-  const remainingProducts = Math.max(
-    0,
-    list.length - visibleCount,
-  );
+  const remainingProducts = Math.max(0, list.length - visibleCount);
 
   const handleLoadMore = () => {
-    setVisibleCount((previous) =>
-      Math.min(previous + PAGE_SIZE, list.length),
-    );
+    setVisibleCount((previous) => Math.min(previous + PAGE_SIZE, list.length));
   };
 
   return (
-    <div  ref={browserRef}>
+    <div ref={browserRef}>
       <div
         className="filters"
         style={{
           display: "flex",
           justifyContent: "space-between",
         }}
-       
       >
         <input
           value={q}
@@ -83,13 +76,10 @@ export default function ProductBrowser({ products }) {
       <div className="resultsBar" aria-live="polite">
         <span>
           Showing <strong>{visibleProducts.length}</strong> of{" "}
-          <strong>{list.length}</strong>{" "}
-          manufacturing-ready products
+          <strong>{list.length}</strong> manufacturing-ready products
         </span>
 
-        <span>
-          No online ordering — request a quotation
-        </span>
+        <span>No online ordering — request a quotation</span>
       </div>
 
       {visibleProducts.length > 0 ? (
@@ -108,7 +98,11 @@ export default function ProductBrowser({ products }) {
         <div className="emptyProducts">
           <h3>No matching products</h3>
           <p>Try a different product name, type, material or category.</p>
-          <button className="button navy" type="button" onClick={() => setQ("")}>
+          <button
+            className="button navy"
+            type="button"
+            onClick={() => setQ("")}
+          >
             Clear search
           </button>
         </div>

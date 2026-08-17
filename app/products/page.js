@@ -1,26 +1,25 @@
-
 import ProductBrowser from "@/components/ProductBrowser";
-import { products } from "@/lib/products";
+import CatalogueAccessControls from "@/components/CatalogueAccessControls";
+import { allProducts, previewProducts } from "@/lib/products";
+import { hasCatalogueAccess } from "@/lib/catalogue-access";
 import { rdxCategories } from "@/data/rdxCategories";
-import MobileOnly from "../../components/MobileOnly"
+import MobileOnly from "../../components/MobileOnly";
 export const metadata = {
   title: "Products",
 };
 
-export default async function Page({ searchParams }) {  
-
+export default async function Page({ searchParams }) {
+  const hasAccess = await hasCatalogueAccess();
+  const products = hasAccess ? allProducts : previewProducts;
   const params = await searchParams;
 
-  const selectedCategory =
-    params?.category || rdxCategories[0].name;
-  
-  const selectedSubCategory =
-    params?.subCategory || "";
-  
+  const selectedCategory = params?.category || rdxCategories[0].name;
+
+  const selectedSubCategory = params?.subCategory || "";
+
   let filteredProducts = products.filter((product) => {
-    const matchesCategory =
-    product.category?.includes(selectedCategory)
-  
+    const matchesCategory = product.category?.includes(selectedCategory);
+
     const matchesSubCategory = !selectedSubCategory
       ? true
       : selectedSubCategory === "Coaching Equipment"
@@ -28,22 +27,18 @@ export default async function Page({ searchParams }) {
             value?.includes("Focus"),
           )
         : product.subCategory?.includes(selectedSubCategory);
-  
+
     return matchesCategory && matchesSubCategory;
   });
-  
-  if (
-    selectedCategory === "Boxing" &&
-    !selectedSubCategory
-  ) {
-    filteredProducts = [...filteredProducts].sort(
-      (a, b) => a.index - b.index
-    );
+
+  if (selectedCategory === "Boxing" && !selectedSubCategory) {
+    filteredProducts = [...filteredProducts].sort((a, b) => a.index - b.index);
   }
 
   return (
     <main>
-      <section className="pageHero"
+      <section
+        className="pageHero"
         style={{
           background: `
         linear-gradient(
@@ -55,20 +50,17 @@ export default async function Page({ searchParams }) {
         ),
           url("/images/factory/banner-product.png") center/cover no-repeat
         `,
-          minHeight: "360px"
+          minHeight: "360px",
         }}
       >
         <div className="shell">
-          <span className="kicker">
-            OEM PRODUCT CATALOGUE
-          </span>
+          <span className="kicker">OEM PRODUCT CATALOGUE</span>
 
           <h1>Manufacturing range</h1>
 
           <p>
-            Browse products that can be customized with your
-            branding, materials, colors, specifications and
-            packaging.
+            Browse products that can be customized with your branding,
+            materials, colors, specifications and packaging.
           </p>
         </div>
       </section>
@@ -80,28 +72,22 @@ export default async function Page({ searchParams }) {
               selectedCategory={selectedCategory}
               selectedSubCategory={selectedSubCategory}
             />
-           
-            
 
             <div className="productsCatalogueContent">
               <div className="catalogueTitleRow">
                 <div>
-                  <span className="kicker dark">
-                    {selectedCategory}
-                  </span>
+                  <span className="kicker dark">{selectedCategory}</span>
 
                   <h2>
-                    {selectedSubCategory ||
-                      `All ${selectedCategory} Products`}
+                    {selectedSubCategory || `All ${selectedCategory} Products`}
                   </h2>
                 </div>
-
               </div>
 
+              <CatalogueAccessControls hasAccess={hasAccess} />
+
               {filteredProducts.length > 0 ? (
-                <ProductBrowser
-                  products={filteredProducts}
-                />
+                <ProductBrowser products={filteredProducts} />
               ) : (
                 <div className="emptyProducts">
                   <h3>Coming Soon</h3>

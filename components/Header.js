@@ -1,11 +1,14 @@
 "use client";
-import Image from 'next/image'
+import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
-import MadXLogo from "@/components/Logo"
+import MadXLogo from "@/components/Logo";
 import { rdxCategories } from "@/data/rdxCategories";
 export default function Header() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -19,13 +22,22 @@ export default function Header() {
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
+  function openCatalogueAccess() {
+    setOpen(false);
+
+    if (pathname.startsWith("/products")) {
+      window.dispatchEvent(new Event("open-catalogue-access"));
+      return;
+    }
+
+    router.push("/products?unlock=1");
+  }
+
   return (
     <>
       <div className="announcement">
         <span>OEM &amp; PRIVATE LABEL COMBAT SPORTS MANUFACTURING</span>
-        <a href="mailto:sales@madxsports.com">
-          sales@madxsports.com
-        </a>
+        <a href="mailto:sales@madxsports.com">sales@madxsports.com</a>
       </div>
 
       <header className="header">
@@ -42,7 +54,7 @@ export default function Header() {
             ☰
           </button>
           <Link href="/" className="brand" onClick={() => setOpen(false)}>
-           <Image
+            <Image
               src="/images/common/logo2.png"
               alt="MADX Sports"
               width={200}
@@ -52,12 +64,10 @@ export default function Header() {
               style={{
                 width: "200px",
                 height: "auto",
-                marginLeft: isMobile ? "32px" : "-32px"
+                marginLeft: isMobile ? "32px" : "-32px",
               }}
             />
           </Link>
-
-
 
           <nav className={`nav ${open ? "open" : ""}`}>
             <Link href="/" onClick={() => setOpen(false)}>
@@ -66,6 +76,13 @@ export default function Header() {
             <Link href="/products" onClick={() => setOpen(false)}>
               Products
             </Link>
+            <button
+              className="navUnlockMobile"
+              type="button"
+              onClick={openCatalogueAccess}
+            >
+              🔓 Unlock Full Catalogue
+            </button>
             <div className={`navDropdown ${categoriesOpen ? "open" : ""}`}>
               <button
                 type="button"
@@ -113,8 +130,15 @@ export default function Header() {
 
           <div className="navTools">
             <ThemeToggle />
+            <button
+              className="navUnlock"
+              type="button"
+              onClick={openCatalogueAccess}
+            >
+              🔓 Unlock Full Catalogue
+            </button>
             <Link className="navCta" href="/quote">
-              Request Quote
+              Quote
             </Link>
           </div>
         </div>
