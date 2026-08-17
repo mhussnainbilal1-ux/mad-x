@@ -151,8 +151,8 @@ export default function CatalogueAccessControls({ hasAccess }) {
             <span className="kicker dark">Private catalogue access</span>
             <h2 id="catalogue-modal-title">Unlock the complete catalogue</h2>
             <p>
-              Enter the 10-character access key provided by your MADX
-              representative to view the complete product range.
+              Enter the access key provided by your MADX representative to view
+              the complete product range.
             </p>
             <UnlockForm {...formProps} inputId="catalogue-guid-modal" modal />
           </div>
@@ -196,7 +196,7 @@ function UnlockForm({
           onChange={(event) => setGuid(event.target.value)}
           placeholder="Enter access key"
           minLength={10}
-          maxLength={10}
+          maxLength={14}
           autoComplete="off"
           spellCheck="false"
           required

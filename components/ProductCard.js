@@ -1,14 +1,28 @@
+"use client";
+
 import Link from "next/link";
-import { getProductSeries } from "../util/common"
+import { getProductSeries } from "../util/common";
 import Image from "next/image";
+import { Plus } from "lucide-react";
+import { useProductList } from "./ProductListProvider";
 export default function ProductCard({ product }) {
   const series = getProductSeries(product.index);
+  const { openProduct, canUseProductLists } = useProductList();
 
   return (
     <article className="productCard">
+      {canUseProductLists && (
+        <button
+          type="button"
+          className="productQuickAdd"
+          onClick={() => openProduct(product)}
+          aria-label={`Add ${product.name} to a product list`}
+          title="Add to sample or order list"
+        >
+          <Plus size={22} strokeWidth={2.5} />
+        </button>
+      )}
       <Link href={`/products/${product.slug}`} className="productMedia">
-
-
         <Image
           src={product.image}
           alt={product.name}
@@ -24,7 +38,6 @@ export default function ProductCard({ product }) {
         <h3>{product.name}</h3>
 
         {/* <h3> {getProductSeries(product.index)}</h3> */}
-
 
         <div className="productBottom">
           <span

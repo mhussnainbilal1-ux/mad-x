@@ -346,11 +346,740 @@ textarea {
   gap: 22px;
 }
 .productCard {
+  position: relative;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 16px;
   overflow: hidden;
   transition: 0.25s;
+}
+
+/* Product sample and order lists */
+.listOverlayOpen {
+  overflow: hidden;
+}
+.srOnly {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.productQuickAdd {
+  position: absolute;
+  z-index: 5;
+  top: 12px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  background: rgba(7, 24, 43, 0.92);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(7, 24, 43, 0.22);
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+.productQuickAdd:hover {
+  transform: scale(1.08);
+  background: var(--red);
+}
+.productQuickAdd:focus-visible,
+.listIconButton:focus-visible,
+.headerListButton:focus-visible {
+  outline: 3px solid rgba(220, 38, 54, 0.35);
+  outline-offset: 3px;
+}
+.headerListButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.headerListButton b {
+  min-width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-size: 11px;
+}
+.productModalBackdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(3, 12, 22, 0.72);
+  backdrop-filter: blur(7px);
+  animation: listFadeIn 0.2s ease-out;
+}
+.productOptionsModal {
+  position: relative;
+  width: min(620px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  padding: 28px;
+  border-radius: 22px;
+  background: #fff;
+  color: #0b1b2d;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
+}
+.listIconButton {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #dce2e8;
+  border-radius: 50%;
+  background: #fff;
+  color: #13283d;
+  cursor: pointer;
+}
+.modalClose {
+  position: absolute;
+  z-index: 2;
+  top: 18px;
+  right: 18px;
+}
+.productModalIntro {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding-right: 40px;
+}
+.productModalImage {
+  position: relative;
+  width: 112px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #edf0f3;
+}
+.productModalImage img,
+.drawerProductImage img {
+  object-fit: contain;
+  padding: 4px;
+}
+.productModalEyebrow {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.productModalIntro h2,
+.drawerHeader h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.15;
+}
+.productModalIntro p {
+  margin: 8px 0 0;
+  color: #718092;
+  font-size: 13px;
+}
+.listTypePicker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 25px 0 22px;
+  padding: 0;
+  border: 0;
+}
+.listTypePicker legend {
+  grid-column: 1/-1;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.listTypePicker label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 14px;
+  border: 1px solid #dce2e8;
+  border-radius: 11px;
+  color: #445365;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.listTypePicker label.active {
+  border-color: var(--red);
+  background: rgba(197, 32, 47, 0.06);
+  color: #101f30;
+}
+.listTypePicker input {
+  accent-color: var(--red);
+}
+.sizeRowsHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.sizeRowsHeader span {
+  color: #788696;
+  font-size: 12px;
+}
+.sizeRows {
+  display: grid;
+  gap: 9px;
+}
+.sizeRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px 36px;
+  gap: 10px;
+  align-items: end;
+}
+.sizeRow label {
+  display: grid;
+  gap: 5px;
+  color: #667587;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.sizeRow input {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #d7dee5;
+  border-radius: 9px;
+  background: #fff;
+  color: #102337;
+  font: inherit;
+}
+.sizeRow input:focus {
+  border-color: var(--red);
+  outline: 3px solid rgba(197, 32, 47, 0.1);
+}
+.removeSizeRow {
+  width: 36px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #a22a35;
+  cursor: pointer;
+}
+.addSizeRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 13px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--red);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.productModalError {
+  margin: 12px 0 0;
+  color: #b31c2a;
+  font-size: 13px;
+  font-weight: 700;
+}
+.productModalSubmit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 21px;
+  border: 0;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.productDetailAddButton {
+  width: 100%;
+  gap: 9px;
+  margin-top: 10px;
+}
+.productListLayer {
+  position: fixed;
+  z-index: 1050;
+  inset: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s linear 0.35s;
+}
+.productListLayer.open {
+  pointer-events: auto;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.productDrawerBackdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border: 0;
+  background: rgba(3, 12, 22, 0.64);
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: default;
+}
+.productListLayer.open .productDrawerBackdrop {
+  opacity: 1;
+}
+.productListDrawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(470px, 100%);
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  background: #f7f9fb;
+  color: #0b1b2d;
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.22);
+  transform: translateX(102%);
+  transition: transform 0.35s cubic-bezier(0.22, 0.8, 0.25, 1);
+}
+.productListLayer.open .productListDrawer {
+  transform: translateX(0);
+}
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px 18px;
+  background: #fff;
+}
+.drawerTabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 24px;
+  background: #fff;
+  border-bottom: 1px solid #dfe5ea;
+}
+.drawerTabs button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 10px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: #718092;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.drawerTabs button.active {
+  border-color: var(--red);
+  color: #102337;
+}
+.drawerTabs span {
+  min-width: 20px;
+  padding: 3px 6px;
+  border-radius: 999px;
+  background: #e8edf1;
+  font-size: 10px;
+}
+.drawerTabs button.active span {
+  background: var(--red);
+  color: #fff;
+}
+.drawerContent {
+  overflow-y: auto;
+  padding: 18px 20px;
+}
+.drawerProduct {
+  margin-bottom: 13px;
+  padding: 14px;
+  border: 1px solid #dfe5ea;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 7px 20px rgba(19, 40, 61, 0.05);
+}
+.drawerProductTop {
+  display: grid;
+  grid-template-columns: 72px 1fr 30px;
+  gap: 12px;
+  align-items: center;
+}
+.drawerProductImage {
+  position: relative;
+  width: 72px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #edf0f3;
+}
+.drawerProductTitle span {
+  color: var(--red);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.drawerProductTitle h3 {
+  margin: 5px 0 0;
+  font-size: 14px;
+  line-height: 1.3;
+}
+.drawerRemove {
+  align-self: start;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  background: #fff1f2;
+  color: #a52631;
+  cursor: pointer;
+}
+.drawerSelections {
+  display: grid;
+  gap: 5px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #e7ebef;
+}
+.drawerSelections > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 750;
+}
+.drawerSelections label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #788696;
+  font-size: 11px;
+  font-weight: 500;
+}
+.drawerSelections input {
+  width: 58px;
+  height: 30px;
+  padding: 0 7px;
+  border: 1px solid #d7dee5;
+  border-radius: 6px;
+  background: #fff;
+  color: #102337;
+  color-scheme: light;
+}
+.emptyDrawer {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 55vh;
+  padding: 30px;
+  color: #84909e;
+  text-align: center;
+}
+.emptyDrawer h3 {
+  margin: 14px 0 6px;
+  color: #24384c;
+}
+.emptyDrawer p {
+  max-width: 260px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.drawerFooter {
+  display: grid;
+  gap: 9px;
+  padding: 15px 20px max(18px, env(safe-area-inset-bottom));
+  border-top: 1px solid #dfe5ea;
+  background: #fff;
+}
+.drawerDownload {
+  width: 100%;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  cursor: pointer;
+}
+.drawerDownload:disabled,
+.combinedDownload:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.drawerClear,
+.combinedDownload {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 5px;
+  border: 0;
+  background: transparent;
+  color: #7d8996;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.combinedDownload {
+  padding: 10px;
+  border: 1px solid #d9e0e6;
+  border-radius: 9px;
+  color: #1a334b;
+}
+.clearListConfirmBackdrop {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(3, 12, 22, 0.58);
+  backdrop-filter: blur(3px);
+  animation: listFadeIn 0.18s ease-out;
+}
+.clearListConfirm {
+  width: min(350px, 100%);
+  padding: 26px;
+  border-radius: 16px;
+  background: #fff;
+  color: #102337;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+  text-align: center;
+}
+.clearListConfirmIcon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: #fff1f2;
+  color: #b52331;
+}
+.clearListConfirm h3 {
+  margin: 0;
+  font-size: 21px;
+}
+.clearListConfirm p {
+  margin: 9px 0 21px;
+  color: #718092;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.clearListConfirmActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+.clearListConfirmActions button {
+  min-height: 42px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.clearListNo {
+  border: 1px solid #d9e0e6;
+  background: #fff;
+  color: #30465c;
+}
+.clearListYes {
+  border: 1px solid var(--red);
+  background: var(--red);
+  color: #fff;
+}
+.clearListConfirmActions button:focus-visible {
+  outline: 3px solid rgba(209, 29, 42, 0.22);
+  outline-offset: 2px;
+}
+.downloadDetailsDialog {
+  position: relative;
+  width: min(380px, 100%);
+  display: grid;
+  gap: 13px;
+  padding: 26px;
+  border-radius: 16px;
+  background: #fff;
+  color: #102337;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+}
+.downloadDetailsDialog h3 {
+  margin: -4px 30px 0 0;
+  font-size: 21px;
+}
+.downloadDetailsDialog > p {
+  margin: -5px 0 4px;
+  color: #718092;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.downloadDetailsDialog label {
+  display: grid;
+  gap: 5px;
+}
+.downloadDetailsDialog label > span {
+  color: #526376;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.downloadDetailsDialog input {
+  width: 100%;
+  height: 43px;
+  padding: 0 11px;
+  border: 1px solid #d7dee5;
+  border-radius: 8px;
+  background: #fff;
+  color: #102337;
+  color-scheme: light;
+}
+.downloadDetailsDialog input:focus {
+  border-color: var(--red);
+  outline: 3px solid rgba(209, 29, 42, 0.12);
+}
+.downloadDetailsClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #d9e0e6;
+  border-radius: 50%;
+  background: #fff;
+  color: #30465c;
+  cursor: pointer;
+}
+.downloadDetailsActions {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 9px;
+  margin-top: 5px;
+}
+.downloadDetailsActions button {
+  min-height: 43px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border: 1px solid #d9e0e6;
+  border-radius: 8px;
+  background: #fff;
+  color: #30465c;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.downloadDetailsActions button[type="submit"] {
+  border-color: var(--red);
+  background: var(--red);
+  color: #fff;
+}
+@keyframes listFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 620px) {
+  .headerListButton {
+    width: 40px;
+    padding: 0;
+    justify-content: center;
+  }
+  .headerListButton > span {
+    display: none;
+  }
+  .headerListButton b {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 17px;
+    height: 17px;
+    font-size: 9px;
+  }
+  .productModalBackdrop {
+    align-items: end;
+    padding: 0;
+  }
+  .productOptionsModal {
+    width: 100%;
+    max-height: 92vh;
+    padding: 22px 18px max(22px, env(safe-area-inset-bottom));
+    border-radius: 20px 20px 0 0;
+  }
+  .productModalIntro {
+    grid-template-columns: 82px 1fr;
+    gap: 14px;
+    padding-right: 30px;
+  }
+  .productModalImage {
+    width: 82px;
+  }
+  .productModalIntro h2 {
+    font-size: 19px;
+  }
+  .listTypePicker {
+    margin-top: 20px;
+  }
+  .sizeRowsHeader {
+    display: grid;
+    gap: 3px;
+  }
+  .sizeRow {
+    grid-template-columns: minmax(0, 1fr) 90px 30px;
+    gap: 7px;
+  }
+  .drawerHeader {
+    padding: 20px 18px 15px;
+  }
+  .drawerTabs {
+    padding: 0 18px;
+  }
+  .drawerContent {
+    padding: 14px;
+  }
 }
 .productCard:hover {
   transform: translateY(-4px);

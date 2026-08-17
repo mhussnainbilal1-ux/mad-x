@@ -6,12 +6,15 @@ import { useState, useEffect } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
 import MadXLogo from "@/components/Logo";
 import { madxCategories } from "@/data/madxCategories";
+import { ClipboardList } from "lucide-react";
+import { useProductList } from "./ProductListProvider";
 export default function Header({ hasCatalogueAccess = false }) {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const { items, openDrawer, canUseProductLists } = useProductList();
 
   useEffect(() => {
     const checkScreen = () => setIsMobile(window.innerWidth < 768);
@@ -132,6 +135,19 @@ export default function Header({ hasCatalogueAccess = false }) {
 
           <div className="navTools">
             <ThemeToggle />
+            {canUseProductLists && (
+              <button
+                type="button"
+                className="headerListButton"
+                onClick={openDrawer}
+                aria-label={`Open product lists with ${items.length} entries`}
+                title="Sample and order lists"
+              >
+                <ClipboardList size={19} />
+                <span>Lists</span>
+                {items.length > 0 && <b>{items.length}</b>}
+              </button>
+            )}
             {!hasCatalogueAccess && (
               <button
                 className="navUnlock"

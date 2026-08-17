@@ -1,7 +1,10 @@
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { hasCatalogueAccess } from "@/lib/catalogue-access";
+import { getCatalogueAccess } from "@/lib/catalogue-access";
+import { ProductListProvider } from "@/components/ProductListProvider";
+import ProductOptionsModal from "@/components/ProductOptionsModal";
+import ProductListDrawer from "@/components/ProductListDrawer";
 
 export const metadata = {
   title: {
@@ -18,14 +21,22 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const hasAccess = await hasCatalogueAccess();
+  const access = await getCatalogueAccess();
 
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body>
-        <Header hasCatalogueAccess={hasAccess} />
-        {children}
-        <Footer />
+        <ProductListProvider canUseProductLists={access.hasAdminAccess}>
+          <Header hasCatalogueAccess={access.hasCatalogueAccess} />
+          {children}
+          <Footer />
+          {access.hasAdminAccess && (
+            <>
+              <ProductOptionsModal />
+              <ProductListDrawer />
+            </>
+          )}
+        </ProductListProvider>
       </body>
     </html>
   );

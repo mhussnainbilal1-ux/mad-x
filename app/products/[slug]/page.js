@@ -6,6 +6,7 @@ import { getProductRange } from "@/lib/common";
 import RangeProducts from "../../../components/RangeProducts";
 import ImageZoomWrapper from "../../../components/ImageZoomWrapper";
 import Image from "next/image";
+import ProductDetailAddButton from "@/components/ProductDetailAddButton";
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const hasAccess = await hasCatalogueAccess();
@@ -88,6 +89,7 @@ export default async function Page({ params }) {
             <Link className="button red wide" href={`/quote?product=${p.slug}`}>
               Request quote for this product
             </Link>
+            <ProductDetailAddButton product={p} />
           </div>
         </div>
       </section>
