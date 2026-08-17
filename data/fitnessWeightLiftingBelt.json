@@ -11,7 +11,14 @@
     "moq": "100 Pieces",
     "lead": "25-35 Days",
     "image": "/images/products/fitness/weightliftingBelts/1.png",
-    "features": ["Rigid wide-back support", "Quick-lock metal lever closure", "Bold dog graphic exterior", "Reinforced edge stitching", "Designed for squats and heavy lifts", "Custom logo, colors and designs"]
+    "features": [
+      "Rigid wide-back support",
+      "Quick-lock metal lever closure",
+      "Bold dog graphic exterior",
+      "Reinforced edge stitching",
+      "Designed for squats and heavy lifts",
+      "Custom logo, colors and designs"
+    ]
   },
   {
     "index": 2,
@@ -25,7 +32,14 @@
     "moq": "100 Pieces",
     "lead": "25-35 Days",
     "image": "/images/products/fitness/weightliftingBelts/2.png",
-    "features": ["Wide rigid support profile", "Secure double-prong buckle", "Black and red contrast finish", "Multiple adjustment holes", "Reinforced stitching and belt loop", "Custom logo, colors and designs"]
+    "features": [
+      "Wide rigid support profile",
+      "Secure double-prong buckle",
+      "Black and red contrast finish",
+      "Multiple adjustment holes",
+      "Reinforced stitching and belt loop",
+      "Custom logo, colors and designs"
+    ]
   },
   {
     "index": 3,
@@ -39,7 +53,14 @@
     "moq": "100 Pieces",
     "lead": "25-35 Days",
     "image": "/images/products/fitness/weightliftingBelts/3.png",
-    "features": ["Structured wide-back construction", "Double-prong buckle closure", "Solid blue exterior", "Multiple fit adjustment holes", "Reinforced perimeter stitching", "Custom logo, colors and designs"]
+    "features": [
+      "Structured wide-back construction",
+      "Double-prong buckle closure",
+      "Solid blue exterior",
+      "Multiple fit adjustment holes",
+      "Reinforced perimeter stitching",
+      "Custom logo, colors and designs"
+    ]
   },
   {
     "index": 4,
@@ -53,7 +74,14 @@
     "moq": "100 Pieces",
     "lead": "25-35 Days",
     "image": "/images/products/fitness/weightliftingBelts/4.png",
-    "features": ["Wide rigid lumbar support", "Double-prong buckle closure", "Blue and black checkered finish", "Multiple adjustment positions", "Reinforced edge construction", "Custom logo, colors and designs"]
+    "features": [
+      "Wide rigid lumbar support",
+      "Double-prong buckle closure",
+      "Blue and black checkered finish",
+      "Multiple adjustment positions",
+      "Reinforced edge construction",
+      "Custom logo, colors and designs"
+    ]
   },
   {
     "index": 5,
@@ -67,7 +95,14 @@
     "moq": "100 Pieces",
     "lead": "25-35 Days",
     "image": "/images/products/fitness/weightliftingBelts/5.png",
-    "features": ["Broad contoured lumbar panel", "Adjustable webbing support strap", "Secure hook-and-loop fastening", "Integrated metal guide ring", "Lightweight flexible construction", "Custom logo, colors and designs"]
+    "features": [
+      "Broad contoured lumbar panel",
+      "Adjustable webbing support strap",
+      "Secure hook-and-loop fastening",
+      "Integrated metal guide ring",
+      "Lightweight flexible construction",
+      "Custom logo, colors and designs"
+    ]
   },
   {
     "index": 6,
@@ -81,7 +116,14 @@
     "moq": "100 Pieces",
     "lead": "25-35 Days",
     "image": "/images/products/fitness/weightliftingBelts/6.png",
-    "features": ["Padded contoured back panel", "Adjustable webbing closure", "Roller buckle and hook-and-loop fastening", "Black and purple contrast design", "Flexible lightweight fit", "Custom logo, colors and designs"]
+    "features": [
+      "Padded contoured back panel",
+      "Adjustable webbing closure",
+      "Roller buckle and hook-and-loop fastening",
+      "Black and purple contrast design",
+      "Flexible lightweight fit",
+      "Custom logo, colors and designs"
+    ]
   },
   {
     "index": 7,
@@ -95,6 +137,13 @@
     "moq": "100 Pieces",
     "lead": "25-35 Days",
     "image": "/images/products/fitness/weightliftingBelts/7.png",
-    "features": ["Contoured padded back support", "Heavy-duty steel loading chain", "Secure carabiner attachment", "Reinforced webbing anchor points", "Suitable for weighted dips and pull-ups", "Custom logo, colors and designs"]
+    "features": [
+      "Contoured padded back support",
+      "Heavy-duty steel loading chain",
+      "Secure carabiner attachment",
+      "Reinforced webbing anchor points",
+      "Suitable for weighted dips and pull-ups",
+      "Custom logo, colors and designs"
+    ]
   }
 ]

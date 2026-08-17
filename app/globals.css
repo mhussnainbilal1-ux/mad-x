@@ -1695,6 +1695,35 @@ html[data-theme="dark"] .success {
   transition: 0.25s;
 }
 
+.apparelSidebarChildren {
+  display: grid;
+  gap: 2px;
+  margin: 0 6px 7px 16px;
+  padding-left: 8px;
+  border-left: 2px solid var(--line);
+}
+
+.sidebarSubcategories .apparelSidebarChildren a {
+  justify-content: flex-start;
+  gap: 7px;
+  padding: 7px 9px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sidebarSubcategories .apparelSidebarChildren a > span {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--primary);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.sidebarSubcategories .apparelSidebarChildren a.active > span {
+  color: inherit;
+}
+
 .sidebarSubcategories a:hover {
   background: var(--background);
   color: var(--text);
@@ -1984,28 +2013,36 @@ html[data-theme="dark"] .success {
 .sidebarCategory.active > .sidebarCategoryTitle {
   color: var(--text);
   font-weight: 800;
-
-  border-left: 4px solid var(--primary);
-  padding-left: 16px;
-
-  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 3px solid var(--red);
 }
 
 /* Selected Subcategory */
 
 .sidebarSubcategories a.active {
+  position: relative;
   color: var(--text);
   font-weight: 700;
-
-  border-left: 3px solid var(--primary);
   padding-left: 18px;
-
+  border-radius: 0;
   background: transparent;
+  box-shadow: none;
+}
+
+.sidebarSubcategories a.active::before {
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  width: 3px;
+  height: 14px;
+  background: var(--red);
+  content: "";
 }
 
 .sidebarSubcategories a.active span {
-  background: var(--primary);
-  color: #fff;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--red);
 }
 
 .filters {

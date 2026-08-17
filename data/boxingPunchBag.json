@@ -38,5 +38,65 @@
       "Full-height graphic and branding area",
       "Custom artwork, logo, colors and sizes"
     ]
+  },
+  {
+    "slug": "velocity-teardrop-mma-punch-bag",
+    "name": "Velocity Teardrop MMA Punch Bag",
+    "category": "Boxing, MMA",
+    "subCategory": "Training Equipment, Punch Bags, MMA Punch Bags",
+    "type": "Teardrop MMA Punch Bag",
+    "summary": "Teardrop-shaped striking bag with a broad lower target area for developing hooks, uppercuts, knees, elbows and close-range combinations.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Reinforced Webbing and Metal Hardware",
+    "moq": "50 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/punchbag/3.png",
+    "features": [
+      "Teardrop profile for multi-angle striking",
+      "Broad lower section for knees and body combinations",
+      "Four reinforced webbing suspension straps",
+      "Metal chain and hanging ring assembly",
+      "High-impact red, white and graphite graphics",
+      "Custom logo, colors, dimensions and filling options"
+    ]
+  },
+  {
+    "slug": "apex-angled-uppercut-punch-bag",
+    "name": "Apex Angled Uppercut Punch Bag",
+    "category": "Boxing, MMA",
+    "subCategory": "Training Equipment, Punch Bags, MMA Punch Bags",
+    "type": "Angled Uppercut Punch Bag",
+    "summary": "Multi-profile heavy bag with sloped shoulder zones for uppercuts, hooks, body shots, elbows and varied boxing or MMA striking drills.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Reinforced Webbing and Metal Hardware",
+    "moq": "50 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/punchbag/4.png",
+    "features": [
+      "Angled shoulder targets for uppercuts and hooks",
+      "Wide stable lower striking section",
+      "Reinforced multi-panel construction",
+      "Heavy-duty webbing and chain suspension",
+      "Geometric red and graphite panel graphics",
+      "Custom logo, colors, dimensions and filling options"
+    ]
+  },
+  {
+    "slug": "strikeflow-banana-heavy-punch-bag",
+    "name": "StrikeFlow Banana Heavy Punch Bag",
+    "category": "Boxing, MMA",
+    "subCategory": "Training Equipment, Punch Bags, MMA Punch Bags",
+    "type": "Banana Heavy Punch Bag",
+    "summary": "Extra-long slim heavy bag designed for full-height boxing combinations, body shots, kicks, knees and MMA striking practice.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Reinforced Webbing and Metal Hardware",
+    "moq": "50 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/punchbag/5.png",
+    "features": [
+      "Extra-long target area for high and low strikes",
+      "Slim cylindrical profile for combination training",
+      "Four reinforced webbing suspension straps",
+      "Bottom tether ring for movement control",
+      "Graphite honeycomb and crimson arc graphics",
+      "Custom logo, colors, dimensions and filling options"
+    ]
   }
 ]

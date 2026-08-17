@@ -1,8 +1,7 @@
-
 "use client";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { rdxCategories } from "@/data/rdxCategories";
+import { madxCategories } from "@/data/madxCategories";
 export default function SubCategorySidebar() {
   const searchParams = useSearchParams();
 
@@ -10,9 +9,8 @@ export default function SubCategorySidebar() {
   const selectedSubCategory = searchParams.get("subCategory");
 
   const activeCategory =
-    rdxCategories.find(
-      (category) => category.name === selectedCategory
-    ) || rdxCategories[0];
+    madxCategories.find((category) => category.name === selectedCategory) ||
+    madxCategories[0];
 
   return (
     <aside className="subcategorySidebar">
@@ -22,30 +20,24 @@ export default function SubCategorySidebar() {
       </div>
 
       <div className="sidebarCategories">
-          
-        {rdxCategories
+        {madxCategories
           .filter(
             (category) =>
               category.groups.length > 0 &&
-              !["sale", "gift-card"].includes(
-                category.slug
-              )
+              !["sale", "gift-card"].includes(category.slug),
           )
           .map((category) => {
-            const isActive =
-              category.name === activeCategory.name;
+            const isActive = category.name === activeCategory.name;
 
             return (
               <div
                 key={category.slug}
-                className={`sidebarCategory ${
-                  isActive ? "active" : ""
-                }`}
+                className={`sidebarCategory ${isActive ? "active" : ""}`}
               >
                 <Link
                   scroll={true}
                   href={`/products?category=${encodeURIComponent(
-                    category.name
+                    category.name,
                   )}`}
                   className="sidebarCategoryTitle"
                 >
@@ -58,34 +50,49 @@ export default function SubCategorySidebar() {
                     <Link
                       scroll={true}
                       href={`/products?category=${encodeURIComponent(
-                        category.name
+                        category.name,
                       )}`}
-                      className={
-                        !selectedSubCategory ? "active" : ""
-                      }
+                      className={!selectedSubCategory ? "active" : ""}
                     >
                       All {category.name}
                     </Link>
 
                     {category.groups.map((group) => (
-                      <Link
-                        scroll={true}
-                        key={group.name}
-                        href={`/products?category=${encodeURIComponent(
-                          category.name
-                        )}&subCategory=${encodeURIComponent(
-                          group.name
-                        )}`}
-                        className={
-                          selectedSubCategory === group.name
-                            ? "active"
-                            : ""
-                        }
-                      >
-                        {group.name}
-                        <span>→</span>
-                        {/* <span>{group.items.length}</span> */}
-                      </Link>
+                      <div key={group.name}>
+                        <Link
+                          scroll={true}
+                          href={`/products?category=${encodeURIComponent(
+                            category.name,
+                          )}&subCategory=${encodeURIComponent(group.name)}`}
+                          className={
+                            selectedSubCategory === group.name ? "active" : ""
+                          }
+                        >
+                          {group.name}
+                          <span>→</span>
+                        </Link>
+
+                        {category.slug === "apparel" &&
+                          group.items.length > 0 && (
+                            <div className="apparelSidebarChildren">
+                              {group.items.map((item) => (
+                                <Link
+                                  scroll={true}
+                                  key={item}
+                                  href={`/products?category=${encodeURIComponent(
+                                    category.name,
+                                  )}&subCategory=${encodeURIComponent(item)}`}
+                                  className={
+                                    selectedSubCategory === item ? "active" : ""
+                                  }
+                                >
+                                  <span aria-hidden="true">›</span>
+                                  {item}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                      </div>
                     ))}
                   </div>
                 )}

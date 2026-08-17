@@ -1,24 +1,18 @@
 import Link from "next/link";
-import { rdxCategories } from "@/data/rdxCategories";
-import Image from 'next/image'
+import { madxCategories } from "@/data/madxCategories";
+import Image from "next/image";
 
 const categoryImages = {
-  boxing:
-    "/images/category/cat-boxing.png",
+  boxing: "/images/category/cat-boxing.png",
 
-  mma:
-  "/images/category/mma.png",
+  mma: "/images/category/mma.png",
 
-  fitness:
-  "/images/category/fitness.png",
+  fitness: "/images/category/fitness.png",
 
-  apparel:
-  "/images/category/apparal.png",
-  yoga:
-  "/images/category/yoga.png",
-  collections:
-  "/images/category/collection.png",
- };
+  apparel: "/images/category/apparal.png",
+  yoga: "/images/category/yoga.png",
+  collections: "/images/category/collection.png",
+};
 
 const categoryLabels = {
   boxing: "GLOVES • BAGS • PROTECTION",
@@ -33,9 +27,8 @@ const categoryLabels = {
 };
 
 export default function CategorySection() {
-  const categories = rdxCategories.filter(
-    (category) =>
-      !["sale", "gift-card"].includes(category.slug)
+  const categories = madxCategories.filter(
+    (category) => !["sale", "gift-card"].includes(category.slug),
   );
 
   return (
@@ -43,9 +36,7 @@ export default function CategorySection() {
       <div className="shell">
         <div className="heading">
           <div>
-            <span className="kicker dark">
-              Product Capabilities
-            </span>
+            <span className="kicker dark">Product Capabilities</span>
 
             <h2>Choose what you want to manufacture</h2>
           </div>
@@ -63,7 +54,7 @@ export default function CategorySection() {
               href={`/products?category=${category.name}`}
               className="categoryCard"
             >
-             <Image
+              <Image
                 src={categoryImages[category.slug]}
                 alt={category.name}
                 fill
@@ -72,10 +63,7 @@ export default function CategorySection() {
               />
 
               <div>
-                <span>
-                  {categoryLabels[category.slug] ||
-                    "VIEW RANGE"}
-                </span>
+                <span>{categoryLabels[category.slug] || "VIEW RANGE"}</span>
 
                 <h3>{category.name}</h3>
 

@@ -5,8 +5,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
 import MadXLogo from "@/components/Logo";
-import { rdxCategories } from "@/data/rdxCategories";
-export default function Header() {
+import { madxCategories } from "@/data/madxCategories";
+export default function Header({ hasCatalogueAccess = false }) {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -76,13 +76,15 @@ export default function Header() {
             <Link href="/products" onClick={() => setOpen(false)}>
               Products
             </Link>
-            <button
-              className="navUnlockMobile"
-              type="button"
-              onClick={openCatalogueAccess}
-            >
-              🔓 Unlock Full Catalogue
-            </button>
+            {!hasCatalogueAccess && (
+              <button
+                className="navUnlockMobile"
+                type="button"
+                onClick={openCatalogueAccess}
+              >
+                🔓 Unlock Full Catalogue
+              </button>
+            )}
             <div className={`navDropdown ${categoriesOpen ? "open" : ""}`}>
               <button
                 type="button"
@@ -94,7 +96,7 @@ export default function Header() {
                 Categories
               </button>
               <div className="navDropdownMenu" id="category-navigation">
-                {rdxCategories.map((category) => (
+                {madxCategories.map((category) => (
                   <Link
                     key={category.slug}
                     href={`/products?category=${encodeURIComponent(category.name)}`}
@@ -130,13 +132,15 @@ export default function Header() {
 
           <div className="navTools">
             <ThemeToggle />
-            <button
-              className="navUnlock"
-              type="button"
-              onClick={openCatalogueAccess}
-            >
-              🔓 Unlock Full Catalogue
-            </button>
+            {!hasCatalogueAccess && (
+              <button
+                className="navUnlock"
+                type="button"
+                onClick={openCatalogueAccess}
+              >
+                🔓 Unlock Full Catalogue
+              </button>
+            )}
             <Link className="navCta" href="/quote">
               Quote
             </Link>

@@ -5,12 +5,11 @@ export type ProductCategory = {
   groups: CategoryGroup[];
 };
 
-export const rdxCategories: ProductCategory[] = [
+export const madxCategories: ProductCategory[] = [
   {
     name: "Boxing",
     slug: "boxing",
     groups: [
-      
       {
         name: "Boxing Gloves",
         items: [
@@ -75,7 +74,6 @@ export const rdxCategories: ProductCategory[] = [
     name: "MMA",
     slug: "mma",
     groups: [
-      
       {
         name: "MMA Gloves",
         items: ["Sparring Gloves", "Training Gloves", "Kids Grappling Gloves"],
@@ -235,20 +233,29 @@ export const rdxCategories: ProductCategory[] = [
     groups: [
       {
         name: "T-Shirts & Tops",
-        items: ["T-Shirts", "Trousers", "Vest"],
-      },
-      {
-        name: "Compression Wear & Shorts",
-        items: ["MMA Shorts", "Compression Shorts & Pants", "Sweatshirts"],
-      },
-      {
-        name: "Sauna Range",
         items: [
-          "Sauna Suits",
-          "Sauna Vests",
-          "Sauna T-Shirts",
-          "Sauna Shorts",
-          "Sauna Leggings",
+          "Compression T-Shirts",
+          "Crop Tops",
+          "Gym T-Shirts",
+          "Hoodies",
+          "Long-Sleeve Training Tops",
+          "Performance T-Shirts",
+          "Sleeveless Training Shirts",
+          "Stringer Vests",
+          "Tank Tops",
+        ],
+      },
+      {
+        name: "Bottoms",
+        items: [
+          "Compression Shorts",
+          "Cycling Shorts",
+          "Gym Shorts",
+          "Joggers",
+          "Running Shorts",
+          "Sweatpants",
+          "Training Pants",
+          "Training Shorts",
         ],
       },
     ],
@@ -306,7 +313,7 @@ export const rdxCategories: ProductCategory[] = [
 ];
 
 export function getCategory(categorySlug: string) {
-  const category = rdxCategories.find((item) => item.slug === categorySlug);
+  const category = madxCategories.find((item) => item.slug === categorySlug);
 
   if (!category) {
     throw new Error(`Category not found: ${categorySlug}`);

@@ -2,7 +2,7 @@ import ProductBrowser from "@/components/ProductBrowser";
 import CatalogueAccessControls from "@/components/CatalogueAccessControls";
 import { allProducts, previewProducts } from "@/lib/products";
 import { hasCatalogueAccess } from "@/lib/catalogue-access";
-import { rdxCategories } from "@/data/rdxCategories";
+import { madxCategories } from "@/data/madxCategories";
 import MobileOnly from "../../components/MobileOnly";
 export const metadata = {
   title: "Products",
@@ -13,7 +13,7 @@ export default async function Page({ searchParams }) {
   const products = hasAccess ? allProducts : previewProducts;
   const params = await searchParams;
 
-  const selectedCategory = params?.category || rdxCategories[0].name;
+  const selectedCategory = params?.category || madxCategories[0].name;
 
   const selectedSubCategory = params?.subCategory || "";
 

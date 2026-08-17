@@ -1,23 +1,22 @@
 [
   {
-    
     "slug": "segmented-black-boxing-body-protector",
     "name": "Segmented Black Body Protector",
-  
+
     "category": "Boxing",
     "subCategory": "Training Equipment, Protective Gear, Coaching Equipment",
     "type": "Chest & Body Protector",
-  
+
     "summary": "Black sleeveless body protector with segmented front, shoulder and side padding for coached boxing, kickboxing and combat-sports drills.",
-  
+
     "materials": "Genuine Leather or Premium Synthetic Leather Options with Textile Binding",
-  
+
     "moq": "100 Pieces",
-  
+
     "lead": "25-35 Days",
-  
+
     "image": "/images/products/boxing/chestguard/1.png",
-  
+
     "features": [
       "Segmented chest and torso padding",
       "Padded shoulder and side sections",
@@ -26,5 +25,65 @@
       "Bound neck, arm and outer edges",
       "Custom logo, colors and branding"
     ]
+  },
+  {
+    "slug": "crimson-fury-segmented-body-protector",
+    "name": "Crimson Fury Segmented Body Protector",
+    "category": "Boxing",
+    "subCategory": "Training Equipment, Protective Gear, Coaching Equipment",
+    "type": "Chest & Body Protector",
+    "summary": "Aggressive crimson and black coaching body protector with armor-inspired segmented padding for boxing, kickboxing and combat-sports drills.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Multi-Density Foam and Textile Binding",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/chestguard/2.png",
+    "features": [
+      "Armor-inspired segmented torso construction",
+      "Reinforced sternum and abdominal padding",
+      "Extended crimson rib and side protection",
+      "Padded shoulders with bound openings",
+      "Aggressive black claw and white slash graphics",
+      "Custom logo, colors, padding and branding"
+    ]
+  },
+  {
+    "slug": "cobalt-strike-coaching-body-protector",
+    "name": "Cobalt Strike Coaching Body Protector",
+    "category": "Boxing",
+    "subCategory": "Training Equipment, Protective Gear, Coaching Equipment",
+    "type": "Chest & Body Protector",
+    "summary": "Electric cobalt and midnight coaching protector with articulated impact zones and angular graphics for intensive boxing and MMA training.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Multi-Density Foam and Textile Binding",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/chestguard/3.png",
+    "features": [
+      "Articulated chest, rib and abdomen padding",
+      "Electric cobalt and midnight color blocking",
+      "Gunmetal textured impact panels",
+      "Broad shoulder and wraparound side coverage",
+      "Sharp ice-white lightning graphics",
+      "Custom logo, colors, padding and branding"
+    ]
+  },
+  {
+    "slug": "venom-lime-combat-body-protector",
+    "name": "Venom Lime Combat Body Protector",
+    "category": "Boxing",
+    "subCategory": "Training Equipment, Protective Gear, Coaching Equipment",
+    "type": "Chest & Body Protector",
+    "summary": "Acid lime and charcoal body protector with a high-visibility predator graphic treatment and extensive segmented coverage for combat coaching.",
+    "materials": "Genuine Leather or Premium Synthetic Leather Options with Multi-Density Foam and Textile Binding",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/chestguard/4.png",
+    "features": [
+      "High-visibility acid lime protection panels",
+      "Segmented sternum and solar-plexus padding",
+      "Extended articulated side protection",
+      "Charcoal hex-texture synthetic leather finish",
+      "Aggressive claw-strike graphic details",
+      "Custom logo, colors, padding and branding"
+    ]
   }
-  ]
+]

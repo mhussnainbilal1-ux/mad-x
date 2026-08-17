@@ -82,5 +82,131 @@
       "Close-fitting crew neckline",
       "Custom sublimation, colors and branding"
     ]
+  },
+  {
+    "index": 5,
+    "slug": "redline-vector-long-sleeve-rashguard",
+    "name": "Redline Vector Rashguard",
+    "category": "Boxing, Apparel, MMA",
+    "subCategory": "Boxing Apparel, Training Apparel",
+    "type": "Long-Sleeve Compression Rashguard",
+    "summary": "Deep-navy long-sleeve compression rashguard with asymmetric crimson, cream and carbon-effect speed graphics for modern combat training.",
+    "materials": "Premium Polyester and Spandex Performance Fabric",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/rashguard/5.png",
+    "features": [
+      "Long-sleeve compression-fit construction",
+      "Raglan-style shoulder seams",
+      "Asymmetric aerodynamic vector graphics",
+      "Stretch fabric for unrestricted movement",
+      "Close-fitting crew neckline",
+      "Custom sublimation, colors and branding"
+    ]
+  },
+  {
+    "index": 6,
+    "slug": "raptor-strike-long-sleeve-rashguard",
+    "name": "Raptor Strike Rashguard",
+    "category": "Boxing, Apparel, MMA",
+    "subCategory": "Boxing Apparel, Training Apparel",
+    "type": "Long-Sleeve Compression Rashguard",
+    "summary": "Navy and black long-sleeve compression rashguard with a fierce raptor graphic, crimson eyes and coordinated feather artwork across the sleeves.",
+    "materials": "Premium Polyester and Spandex Performance Fabric",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/rashguard/6.png",
+    "features": [
+      "Long-sleeve compression-fit construction",
+      "Raglan-style shoulder seams",
+      "High-impact raptor and feather artwork",
+      "Stretch fabric for unrestricted movement",
+      "Close-fitting crew neckline",
+      "Custom sublimation, colors and branding"
+    ]
+  },
+  {
+    "index": 7,
+    "slug": "fracture-elite-long-sleeve-rashguard",
+    "name": "Fracture Elite Rashguard",
+    "category": "Boxing, Apparel, MMA",
+    "subCategory": "Boxing Apparel, Training Apparel",
+    "type": "Long-Sleeve Compression Rashguard",
+    "summary": "Dark-navy long-sleeve compression rashguard with layered gunmetal chevrons, fine crimson fault lines and structured sleeve panels.",
+    "materials": "Premium Polyester and Spandex Performance Fabric",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/rashguard/7.png",
+    "features": [
+      "Long-sleeve compression-fit construction",
+      "Raglan-style shoulder seams",
+      "Symmetrical fractured-chevron graphics",
+      "Stretch fabric for unrestricted movement",
+      "Close-fitting crew neckline",
+      "Custom sublimation, colors and branding"
+    ]
+  },
+  {
+    "index": 8,
+    "slug": "topo-strike-long-sleeve-rashguard",
+    "name": "Topo Strike Rashguard",
+    "category": "Boxing, Apparel, MMA",
+    "subCategory": "Boxing Apparel, Training Apparel",
+    "type": "Long-Sleeve Compression Rashguard",
+    "summary": "Ink-navy long-sleeve compression rashguard with tonal topographic lines, tactical textures and a bold crimson diagonal strike.",
+    "materials": "Premium Polyester and Spandex Performance Fabric",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/rashguard/8.png",
+    "features": [
+      "Long-sleeve compression-fit construction",
+      "Raglan-style shoulder seams",
+      "Tactical topographic sublimation artwork",
+      "Stretch fabric for unrestricted movement",
+      "Close-fitting crew neckline",
+      "Custom sublimation, colors and branding"
+    ]
+  },
+  {
+    "index": 9,
+    "slug": "web-cage-spider-long-sleeve-rashguard",
+    "name": "Web Cage Spider Rashguard",
+    "category": "Boxing, Apparel, MMA",
+    "subCategory": "Boxing Apparel, Training Apparel",
+    "type": "Long-Sleeve Compression Rashguard",
+    "summary": "Deep-navy long-sleeve compression rashguard featuring an armored spider enclosed by cream web-cage graphics and crimson slash accents.",
+    "materials": "Premium Polyester and Spandex Performance Fabric",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/rashguard/9.png",
+    "features": [
+      "Long-sleeve compression-fit construction",
+      "Raglan-style shoulder seams",
+      "Full front spider and web-cage artwork",
+      "Stretch fabric for unrestricted movement",
+      "Close-fitting crew neckline",
+      "Custom sublimation, colors and branding"
+    ]
+  },
+  {
+    "index": 10,
+    "slug": "last-breath-fighter-long-sleeve-rashguard",
+    "name": "Last Breath Fighter Rashguard",
+    "category": "Boxing, Apparel, MMA",
+    "subCategory": "Boxing Apparel, Training Apparel",
+    "type": "Long-Sleeve Compression Rashguard",
+    "summary": "Black and navy long-sleeve compression rashguard with an explosive fighter graphic breaking through chains, cage mesh and crimson impact debris.",
+    "materials": "Premium Polyester and Spandex Performance Fabric",
+    "moq": "100 Pieces",
+    "lead": "25-35 Days",
+    "image": "/images/products/boxing/rashguard/10.png",
+    "features": [
+      "Long-sleeve compression-fit construction",
+      "Raglan-style shoulder seams",
+      "Full front fighter and shattered-cage artwork",
+      "Stretch fabric for unrestricted movement",
+      "Close-fitting crew neckline",
+      "Custom sublimation, colors and branding"
+    ]
   }
 ]
