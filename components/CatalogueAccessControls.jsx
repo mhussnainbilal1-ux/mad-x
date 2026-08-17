@@ -194,7 +194,7 @@ function UnlockForm({
           type="text"
           value={guid}
           onChange={(event) => setGuid(event.target.value)}
-          placeholder="Enter access key"
+          placeholder="Enter access key here"
           minLength={10}
           maxLength={14}
           autoComplete="off"
