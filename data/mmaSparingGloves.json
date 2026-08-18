@@ -43,30 +43,44 @@
   },
   {
     "index": 4,
-    "slug": "tornado-blue-grey-mma-sparring-gloves",
-    "name": "Tornado Blue & Grey MMA Sparring Gloves",
+    "slug": "predator-crimson-claw-mma-sparring-gloves",
+    "name": "Predator Crimson Claw MMA Sparring Gloves",
     "category": "MMA",
     "subCategory": "MMA Gloves, Training Equipment",
     "type": "Padded MMA Sparring Gloves",
-    "summary": "Blue, grey and red fingerless MMA sparring gloves with a split-panel design, padded striking zones and an extended wrist closure.",
+    "summary": "Black and dark crimson MMA sparring gloves with metallic silver claw graphics, broad segmented padding and an open palm.",
     "materials": "Genuine Leather or Premium Synthetic Leather",
     "moq": "100 Pairs",
     "lead": "25-35 Days",
     "image": "/images/products/mma/sparringgloves/4.png",
-    "features": ["Padded knuckle and finger zones", "Open-palm fingerless construction", "Blue, grey and red split graphics", "Extended adjustable wrist strap", "Reinforced seams and finger loops", "Custom logo, colors and designs"]
+    "features": ["Broad segmented striking padding", "Open-palm sparring construction", "Metallic silver claw graphics", "Dark crimson textured panels", "Secure wraparound wrist strap", "Custom logo, colors and designs"]
   },
   {
     "index": 5,
-    "slug": "race-blue-white-mma-sparring-gloves",
-    "name": "Race Blue & White MMA Sparring Gloves",
+    "slug": "venom-toxic-green-mma-sparring-gloves",
+    "name": "Venom Toxic Green MMA Sparring Gloves",
     "category": "MMA",
     "subCategory": "MMA Gloves, Training Equipment",
     "type": "Padded MMA Sparring Gloves",
-    "summary": "Blue, white and red MMA sparring gloves with padded finger sections, a breathable mesh palm and secure wraparound wrist support.",
-    "materials": "Genuine Leather or Premium Synthetic Leather with Breathable Mesh Palm",
+    "summary": "Matte-black MMA sparring gloves with toxic green claw streaks, reptile-inspired texture and protective segmented padding.",
+    "materials": "Genuine Leather or Premium Synthetic Leather",
     "moq": "100 Pairs",
     "lead": "25-35 Days",
     "image": "/images/products/mma/sparringgloves/5.png",
-    "features": ["Padded knuckle and finger sections", "Breathable open mesh palm", "Blue, white and red split graphics", "Extended wraparound wrist strap", "Reinforced finger loops and stitching", "Custom logo, colors and designs"]
+    "features": ["Broad segmented striking padding", "Open-palm sparring construction", "Toxic green claw graphics", "Reptile-inspired surface texture", "Secure wraparound wrist strap", "Custom logo, colors and designs"]
+  },
+  {
+    "index": 6,
+    "slug": "thunder-purple-armor-mma-sparring-gloves",
+    "name": "Thunder Purple Armor MMA Sparring Gloves",
+    "category": "MMA",
+    "subCategory": "MMA Gloves, Training Equipment",
+    "type": "Padded MMA Sparring Gloves",
+    "summary": "Black and gunmetal MMA sparring gloves with electric-purple fractured armor graphics and broad protective padding.",
+    "materials": "Genuine Leather or Premium Synthetic Leather",
+    "moq": "100 Pairs",
+    "lead": "25-35 Days",
+    "image": "/images/products/mma/sparringgloves/6.png",
+    "features": ["Broad segmented striking padding", "Open-palm sparring construction", "Electric-purple fracture graphics", "Gunmetal armor-inspired finish", "Secure wraparound wrist strap", "Custom logo, colors and designs"]
   }
 ]
