@@ -6,12 +6,14 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 const PAGE_SIZE = 21;
 
-export default function ProductBrowser({ products }) {
+export default function ProductBrowser({ products, catalogueProducts = products }) {
   const [q, setQ] = useState("");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const searchParams = useSearchParams();
   const browserRef = useRef(null);
   useEffect(() => {
+    setQ("");
+
     const timeoutId = window.setTimeout(() => {
       browserRef.current?.scrollIntoView({
         behavior: "smooth",
@@ -25,19 +27,20 @@ export default function ProductBrowser({ products }) {
   const list = useMemo(() => {
     const query = q.trim().toLowerCase();
     const matches = query
-      ? products.filter((product) =>
+      ? catalogueProducts.filter((product) =>
           [
             product.name,
             product.type,
             product.category,
             product.subCategory,
             product.materials,
+            product.summary,
           ].some((value) => value?.toLowerCase().includes(query)),
         )
       : [...products];
 
     return matches;
-  }, [products, q]);
+  }, [catalogueProducts, products, q]);
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);

@@ -87,7 +87,10 @@ export default async function Page({ searchParams }) {
               <CatalogueAccessControls hasAccess={hasAccess} />
 
               {filteredProducts.length > 0 ? (
-                <ProductBrowser products={filteredProducts} />
+                <ProductBrowser
+                  products={filteredProducts}
+                  catalogueProducts={products}
+                />
               ) : (
                 <div className="emptyProducts">
                   <h3>Coming Soon</h3>

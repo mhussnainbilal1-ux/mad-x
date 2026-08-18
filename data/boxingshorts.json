@@ -40,5 +40,26 @@
     "summary": "Black boxing shorts with bold red angular and brush graphics, red binding, a wide waistband and deep side vents.",
     "materials": "Premium Satin or Polyester Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shorts/6.png",
     "features": ["Wide multi-row elastic waistband", "Bold red graphic panels", "Deep red-bound side vents", "Loose boxing cut", "Multiple branding areas", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 7, "slug": "falcon-emerald-black-gold-boxing-shorts", "name": "Falcon Emerald, Black & Gold Boxing Shorts",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Satin Boxing Shorts",
+    "summary": "Emerald-green boxing shorts with black panels, metallic-gold speed graphics, a stylized falcon wing and gold-bound side vents.",
+    "materials": "Premium Satin or Polyester Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shorts/7.png",
+    "features": ["Wide multi-row elastic waistband", "Stylized falcon-wing artwork", "Metallic-gold graphic accents", "Deep gold-bound side vents", "Loose boxing cut", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 8, "slug": "voltage-purple-cyan-boxing-shorts", "name": "Voltage Purple & Cyan Boxing Shorts",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Satin Boxing Shorts",
+    "summary": "Royal-purple and black boxing shorts with electric-cyan and silver lightning graphics, black binding and deep side vents.",
+    "materials": "Premium Satin or Polyester Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shorts/8.png",
+    "features": ["Wide multi-row elastic waistband", "Electric lightning-shard graphics", "Cyan and silver accents", "Deep black-bound side vents", "Loose boxing cut", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 9, "slug": "dragon-pearl-navy-crimson-boxing-shorts", "name": "Dragon Pearl, Navy & Crimson Boxing Shorts",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Satin Boxing Shorts",
+    "summary": "Pearl-white and midnight-navy boxing shorts with crimson brush graphics, stylized dragon scales and navy-bound side vents.",
+    "materials": "Premium Satin or Polyester Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shorts/9.png",
+    "features": ["Wide multi-row elastic waistband", "Stylized dragon-scale pattern", "Crimson brush-stroke graphics", "Deep navy-bound side vents", "Loose boxing cut", "Custom sublimation, colors and branding"]
   }
 ]

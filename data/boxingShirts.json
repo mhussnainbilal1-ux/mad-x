@@ -33,5 +33,68 @@
     "summary": "Burgundy short-sleeve training shirt with orange flame and smoke artwork sweeping diagonally across the torso and sleeves.",
     "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/5.png",
     "features": ["Short-sleeve crew-neck construction", "Full-front flame artwork", "Coordinated sleeve graphics", "Straight athletic hem", "Central chest branding area", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 6, "slug": "apex-black-grey-skull-boxing-training-shirt", "name": "Apex Skull Boxing Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "Black and grey short-sleeve training shirt with a large monochrome skull, red slash accents and distressed cracked graphics.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/6.png",
+    "features": ["Short-sleeve crew-neck construction", "Large asymmetrical skull artwork", "Red slash and cracked graphics", "Black collar and sleeve trim", "Upper-chest branding area", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 7, "slug": "vortex-blue-orange-boxing-training-shirt", "name": "Vortex Blue & Orange Boxing Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "Royal-blue short-sleeve training shirt with asymmetrical black panels, orange speed graphics and contrast cuff trim.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/7.png",
+    "features": ["Short-sleeve crew-neck construction", "Asymmetrical angular panel design", "Orange speed-line graphics", "Contrast collar and sleeve trim", "Upper-chest branding area", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 8, "slug": "inferno-white-red-orange-boxing-training-shirt", "name": "Inferno White, Red & Orange Boxing Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "White short-sleeve training shirt with sweeping red, grey and orange speed graphics, halftone detailing and orange trim.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/8.png",
+    "features": ["Short-sleeve crew-neck construction", "Multi-color speed graphics", "Halftone and brush detailing", "Orange collar and sleeve accents", "Multiple front branding areas", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 9, "slug": "tornado-grey-tiger-boxing-training-shirt", "name": "Tornado Grey Tiger Boxing Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "Grey short-sleeve training shirt with a large monochrome tiger portrait, black claw marks and red branding accents.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/9.png",
+    "features": ["Short-sleeve crew-neck construction", "Large asymmetrical tiger artwork", "Black claw-mark graphics", "Black collar and sleeve trim", "Upper-chest branding area", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 10, "slug": "race-black-red-white-boxing-training-shirt", "name": "Race Black, Red & White Boxing Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "Black short-sleeve training shirt with sweeping red and white graphics, distressed detailing and red-bound trim.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/10.png",
+    "features": ["Short-sleeve crew-neck construction", "Asymmetrical three-color graphics", "Distressed brush detailing", "Red collar and sleeve accents", "Upper-chest branding area", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 11, "slug": "brutal-black-red-boxing-training-shirt", "name": "Brutal Black & Red Boxing Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "Black short-sleeve training shirt with bold red angular panels, sweeping brush graphics and red-bound edges.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/11.png",
+    "features": ["Short-sleeve crew-neck construction", "Bold red angular graphics", "Asymmetrical brush artwork", "Red collar, cuffs and hem trim", "Upper-chest branding area", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 12, "slug": "falcon-emerald-black-gold-boxing-training-shirt", "name": "Falcon Emerald, Black & Gold Boxing Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "Emerald-green short-sleeve training shirt with black panels, metallic-gold graphics and a stylized falcon wing.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/12.png",
+    "features": ["Short-sleeve crew-neck construction", "Stylized falcon-wing artwork", "Metallic-gold speed accents", "Gold collar and sleeve trim", "Upper-chest branding area", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 13, "slug": "voltage-purple-cyan-boxing-training-shirt", "name": "Voltage Purple & Cyan Boxing Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "Purple and black short-sleeve training shirt with electric-cyan and silver shard graphics over a cracked texture.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/13.png",
+    "features": ["Short-sleeve crew-neck construction", "Electric lightning-shard graphics", "Cyan and silver accents", "Cracked all-over texture", "Central chest branding area", "Custom sublimation, colors and branding"]
+  },
+  {
+    "index": 14, "slug": "dragon-pearl-navy-crimson-boxing-training-shirt", "name": "Dragon Pearl, Navy & Crimson Boxing Training Shirt",
+    "category": "Boxing, Apparel", "subCategory": "Boxing Apparel, Training Apparel", "type": "Short-Sleeve Boxing Training Shirt",
+    "summary": "Pearl-white and midnight-navy short-sleeve training shirt with crimson brush graphics and stylized dragon scales.",
+    "materials": "Premium Polyester or Performance Interlock Fabric", "moq": "100 Pieces", "lead": "25-35 Days", "image": "/images/products/boxing/shirts/14.png",
+    "features": ["Short-sleeve crew-neck construction", "Stylized dragon-scale pattern", "Crimson brush-stroke graphics", "Navy collar and sleeve trim", "Upper-chest branding area", "Custom sublimation, colors and branding"]
   }
 ]
