@@ -4,13 +4,20 @@ import { useEffect, useMemo, useState, useRef } from "react";
 import ProductCard from "./ProductCard";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { rankProducts } from "@/lib/product-search";
 const PAGE_SIZE = 21;
 
-export default function ProductBrowser({ products, catalogueProducts = products }) {
+export default function ProductBrowser({
+  products,
+  catalogueProducts = products,
+}) {
   const [q, setQ] = useState("");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const searchParams = useSearchParams();
+  const router = useRouter();
   const browserRef = useRef(null);
+  const searchRef = useRef(null);
   useEffect(() => {
     setQ("");
 
@@ -25,22 +32,30 @@ export default function ProductBrowser({ products, catalogueProducts = products 
   }, [searchParams]);
 
   const list = useMemo(() => {
-    const query = q.trim().toLowerCase();
-    const matches = query
-      ? catalogueProducts.filter((product) =>
-          [
-            product.name,
-            product.type,
-            product.category,
-            product.subCategory,
-            product.materials,
-            product.summary,
-          ].some((value) => value?.toLowerCase().includes(query)),
-        )
-      : [...products];
-
-    return matches;
+    return q.trim() ? rankProducts(catalogueProducts, q) : [...products];
   }, [catalogueProducts, products, q]);
+
+  useEffect(() => {
+    const handleShortcut = (event) => {
+      const target = event.target;
+      const isTyping =
+        target instanceof HTMLInputElement ||
+        target instanceof HTMLTextAreaElement ||
+        target?.isContentEditable;
+
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        searchRef.current?.focus();
+        searchRef.current?.select();
+      } else if (event.key === "/" && !isTyping) {
+        event.preventDefault();
+        searchRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleShortcut);
+    return () => window.removeEventListener("keydown", handleShortcut);
+  }, []);
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
@@ -66,8 +81,17 @@ export default function ProductBrowser({ products, catalogueProducts = products 
         }}
       >
         <input
+          ref={searchRef}
           value={q}
           onChange={(e) => setQ(e.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") {
+              setQ("");
+              event.currentTarget.blur();
+            } else if (event.key === "Enter" && q.trim() && list[0]) {
+              router.push(`/products/${list[0].slug}`);
+            }
+          }}
           type="search"
           placeholder="Search products..."
           aria-label="Search products"
