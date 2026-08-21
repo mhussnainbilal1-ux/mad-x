@@ -11,9 +11,11 @@
   "dependencies": {
     "jspdf": "^4.2.1",
     "lucide-react": "^1.30.0",
+    "mongoose": "^9.9.3",
     "next": "16.2.12",
     "prettier": "^3.9.6",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "xlsx": "^0.18.5"
   }
 }

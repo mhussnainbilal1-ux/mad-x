@@ -1,0 +1,38 @@
+.button {
+  position: fixed;
+  z-index: 1000;
+  top: 16px;
+  right: 24px;
+  height: 40px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #e3b7bb;
+  border-radius: 8px;
+  background: #fff;
+  color: #b51d2a;
+  box-shadow: 0 3px 12px #101d3514;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.button:hover {
+  background: #fff5f6;
+  border-color: #d98e95;
+}
+.button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+@media (max-width: 760px) {
+  .button {
+    right: 12px;
+    width: 40px;
+    padding: 0;
+    justify-content: center;
+  }
+  .button span {
+    display: none;
+  }
+}

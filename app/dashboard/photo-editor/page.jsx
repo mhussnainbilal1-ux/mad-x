@@ -6,5 +6,5 @@ export const metadata = {
 };
 
 export default function PhotoEditorPage() {
-  return <PhotoEditor />;
+  return <div className="admin-dashboard-root"><PhotoEditor /></div>;
 }

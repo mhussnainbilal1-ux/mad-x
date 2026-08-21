@@ -124,6 +124,7 @@ export default function ImagePdfPage() {
 
   return (
     <main
+      className="admin-dashboard-root"
       style={{
         maxWidth: "1200px",
         margin: "0 auto",

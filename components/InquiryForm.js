@@ -1,8 +1,24 @@
 "use client";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+
 export default function InquiryForm({ compact = false }) {
   const [status, setStatus] = useState("idle");
   const [validationErrors, setValidationErrors] = useState({});
+  const [captcha, setCaptcha] = useState(null);
+
+  const loadCaptcha = useCallback(async () => {
+    try {
+      const response = await fetch("/api/inquiry", { cache: "no-store" });
+      if (!response.ok) throw new Error("Unable to load security check");
+      setCaptcha(await response.json());
+    } catch {
+      setCaptcha(null);
+    }
+  }, []);
+
+  useEffect(() => {
+    loadCaptcha();
+  }, [loadCaptcha]);
 
   function validate(values) {
     const errors = {};
@@ -14,6 +30,11 @@ export default function InquiryForm({ compact = false }) {
       errors.email = "Please enter a valid email address.";
     }
     if (!values.product) errors.product = "Please select a product type.";
+    const captchaAnswer = String(values.captcha || "").trim();
+    if (!captchaAnswer) {
+      errors.captcha = "Please answer the security question.";
+    }
+    if (!values.captchaToken) errors.captcha = "Security check is loading.";
 
     return errors;
   }
@@ -29,9 +50,7 @@ export default function InquiryForm({ compact = false }) {
     event.preventDefault();
     const form = event.currentTarget;
 
-    const formValues = Object.fromEntries(
-      new FormData(form).entries(),
-    );
+    const formValues = Object.fromEntries(new FormData(form).entries());
     const errors = validate(formValues);
 
     if (Object.keys(errors).length) {
@@ -51,16 +70,23 @@ export default function InquiryForm({ compact = false }) {
         body: JSON.stringify(formValues),
       });
 
-      if (!response.ok) {
-        throw new Error("Unable to send inquiry");
-      }
+      const result = await response.json();
+      if (!response.ok)
+        throw new Error(result.error || "Unable to send inquiry");
 
-      console.log("Inquiry form submitted:", formValues);
       form.reset();
+      loadCaptcha();
       setValidationErrors({});
       setStatus("sent");
     } catch (error) {
       console.error("Inquiry submission failed:", error);
+      loadCaptcha();
+      if (error.message.toLowerCase().includes("security check")) {
+        setValidationErrors((current) => ({
+          ...current,
+          captcha: error.message,
+        }));
+      }
       setStatus("error");
     }
   }
@@ -153,10 +179,33 @@ export default function InquiryForm({ compact = false }) {
         />
       </div>
       <div className="full">
+        <label htmlFor="inquiry-captcha">
+          Security check: {captcha?.question || "Loading…"} *
+        </label>
+        <input type="hidden" name="captchaToken" value={captcha?.token || ""} />
+        <input
+          id="inquiry-captcha"
+          name="captcha"
+          type="text"
+          inputMode="numeric"
+          autoComplete="off"
+          disabled={!captcha}
+          aria-invalid={Boolean(validationErrors.captcha)}
+          aria-describedby={
+            validationErrors.captcha ? "captcha-error" : undefined
+          }
+        />
+        {validationErrors.captcha && (
+          <p className="fieldError" id="captcha-error" role="alert">
+            {validationErrors.captcha}
+          </p>
+        )}
+      </div>
+      <div className="full">
         <button
           className="button red wide"
           type="submit"
-          disabled={status === "sending"}
+          disabled={status === "sending" || !captcha}
         >
           {status === "sending" ? "Sending…" : "Send Inquiry"}
         </button>

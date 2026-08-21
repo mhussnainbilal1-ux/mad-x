@@ -19,6 +19,16 @@ body {
   color: var(--ink);
   background: #fff;
 }
+body:has(.admin-dashboard-root) > .announcement,
+body:has(.admin-dashboard-root) > .header,
+body:has(.admin-dashboard-root) > .footer {
+  display: none;
+}
+body:has(.login-page-root) > .announcement,
+body:has(.login-page-root) > .header,
+body:has(.login-page-root) > .footer {
+  display: none;
+}
 a {
   text-decoration: none;
   color: inherit;
