@@ -40,7 +40,7 @@ export default function Header({ hasCatalogueAccess = false }) {
     <>
       <div className="announcement">
         <span>OEM &amp; PRIVATE LABEL COMBAT SPORTS MANUFACTURING</span>
-        <a href="mailto:sales@madxsports.com">sales@madxsports.com</a>
+        <a href="mailto:admin.madx@gmail.com">admin.madx@gmail.com</a>
       </div>
 
       <header className="header">

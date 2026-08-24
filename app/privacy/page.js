@@ -45,7 +45,7 @@ export default function Page() {
             requests.
           </p>
           <h2>Contact</h2>
-          <p>For privacy questions, contact sales@madxsports.com.</p>
+          <p>For privacy questions, contact admin.madx@gmail.com.</p>
         </article>
       </section>
     </main>
