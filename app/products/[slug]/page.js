@@ -7,12 +7,32 @@ import RangeProducts from "../../../components/RangeProducts";
 import ImageZoomWrapper from "../../../components/ImageZoomWrapper";
 import Image from "next/image";
 import ProductDetailAddButton from "@/components/ProductDetailAddButton";
+import { siteUrl } from "@/lib/seo";
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const hasAccess = await hasCatalogueAccess();
   const products = hasAccess ? allProducts : previewProducts;
   const p = products.find((x) => x.slug === slug);
-  return { title: p?.name || "Product" };
+  if (!p) return { title: "Product" };
+
+  return {
+    title: p.name,
+    description: p.summary,
+    alternates: { canonical: `/products/${p.slug}` },
+    openGraph: {
+      type: "website",
+      title: `${p.name} | MADX Sports`,
+      description: p.summary,
+      url: `/products/${p.slug}`,
+      images: [{ url: p.image, alt: p.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${p.name} | MADX Sports`,
+      description: p.summary,
+      images: [p.image],
+    },
+  };
 }
 export default async function Page({ params }) {
   const { slug } = await params;
@@ -21,8 +41,24 @@ export default async function Page({ params }) {
   const p = products.find((x) => x.slug === slug);
 
   if (!p) notFound();
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: p.name,
+    description: p.summary,
+    image: p.image,
+    category: p.category,
+    brand: { "@type": "Brand", name: "MADX Sports" },
+    manufacturer: { "@id": `${siteUrl}/#organization` },
+  };
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <section className="detailSection">
         <div className="shell detailGrid">
           <div className="detailMedia">

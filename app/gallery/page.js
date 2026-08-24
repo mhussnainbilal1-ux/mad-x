@@ -5,6 +5,7 @@ export const metadata = {
   title: "Gallery",
   description:
     "Explore MADX Sports product development, boxing, MMA, fitness, apparel, quality-control and packaging capabilities.",
+  alternates: { canonical: "/gallery" },
 };
 
 export default function Page() {

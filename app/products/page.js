@@ -6,6 +6,9 @@ import { madxCategories } from "@/data/madxCategories";
 import MobileOnly from "../../components/MobileOnly";
 export const metadata = {
   title: "Products",
+  description:
+    "Explore customizable boxing, MMA, fitness and activewear products available for OEM and private-label manufacturing by MADX Sports.",
+  alternates: { canonical: "/products" },
 };
 
 export default async function Page({ searchParams }) {

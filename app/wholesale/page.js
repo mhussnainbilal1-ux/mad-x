@@ -1,6 +1,11 @@
 import Link from "next/link";
 import InquiryForm from "@/components/InquiryForm";
-export const metadata = { title: "Wholesale & Private Label" };
+export const metadata = {
+  title: "Wholesale & Private Label",
+  description:
+    "OEM, wholesale and private-label combat sports manufacturing, including product development, custom branding, sampling and export packing.",
+  alternates: { canonical: "/wholesale" },
+};
 export default function Page() {
   return (
     <main>

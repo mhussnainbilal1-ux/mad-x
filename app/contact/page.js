@@ -1,5 +1,10 @@
 import InquiryForm from "@/components/InquiryForm";
-export const metadata = { title: "Contact" };
+export const metadata = {
+  title: "Contact",
+  description:
+    "Contact the MADX Sports manufacturing team in Sialkot to discuss product development, sampling, private labeling and quotations.",
+  alternates: { canonical: "/contact" },
+};
 export default function Page() {
   return (
     <main>

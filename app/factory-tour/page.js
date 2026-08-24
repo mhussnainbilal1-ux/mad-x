@@ -4,6 +4,7 @@ export const metadata = {
   title: "Factory Tour",
   description:
     "Explore the MADX Sports OEM manufacturing process in Sialkot, from product development and sampling to quality inspection and export-ready packaging.",
+  alternates: { canonical: "/factory-tour" },
 };
 
 const steps = [

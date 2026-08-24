@@ -4,6 +4,7 @@ export const metadata = {
   title: "About Us",
   description:
     "Discover 16 years of MADX Sports manufacturing excellence in Sialkot, supporting private-label boxing, MMA, fitness and apparel brands.",
+  alternates: { canonical: "/about" },
 };
 
 const expertise = [

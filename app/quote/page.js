@@ -1,5 +1,10 @@
 import InquiryForm from "@/components/InquiryForm";
-export const metadata = { title: "Request a Quote" };
+export const metadata = {
+  title: "Request a Manufacturing Quote",
+  description:
+    "Request a quote for custom boxing, MMA, fitness or activewear product development and private-label manufacturing.",
+  alternates: { canonical: "/quote" },
+};
 export default function Page() {
   return (
     <main>

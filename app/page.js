@@ -4,6 +4,9 @@ import CategorySection from "@/components/CategorySection"
 import FeaturedProducts from "@/components/FeaturedProducts";
 import HeroSlider from "@/components/HeroSlider";
 import Image from 'next/image'
+export const metadata = {
+  alternates: { canonical: "/" },
+};
 export default function Home() {
   return (
     <main>

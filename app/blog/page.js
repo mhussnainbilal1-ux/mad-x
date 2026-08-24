@@ -1,5 +1,10 @@
 import Link from "next/link";
-export const metadata = { title: "Insights" };
+export const metadata = {
+  title: "Manufacturing Insights",
+  description:
+    "Practical guidance for combat sports brands covering product briefs, private-label development, MOQs and sampling.",
+  alternates: { canonical: "/blog" },
+};
 const posts = [
   [
     "How to prepare an OEM boxing glove brief",

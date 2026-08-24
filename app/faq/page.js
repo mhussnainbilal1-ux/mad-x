@@ -1,4 +1,9 @@
-export const metadata = { title: "FAQ" };
+export const metadata = {
+  title: "Private-Label Manufacturing FAQ",
+  description:
+    "Answers about MADX Sports minimum order quantities, custom designs, samples, branding, production lead times and international shipping.",
+  alternates: { canonical: "/faq" },
+};
 const faqs = [
   [
     "What is your minimum order quantity?",
@@ -30,8 +35,23 @@ const faqs = [
   ],
 ];
 export default function Page() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  };
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <section className="pageHero"
        style={{
         background: `
