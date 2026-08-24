@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 
-export default function InquiryForm({ compact = false }) {
+export default function InquiryForm({ compact = false, source }) {
   const [status, setStatus] = useState("idle");
   const [validationErrors, setValidationErrors] = useState({});
   const [captcha, setCaptcha] = useState(null);
@@ -67,7 +67,7 @@ export default function InquiryForm({ compact = false }) {
       const response = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formValues),
+        body: JSON.stringify({ ...formValues, source }),
       });
 
       const result = await response.json();

@@ -3,7 +3,8 @@ export const metadata = { title: "Request a Quote" };
 export default function Page() {
   return (
     <main>
-      <section className="pageHero wholesaleHero"
+      <section
+        className="pageHero wholesaleHero"
         style={{
           background: `
           linear-gradient(
@@ -15,7 +16,7 @@ export default function Page() {
           ),
             url("/images/factory/banner-quote.png") center/cover no-repeat
           `,
-          minHeight:"500px"
+          minHeight: "500px",
         }}
       >
         <div className="shell">
@@ -40,7 +41,7 @@ export default function Page() {
               <li>Destination country and desired timeline</li>
             </ul>
           </div>
-          <InquiryForm />
+          <InquiryForm source="Get a Quote" />
         </div>
       </section>
     </main>

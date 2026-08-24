@@ -22,7 +22,7 @@ import {
   X,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./AdminDashboard.module.css";
 
 const navigation = [
@@ -33,41 +33,96 @@ const navigation = [
   },
   { label: "Analytics", icon: BarChart3, badge: "Soon", href: "#" },
   { label: "Sales CRM", icon: Users, href: "/dashboard/crm" },
-  { label: "Messages", icon: MessageSquareText },
+  { label: "Messages", icon: MessageSquareText, href: "/dashboard/messages" },
   { label: "Photo Editor", icon: ImageIcon, href: "/dashboard/photo-editor" },
   { label: "Image PDF", icon: FileDown, href: "/dashboard/image-pdf" },
-];
-
-const stats = [
-  {
-    label: "Total visitors",
-    value: "—",
-    note: "Connect Google Analytics",
-    icon: Activity,
-  },
-  {
-    label: "Active prospects",
-    value: "0",
-    note: "No CRM records yet",
-    icon: Users,
-  },
-  {
-    label: "Conversion rate",
-    value: "—",
-    note: "Awaiting analytics data",
-    icon: TrendingUp,
-  },
-  {
-    label: "Clients won",
-    value: "0",
-    note: "No completed deals yet",
-    icon: MessageSquareText,
-  },
 ];
 
 export default function AdminDashboard() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [leads, setLeads] = useState([]);
+  const [messageSummary, setMessageSummary] = useState({
+    messages: [],
+    total: 0,
+    unread: 0,
+  });
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/admin/clients?limit=100")
+      .then((response) => {
+        if (!response.ok) throw new Error("Unable to load leads");
+        return response.json();
+      })
+      .then((result) => {
+        if (!cancelled && result.configured) setLeads(result.clients || []);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/admin/messages?limit=5", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("Unable to load messages");
+        return response.json();
+      })
+      .then((result) => {
+        if (!cancelled && result.configured) {
+          setMessageSummary({
+            messages: result.messages || [],
+            total: result.total || 0,
+            unread: result.unread || 0,
+          });
+        }
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const activeProspects = leads.filter(
+    (lead) => !["Won", "Lost"].includes(lead.status),
+  ).length;
+  const won = leads.filter((lead) => lead.status === "Won").length;
+  const stats = [
+    {
+      label: "Total visitors",
+      value: "—",
+      note: "Connect Google Analytics",
+      icon: Activity,
+    },
+    {
+      label: "Active prospects",
+      value: String(activeProspects),
+      note: `${leads.length} total CRM records`,
+      icon: Users,
+    },
+    {
+      label: "Website inquiries",
+      value: String(messageSummary.total),
+      note: `${messageSummary.unread} unread messages`,
+      icon: TrendingUp,
+    },
+    {
+      label: "Clients won",
+      value: String(won),
+      note: "Completed deals",
+      icon: MessageSquareText,
+    },
+  ];
+  const pipelineCounts = {
+    New: leads.filter((lead) => lead.status === "Target Identified").length,
+    Contacted: leads.filter((lead) => lead.status === "Contacted").length,
+    Qualified: leads.filter((lead) => lead.status === "Qualified").length,
+    Won: won,
+  };
+  const recentMessages = messageSummary.messages;
   return (
     <div className={`${styles.adminRoot} admin-dashboard-root`}>
       {mobileOpen && (
@@ -115,7 +170,11 @@ export default function AdminDashboard() {
               >
                 <Icon size={19} />
                 <span>{label}</span>
-                {badge && <em>{badge}</em>}
+                {label === "Messages" && messageSummary.unread > 0 ? (
+                  <em>{messageSummary.unread}</em>
+                ) : (
+                  badge && <em>{badge}</em>
+                )}
               </Link>
             ) : (
               <button key={label} type="button">
@@ -155,10 +214,17 @@ export default function AdminDashboard() {
             <input placeholder="Search dashboard..." />
           </label>
           <div className={styles.topActions}>
-            <button aria-label="Notifications">
+            <Link
+              href="/dashboard/messages"
+              aria-label={`${messageSummary.unread} unread messages`}
+            >
               <Bell size={20} />
-              <i />
-            </button>
+              {messageSummary.unread > 0 && (
+                <em className={styles.notificationCount}>
+                  {messageSummary.unread > 99 ? "99+" : messageSummary.unread}
+                </em>
+              )}
+            </Link>
             <span className={styles.userIcon}>
               <UserRound size={19} />
             </span>
@@ -227,29 +293,31 @@ export default function AdminDashboard() {
                 {["New", "Contacted", "Qualified", "Won"].map((stage) => (
                   <div key={stage}>
                     <span>{stage}</span>
-                    <strong>0</strong>
+                    <strong>{pipelineCounts[stage]}</strong>
                     <i />
                   </div>
                 ))}
               </div>
-              <div className={styles.emptyLeads}>
-                <Users size={25} />
-                <div>
-                  <strong>No leads yet</strong>
-                  <span>New enquiries will show up in this pipeline.</span>
+              {!leads.length && (
+                <div className={styles.emptyLeads}>
+                  <Users size={25} />
+                  <div>
+                    <strong>No leads yet</strong>
+                    <span>New enquiries will show up in this pipeline.</span>
+                  </div>
                 </div>
-              </div>
+              )}
             </article>
           </section>
           <section className={`${styles.panel} ${styles.recent}`}>
             <div className={styles.panelHead}>
               <div>
-                <h2>Recent leads</h2>
-                <p>Your latest website enquiries</p>
+                <h2>Recent messages</h2>
+                <p>Your latest website form submissions</p>
               </div>
-              <button type="button">
-                View all leads <ArrowUpRight size={15} />
-              </button>
+              <Link href="/dashboard/messages">
+                View all messages <ArrowUpRight size={15} />
+              </Link>
             </div>
             <div className={styles.tableHead}>
               <span>CONTACT</span>
@@ -257,13 +325,31 @@ export default function AdminDashboard() {
               <span>STATUS</span>
               <span>RECEIVED</span>
             </div>
-            <div className={styles.tableEmpty}>
-              <MessageSquareText size={25} />
-              <strong>No leads to display</strong>
-              <span>
-                Once your forms are connected, submitted leads will appear here.
-              </span>
-            </div>
+            {recentMessages.length ? (
+              <div className={styles.recentRows}>
+                {recentMessages.map((message) => (
+                  <Link href="/dashboard/messages" key={message._id}>
+                    <span>
+                      <strong>{message.name || "Unnamed contact"}</strong>
+                      <small>{message.email || message.company || "—"}</small>
+                    </span>
+                    <span>{message.source}</span>
+                    <span>{message.status}</span>
+                    <span>
+                      {message.createdAt
+                        ? new Date(message.createdAt).toLocaleDateString()
+                        : "—"}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className={styles.tableEmpty}>
+                <MessageSquareText size={25} />
+                <strong>No messages to display</strong>
+                <span>New website inquiries will appear here.</span>
+              </div>
+            )}
           </section>
         </div>
       </main>

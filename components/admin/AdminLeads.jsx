@@ -147,9 +147,23 @@ export default function AdminLeads({ initialLeads }) {
   const [pendingImport, setPendingImport] = useState(null);
   const [deleteTarget, setDeleteTarget] = useState(null);
   const [deleting, setDeleting] = useState(false);
+  const [unreadMessages, setUnreadMessages] = useState(0);
   const fileInput = useRef(null);
   const tableScroll = useRef(null);
   const loadSentinel = useRef(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/admin/messages?countOnly=true", { cache: "no-store" })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((result) => {
+        if (!cancelled && result) setUnreadMessages(result.unread || 0);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -870,10 +884,11 @@ export default function AdminLeads({ initialLeads }) {
             <span>Sales CRM</span>
             <em>{leads.length}</em>
           </Link>
-          <button>
+          <Link href="/dashboard/messages">
             <MessageSquareText size={19} />
-            Messages
-          </button>
+            <span>Messages</span>
+            {unreadMessages > 0 && <em>{unreadMessages}</em>}
+          </Link>
           <p>MANAGE</p>
           <button>
             <Settings size={19} />
@@ -901,9 +916,17 @@ export default function AdminLeads({ initialLeads }) {
             />
           </label>
           <div className={shell.topActions}>
-            <button>
+            <Link
+              href="/dashboard/messages"
+              aria-label={`${unreadMessages} unread messages`}
+            >
               <Bell size={20} />
-            </button>
+              {unreadMessages > 0 && (
+                <em className={shell.notificationCount}>
+                  {unreadMessages > 99 ? "99+" : unreadMessages}
+                </em>
+              )}
+            </Link>
             <span className={shell.userIcon}>
               <UserRound size={19} />
             </span>

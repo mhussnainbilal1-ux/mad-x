@@ -4,9 +4,10 @@ export const metadata = { title: "Wholesale & Private Label" };
 export default function Page() {
   return (
     <main>
-      <section className="pageHero wholesaleHero"
-      style={{
-        background: `
+      <section
+        className="pageHero wholesaleHero"
+        style={{
+          background: `
         linear-gradient(
           90deg,
           rgba(6, 17, 32, 0.98) 0%,
@@ -16,8 +17,8 @@ export default function Page() {
         ),
           url("/images/factory/banner-wholesale.png") center/cover no-repeat
         `,
-        minHeight:"500px"
-      }}
+          minHeight: "500px",
+        }}
       >
         <div className="shell">
           <span className="kicker">OEM • PRIVATE LABEL • WHOLESALE</span>
@@ -91,7 +92,7 @@ export default function Page() {
               Read wholesale FAQ →
             </Link>
           </div>
-          <InquiryForm compact />
+          <InquiryForm compact source="Wholesale Inquiry" />
         </div>
       </section>
     </main>

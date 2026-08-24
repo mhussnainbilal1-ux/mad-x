@@ -1,8 +1,24 @@
 import { NextResponse } from "next/server";
 import { createHmac, timingSafeEqual } from "node:crypto";
+import { connectMongoDB } from "@/lib/mongodb";
+import Message from "@/models/Message";
 
 const requiredFields = ["name", "email", "product"];
 const captchaLifetimeMs = 15 * 60 * 1000;
+const inquirySources = new Set([
+  "Contact Us",
+  "Get a Quote",
+  "Wholesale Inquiry",
+]);
+const fieldLimits = {
+  name: 120,
+  email: 254,
+  company: 160,
+  country: 100,
+  product: 120,
+  quantity: 100,
+  message: 5000,
+};
 
 function getCaptchaSecret() {
   return process.env.ADMIN_SESSION_SECRET;
@@ -58,13 +74,15 @@ export async function GET() {
   return NextResponse.json(createCaptcha());
 }
 
-function escapeHtml(value = "") {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+function normalizeFields(values) {
+  return Object.fromEntries(
+    Object.entries(fieldLimits).map(([field, limit]) => [
+      field,
+      String(values[field] || "")
+        .trim()
+        .slice(0, limit),
+    ]),
+  );
 }
 
 export async function POST(request) {
@@ -84,9 +102,8 @@ export async function POST(request) {
       );
     }
 
-    const missingField = requiredFields.find(
-      (field) => !String(values[field] || "").trim(),
-    );
+    const fields = normalizeFields(values);
+    const missingField = requiredFields.find((field) => !fields[field]);
 
     if (missingField) {
       return NextResponse.json(
@@ -94,63 +111,49 @@ export async function POST(request) {
         { status: 400 },
       );
     }
-
-    const apiKey = process.env.RESEND_API_KEY;
-    const to = process.env.INQUIRY_TO_EMAIL;
-    const from = process.env.RESEND_FROM_EMAIL;
-
-    if (!apiKey || !to || !from) {
-      console.error("Missing Resend environment configuration");
+    if (!/^\S+@\S+\.\S+$/.test(fields.email)) {
       return NextResponse.json(
-        { error: "Email service is not configured" },
-        { status: 500 },
+        { error: "Please provide a valid email address" },
+        { status: 400 },
+      );
+    }
+    if (!inquirySources.has(values.source)) {
+      return NextResponse.json(
+        { error: "Invalid inquiry source" },
+        { status: 400 },
       );
     }
 
-    const fields = [
-      ["Name", values.name],
-      ["Business email", values.email],
-      ["Company / Brand", values.company],
-      ["Country", values.country],
-      ["Product type", values.product],
-      ["Estimated quantity", values.quantity],
-      ["Requirements", values.message],
-    ];
-    const html = fields
-      .map(
-        ([label, value]) =>
-          `<p><strong>${label}:</strong><br>${escapeHtml(value || "Not provided")}</p>`,
-      )
-      .join("");
-
-    const resendResponse = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from,
-        to: [to],
-        reply_to: values.email,
-        subject: `New ${values.product} inquiry from ${values.name}`,
-        html,
-      }),
+    await connectMongoDB();
+    const inquiry = await Message.create({
+      name: fields.name,
+      email: fields.email,
+      company: fields.company,
+      country: fields.country,
+      product: fields.product,
+      quantity: fields.quantity,
+      message: fields.message,
+      source: values.source,
     });
 
-    if (!resendResponse.ok) {
-      const error = await resendResponse.text();
-      console.error("Resend API error:", error);
-      return NextResponse.json(
-        { error: "Email delivery failed" },
-        { status: 502 },
-      );
-    }
-
-    const result = await resendResponse.json();
-    return NextResponse.json({ success: true, id: result.id });
+    return NextResponse.json(
+      { success: true, id: String(inquiry._id) },
+      { status: 201 },
+    );
   } catch (error) {
     console.error("Inquiry API error:", error);
-    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+    if (error instanceof SyntaxError) {
+      return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+    }
+    if (error.code === "MONGODB_NOT_CONFIGURED") {
+      return NextResponse.json(
+        { error: "Inquiry storage is not configured" },
+        { status: 503 },
+      );
+    }
+    return NextResponse.json(
+      { error: "Unable to save your inquiry. Please try again" },
+      { status: 500 },
+    );
   }
 }

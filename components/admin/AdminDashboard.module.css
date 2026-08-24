@@ -211,7 +211,24 @@
   gap: 10px;
   margin-right: 108px;
 }
-.topActions > button {
+.notificationCount {
+  position: absolute;
+  top: -6px;
+  right: -5px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background: var(--red);
+  color: #fff;
+  font-size: 7px;
+  font-style: normal;
+}
+.topActions > button,
+.topActions > a {
   position: relative;
   width: 39px;
   height: 39px;
@@ -362,7 +379,8 @@
   font-size: 8px;
   font-weight: 900;
 }
-.panelHead > button {
+.panelHead > button,
+.panelHead > a {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -371,6 +389,7 @@
   color: var(--red);
   font-size: 10px;
   font-weight: 800;
+  text-decoration: none;
 }
 .emptyChart {
   min-height: 245px;
@@ -510,6 +529,32 @@
 .tableEmpty span {
   font-size: 9px;
 }
+.recentRows > a {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #edf0f3;
+  color: #4e596c;
+  font-size: 10px;
+  text-decoration: none;
+}
+.recentRows > a:hover {
+  background: #fafbfc;
+}
+.recentRows > a > span:first-child > * {
+  display: block;
+}
+.recentRows strong {
+  color: #1d2939;
+  font-size: 11px;
+}
+.recentRows small {
+  margin-top: 3px;
+  color: #8c95a3;
+  font-size: 9px;
+}
 .backdrop {
   display: none;
 }
@@ -572,6 +617,12 @@
     grid-template-columns: 2fr 1fr 1fr;
   }
   .tableHead span:last-child {
+    display: none;
+  }
+  .recentRows > a {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .recentRows > a > span:last-child {
     display: none;
   }
 }
