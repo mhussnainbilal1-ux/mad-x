@@ -26,7 +26,7 @@ export default function SubCategorySidebar() {
               category.groups.length > 0 &&
               !["sale", "gift-card"].includes(category.slug),
           )
-          .map((category) => {
+          ?.map((category) => {
             const isActive = category.name === activeCategory.name;
 
             return (
@@ -57,7 +57,7 @@ export default function SubCategorySidebar() {
                       All {category.name}
                     </Link>
 
-                    {category.groups.map((group) => (
+                    {category.groups?.map((group) => (
                       <div key={group.name}>
                         <Link
                           scroll={true}
@@ -75,7 +75,7 @@ export default function SubCategorySidebar() {
                         {category.slug === "apparel" &&
                           group.items.length > 0 && (
                             <div className="apparelSidebarChildren">
-                              {group.items.map((item) => (
+                              {group.items?.map((item) => (
                                 <Link
                                   scroll={true}
                                   key={item}

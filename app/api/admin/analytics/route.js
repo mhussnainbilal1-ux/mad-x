@@ -9,6 +9,10 @@ export async function GET(request) {
     return NextResponse.json(await getGa4Report(days));
   } catch (error) {
     console.error("GA4 reporting failed:", error);
+    return Response.json({
+    configured: true,
+    error: error.message,
+  });
     return NextResponse.json(
       { configured: true, error: "Analytics data is temporarily unavailable." },
       { status: 502 },

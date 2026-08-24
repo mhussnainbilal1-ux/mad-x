@@ -42,7 +42,7 @@ export async function GET(request) {
     const search = params.get("q")?.trim();
     if (search) {
       const escaped = search.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      filter.$or = ["name", "email", "company", "product", "message"].map(
+      filter.$or = ["name", "email", "company", "product", "message"]?.map(
         (field) => ({ [field]: { $regex: escaped, $options: "i" } }),
       );
     }
@@ -58,7 +58,7 @@ export async function GET(request) {
 
     return NextResponse.json({
       configured: true,
-      messages: messages.map(serializeMessage),
+      messages: messages?.map(serializeMessage),
       unread,
       page,
       limit,

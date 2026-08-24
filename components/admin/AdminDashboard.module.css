@@ -209,7 +209,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-right: 108px;
 }
 .notificationCount {
   position: absolute;
@@ -227,7 +226,7 @@
   font-size: 7px;
   font-style: normal;
 }
-.topActions > button,
+.topActions > button:not([data-dashboard-logout]),
 .topActions > a {
   position: relative;
   width: 39px;
@@ -308,18 +307,25 @@
 .stats {
   margin-top: 25px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
 .stats article,
+.stats > a,
 .panel {
   border: 1px solid #e3e6eb;
   border-radius: 10px;
   background: #fff;
   box-shadow: 0 2px 8px #131f3406;
 }
-.stats article {
+.stats article,
+.stats > a {
+  position: relative;
   padding: 17px;
+}
+.stats > a:hover {
+  border-color: #d7a8ad;
+  transform: translateY(-1px);
 }
 .statTop {
   display: flex;
@@ -338,14 +344,78 @@
   background: #fdf0f1;
   color: var(--red);
 }
-.stats article > strong {
+.stats article > strong,
+.stats > a > strong {
   display: block;
   margin: 12px 0 5px;
   font-size: 25px;
 }
-.stats article > small {
+.stats article > small,
+.stats > a > small {
   color: #9aa2ae;
   font-size: 9px;
+}
+.cardArrow {
+  position: absolute;
+  right: 17px;
+  bottom: 17px;
+  color: #a0a8b4;
+}
+.topbarLabel {
+  color: #657187;
+  font-size: 12px;
+  font-weight: 800;
+}
+.liveLabel {
+  padding: 8px 11px;
+  border: 1px solid #dfe3e9;
+  border-radius: 7px;
+  background: #fff;
+  color: #5f6a7e !important;
+  font-size: 10px !important;
+  letter-spacing: 0 !important;
+}
+.trafficChart {
+  height: 245px;
+  padding: 25px 4px 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  border-bottom: 1px solid #dfe4eb;
+  background: repeating-linear-gradient(to bottom, #fff 0, #fff 59px, #edf0f4 60px);
+}
+.trafficChart i {
+  min-width: 2px;
+  max-width: 15px;
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(#e01e2f, #b51222);
+}
+.serviceState {
+  min-height: 245px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #8c95a3;
+  text-align: center;
+}
+.serviceState strong {
+  margin-top: 10px;
+  color: #4e596c;
+  font-size: 12px;
+}
+.serviceState span {
+  margin: 5px 0 13px;
+  font-size: 10px;
+}
+.serviceState a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 800;
 }
 .grid {
   margin-top: 14px;
@@ -602,7 +672,7 @@
     display: none;
   }
   .topActions {
-    margin-right: 42px;
+    margin-right: 0;
   }
   .content {
     padding: 23px 16px;

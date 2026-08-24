@@ -20,19 +20,19 @@ export async function POST(request) {
       );
     }
     const keys = clients
-      .map((client) => buildCompanyCountryKey(client.company, client.country))
+      ?.map((client) => buildCompanyCountryKey(client.company, client.country))
       .filter(Boolean);
-    const ids = clients.map((client) => client.id).filter(Boolean);
+    const ids = clients?.map((client) => client.id).filter(Boolean);
     const existing = await MadxClient.find({
       $or: [{ companyCountryKey: { $in: keys } }, { id: { $in: ids } }],
     })
       .select("id company country companyCountryKey")
       .lean();
     const seenKeys = new Set(
-      existing.map((client) => client.companyCountryKey).filter(Boolean),
+      existing?.map((client) => client.companyCountryKey).filter(Boolean),
     );
     const seenIds = new Set(
-      existing.map((client) => client.id).filter(Boolean),
+      existing?.map((client) => client.id).filter(Boolean),
     );
     const duplicates = [];
     const accepted = [];
@@ -64,7 +64,7 @@ export async function POST(request) {
         duplicates,
       });
     }
-    const operations = accepted.map((client) => ({
+    const operations = accepted?.map((client) => ({
       updateOne: {
         filter: { id: client.id },
         update: { $set: client },
@@ -77,7 +77,7 @@ export async function POST(request) {
       processed: accepted.length,
       inserted: result.upsertedCount,
       updated: result.modifiedCount,
-      acceptedIds: accepted.map((client) => client.id),
+      acceptedIds: accepted?.map((client) => client.id),
       duplicates,
     });
   } catch (error) {

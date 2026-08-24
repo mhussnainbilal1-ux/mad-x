@@ -52,7 +52,7 @@ export function ProductListProvider({ children, canUseProductLists = false }) {
       },
       updateItem(id, selections) {
         setItems((current) =>
-          current.map((item) =>
+          current?.map((item) =>
             item.id === id ? { ...item, selections } : item,
           ),
         );

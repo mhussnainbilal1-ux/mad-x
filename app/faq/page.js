@@ -38,7 +38,7 @@ export default function Page() {
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map(([question, answer]) => ({
+    mainEntity: faqs?.map(([question, answer]) => ({
       "@type": "Question",
       name: question,
       acceptedAnswer: { "@type": "Answer", text: answer },
@@ -78,7 +78,7 @@ export default function Page() {
       </section>
       <section className="section">
         <div className="shell faqList">
-          {faqs.map((f) => (
+          {faqs?.map((f) => (
             <details key={f[0]}>
               <summary>{f[0]}</summary>
               <p>{f[1]}</p>

@@ -60,7 +60,7 @@ export default function ProductOptionsModal() {
 
   function updateRow(index, field, value) {
     setRows((current) =>
-      current.map((row, rowIndex) =>
+      current?.map((row, rowIndex) =>
         rowIndex === index
           ? {
               ...row,
@@ -74,7 +74,7 @@ export default function ProductOptionsModal() {
 
   function submit(event) {
     event.preventDefault();
-    const selections = rows.map((row) => ({
+    const selections = rows?.map((row) => ({
       size: row.size.trim(),
       units: Math.max(1, Number(row.units)),
     }));
@@ -161,12 +161,12 @@ export default function ProductOptionsModal() {
             <span>Add one row for each required size.</span>
           </div>
           <datalist id="product-size-suggestions">
-            {suggestions.map((size) => (
+            {suggestions?.map((size) => (
               <option value={size} key={size} />
             ))}
           </datalist>
           <div className="sizeRows">
-            {rows.map((row, index) => (
+            {rows?.map((row, index) => (
               <div className="sizeRow" key={index}>
                 <label>
                   <span>Size</span>
@@ -192,7 +192,7 @@ export default function ProductOptionsModal() {
                     }
                   />
                 </label>
-                {rows.length > 1 && (
+                {rows?.length > 1 && (
                   <button
                     type="button"
                     className="removeSizeRow"

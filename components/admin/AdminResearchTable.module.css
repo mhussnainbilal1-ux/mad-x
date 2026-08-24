@@ -341,36 +341,36 @@
   font-size: 10px;
   font-weight: 800;
 }
-.columnChips .mappedChip {
+.columnChips .map {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   background: #e9f8ef;
   color: #247545;
 }
-.mappingWarning {
+.mapingWarning {
   border-color: #ead8a7 !important;
   background: #fffdf7;
 }
-.mappingWarning .columnChips span {
+.mapingWarning .columnChips span {
   background: #fff2cb;
   color: #8b620c;
 }
-.mappingError {
+.mapingError {
   border-color: #efbdc2 !important;
   background: #fff8f8;
 }
-.mappingError .columnChips span {
+.mapingError .columnChips span {
   background: #fde8ea;
   color: #ae2936;
 }
 
-.mappingActions {
+.mapingActions {
   margin-bottom: 10px;
   display: flex;
   gap: 7px;
 }
-.mappingActions button {
+.mapingActions button {
   padding: 6px 10px;
   border: 1px solid #e1b7bc;
   border-radius: 5px;

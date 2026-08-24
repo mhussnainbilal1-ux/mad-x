@@ -56,7 +56,7 @@ export default function PhotoEditor() {
         ) return;
         event.preventDefault();
         event.stopPropagation();
-        const ids = itemsRef.current.map((item) => item.id);
+        const ids = itemsRef.current?.map((item) => item.id);
         setSelectedIds(ids);
         setSelectedId(ids.at(-1) || null);
       }
@@ -134,7 +134,7 @@ export default function PhotoEditor() {
       }
 
       setItems((current) =>
-        current.map((item) => {
+        current?.map((item) => {
           const isGroupResize = action.type === "resize" && action.targetIds.includes(item.id);
           if (item.id !== action.id && !isGroupResize) return item;
           if (action.type === "move") {
@@ -241,10 +241,10 @@ export default function PhotoEditor() {
     const centerX = item.x + item.w / 2;
     const centerY = item.y + item.h / 2;
     const selectedItems = items.filter((candidate) => targetIds.includes(candidate.id));
-    const left = Math.min(...selectedItems.map((candidate) => candidate.x));
-    const top = Math.min(...selectedItems.map((candidate) => candidate.y));
-    const right = Math.max(...selectedItems.map((candidate) => candidate.x + candidate.w));
-    const bottom = Math.max(...selectedItems.map((candidate) => candidate.y + candidate.h));
+    const left = Math.min(...selectedItems?.map((candidate) => candidate.x));
+    const top = Math.min(...selectedItems?.map((candidate) => candidate.y));
+    const right = Math.max(...selectedItems?.map((candidate) => candidate.x + candidate.w));
+    const bottom = Math.max(...selectedItems?.map((candidate) => candidate.y + candidate.h));
     actionRef.current = {
       id: item.id,
       type,
@@ -252,12 +252,12 @@ export default function PhotoEditor() {
       startItem: { ...item },
       targetIds,
       startItems: Object.fromEntries(
-        selectedItems.map((candidate) => [candidate.id, { ...candidate }]),
+        selectedItems?.map((candidate) => [candidate.id, { ...candidate }]),
       ),
       groupCenter: { x: (left + right) / 2, y: (top + bottom) / 2 },
       groupBounds: { left, top, right, bottom },
-      minScaleX: Math.max(...selectedItems.map((candidate) => 40 / candidate.w)),
-      minScaleY: Math.max(...selectedItems.map((candidate) => 40 / candidate.h)),
+      minScaleX: Math.max(...selectedItems?.map((candidate) => 40 / candidate.w)),
+      minScaleY: Math.max(...selectedItems?.map((candidate) => 40 / candidate.h)),
       handle,
       startAngle: Math.atan2(start.y - centerY, start.x - centerX) * (180 / Math.PI),
     };
@@ -290,7 +290,7 @@ export default function PhotoEditor() {
 
   function resetSelected() {
     setItems((current) =>
-      current.map((item) =>
+      current?.map((item) =>
         selectedIds.includes(item.id) ? { ...item, rotation: 0 } : item,
       ),
     );
@@ -460,15 +460,15 @@ export default function PhotoEditor() {
     );
     setPatternIds((current) => [...new Set([...current, ...selectedIds])]);
     const generated = await Promise.all(
-      newlyMarked.map(async (item) => ({ id: item.id, ...(await createPatternOutline(item)) })),
+      newlyMarked?.map(async (item) => ({ id: item.id, ...(await createPatternOutline(item)) })),
     );
     setPatternOutlines((current) => ({
       ...current,
-      ...Object.fromEntries(generated.map((entry) => [entry.id, entry.outline])),
+      ...Object.fromEntries(generated?.map((entry) => [entry.id, entry.outline])),
     }));
     setPatternMasks((current) => ({
       ...current,
-      ...Object.fromEntries(generated.map((entry) => [entry.id, entry.mask])),
+      ...Object.fromEntries(generated?.map((entry) => [entry.id, entry.mask])),
     }));
   }
 
@@ -732,7 +732,7 @@ export default function PhotoEditor() {
                 <small>or click to choose multiple files</small>
               </button>
             )}
-            {items.map((item) => (
+            {items?.map((item) => (
               <div
                 key={item.id}
                 className={`canvasItem ${selectedIds.includes(item.id) ? "isSelected" : ""}`}
@@ -754,7 +754,7 @@ export default function PhotoEditor() {
                 {selectedIds.includes(item.id) && (
                   <>
                     <button className="rotateHandle" aria-label="Rotate image" onPointerDown={(event) => beginAction(event, item, "rotate")} />
-                    {["nw", "n", "ne", "e", "se", "s", "sw", "w"].map((handle) => (
+                    {["nw", "n", "ne", "e", "se", "s", "sw", "w"]?.map((handle) => (
                       <button
                         key={handle}
                         className={`resizeHandle resizeHandle-${handle}`}
@@ -766,7 +766,7 @@ export default function PhotoEditor() {
                 )}
               </div>
             ))}
-            {items.filter((item) => patternIds.includes(item.id)).map((item) => (
+            {items.filter((item) => patternIds.includes(item.id))?.map((item) => (
               <div
                 key={`outline-${item.id}`}
                 className="patternOutlineOverlay"
@@ -807,7 +807,7 @@ export default function PhotoEditor() {
             <h2 id="export-dialog-title">Choose a file type</h2>
             <p>{artboardWidth} × {artboardHeight} inches at {printDpi} DPI. The “Powered by Hussnain Bilal” credit will be included.</p>
             <div className="exportFormatOptions">
-              {["png", "jpeg", "pdf"].map((format) => (
+              {["png", "jpeg", "pdf"]?.map((format) => (
                 <label key={format} className={exportFormat === format ? "isActive" : ""}>
                   <input type="radio" name="export-format" value={format} checked={exportFormat === format} onChange={() => setExportFormat(format)} />
                   <strong>{format.toUpperCase()}</strong>

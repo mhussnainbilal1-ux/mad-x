@@ -61,7 +61,7 @@ export default function RangeProducts({ range }) {
           paddingTop: "10px",
         }}
       >
-        {range.map((product) => (
+        {range?.map((product) => (
           <Link
             href={`/products/${product.slug}`}
             key={product.slug}

@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { jsPDF } from "jspdf";
+import DashboardToolShell from "@/components/admin/DashboardToolShell";
 
 const MAX_IMAGES = 6;
 
@@ -12,7 +13,7 @@ export default function ImagePdfPage() {
   const handleFiles = (event) => {
     const files = Array.from(event.target.files || []).slice(0, MAX_IMAGES);
 
-    const newImages = files.map((file, index) => ({
+    const newImages = files?.map((file, index) => ({
       id: `${file.name}-${index}-${Date.now()}`,
       file,
       url: URL.createObjectURL(file),
@@ -27,7 +28,7 @@ export default function ImagePdfPage() {
 
   const updateImage = (id, field, value) => {
     setImages((prev) =>
-      prev.map((image) =>
+      prev?.map((image) =>
         image.id === id
           ? {
               ...image,
@@ -122,9 +123,8 @@ export default function ImagePdfPage() {
     pdf.save("image-patterns.pdf");
   };
 
-  return (
+  return <DashboardToolShell activeHref="/dashboard/image-pdf">
     <main
-      className="admin-dashboard-root"
       style={{
         maxWidth: "1200px",
         margin: "0 auto",
@@ -169,7 +169,7 @@ export default function ImagePdfPage() {
           gap: "20px",
         }}
       >
-        {images.map((image, index) => (
+        {images?.map((image, index) => (
           <div
             key={image.id}
             style={{
@@ -328,5 +328,5 @@ export default function ImagePdfPage() {
         </button>
       )}
     </main>
-  );
+  </DashboardToolShell>;
 }

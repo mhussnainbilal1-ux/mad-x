@@ -111,7 +111,7 @@ export default function ProductBrowser({
 
       {visibleProducts.length > 0 ? (
         <div className="productGrid">
-          {visibleProducts.map((p, index) => (
+          {visibleProducts?.map((p, index) => (
             <div
               key={p.slug}
               className="productReveal"

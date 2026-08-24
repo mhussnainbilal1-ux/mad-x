@@ -48,7 +48,7 @@ export default function CategorySection() {
         </div>
 
         <div className="categoryGrid">
-          {categories.map((category) => (
+          {categories?.map((category) => (
             <Link
               key={category.slug}
               href={`/products?category=${category.name}`}

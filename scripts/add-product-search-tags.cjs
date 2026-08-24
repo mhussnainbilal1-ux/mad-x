@@ -337,7 +337,7 @@ function clean(value) {
 }
 
 function unique(values) {
-  return [...new Set(values.map(clean).filter(Boolean))];
+  return [...new Set(values?.map(clean).filter(Boolean))];
 }
 
 function includesPhrase(text, phrase) {

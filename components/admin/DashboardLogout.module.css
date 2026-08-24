@@ -1,8 +1,4 @@
 .button {
-  position: fixed;
-  z-index: 1000;
-  top: 16px;
-  right: 24px;
   height: 40px;
   padding: 0 14px;
   display: flex;
@@ -17,6 +13,12 @@
   font-weight: 800;
   cursor: pointer;
 }
+.fallback {
+  position: fixed;
+  z-index: 1000;
+  top: 16px;
+  right: 24px;
+}
 .button:hover {
   background: #fff5f6;
   border-color: #d98e95;
@@ -27,10 +29,12 @@
 }
 @media (max-width: 760px) {
   .button {
-    right: 12px;
     width: 40px;
     padding: 0;
     justify-content: center;
+  }
+  .fallback {
+    right: 12px;
   }
   .button span {
     display: none;

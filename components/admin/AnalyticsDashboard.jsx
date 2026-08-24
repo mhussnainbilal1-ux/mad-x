@@ -2,21 +2,29 @@
 
 import Link from "next/link";
 import {
-  ArrowLeft,
   BarChart3,
+  Bell,
   CalendarDays,
+  ChevronDown,
   Eye,
+  FileDown,
   Gauge,
   Globe2,
+  Image as ImageIcon,
   LayoutDashboard,
+  Menu,
+  MessageSquareText,
   MonitorSmartphone,
   MousePointerClick,
   RefreshCw,
   Timer,
+  UserRound,
   Users,
+  X,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./AnalyticsDashboard.module.css";
+import shell from "./AdminDashboard.module.css";
 
 const metricNames = ["Users", "Sessions", "Page views", "Engagement", "Avg. engagement"];
 const conversionLabels = {
@@ -50,6 +58,7 @@ export default function AnalyticsDashboard() {
   const [report, setReport] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const loadReport = useCallback(async () => {
     setLoading(true);
@@ -71,24 +80,38 @@ export default function AnalyticsDashboard() {
   }, [loadReport]);
 
   const maxViews = useMemo(
-    () => Math.max(...(report?.daily || []).map((row) => row.metrics[1]), 1),
+    () => Math.max(...(report?.daily || [])?.map((row) => row.metrics[1]), 1),
     [report],
   );
 
   return (
-    <main className={styles.root}>
-      <aside className={styles.sidebar}>
-        <Link href="/dashboard" className={styles.brand}><span>MX</span><strong>MADX <small>ADMIN</small></strong></Link>
-        <nav>
-          <Link href="/dashboard"><LayoutDashboard size={18} /> Overview</Link>
-          <Link href="/dashboard/analytics" className={styles.active}><BarChart3 size={18} /> Analytics</Link>
-          <Link href="/dashboard/crm"><Users size={18} /> Sales CRM</Link>
-          <Link href="/dashboard/messages"><MousePointerClick size={18} /> Messages</Link>
+    <div className={`${shell.adminRoot} admin-dashboard-root`}>
+      {mobileOpen && <button className={shell.backdrop} onClick={() => setMobileOpen(false)} aria-label="Close menu" />}
+      <aside className={`${shell.sidebar} ${mobileOpen ? shell.sidebarOpen : ""}`}>
+        <div className={shell.logoRow}>
+          <Link href="/dashboard" className={shell.logo}><span>MX</span><div><strong>MADX</strong><small>ADMIN</small></div></Link>
+          <button className={shell.closeMenu} onClick={() => setMobileOpen(false)} aria-label="Close navigation"><X size={20} /></button>
+        </div>
+        <div className={shell.workspace}><span className={shell.avatar}>MS</span><div><strong>MADX Sports</strong><small>Administrator</small></div><ChevronDown size={16} /></div>
+        <nav className={shell.nav} aria-label="Admin navigation">
+          <p>WORKSPACE</p>
+          <Link href="/dashboard"><LayoutDashboard size={19} /><span>Overview</span></Link>
+          <Link href="/dashboard/analytics" className={shell.active}><BarChart3 size={19} /><span>Analytics</span></Link>
+          <Link href="/dashboard/crm"><Users size={19} /><span>Sales CRM</span></Link>
+          <Link href="/dashboard/messages"><MessageSquareText size={19} /><span>Messages</span></Link>
+          <Link href="/dashboard/photo-editor"><ImageIcon size={19} /><span>Photo Editor</span></Link>
+          <Link href="/dashboard/image-pdf"><FileDown size={19} /><span>Image PDF</span></Link>
         </nav>
-        <Link href="/" className={styles.back}><ArrowLeft size={16} /> Public website</Link>
+        <div className={shell.sidebarBottom}><Link href="/" className={shell.viewSite}>View public website</Link></div>
       </aside>
 
-      <section className={styles.main}>
+      <main className={shell.main}>
+        <header className={shell.topbar}>
+          <button className={shell.menu} onClick={() => setMobileOpen(true)} aria-label="Open navigation"><Menu /></button>
+          <span className={shell.topbarLabel}>Analytics report</span>
+          <div className={shell.topActions} data-dashboard-header-actions><Link href="/dashboard/messages" aria-label="Open messages"><Bell size={20} /></Link><span className={shell.userIcon}><UserRound size={19} /></span><div><strong>Admin</strong><small>admin@madxsports.com</small></div></div>
+        </header>
+        <div className={styles.main}>
         <header className={styles.header}>
           <div>
             <span>GOOGLE ANALYTICS 4</span>
@@ -107,7 +130,7 @@ export default function AnalyticsDashboard() {
         {report?.configured && !error ? (
           <>
             <section className={styles.cards}>
-              {report.overview.map((value, index) => {
+              {report?.overview?.map((value, index) => {
                 const display = index === 3 ? percent(value) : index === 4 ? duration(value) : compact(value);
                 const Icon = [Users, Gauge, Eye, MousePointerClick, Timer][index];
                 return <article key={metricNames[index]}><div><span>{metricNames[index]}</span><Icon size={19} /></div><strong>{display}</strong><small>{comparison(value, report.previous[index])} vs previous period</small></article>;
@@ -117,27 +140,28 @@ export default function AnalyticsDashboard() {
             <section className={styles.chartPanel}>
               <div className={styles.panelTitle}><div><h2>Traffic over time</h2><p>Daily users and page views</p></div><span>{days} days</span></div>
               <div className={styles.chart}>
-                {report.daily.map((row) => <div key={row.dimensions[0]} title={`${row.dimensions[0]}: ${row.metrics[1]} views`}><i style={{ height: `${Math.max((row.metrics[1] / maxViews) * 100, 3)}%` }} /><span>{days <= 7 ? row.dimensions[0].slice(4) : ""}</span></div>)}
+                {report?.daily?.map((row) => <div key={row.dimensions[0]} title={`${row.dimensions[0]}: ${row.metrics[1]} views`}><i style={{ height: `${Math.max((row.metrics[1] / maxViews) * 100, 3)}%` }} /><span>{days <= 7 ? row.dimensions[0].slice(4) : ""}</span></div>)}
               </div>
             </section>
 
             <section className={styles.grid}>
-              <ReportTable title="Top pages" icon={Eye} headings={["Page", "Views", "Users"]} rows={report.pages.map((row) => [row.dimensions[1] || row.dimensions[0], compact(row.metrics[0]), compact(row.metrics[1])])} />
-              <ReportTable title="Traffic channels" icon={Globe2} headings={["Channel", "Sessions", "Users"]} rows={report.sources.map((row) => [row.dimensions[0], compact(row.metrics[0]), compact(row.metrics[1])])} />
-              <ReportTable title="Countries" icon={Globe2} headings={["Country", "Users"]} rows={report.countries.map((row) => [row.dimensions[0], compact(row.metrics[0])])} />
-              <ReportTable title="Devices" icon={MonitorSmartphone} headings={["Device", "Users"]} rows={report.devices.map((row) => [row.dimensions[0], compact(row.metrics[0])])} />
-              <ReportTable title="Conversions" icon={MousePointerClick} headings={["Action", "Count"]} rows={report.events.map((row) => [conversionLabels[row.dimensions[0]] || row.dimensions[0], compact(row.metrics[0])])} wide />
+              <ReportTable title="Top pages" icon={Eye} headings={["Page", "Views", "Users"]} rows={report?.pages?.map((row) => [row.dimensions[1] || row.dimensions[0], compact(row.metrics[0]), compact(row.metrics[1])])} />
+              <ReportTable title="Traffic channels" icon={Globe2} headings={["Channel", "Sessions", "Users"]} rows={report.sources?.map((row) => [row.dimensions[0], compact(row.metrics[0]), compact(row.metrics[1])])} />
+              <ReportTable title="Countries" icon={Globe2} headings={["Country", "Users"]} rows={report.countries?.map((row) => [row.dimensions[0], compact(row.metrics[0])])} />
+              <ReportTable title="Devices" icon={MonitorSmartphone} headings={["Device", "Users"]} rows={report.devices?.map((row) => [row.dimensions[0], compact(row.metrics[0])])} />
+              <ReportTable title="Conversions" icon={MousePointerClick} headings={["Action", "Count"]} rows={report.events?.map((row) => [conversionLabels[row.dimensions[0]] || row.dimensions[0], compact(row.metrics[0])])} wide />
             </section>
             <p className={styles.updated}>Updated {new Date(report.generatedAt).toLocaleString()} · Reports are cached for five minutes.</p>
           </>
         ) : null}
-      </section>
-    </main>
+        </div>
+      </main>
+    </div>
   );
 }
 
 function ReportTable({ title, icon: Icon, headings, rows, wide = false }) {
-  return <article className={`${styles.tablePanel} ${wide ? styles.wide : ""}`}><div className={styles.panelTitle}><div><h2><Icon size={18} /> {title}</h2></div></div>{rows.length ? <div className={styles.table}><div>{headings.map((heading) => <b key={heading}>{heading}</b>)}</div>{rows.map((row, index) => <div key={`${row[0]}-${index}`}>{row.map((cell, cellIndex) => <span key={cellIndex} title={String(cell)}>{cell}</span>)}</div>)}</div> : <p className={styles.noData}>No data for this period.</p>}</article>;
+  return <article className={`${styles.tablePanel} ${wide ? styles.wide : ""}`}><div className={styles.panelTitle}><div><h2><Icon size={18} /> {title}</h2></div></div>{rows?.length ? <div className={styles.table}><div>{headings?.map((heading) => <b key={heading}>{heading}</b>)}</div>{rows?.map((row, index) => <div key={`${row[0]}-${index}`}>{row?.map((cell, cellIndex) => <span key={cellIndex} title={String(cell)}>{cell}</span>)}</div>)}</div> : <p className={styles.noData}>No data for this period.</p>}</article>;
 }
 
 function SetupState({ missing }) {

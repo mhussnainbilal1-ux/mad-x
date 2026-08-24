@@ -24,6 +24,11 @@ body:has(.admin-dashboard-root) > .header,
 body:has(.admin-dashboard-root) > .footer {
   display: none;
 }
+body.dashboard-active > .announcement,
+body.dashboard-active > .header,
+body.dashboard-active > .footer {
+  display: none;
+}
 body:has(.login-page-root) > .announcement,
 body:has(.login-page-root) > .header,
 body:has(.login-page-root) > .footer {

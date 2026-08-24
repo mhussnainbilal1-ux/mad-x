@@ -111,7 +111,7 @@ export default async function Page({ params }) {
             </div>
             <h3>Customization options</h3>
             <ul className="featureList">
-              {p.features.map((f) => (
+              {p.features?.map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>

@@ -52,7 +52,7 @@ export default function Page() {
       </section>
       <section className="section">
         <div className="shell blogGrid">
-          {posts.map((p, i) => (
+          {posts?.map((p, i) => (
             <article key={p[0]}>
               <span>ARTICLE 0{i + 1}</span>
               <h2>{p[0]}</h2>

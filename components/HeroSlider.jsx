@@ -82,7 +82,7 @@ export default function HeroSlider() {
       aria-label="Featured manufacturing services"
     >
       <div className="heroSlides">
-        {slides.map((slide, index) => (
+        {slides?.map((slide, index) => (
           <article
             key={`${slide.titleLineOne}-${slide.titleLineTwo}`}
             className={`heroSlide ${
@@ -155,7 +155,7 @@ export default function HeroSlider() {
           className="heroSliderDots"
           aria-label="Choose hero slide"
         >
-          {slides.map((slide, index) => (
+          {slides?.map((slide, index) => (
             <button
               key={slide.titleLineOne}
               type="button"

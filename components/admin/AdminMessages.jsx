@@ -86,7 +86,7 @@ export default function AdminMessages() {
     if (!response.ok)
       throw new Error(result.error || "Unable to update message");
     setMessages((items) =>
-      items.map((item) => (item._id === id ? result.message : item)),
+      items?.map((item) => (item._id === id ? result.message : item)),
     );
     setSelected((current) => (current?._id === id ? result.message : current));
     return result.message;
@@ -191,10 +191,9 @@ export default function AdminMessages() {
             <LayoutDashboard size={19} />
             <span>Overview</span>
           </Link>
-          <Link href="#">
+          <Link href="/dashboard/analytics">
             <BarChart3 size={19} />
             <span>Analytics</span>
-            <em>Soon</em>
           </Link>
           <Link href="/dashboard/crm">
             <Users size={19} />
@@ -243,7 +242,7 @@ export default function AdminMessages() {
               placeholder="Search messages..."
             />
           </label>
-          <div className={shell.topActions}>
+          <div className={shell.topActions} data-dashboard-header-actions>
             <Link
               href="/dashboard/messages"
               className={styles.notificationButton}
@@ -284,7 +283,7 @@ export default function AdminMessages() {
                 value={source}
                 onChange={(event) => setSource(event.target.value)}
               >
-                {sources.map((item) => (
+                {sources?.map((item) => (
                   <option key={item}>{item}</option>
                 ))}
               </select>
@@ -295,7 +294,7 @@ export default function AdminMessages() {
                 value={status}
                 onChange={(event) => setStatus(event.target.value)}
               >
-                {statuses.map((item) => (
+                {statuses?.map((item) => (
                   <option key={item}>{item}</option>
                 ))}
               </select>
@@ -332,7 +331,7 @@ export default function AdminMessages() {
               {loading ? (
                 <div className={styles.empty}>Loading messages…</div>
               ) : messages.length ? (
-                messages.map((item) => (
+                messages?.map((item) => (
                   <button
                     key={item._id}
                     type="button"
@@ -412,7 +411,7 @@ export default function AdminMessages() {
                       value={selected.status}
                       onChange={(event) => updateStatus(event.target.value)}
                     >
-                      {statuses.slice(1).map((item) => (
+                      {statuses.slice(1)?.map((item) => (
                         <option key={item}>{item}</option>
                       ))}
                     </select>

@@ -12,8 +12,10 @@ import {
   Edit3,
   LayoutDashboard,
   Mail,
+  Maximize2,
   Menu,
   MessageSquareText,
+  Minimize2,
   Phone,
   Plus,
   Search,
@@ -131,6 +133,7 @@ export default function AdminLeads({ initialLeads }) {
   const [adding, setAdding] = useState(false);
   const [editing, setEditing] = useState(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [tableMaximized, setTableMaximized] = useState(false);
   const [qualityFilter, setQualityFilter] = useState("All");
   const [regionFilter, setRegionFilter] = useState("All");
   const [typeFilter, setTypeFilter] = useState("All");
@@ -151,6 +154,23 @@ export default function AdminLeads({ initialLeads }) {
   const fileInput = useRef(null);
   const tableScroll = useRef(null);
   const loadSentinel = useRef(null);
+
+  useEffect(() => {
+    if (!tableMaximized) return undefined;
+
+    function closeMaximizedTable(event) {
+      if (event.key === "Escape") setTableMaximized(false);
+    }
+
+    document.addEventListener("keydown", closeMaximizedTable);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", closeMaximizedTable);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [tableMaximized]);
 
   useEffect(() => {
     let cancelled = false;
@@ -183,7 +203,7 @@ export default function AdminLeads({ initialLeads }) {
           if (!configured) break;
           allClients = [
             ...allClients,
-            ...result.clients.map((client) => ({
+            ...result.clients?.map((client) => ({
               ...client,
               status: normalizePipelineStage(client.status),
             })),
@@ -199,7 +219,7 @@ export default function AdminLeads({ initialLeads }) {
           const saved = window.localStorage.getItem("madx-crm-clients-v3");
           if (saved)
             setLeads(
-              JSON.parse(saved).map((client) => ({
+              JSON.parse(saved)?.map((client) => ({
                 ...client,
                 status: normalizePipelineStage(client.status),
               })),
@@ -211,7 +231,7 @@ export default function AdminLeads({ initialLeads }) {
         const saved = window.localStorage.getItem("madx-crm-clients-v3");
         if (saved)
           setLeads(
-            JSON.parse(saved).map((client) => ({
+            JSON.parse(saved)?.map((client) => ({
               ...client,
               status: normalizePipelineStage(client.status),
             })),
@@ -272,18 +292,18 @@ export default function AdminLeads({ initialLeads }) {
 
   const regions = useMemo(
     () =>
-      [...new Set(leads.map((lead) => lead.country).filter(Boolean))].sort(),
+      [...new Set(leads?.map((lead) => lead.country).filter(Boolean))].sort(),
     [leads],
   );
   const businessTypes = useMemo(
     () =>
       [
-        ...new Set(leads.map((lead) => lead.businessType).filter(Boolean)),
+        ...new Set(leads?.map((lead) => lead.businessType).filter(Boolean)),
       ].sort(),
     [leads],
   );
   const sources = useMemo(
-    () => [...new Set(leads.map((lead) => lead.source).filter(Boolean))].sort(),
+    () => [...new Set(leads?.map((lead) => lead.source).filter(Boolean))].sort(),
     [leads],
   );
 
@@ -348,7 +368,7 @@ export default function AdminLeads({ initialLeads }) {
   async function updateStatus(id, nextStatus) {
     const previous = leads.find((lead) => lead.id === id);
     setLeads((items) =>
-      items.map((lead) =>
+      items?.map((lead) =>
         lead.id === id ? { ...lead, status: nextStatus } : lead,
       ),
     );
@@ -366,7 +386,7 @@ export default function AdminLeads({ initialLeads }) {
       );
       if (!response.ok) {
         setLeads((items) =>
-          items.map((lead) => (lead.id === id ? previous : lead)),
+          items?.map((lead) => (lead.id === id ? previous : lead)),
         );
         setSelected(previous);
         setImportReport({
@@ -381,7 +401,7 @@ export default function AdminLeads({ initialLeads }) {
     event.stopPropagation();
     const starred = !client.starred;
     setLeads((items) =>
-      items.map((item) =>
+      items?.map((item) =>
         item.id === client.id ? { ...item, starred } : item,
       ),
     );
@@ -398,7 +418,7 @@ export default function AdminLeads({ initialLeads }) {
       );
       if (!response.ok) {
         setLeads((items) =>
-          items.map((item) =>
+          items?.map((item) =>
             item.id === client.id ? { ...item, starred: client.starred } : item,
           ),
         );
@@ -414,7 +434,7 @@ export default function AdminLeads({ initialLeads }) {
     event.stopPropagation();
     const pakistanFlagged = !client.pakistanFlagged;
     setLeads((items) =>
-      items.map((item) =>
+      items?.map((item) =>
         item.id === client.id ? { ...item, pakistanFlagged } : item,
       ),
     );
@@ -431,7 +451,7 @@ export default function AdminLeads({ initialLeads }) {
       );
       if (!response.ok) {
         setLeads((items) =>
-          items.map((item) =>
+          items?.map((item) =>
             item.id === client.id
               ? { ...item, pakistanFlagged: client.pakistanFlagged }
               : item,
@@ -462,7 +482,7 @@ export default function AdminLeads({ initialLeads }) {
       "Why It Fits",
       "Research Source",
     ];
-    const rows = filtered.map((lead) => [
+    const rows = filtered?.map((lead) => [
       lead.company,
       lead.country,
       lead.businessType,
@@ -474,8 +494,8 @@ export default function AdminLeads({ initialLeads }) {
       lead.researchSource,
     ]);
     const csv = [headers, ...rows]
-      .map((row) =>
-        row.map((cell) => `"${String(cell).replaceAll('"', '""')}"`).join(","),
+      ?.map((row) =>
+        row?.map((cell) => `"${String(cell).replaceAll('"', '""')}"`).join(","),
       )
       .join("\n");
     const url = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
@@ -580,7 +600,7 @@ export default function AdminLeads({ initialLeads }) {
     }
     setLeads((items) =>
       editing
-        ? items.map((item) => (item.id === editing.id ? savedClient : item))
+        ? items?.map((item) => (item.id === editing.id ? savedClient : item))
         : [savedClient, ...items],
     );
     if (selected?.id === editing?.id) setSelected(savedClient);
@@ -608,7 +628,7 @@ export default function AdminLeads({ initialLeads }) {
       }
     }
     setLeads((items) =>
-      items.map((item) => (item.id === selected.id ? selected : item)),
+      items?.map((item) => (item.id === selected.id ? selected : item)),
     );
     setImportReport({ success: true, message: "Notes updated." });
   }
@@ -665,9 +685,9 @@ export default function AdminLeads({ initialLeads }) {
       } else {
         throw new Error("Choose a CSV, XLSX, or XLS file.");
       }
-      if (rows.length < 2)
+      if (rows?.length < 2)
         throw new Error("The selected file contains no data rows.");
-      const headers = rows[0].map((header) => header.trim());
+      const headers = rows[0]?.map((header) => header.trim());
       const missing = csvColumns.filter((column) => !headers.includes(column));
       const mapped = headers.filter((column) =>
         supportedImportColumns.includes(column),
@@ -676,7 +696,7 @@ export default function AdminLeads({ initialLeads }) {
         (column) => column && !supportedImportColumns.includes(column),
       );
       const indexOf = (column) => headers.indexOf(column);
-      const imported = rows.slice(1).map((row) => {
+      const imported = rows.slice(1)?.map((row) => {
         const get = (column) => row[indexOf(column)]?.trim() || "";
         const quality = ["High", "Medium", "Low"].includes(
           get("Contact Quality"),
@@ -709,9 +729,9 @@ export default function AdminLeads({ initialLeads }) {
       });
       const unmappedValues = rows
         .slice(1)
-        .map((row) =>
+        ?.map((row) =>
           Object.fromEntries(
-            unmapped.map((column) => [
+            unmapped?.map((column) => [
               column,
               row[headers.indexOf(column)]?.trim?.() || "",
             ]),
@@ -738,9 +758,9 @@ export default function AdminLeads({ initialLeads }) {
   async function confirmImport() {
     if (!pendingImport) return;
     const { missing } = pendingImport;
-    const imported = pendingImport.records.map((record, index) => {
+    const imported = pendingImport.records?.map((record, index) => {
       const extraNotes = pendingImport.unmappedToNotes
-        .map((column) => {
+        ?.map((column) => {
           const value = pendingImport.unmappedValues[index]?.[column];
           return value ? `${column}: ${value}` : "";
         })
@@ -874,10 +894,9 @@ export default function AdminLeads({ initialLeads }) {
             <LayoutDashboard size={19} />
             <span>Overview</span>
           </Link>
-          <Link href="#">
+          <Link href="/dashboard/analytics">
             <BarChart3 size={19} />
             <span>Analytics</span>
-            <em>Soon</em>
           </Link>
           <Link href="/dashboard/crm" className={shell.active}>
             <Users size={19} />
@@ -915,7 +934,7 @@ export default function AdminLeads({ initialLeads }) {
               placeholder="Search leads..."
             />
           </label>
-          <div className={shell.topActions}>
+          <div className={shell.topActions} data-dashboard-header-actions>
             <Link
               href="/dashboard/messages"
               aria-label={`${unreadMessages} unread messages`}
@@ -1067,7 +1086,7 @@ export default function AdminLeads({ initialLeads }) {
           </section>
           <section className={styles.controls}>
             <div className={styles.tabs}>
-              {stages.map((stage) => (
+              {stages?.map((stage) => (
                 <button
                   key={stage}
                   className={`${status === stage ? styles.tabActive : ""} ${stageDescriptions[stage] ? tableStyles.stageTooltip : ""}`}
@@ -1111,6 +1130,17 @@ export default function AdminLeads({ initialLeads }) {
               >
                 <SlidersHorizontal size={15} />
               </button>
+              <button
+                type="button"
+                aria-label="Maximize CRM table"
+                title="Maximize CRM table"
+                onClick={() => {
+                  setView("table");
+                  setTableMaximized(true);
+                }}
+              >
+                <Maximize2 size={15} />
+              </button>
             </div>
           </section>
           {filtersOpen && (
@@ -1122,7 +1152,7 @@ export default function AdminLeads({ initialLeads }) {
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
                   >
-                    {stages.map((stage) => (
+                    {stages?.map((stage) => (
                       <option key={stage}>{stage}</option>
                     ))}
                   </select>
@@ -1133,7 +1163,7 @@ export default function AdminLeads({ initialLeads }) {
                     value={qualityFilter}
                     onChange={(e) => setQualityFilter(e.target.value)}
                   >
-                    {["All", "High", "Medium", "Low"].map((quality) => (
+                    {["All", "High", "Medium", "Low"]?.map((quality) => (
                       <option key={quality}>{quality}</option>
                     ))}
                   </select>
@@ -1145,7 +1175,7 @@ export default function AdminLeads({ initialLeads }) {
                     onChange={(e) => setRegionFilter(e.target.value)}
                   >
                     <option>All</option>
-                    {regions.map((region) => (
+                    {regions?.map((region) => (
                       <option key={region}>{region}</option>
                     ))}
                   </select>
@@ -1157,7 +1187,7 @@ export default function AdminLeads({ initialLeads }) {
                     onChange={(e) => setTypeFilter(e.target.value)}
                   >
                     <option>All</option>
-                    {businessTypes.map((type) => (
+                    {businessTypes?.map((type) => (
                       <option key={type}>{type}</option>
                     ))}
                   </select>
@@ -1169,7 +1199,7 @@ export default function AdminLeads({ initialLeads }) {
                     onChange={(e) => setSourceFilter(e.target.value)}
                   >
                     <option>All</option>
-                    {sources.map((source) => (
+                    {sources?.map((source) => (
                       <option key={source}>{source}</option>
                     ))}
                   </select>
@@ -1208,10 +1238,29 @@ export default function AdminLeads({ initialLeads }) {
 
           {view === "table" ? (
             <section
-              className={`${styles.tableWrap} ${tableStyles.researchTable}`}
+              className={`${styles.tableWrap} ${tableStyles.researchTable} ${tableMaximized ? styles.tableMaximized : ""}`}
               onScroll={handleTableScroll}
               ref={tableScroll}
+              role={tableMaximized ? "dialog" : undefined}
+              aria-modal={tableMaximized ? "true" : undefined}
+              aria-label={tableMaximized ? "Maximized Sales CRM table" : undefined}
             >
+              {tableMaximized && (
+                <header className={styles.maximizedHeader}>
+                  <div>
+                    <strong>Sales CRM table</strong>
+                    <span>{filtered.length} matching records</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setTableMaximized(false)}
+                    aria-label="Restore CRM table"
+                    title="Restore table"
+                  >
+                    <Minimize2 size={17} /> Restore
+                  </button>
+                </header>
+              )}
               <table>
                 <thead>
                   <tr>
@@ -1230,7 +1279,7 @@ export default function AdminLeads({ initialLeads }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {filtered.slice(0, visibleCount).map((lead, index) => (
+                  {filtered.slice(0, visibleCount)?.map((lead, index) => (
                     <tr
                       key={`${lead._id || lead.id || "client"}-${index}`}
                       onClick={() => setSelected(lead)}
@@ -1296,7 +1345,7 @@ export default function AdminLeads({ initialLeads }) {
                           <i>
                             {(lead.name || "?")
                               .split(" ")
-                              .map((n) => n[0])
+                              ?.map((n) => n[0])
                               .join("")}
                           </i>
                           <div>
@@ -1346,7 +1395,7 @@ export default function AdminLeads({ initialLeads }) {
             </section>
           ) : (
             <section className={styles.board}>
-              {stages.slice(1, -2).map((stage) => (
+              {stages.slice(1, -2)?.map((stage) => (
                 <div className={styles.column} key={stage}>
                   <header
                     className={tableStyles.stageTooltip}
@@ -1361,7 +1410,7 @@ export default function AdminLeads({ initialLeads }) {
                   </header>
                   {filtered
                     .filter((l) => l.status === stage)
-                    .map((lead, index) => (
+                    ?.map((lead, index) => (
                       <button
                         key={`${lead._id || lead.id || "client"}-${index}`}
                         onClick={() => setSelected(lead)}
@@ -1397,7 +1446,7 @@ export default function AdminLeads({ initialLeads }) {
               <i>
                 {(selected.name || "?")
                   .split(" ")
-                  .map((n) => n[0])
+                  ?.map((n) => n[0])
                   .join("")}
               </i>
               <h2>{selected.name}</h2>
@@ -1435,7 +1484,7 @@ export default function AdminLeads({ initialLeads }) {
                 value={selected.status}
                 onChange={(e) => updateStatus(selected.id, e.target.value)}
               >
-                {stages.slice(1).map((stage) => (
+                {stages.slice(1)?.map((stage) => (
                   <option key={stage} title={stageDescriptions[stage]}>
                     {stage}
                   </option>
@@ -1529,7 +1578,7 @@ export default function AdminLeads({ initialLeads }) {
                   placeholder="Select or type a source"
                 />
                 <datalist id="crm-import-sources">
-                  {sources.map((source) => (
+                  {sources?.map((source) => (
                     <option value={source} key={source} />
                   ))}
                 </datalist>
@@ -1538,9 +1587,9 @@ export default function AdminLeads({ initialLeads }) {
                 <h3>Mapped columns</h3>
                 <p>These columns match CRM database fields.</p>
                 <div className={tableStyles.columnChips}>
-                  {pendingImport.mapped.length ? (
-                    pendingImport.mapped.map((column) => (
-                      <span className={tableStyles.mappedChip} key={column}>
+                  {pendingImport.maped.length ? (
+                    pendingImport.maped?.map((column) => (
+                      <span className={tableStyles.map} key={column}>
                         <Check size={13} /> {column}
                       </span>
                     ))
@@ -1550,28 +1599,28 @@ export default function AdminLeads({ initialLeads }) {
                 </div>
               </section>
               {pendingImport.missing.length > 0 && (
-                <section className={tableStyles.mappingWarning}>
+                <section className={tableStyles.mapingWarning}>
                   <h3>Expected columns missing from file</h3>
                   <p>
                     Import is still allowed. These database values will be left
                     blank for you to update later.
                   </p>
                   <div className={tableStyles.columnChips}>
-                    {pendingImport.missing.map((column) => (
+                    {pendingImport.missing?.map((column) => (
                       <span key={column}>{column}</span>
                     ))}
                   </div>
                 </section>
               )}
               {pendingImport.unmapped.length > 0 && (
-                <section className={tableStyles.mappingError}>
+                <section className={tableStyles.mapingError}>
                   <h3>Columns not mapped to the database</h3>
                   <p>
                     Select any fields whose values should be saved in Notes. You
                     can select multiple fields. Unselected fields will be
                     ignored.
                   </p>
-                  <div className={tableStyles.mappingActions}>
+                  <div className={tableStyles.mapingActions}>
                     <button
                       type="button"
                       onClick={() =>
@@ -1596,7 +1645,7 @@ export default function AdminLeads({ initialLeads }) {
                     </button>
                   </div>
                   <div className={tableStyles.unmappedChoices}>
-                    {pendingImport.unmapped.map((column) => (
+                    {pendingImport.unmapped?.map((column) => (
                       <label key={column}>
                         <input
                           type="checkbox"
@@ -1858,7 +1907,7 @@ export default function AdminLeads({ initialLeads }) {
                   name="status"
                   defaultValue={editing?.status || "Target Identified"}
                 >
-                  {stages.slice(1).map((stage) => (
+                  {stages.slice(1)?.map((stage) => (
                     <option key={stage} title={stageDescriptions[stage]}>
                       {stage}
                     </option>

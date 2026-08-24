@@ -153,7 +153,7 @@ export default function GalleryShowcase() {
         </div>
 
         <div className="galleryFilters" aria-label="Filter gallery">
-          {categories.map((category) => (
+          {categories?.map((category) => (
             <button
               key={category}
               type="button"
@@ -170,7 +170,7 @@ export default function GalleryShowcase() {
         </div>
 
         <div className="galleryEditorialGrid">
-          {visibleItems.map((item, index) => (
+          {visibleItems?.map((item, index) => (
             <article
               className={`galleryEditorialCard ${index === 0 && visibleItems.length > 2 ? "featured" : ""}`}
               key={item.title}

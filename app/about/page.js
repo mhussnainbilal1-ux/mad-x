@@ -140,7 +140,7 @@ export default function Page() {
             </p>
           </div>
           <div className="processGrid">
-            {expertise.map((item) => (
+            {expertise?.map((item) => (
               <article key={item.number}>
                 <span>{item.number}</span>
                 <h3>{item.title}</h3>
@@ -164,7 +164,7 @@ export default function Page() {
             </p>
           </div>
           <div className="valueGrid">
-            {values.map(([number, title, text]) => (
+            {values?.map(([number, title, text]) => (
               <article key={number}>
                 <span>{number}</span>
                 <h3>{title}</h3>

@@ -9,6 +9,26 @@ export async function GET(request) {
   try {
     await connectMongoDB();
     const params = request.nextUrl.searchParams;
+    if (params.get("summary") === "true") {
+      const [total, active, won, overdue, stages] = await Promise.all([
+        MadxClient.countDocuments(),
+        MadxClient.countDocuments({ status: { $nin: ["Won", "Lost"] } }),
+        MadxClient.countDocuments({ status: "Won" }),
+        MadxClient.countDocuments({
+          status: { $ne: "Lost" },
+          nextFollowUp: { $exists: true, $nin: [null, ""], $lt: new Date().toISOString().slice(0, 10) },
+        }),
+        MadxClient.aggregate([{ $group: { _id: "$status", count: { $sum: 1 } } }]),
+      ]);
+      return NextResponse.json({
+        configured: true,
+        total,
+        active,
+        won,
+        overdue,
+        stages: Object.fromEntries(stages.map((stage) => [stage._id || "Unassigned", stage.count])),
+      });
+    }
     const page = Math.max(1, Number(params.get("page")) || 1);
     const limit = Math.min(100, Math.max(1, Number(params.get("limit")) || 25));
     const filter = {};
@@ -35,7 +55,7 @@ export async function GET(request) {
         "researchSource",
         "source",
         "message",
-      ].map((field) => ({ [field]: { $regex: escaped, $options: "i" } }));
+      ]?.map((field) => ({ [field]: { $regex: escaped, $options: "i" } }));
     }
     const [clients, total] = await Promise.all([
       MadxClient.find(filter)
@@ -47,7 +67,7 @@ export async function GET(request) {
     ]);
     return NextResponse.json({
       configured: true,
-      clients: clients.map(serializeClient),
+      clients: clients?.map(serializeClient),
       page,
       limit,
       total,

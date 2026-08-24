@@ -1,4 +1,5 @@
 import PhotoEditor from "@/components/PhotoEditor";
+import DashboardToolShell from "@/components/admin/DashboardToolShell";
 
 export const metadata = {
   title: "Photo Editor",
@@ -6,5 +7,5 @@ export const metadata = {
 };
 
 export default function PhotoEditorPage() {
-  return <div className="admin-dashboard-root"><PhotoEditor /></div>;
+  return <DashboardToolShell activeHref="/dashboard/photo-editor"><PhotoEditor /></DashboardToolShell>;
 }

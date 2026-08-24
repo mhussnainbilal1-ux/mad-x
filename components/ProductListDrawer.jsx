@@ -91,7 +91,7 @@ export default function ProductListDrawer() {
   function updateUnits(item, rowIndex, value) {
     updateItem(
       item.id,
-      item.selections.map((selection, index) =>
+      item.selections?.map((selection, index) =>
         index === rowIndex
           ? { ...selection, units: Math.max(1, Number(value) || 1) }
           : selection,
@@ -135,7 +135,7 @@ export default function ProductListDrawer() {
           {[
             ["sample", "Samples", counts.sample],
             ["order", "Orders", counts.order],
-          ].map(([value, label, count]) => (
+          ]?.map(([value, label, count]) => (
             <button
               type="button"
               key={value}
@@ -149,7 +149,7 @@ export default function ProductListDrawer() {
         </div>
         <div className="drawerContent">
           {visibleItems.length ? (
-            visibleItems.map((item) => (
+            visibleItems?.map((item) => (
               <article className="drawerProduct" key={item.id}>
                 <div className="drawerProductTop">
                   <div className="drawerProductImage">
@@ -174,7 +174,7 @@ export default function ProductListDrawer() {
                   </button>
                 </div>
                 <div className="drawerSelections">
-                  {item.selections.map((selection, index) => (
+                  {item.selections?.map((selection, index) => (
                     <div key={`${selection.size}-${index}`}>
                       <span>{selection.size}</span>
                       <label>

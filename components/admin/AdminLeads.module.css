@@ -160,6 +160,60 @@
 .tableWrap tbody tr:hover {
   background: #fafbfc;
 }
+.tableMaximized {
+  position: fixed;
+  inset: 12px;
+  z-index: 500;
+  max-height: calc(100vh - 24px) !important;
+  border: 1px solid #dce1e8;
+  border-radius: 12px;
+  box-shadow: 0 0 0 100vmax #081120b8, 0 28px 80px #0006;
+}
+.tableMaximized th {
+  top: 59px !important;
+}
+.maximizedHeader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  width: 100%;
+  min-width: calc(100vw - 26px);
+  min-height: 59px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e2e6eb;
+  background: #fff;
+}
+.maximizedHeader strong,
+.maximizedHeader span {
+  display: block;
+}
+.maximizedHeader strong {
+  color: #172033;
+  font-size: 14px;
+}
+.maximizedHeader span {
+  margin-top: 3px;
+  color: #8993a2;
+  font-size: 10px;
+}
+.maximizedHeader button {
+  min-height: 35px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 7px;
+  background: #101d35;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
 .tableWrap td > strong,
 .tableWrap td > span {
   display: block;
@@ -481,6 +535,13 @@
   }
   .viewButtons {
     justify-content: flex-end;
+  }
+  .tableMaximized {
+    inset: 5px;
+    max-height: calc(100vh - 10px) !important;
+  }
+  .maximizedHeader {
+    min-width: calc(100vw - 12px);
   }
 }
 .prospect {

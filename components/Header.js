@@ -99,7 +99,7 @@ export default function Header({ hasCatalogueAccess = false }) {
                 Categories
               </button>
               <div className="navDropdownMenu" id="category-navigation">
-                {madxCategories.map((category) => (
+                {madxCategories?.map((category) => (
                   <Link
                     key={category.slug}
                     href={`/products?category=${encodeURIComponent(category.name)}`}

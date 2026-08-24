@@ -18,14 +18,14 @@ const publicRoutes = [
 
 export default function sitemap() {
   const lastModified = new Date();
-  const pages = publicRoutes.map((route) => ({
+  const pages = publicRoutes?.map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified,
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : route === "/products" ? 0.9 : 0.7,
   }));
 
-  const products = previewProducts.map((product) => ({
+  const products = previewProducts?.map((product) => ({
     url: `${siteUrl}/products/${product.slug}`,
     lastModified,
     changeFrequency: "monthly",

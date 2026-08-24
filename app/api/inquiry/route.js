@@ -76,7 +76,7 @@ export async function GET() {
 
 function normalizeFields(values) {
   return Object.fromEntries(
-    Object.entries(fieldLimits).map(([field, limit]) => [
+    Object.entries(fieldLimits)?.map(([field, limit]) => [
       field,
       String(values[field] || "")
         .trim()

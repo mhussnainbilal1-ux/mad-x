@@ -31,7 +31,7 @@ export default async function FeaturedProducts({
         </div>
 
         <div className="productGrid">
-          {randomProducts.slice(0, limit).map((product) => (
+          {randomProducts.slice(0, limit)?.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}
         </div>

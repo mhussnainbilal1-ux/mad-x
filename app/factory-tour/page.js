@@ -148,7 +148,7 @@ export default function Page() {
             </p>
           </div>
           <div className="processGrid">
-            {steps.map((step) => (
+            {steps?.map((step) => (
               <article key={step.number}>
                 <span>{step.number}</span>
                 <h3>{step.title}</h3>
@@ -172,7 +172,7 @@ export default function Page() {
             </p>
           </div>
           <div className="factoryCapabilityGrid">
-            {capabilities.map(([number, title, text]) => (
+            {capabilities?.map(([number, title, text]) => (
               <article key={number}>
                 <span>{number}</span>
                 <h3>{title}</h3>
@@ -194,7 +194,7 @@ export default function Page() {
               workflow and again before packing.
             </p>
             <ul className="checkList">
-              {qualityChecks.map((check) => (
+              {qualityChecks?.map((check) => (
                 <li key={check}>{check}</li>
               ))}
             </ul>
@@ -227,7 +227,7 @@ export default function Page() {
             </p>
           </div>
           <div className="valueGrid">
-            {packagingItems.map(([title, text], index) => (
+            {packagingItems?.map(([title, text], index) => (
               <article key={title}>
                 <span>0{index + 1}</span>
                 <h3>{title}</h3>
