@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
@@ -156,6 +157,12 @@ export default function CatalogueAccessControls({ hasAccess }) {
               Enter the access key provided by your MADX representative to view
               the complete product range.
             </p>
+            <div className="catalogueContactPrompt">
+              <span>Don&apos;t have an access key?</span>
+              <Link className="button red" href="/contact">
+                Contact us
+              </Link>
+            </div>
             <UnlockForm {...formProps} inputId="catalogue-guid-modal" modal />
           </div>
         </div>

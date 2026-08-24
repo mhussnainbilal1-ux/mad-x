@@ -2598,6 +2598,25 @@ html[data-theme="dark"] .success {
   color: var(--muted);
 }
 
+.catalogueContactPrompt {
+  margin: -8px 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.catalogueContactPrompt > span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.catalogueContactPrompt .button {
+  min-height: 38px;
+  padding: 0 16px;
+  white-space: nowrap;
+}
+
 .catalogueModalClose {
   position: absolute;
   top: 14px;

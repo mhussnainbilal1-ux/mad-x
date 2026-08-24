@@ -145,9 +145,11 @@ export default function AnalyticsDashboard() {
             </section>
 
             <section className={styles.grid}>
+              <ReportTable title="Active visitors now" icon={Globe2} headings={["City", "Country", "Users"]} rows={(report.realtimeLocations || []).map((row) => [row.dimensions[0] || "Not available", row.dimensions[1] || "Not available", compact(row.metrics[0])])} wide />
               <ReportTable title="Top pages" icon={Eye} headings={["Page", "Views", "Users"]} rows={report?.pages?.map((row) => [row.dimensions[1] || row.dimensions[0], compact(row.metrics[0]), compact(row.metrics[1])])} />
               <ReportTable title="Traffic channels" icon={Globe2} headings={["Channel", "Sessions", "Users"]} rows={report.sources?.map((row) => [row.dimensions[0], compact(row.metrics[0]), compact(row.metrics[1])])} />
               <ReportTable title="Countries" icon={Globe2} headings={["Country", "Users"]} rows={report.countries?.map((row) => [row.dimensions[0], compact(row.metrics[0])])} />
+              <ReportTable title="Cities" icon={Globe2} headings={["City", "Country", "Users"]} rows={(report.cities || []).map((row) => [row.dimensions[0], row.dimensions[1], compact(row.metrics[0])])} />
               <ReportTable title="Devices" icon={MonitorSmartphone} headings={["Device", "Users"]} rows={report.devices?.map((row) => [row.dimensions[0], compact(row.metrics[0])])} />
               <ReportTable title="Conversions" icon={MousePointerClick} headings={["Action", "Count"]} rows={report.events?.map((row) => [conversionLabels[row.dimensions[0]] || row.dimensions[0], compact(row.metrics[0])])} wide />
             </section>
