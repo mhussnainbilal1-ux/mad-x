@@ -35,11 +35,11 @@ export default function Page() {
             <h2>Speak with our manufacturing team</h2>
             <div className="contactCard">
               <b>Email</b>
-              <span>sales@madxsports.com</span>
+               <span>admin.madx@gmail.com</span>
             </div>
             <div className="contactCard">
               <b>WhatsApp</b>
-              <span>+92 300 0000000</span>
+              <span>+92 304 4989753</span>
             </div>
             <div className="contactCard">
               <b>Location</b>
