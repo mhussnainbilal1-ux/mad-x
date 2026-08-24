@@ -1,5 +1,6 @@
 import ProductBrowser from "@/components/ProductBrowser";
 import CatalogueAccessControls from "@/components/CatalogueAccessControls";
+import Link from "next/link";
 import { allProducts, previewProducts } from "@/lib/products";
 import { hasCatalogueAccess } from "@/lib/catalogue-access";
 import { madxCategories } from "@/data/madxCategories";
@@ -97,15 +98,36 @@ export default async function Page({ searchParams }) {
                 />
               ) : (
                 <div className="emptyProducts">
-                  <h3>Coming Soon</h3>
+                  {hasAccess ? (
+                    <>
+                      <h3>Coming Soon</h3>
 
-                  <p>
-                    Interested in this range? Tell us what you need and we can
-                    review custom development options for your brand.
-                  </p>
-                  <a className="button navy" href="/quote">
-                    Discuss this product
-                  </a>
+                      <p>
+                        Interested in this range? Tell us what you need and we
+                        can review custom development options for your brand.
+                      </p>
+                      <a className="button navy" href="/quote">
+                        Discuss this product
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      <h3>Catalogue locked</h3>
+                      <p>
+                        Unlock the catalogue to view all available products and
+                        images in this range.
+                      </p>
+                      <Link
+                        className="button navy"
+                        href={{
+                          pathname: "/products",
+                          query: { ...params, unlock: "1" },
+                        }}
+                      >
+                        Unlock Catalogue
+                      </Link>
+                    </>
+                  )}
                 </div>
               )}
             </div>
