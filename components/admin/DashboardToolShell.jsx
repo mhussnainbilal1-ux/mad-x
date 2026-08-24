@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { BarChart3, Bell, ChevronDown, FileDown, Image as ImageIcon, LayoutDashboard, Menu, MessageSquareText, UserRound, Users, X } from "lucide-react";
+import { BarChart3, Bell, ChevronDown, FileDown, Image as ImageIcon, KeyRound, LayoutDashboard, Menu, MessageSquareText, UserRound, Users, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import shell from "./AdminDashboard.module.css";
 
@@ -10,6 +10,7 @@ const links = [
   ["Analytics", "/dashboard/analytics", BarChart3],
   ["Sales CRM", "/dashboard/crm", Users],
   ["Messages", "/dashboard/messages", MessageSquareText],
+  ["Access Keys", "/dashboard/catalogue-keys", KeyRound],
   ["Photo Editor", "/dashboard/photo-editor", ImageIcon],
   ["Image PDF", "/dashboard/image-pdf", FileDown],
 ];

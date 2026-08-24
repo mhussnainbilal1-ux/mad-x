@@ -93,6 +93,7 @@ export default async function Page({ searchParams }) {
                 <ProductBrowser
                   products={filteredProducts}
                   catalogueProducts={products}
+                  hasCatalogueAccess={hasAccess}
                 />
               ) : (
                 <div className="emptyProducts">

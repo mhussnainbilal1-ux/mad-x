@@ -11,6 +11,7 @@ import {
   Download,
   Edit3,
   LayoutDashboard,
+  KeyRound,
   Mail,
   Maximize2,
   Menu,
@@ -907,6 +908,10 @@ export default function AdminLeads({ initialLeads }) {
             <MessageSquareText size={19} />
             <span>Messages</span>
             {unreadMessages > 0 && <em>{unreadMessages}</em>}
+          </Link>
+          <Link href="/dashboard/catalogue-keys">
+            <KeyRound size={19} />
+            <span>Access Keys</span>
           </Link>
           <p>MANAGE</p>
           <button>

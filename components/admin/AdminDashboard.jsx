@@ -9,6 +9,7 @@ import {
   ChevronDown,
   FileDown,
   Image as ImageIcon,
+  KeyRound,
   LayoutDashboard,
   Menu,
   MessageSquareText,
@@ -30,6 +31,7 @@ const navigation = [
   { label: "Analytics", icon: BarChart3, href: "/dashboard/analytics" },
   { label: "Sales CRM", icon: Users, href: "/dashboard/crm" },
   { label: "Messages", icon: MessageSquareText, href: "/dashboard/messages" },
+  { label: "Access Keys", icon: KeyRound, href: "/dashboard/catalogue-keys" },
   { label: "Photo Editor", icon: ImageIcon, href: "/dashboard/photo-editor" },
   { label: "Image PDF", icon: FileDown, href: "/dashboard/image-pdf" },
 ];

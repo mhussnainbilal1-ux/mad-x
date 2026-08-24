@@ -51,6 +51,17 @@ export default function Page() {
             not send names, email addresses, messages or uploaded files to
             Google Analytics.
           </p>
+          <h2>Private catalogue access</h2>
+          <p>
+            When a private catalogue key is used, we may record its usage time,
+            approximate city, region and country, an anonymized network
+            identifier, and basic browser information for access security and
+            auditing. Where hosting location headers are unavailable, the
+            network address may be sent to an IP-geolocation provider to obtain
+            an approximate location. Access keys are protected with hashing and
+            encryption and are available only through the authenticated
+            administration area.
+          </p>
           <h2>Contact</h2>
           <p>For privacy questions, contact admin.madx@gmail.com.</p>
         </article>

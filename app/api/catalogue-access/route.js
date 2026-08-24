@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import {
   CATALOGUE_COOKIE_NAME,
   createCatalogueToken,
-  findActiveAllowedGuid,
   isValidGuid,
 } from "@/lib/catalogue-access";
+import { validateAndUseAccessKey } from "@/lib/catalogue-key-service";
 
 const attempts = new Map();
 const ATTEMPT_WINDOW_MS = 10 * 60 * 1000;
@@ -50,16 +50,19 @@ export async function POST(request) {
     );
   }
 
-  const entry = findActiveAllowedGuid(guid);
-
-  if (!entry) {
-    return NextResponse.json(
-      { message: "This access code is invalid or has expired." },
-      { status: 403 },
-    );
-  }
-
   try {
+    const entry = await validateAndUseAccessKey(guid, request);
+    if (!entry.approved) {
+      return NextResponse.json(
+        {
+          message:
+            entry.reason === "revoked"
+              ? "This access code has been revoked."
+              : "This access code is invalid or has expired.",
+        },
+        { status: 403 },
+      );
+    }
     const { token, expiresAt } = createCatalogueToken(entry);
     const response = NextResponse.json({ approved: true });
 

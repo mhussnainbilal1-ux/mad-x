@@ -8,6 +8,7 @@ import {
   FileDown,
   Image as ImageIcon,
   LayoutDashboard,
+  KeyRound,
   Mail,
   Menu,
   MessageSquareText,
@@ -203,6 +204,10 @@ export default function AdminMessages() {
             <MessageSquareText size={19} />
             <span>Messages</span>
             {unread > 0 && <em>{unread}</em>}
+          </Link>
+          <Link href="/dashboard/catalogue-keys">
+            <KeyRound size={19} />
+            <span>Access Keys</span>
           </Link>
           <Link href="/dashboard/photo-editor">
             <ImageIcon size={19} />

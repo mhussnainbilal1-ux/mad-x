@@ -12,6 +12,7 @@ import {
   Globe2,
   Image as ImageIcon,
   LayoutDashboard,
+  KeyRound,
   Menu,
   MessageSquareText,
   MonitorSmartphone,
@@ -99,6 +100,7 @@ export default function AnalyticsDashboard() {
           <Link href="/dashboard/analytics" className={shell.active}><BarChart3 size={19} /><span>Analytics</span></Link>
           <Link href="/dashboard/crm"><Users size={19} /><span>Sales CRM</span></Link>
           <Link href="/dashboard/messages"><MessageSquareText size={19} /><span>Messages</span></Link>
+          <Link href="/dashboard/catalogue-keys"><KeyRound size={19} /><span>Access Keys</span></Link>
           <Link href="/dashboard/photo-editor"><ImageIcon size={19} /><span>Photo Editor</span></Link>
           <Link href="/dashboard/image-pdf"><FileDown size={19} /><span>Image PDF</span></Link>
         </nav>

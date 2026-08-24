@@ -11,6 +11,7 @@ const PAGE_SIZE = 21;
 export default function ProductBrowser({
   products,
   catalogueProducts = products,
+  hasCatalogueAccess = false,
 }) {
   const [q, setQ] = useState("");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -135,7 +136,17 @@ export default function ProductBrowser({
         </div>
       )}
 
-      {remainingProducts > 0 && (
+      {!hasCatalogueAccess ? (
+        <div className="loadMoreWrapper">
+          <button
+            type="button"
+            className="button navy loadMoreButton"
+            onClick={() => window.dispatchEvent(new Event("open-catalogue-access"))}
+          >
+            Unlock Catalogue
+          </button>
+        </div>
+      ) : remainingProducts > 0 ? (
         <div className="loadMoreWrapper">
           <button
             type="button"
@@ -148,7 +159,7 @@ export default function ProductBrowser({
             </span>
           </button>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }
