@@ -7,13 +7,17 @@ import { trackEvent } from "@/lib/analytics";
 
 const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
+function isExcludedRoute(pathname) {
+  return pathname.startsWith("/dashboard") || pathname === "/login";
+}
+
 function AnalyticsNavigation() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const previousPath = useRef(null);
 
   useEffect(() => {
-    if (!measurementId || pathname.startsWith("/dashboard") || pathname === "/login") return;
+    if (!measurementId || isExcludedRoute(pathname)) return;
 
     function sendPageView() {
       if (typeof window.gtag !== "function") return;
@@ -39,6 +43,8 @@ function AnalyticsNavigation() {
   }, [pathname, searchParams]);
 
   useEffect(() => {
+    if (isExcludedRoute(pathname)) return;
+
     function trackBusinessClick(event) {
       const link = event.target.closest("a[href]");
       if (!link) return;
@@ -52,13 +58,21 @@ function AnalyticsNavigation() {
 
     document.addEventListener("click", trackBusinessClick);
     return () => document.removeEventListener("click", trackBusinessClick);
-  }, []);
+  }, [pathname]);
 
   return null;
 }
 
 export default function GoogleAnalytics() {
-  if (!measurementId) return null;
+  const pathname = usePathname();
+  const excluded = isExcludedRoute(pathname);
+
+  useEffect(() => {
+    if (!measurementId) return;
+    window[`ga-disable-${measurementId}`] = excluded;
+  }, [excluded]);
+
+  if (!measurementId || excluded) return null;
 
   return (
     <>

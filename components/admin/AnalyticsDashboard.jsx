@@ -116,7 +116,7 @@ export default function AnalyticsDashboard() {
           <div>
             <span>GOOGLE ANALYTICS 4</span>
             <h1>Website analytics</h1>
-            <p>Traffic, audience, content and conversion performance.</p>
+            <p>Traffic, audience, content and conversion performance. {report?.configured ? `Property ${report.propertyId} · ${report.realtimeActiveUsers || 0} active now` : ""}</p>
           </div>
           <div className={styles.actions}>
             <label><CalendarDays size={17} /><select value={days} onChange={(event) => setDays(Number(event.target.value))}><option value="7">Last 7 days</option><option value="30">Last 30 days</option><option value="90">Last 90 days</option></select></label>
