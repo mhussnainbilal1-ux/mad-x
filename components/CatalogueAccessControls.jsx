@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export default function CatalogueAccessControls({ hasAccess }) {
   const router = useRouter();
@@ -65,6 +66,7 @@ export default function CatalogueAccessControls({ hasAccess }) {
 
       setGuid("");
       setIsModalOpen(false);
+      trackEvent("catalogue_unlock_request", { result: "success" });
       router.refresh();
     } catch {
       setMessage("Unable to connect. Please try again.");

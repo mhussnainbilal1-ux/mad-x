@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export default function InquiryForm({ compact = false, source }) {
   const [status, setStatus] = useState("idle");
@@ -78,6 +79,10 @@ export default function InquiryForm({ compact = false, source }) {
       loadCaptcha();
       setValidationErrors({});
       setStatus("sent");
+      trackEvent(source === "Contact Us" ? "contact_form_submit" : "quote_form_submit", {
+        form_source: source || "Website inquiry",
+        product_type: formValues.product,
+      });
     } catch (error) {
       console.error("Inquiry submission failed:", error);
       loadCaptcha();

@@ -31,7 +31,7 @@ const navigation = [
     icon: LayoutDashboard,
     href: "/dashboard",
   },
-  { label: "Analytics", icon: BarChart3, badge: "Soon", href: "#" },
+  { label: "Analytics", icon: BarChart3, href: "/dashboard/analytics" },
   { label: "Sales CRM", icon: Users, href: "/dashboard/crm" },
   { label: "Messages", icon: MessageSquareText, href: "/dashboard/messages" },
   { label: "Photo Editor", icon: ImageIcon, href: "/dashboard/photo-editor" },
@@ -47,6 +47,20 @@ export default function AdminDashboard() {
     total: 0,
     unread: 0,
   });
+  const [analytics, setAnalytics] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/admin/analytics?days=30", { cache: "no-store" })
+      .then((response) => response.json())
+      .then((result) => {
+        if (!cancelled) setAnalytics(result);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -93,8 +107,10 @@ export default function AdminDashboard() {
   const stats = [
     {
       label: "Total visitors",
-      value: "—",
-      note: "Connect Google Analytics",
+      value: analytics?.configured
+        ? new Intl.NumberFormat("en", { notation: "compact" }).format(analytics.overview?.[0] || 0)
+        : "—",
+      note: analytics?.configured ? "Last 30 days from GA4" : "Connect Google Analytics",
       icon: Activity,
     },
     {
@@ -272,13 +288,15 @@ export default function AdminDashboard() {
                 <div className={styles.chartIcon}>
                   <BarChart3 size={30} />
                 </div>
-                <h3>Connect Google Analytics</h3>
+                <h3>{analytics?.configured ? "Analytics is connected" : "Connect Google Analytics"}</h3>
                 <p>
-                  Your traffic, acquisition, and audience data will appear here.
+                  {analytics?.configured
+                    ? `${new Intl.NumberFormat("en").format(analytics.overview?.[2] || 0)} page views recorded in the last 30 days.`
+                    : "Your traffic, acquisition, and audience data will appear here."}
                 </p>
-                <button type="button">
-                  Set up analytics <ArrowUpRight size={16} />
-                </button>
+                <Link href="/dashboard/analytics">
+                  {analytics?.configured ? "Open analytics report" : "Set up analytics"} <ArrowUpRight size={16} />
+                </Link>
               </div>
             </article>
             <article className={styles.panel}>

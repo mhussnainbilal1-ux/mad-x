@@ -6,6 +6,7 @@ import { ProductListProvider } from "@/components/ProductListProvider";
 import ProductOptionsModal from "@/components/ProductOptionsModal";
 import ProductListDrawer from "@/components/ProductListDrawer";
 import { organizationJsonLd, siteUrl } from "@/lib/seo";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -73,6 +74,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body>
+        <GoogleAnalytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

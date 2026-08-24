@@ -44,6 +44,13 @@ export default function Page() {
             providers where necessary to operate the website or fulfill business
             requests.
           </p>
+          <h2>Website analytics</h2>
+          <p>
+            We may use Google Analytics to understand website visits, traffic
+            sources, device categories and interactions with our pages. We do
+            not send names, email addresses, messages or uploaded files to
+            Google Analytics.
+          </p>
           <h2>Contact</h2>
           <p>For privacy questions, contact admin.madx@gmail.com.</p>
         </article>

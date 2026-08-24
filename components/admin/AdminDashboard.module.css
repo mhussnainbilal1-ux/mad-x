@@ -431,7 +431,8 @@
   color: #8c95a3;
   font-size: 10px;
 }
-.emptyChart button {
+.emptyChart button,
+.emptyChart > a {
   margin-top: 15px;
   padding: 9px 13px;
   display: flex;
