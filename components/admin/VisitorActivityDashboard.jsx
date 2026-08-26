@@ -38,6 +38,7 @@ export default function VisitorActivityDashboard() {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [loading, setLoading] = useState(true);
+  const [clearing, setClearing] = useState("");
   const [error, setError] = useState("");
 
   const load = useCallback(async () => {
@@ -77,6 +78,35 @@ export default function VisitorActivityDashboard() {
     setter(value);
   }
 
+  async function clearActivity(scope) {
+    const clearAll = scope === "all";
+    const confirmed = window.confirm(
+      clearAll
+        ? "Permanently delete all visitor activity? This cannot be undone."
+        : "Permanently delete visitor activity older than three weeks? This cannot be undone.",
+    );
+    if (!confirmed) return;
+
+    setClearing(scope);
+    setError("");
+    try {
+      const response = await fetch("/api/admin/visitor-activity", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ scope }),
+      });
+      const result = await response.json();
+      if (!response.ok)
+        throw new Error(result.error || "Unable to clear activity");
+      setPage(1);
+      await load();
+    } catch (clearError) {
+      setError(clearError.message);
+    } finally {
+      setClearing("");
+    }
+  }
+
   return (
     <DashboardToolShell activeHref="/dashboard/activity">
       <section className={styles.page}>
@@ -89,7 +119,26 @@ export default function VisitorActivityDashboard() {
               Times are shown in Pakistan Standard Time.
             </p>
           </div>
-          <strong>{total.toLocaleString()} events</strong>
+          <div className={styles.headingActions}>
+            <strong>{total.toLocaleString()} events · last 3 weeks</strong>
+            <button
+              type="button"
+              disabled={Boolean(clearing)}
+              onClick={() => clearActivity("older_than_three_weeks")}
+            >
+              {clearing === "older_than_three_weeks"
+                ? "Clearing…"
+                : "Clear older than 3 weeks"}
+            </button>
+            <button
+              type="button"
+              className={styles.dangerButton}
+              disabled={Boolean(clearing)}
+              onClick={() => clearActivity("all")}
+            >
+              {clearing === "all" ? "Clearing…" : "Clear all"}
+            </button>
+          </div>
         </div>
 
         <div className={styles.filters}>
