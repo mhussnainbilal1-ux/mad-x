@@ -14,12 +14,17 @@ export const metadata = {
 
 export default async function Page({ searchParams }) {
   const hasAccess = await hasCatalogueAccess();
-  const products = hasAccess ? allProducts : previewProducts;
   const params = await searchParams;
 
-  const selectedCategory = params?.category || madxCategories[0].name;
-
+  const selectedCategory =
+    madxCategories.find((category) => category.name === params?.category)
+      ?.name || madxCategories[0].name;
   const selectedSubCategory = params?.subCategory || "";
+  const isApparelCatalogue =
+    selectedCategory.trim().toLowerCase() === "apparel";
+  const products =
+    hasAccess || isApparelCatalogue ? allProducts : previewProducts;
+  const canBrowseSelectedCatalogue = hasAccess || isApparelCatalogue;
 
   let filteredProducts = products.filter((product) => {
     const matchesCategory = product.category?.includes(selectedCategory);
@@ -52,7 +57,7 @@ export default async function Page({ searchParams }) {
           rgba(6, 17, 32, 0.35) 70%,
           rgba(6, 17, 32, 0) 100%
         ),
-          url("/images/factory/banner-product.png") center/cover no-repeat
+          url("/images/factory/${isApparelCatalogue ? "banner-apparel.png" : "banner-product.png"}") center/cover no-repeat
         `,
           minHeight: "360px",
         }}
@@ -60,11 +65,33 @@ export default async function Page({ searchParams }) {
         <div className="shell">
           <span className="kicker">OEM PRODUCT CATALOGUE</span>
 
-          <h1>Manufacturing range</h1>
+          <h1
+            style={
+              isApparelCatalogue
+                ? { fontSize: "clamp(40px, 5vw, 64px)" }
+                : undefined
+            }
+          >
+            {isApparelCatalogue ? (
+              <>
+                Performance apparel,
+                <br /> built for your brand
+              </>
+            ) : (
+              "Manufacturing range"
+            )}
+          </h1>
 
           <p>
-            Browse products that can be customized with your branding,
-            materials, colors, specifications and packaging.
+            {isApparelCatalogue ? (
+              <>
+                Create standout activewear engineered for movement,
+                <br /> customized with your designs, colors and signature brand
+                identity.
+              </>
+            ) : (
+              "Browse products that can be customized with your branding, materials, colors, specifications and packaging."
+            )}
           </p>
         </div>
       </section>
@@ -88,17 +115,19 @@ export default async function Page({ searchParams }) {
                 </div>
               </div>
 
-              <CatalogueAccessControls hasAccess={hasAccess} />
+              {!isApparelCatalogue && (
+                <CatalogueAccessControls hasAccess={hasAccess} />
+              )}
 
               {filteredProducts.length > 0 ? (
                 <ProductBrowser
                   products={filteredProducts}
                   catalogueProducts={products}
-                  hasCatalogueAccess={hasAccess}
+                  hasCatalogueAccess={canBrowseSelectedCatalogue}
                 />
               ) : (
                 <div className="emptyProducts">
-                  {hasAccess ? (
+                  {canBrowseSelectedCatalogue ? (
                     <>
                       <h3>Coming Soon</h3>
 

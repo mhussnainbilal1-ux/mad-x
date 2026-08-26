@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { allProducts, previewProducts } from "@/lib/products";
+import { allProducts, isApparelProduct, publicProducts } from "@/lib/products";
 import { hasCatalogueAccess } from "@/lib/catalogue-access";
 import { getProductRange } from "@/lib/common";
 import RangeProducts from "../../../components/RangeProducts";
@@ -11,7 +11,7 @@ import { siteUrl } from "@/lib/seo";
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const hasAccess = await hasCatalogueAccess();
-  const products = hasAccess ? allProducts : previewProducts;
+  const products = hasAccess ? allProducts : publicProducts;
   const p = products.find((x) => x.slug === slug);
   if (!p) return { title: "Product" };
 
@@ -37,10 +37,12 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
   const { slug } = await params;
   const hasAccess = await hasCatalogueAccess();
-  const products = hasAccess ? allProducts : previewProducts;
+  const products = hasAccess ? allProducts : publicProducts;
   const p = products.find((x) => x.slug === slug);
 
   if (!p) notFound();
+  const rangeProducts =
+    hasAccess || isApparelProduct(p) ? allProducts : products;
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -80,7 +82,9 @@ export default async function Page({ params }) {
               />
             </ImageZoomWrapper>
 
-            <RangeProducts range={getProductRange(products, p.index, p.type)} />
+            <RangeProducts
+              range={getProductRange(rangeProducts, p.index, p.type)}
+            />
           </div>
           <div className="detailCopy">
             <Link className="back" href="/products">

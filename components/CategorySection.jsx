@@ -11,7 +11,7 @@ const categoryImages = {
 
   apparel: "/images/category/apparal.png",
   yoga: "/images/category/yoga.png",
-  collections: "/images/category/collection.png",
+  "leather-fashion-jackets": "/images/category/leather-jackets.png",
 };
 
 const categoryLabels = {
@@ -20,7 +20,7 @@ const categoryLabels = {
   fitness: "GLOVES • BELTS • SUPPORT",
   yoga: "MATS • BLOCKS • STRAPS",
   apparel: "ACTIVEWEAR • COMPRESSION",
-  collections: "RANGES • SERIES",
+  "leather-fashion-jackets": "BIKER • BOMBER • VARSITY",
   kids: "KIDS COLLECTION",
   sale: "SPECIAL OFFERS",
   "gift-card": "GIFT CARD",
@@ -51,7 +51,7 @@ export default function CategorySection() {
           {categories?.map((category) => (
             <Link
               key={category.slug}
-              href={`/products?category=${category.name}`}
+              href={`/products?category=${encodeURIComponent(category.name)}`}
               className="categoryCard"
             >
               <Image

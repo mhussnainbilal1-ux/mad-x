@@ -79,10 +79,13 @@ export default function InquiryForm({ compact = false, source }) {
       loadCaptcha();
       setValidationErrors({});
       setStatus("sent");
-      trackEvent(source === "Contact Us" ? "contact_form_submit" : "quote_form_submit", {
-        form_source: source || "Website inquiry",
-        product_type: formValues.product,
-      });
+      trackEvent(
+        source === "Contact Us" ? "contact_form_submit" : "quote_form_submit",
+        {
+          form_source: source || "Website inquiry",
+          product_type: formValues.product,
+        },
+      );
     } catch (error) {
       console.error("Inquiry submission failed:", error);
       loadCaptcha();
@@ -161,7 +164,7 @@ export default function InquiryForm({ compact = false, source }) {
           <option>Fitness</option>
           <option>Yoga</option>
           <option>Apparel</option>
-          <option>Product Collections / Bundles</option>
+          <option>Leather Jackets</option>
           <option>Custom Product</option>
           <option>Other / Not Sure</option>
         </select>

@@ -8,6 +8,11 @@ import MadXLogo from "@/components/Logo";
 import { madxCategories } from "@/data/madxCategories";
 import { ClipboardList } from "lucide-react";
 import { useProductList } from "./ProductListProvider";
+
+const alphabeticalCategories = [...madxCategories].sort((a, b) =>
+  a.name.localeCompare(b.name),
+);
+
 export default function Header({ hasCatalogueAccess = false }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -99,7 +104,7 @@ export default function Header({ hasCatalogueAccess = false }) {
                 Categories
               </button>
               <div className="navDropdownMenu" id="category-navigation">
-                {madxCategories?.map((category) => (
+                {alphabeticalCategories.map((category) => (
                   <Link
                     key={category.slug}
                     href={`/products?category=${encodeURIComponent(category.name)}`}
