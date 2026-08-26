@@ -7,6 +7,12 @@ import ProductOptionsModal from "@/components/ProductOptionsModal";
 import ProductListDrawer from "@/components/ProductListDrawer";
 import { organizationJsonLd, siteUrl } from "@/lib/seo";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import VisitorActivityTracker from "@/components/VisitorActivityTracker";
+import { headers } from "next/headers";
+import {
+  getVisitorLocation,
+  isTrackableForeignVisitor,
+} from "@/lib/visitor-location";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -70,11 +76,14 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const access = await getCatalogueAccess();
+  const location = getVisitorLocation(await headers());
+  const trackActivity = isTrackableForeignVisitor(location);
 
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body>
         <GoogleAnalytics />
+        {trackActivity && <VisitorActivityTracker />}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

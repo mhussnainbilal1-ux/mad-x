@@ -21,6 +21,7 @@ import {
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./AdminDashboard.module.css";
+import DashboardNavigation from "./DashboardNavigation";
 
 const navigation = [
   {
@@ -105,24 +106,34 @@ export default function AdminDashboard() {
   const stats = [
     {
       label: "Analytics",
-      value: analytics?.configured && !analytics.error
-        ? new Intl.NumberFormat("en", { notation: "compact" }).format(analytics.overview?.[0] || 0)
-        : "—",
-      note: analytics?.configured && !analytics.error ? `${analytics.overview?.[1] || 0} sessions · last 30 days` : "GA4 report is unavailable",
+      value:
+        analytics?.configured && !analytics.error
+          ? new Intl.NumberFormat("en", { notation: "compact" }).format(
+              analytics.overview?.[0] || 0,
+            )
+          : "—",
+      note:
+        analytics?.configured && !analytics.error
+          ? `${analytics.overview?.[1] || 0} sessions · last 30 days`
+          : "GA4 report is unavailable",
       icon: Activity,
       href: "/dashboard/analytics",
     },
     {
       label: "Sales CRM",
       value: crmSummary?.configured ? String(crmSummary.active || 0) : "—",
-      note: crmSummary?.configured ? `${crmSummary.total || 0} records · ${crmSummary.won || 0} won` : "CRM database is not connected",
+      note: crmSummary?.configured
+        ? `${crmSummary.total || 0} records · ${crmSummary.won || 0} won`
+        : "CRM database is not connected",
       icon: Users,
       href: "/dashboard/crm",
     },
     {
       label: "Messages",
       value: messageSummary.configured ? String(messageSummary.unread) : "—",
-      note: messageSummary.configured ? `${messageSummary.total} total inquiries` : "Message database is not connected",
+      note: messageSummary.configured
+        ? `${messageSummary.total} total inquiries`
+        : "Message database is not connected",
       icon: TrendingUp,
       href: "/dashboard/messages",
     },
@@ -170,31 +181,11 @@ export default function AdminDashboard() {
           </div>
           <ChevronDown size={16} />
         </div>
-        <nav className={styles.nav} aria-label="Admin navigation">
-          <p>WORKSPACE</p>
-          {navigation?.map(({ label, icon: Icon, badge, href }) =>
-            href ? (
-              <Link
-                href={href}
-                className={pathname === href ? styles.active : ""}
-                key={label}
-              >
-                <Icon size={19} />
-                <span>{label}</span>
-                {label === "Messages" && messageSummary.unread > 0 ? (
-                  <em>{messageSummary.unread}</em>
-                ) : (
-                  badge && <em>{badge}</em>
-                )}
-              </Link>
-            ) : (
-              <button key={label} type="button">
-                <Icon size={19} />
-                <span>{label}</span>
-              </button>
-            ),
-          )}
-        </nav>
+        <DashboardNavigation
+          activeHref={pathname}
+          unreadMessages={messageSummary.unread}
+          crmCount={crmSummary?.total}
+        />
         <div className={styles.sidebarBottom}>
           <Link href="/" className={styles.viewSite}>
             View public website <ArrowUpRight size={16} />
@@ -269,12 +260,32 @@ export default function AdminDashboard() {
               {analytics?.configured && !analytics.error ? (
                 <div className={styles.trafficChart}>
                   {(analytics.daily || []).map((row) => {
-                    const maximum = Math.max(...analytics.daily.map((item) => item.metrics[1]), 1);
-                    return <i key={row.dimensions[0]} style={{ height: `${Math.max((row.metrics[1] / maximum) * 100, 3)}%` }} title={`${row.dimensions[0]}: ${row.metrics[1]} page views`} />;
+                    const maximum = Math.max(
+                      ...analytics.daily.map((item) => item.metrics[1]),
+                      1,
+                    );
+                    return (
+                      <i
+                        key={row.dimensions[0]}
+                        style={{
+                          height: `${Math.max((row.metrics[1] / maximum) * 100, 3)}%`,
+                        }}
+                        title={`${row.dimensions[0]}: ${row.metrics[1]} page views`}
+                      />
+                    );
                   })}
                 </div>
               ) : (
-                <div className={styles.serviceState}><BarChart3 size={27} /><strong>GA4 report unavailable</strong><span>Open Analytics to finish setup or review the connection.</span><Link href="/dashboard/analytics">Open analytics <ArrowUpRight size={14} /></Link></div>
+                <div className={styles.serviceState}>
+                  <BarChart3 size={27} />
+                  <strong>GA4 report unavailable</strong>
+                  <span>
+                    Open Analytics to finish setup or review the connection.
+                  </span>
+                  <Link href="/dashboard/analytics">
+                    Open analytics <ArrowUpRight size={14} />
+                  </Link>
+                </div>
               )}
             </article>
             <article className={styles.panel}>
@@ -283,17 +294,30 @@ export default function AdminDashboard() {
                   <h2>Lead pipeline</h2>
                   <p>Current leads by stage</p>
                 </div>
-                <Link href="/dashboard/crm">View CRM <ArrowUpRight size={14} /></Link>
+                <Link href="/dashboard/crm">
+                  View CRM <ArrowUpRight size={14} />
+                </Link>
               </div>
-              {crmSummary?.configured ? <div className={styles.pipeline}>
-                {Object.keys(pipelineCounts).map((stage) => (
-                  <div key={stage}>
-                    <span>{stage}</span>
-                    <strong>{pipelineCounts[stage]}</strong>
-                    <i />
-                  </div>
-                ))}
-              </div> : <div className={styles.serviceState}><Users size={27} /><strong>CRM report unavailable</strong><span>Connect MongoDB to show the live sales pipeline.</span><Link href="/dashboard/crm">Open CRM <ArrowUpRight size={14} /></Link></div>}
+              {crmSummary?.configured ? (
+                <div className={styles.pipeline}>
+                  {Object.keys(pipelineCounts).map((stage) => (
+                    <div key={stage}>
+                      <span>{stage}</span>
+                      <strong>{pipelineCounts[stage]}</strong>
+                      <i />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className={styles.serviceState}>
+                  <Users size={27} />
+                  <strong>CRM report unavailable</strong>
+                  <span>Connect MongoDB to show the live sales pipeline.</span>
+                  <Link href="/dashboard/crm">
+                    Open CRM <ArrowUpRight size={14} />
+                  </Link>
+                </div>
+              )}
               {crmSummary?.configured && !crmSummary.total && (
                 <div className={styles.emptyLeads}>
                   <Users size={25} />
@@ -342,8 +366,18 @@ export default function AdminDashboard() {
             ) : (
               <div className={styles.tableEmpty}>
                 <MessageSquareText size={25} />
-                <strong>{messageSummary.configured === null ? "Loading messages…" : messageSummary.configured ? "No messages yet" : "Messages unavailable"}</strong>
-                <span>{messageSummary.configured ? "New website inquiries will appear here." : "Connect MongoDB to load website inquiries."}</span>
+                <strong>
+                  {messageSummary.configured === null
+                    ? "Loading messages…"
+                    : messageSummary.configured
+                      ? "No messages yet"
+                      : "Messages unavailable"}
+                </strong>
+                <span>
+                  {messageSummary.configured
+                    ? "New website inquiries will appear here."
+                    : "Connect MongoDB to load website inquiries."}
+                </span>
               </div>
             )}
           </section>

@@ -33,6 +33,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import shell from "./AdminDashboard.module.css";
 import styles from "./AdminLeads.module.css";
 import tableStyles from "./AdminResearchTable.module.css";
+import DashboardNavigation from "./DashboardNavigation";
 
 const stages = [
   "All",
@@ -304,7 +305,8 @@ export default function AdminLeads({ initialLeads }) {
     [leads],
   );
   const sources = useMemo(
-    () => [...new Set(leads?.map((lead) => lead.source).filter(Boolean))].sort(),
+    () =>
+      [...new Set(leads?.map((lead) => lead.source).filter(Boolean))].sort(),
     [leads],
   );
 
@@ -889,36 +891,11 @@ export default function AdminLeads({ initialLeads }) {
           </div>
           <ChevronDown size={16} />
         </div>
-        <nav className={shell.nav}>
-          <p>WORKSPACE</p>
-          <Link href="/dashboard">
-            <LayoutDashboard size={19} />
-            <span>Overview</span>
-          </Link>
-          <Link href="/dashboard/analytics">
-            <BarChart3 size={19} />
-            <span>Analytics</span>
-          </Link>
-          <Link href="/dashboard/crm" className={shell.active}>
-            <Users size={19} />
-            <span>Sales CRM</span>
-            <em>{leads.length}</em>
-          </Link>
-          <Link href="/dashboard/messages">
-            <MessageSquareText size={19} />
-            <span>Messages</span>
-            {unreadMessages > 0 && <em>{unreadMessages}</em>}
-          </Link>
-          <Link href="/dashboard/catalogue-keys">
-            <KeyRound size={19} />
-            <span>Access Keys</span>
-          </Link>
-          <p>MANAGE</p>
-          <button>
-            <Settings size={19} />
-            Settings
-          </button>
-        </nav>
+        <DashboardNavigation
+          activeHref="/dashboard/crm"
+          unreadMessages={unreadMessages}
+          crmCount={leads.length}
+        />
         <div className={shell.sidebarBottom}>
           <Link href="/" className={shell.viewSite}>
             View public website
@@ -1248,7 +1225,9 @@ export default function AdminLeads({ initialLeads }) {
               ref={tableScroll}
               role={tableMaximized ? "dialog" : undefined}
               aria-modal={tableMaximized ? "true" : undefined}
-              aria-label={tableMaximized ? "Maximized Sales CRM table" : undefined}
+              aria-label={
+                tableMaximized ? "Maximized Sales CRM table" : undefined
+              }
             >
               {tableMaximized && (
                 <header className={styles.maximizedHeader}>

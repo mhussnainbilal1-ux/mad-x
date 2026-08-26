@@ -22,6 +22,7 @@ import {
 import { useCallback, useEffect, useState } from "react";
 import shell from "./AdminDashboard.module.css";
 import styles from "./AdminMessages.module.css";
+import DashboardNavigation from "./DashboardNavigation";
 
 const sources = ["All", "Contact Us", "Get a Quote", "Wholesale Inquiry"];
 const statuses = ["All", "New", "In Progress", "Resolved", "Archived"];
@@ -186,43 +187,10 @@ export default function AdminMessages() {
           </div>
           <ChevronDown size={16} />
         </div>
-        <nav className={shell.nav} aria-label="Admin navigation">
-          <p>WORKSPACE</p>
-          <Link href="/dashboard">
-            <LayoutDashboard size={19} />
-            <span>Overview</span>
-          </Link>
-          <Link href="/dashboard/analytics">
-            <BarChart3 size={19} />
-            <span>Analytics</span>
-          </Link>
-          <Link href="/dashboard/crm">
-            <Users size={19} />
-            <span>Sales CRM</span>
-          </Link>
-          <Link href="/dashboard/messages" className={shell.active}>
-            <MessageSquareText size={19} />
-            <span>Messages</span>
-            {unread > 0 && <em>{unread}</em>}
-          </Link>
-          <Link href="/dashboard/catalogue-keys">
-            <KeyRound size={19} />
-            <span>Access Keys</span>
-          </Link>
-          <Link href="/dashboard/photo-editor">
-            <ImageIcon size={19} />
-            <span>Photo Editor</span>
-          </Link>
-          <Link href="/dashboard/image-pdf">
-            <FileDown size={19} />
-            <span>Image PDF</span>
-          </Link>
-          <p>MANAGE</p>
-          <button type="button">
-            <Settings size={19} />
-            <span>Settings</span>
-          </button>
-        </nav>
+        <DashboardNavigation
+          activeHref="/dashboard/messages"
+          unreadMessages={unread}
+        />
         <div className={shell.sidebarBottom}>
           <Link href="/" className={shell.viewSite}>
             View public website

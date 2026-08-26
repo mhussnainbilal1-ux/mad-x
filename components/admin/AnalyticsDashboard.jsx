@@ -26,6 +26,7 @@ import {
 import { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./AnalyticsDashboard.module.css";
 import shell from "./AdminDashboard.module.css";
+import DashboardNavigation from "./DashboardNavigation";
 
 const metricNames = [
   "Users",
@@ -315,37 +316,7 @@ export default function AnalyticsDashboard() {
           </div>
           <ChevronDown size={16} />
         </div>
-        <nav className={shell.nav} aria-label="Admin navigation">
-          <p>WORKSPACE</p>
-          <Link href="/dashboard">
-            <LayoutDashboard size={19} />
-            <span>Overview</span>
-          </Link>
-          <Link href="/dashboard/analytics" className={shell.active}>
-            <BarChart3 size={19} />
-            <span>Analytics</span>
-          </Link>
-          <Link href="/dashboard/crm">
-            <Users size={19} />
-            <span>Sales CRM</span>
-          </Link>
-          <Link href="/dashboard/messages">
-            <MessageSquareText size={19} />
-            <span>Messages</span>
-          </Link>
-          <Link href="/dashboard/catalogue-keys">
-            <KeyRound size={19} />
-            <span>Access Keys</span>
-          </Link>
-          <Link href="/dashboard/photo-editor">
-            <ImageIcon size={19} />
-            <span>Photo Editor</span>
-          </Link>
-          <Link href="/dashboard/image-pdf">
-            <FileDown size={19} />
-            <span>Image PDF</span>
-          </Link>
-        </nav>
+        <DashboardNavigation activeHref="/dashboard/analytics" />
         <div className={shell.sidebarBottom}>
           <Link href="/" className={shell.viewSite}>
             View public website
