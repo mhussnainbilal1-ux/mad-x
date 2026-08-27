@@ -11,6 +11,7 @@ const eventTypes = new Set([
   "button_click",
   "link_click",
   "form_submit",
+  "catalogue_unlock_click",
 ]);
 
 function text(value, limit) {

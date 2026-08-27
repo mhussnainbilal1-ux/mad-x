@@ -10,6 +10,7 @@ const eventTypes = [
   "button_click",
   "link_click",
   "form_submit",
+  "catalogue_unlock_click",
 ];
 
 function eventName(value) {

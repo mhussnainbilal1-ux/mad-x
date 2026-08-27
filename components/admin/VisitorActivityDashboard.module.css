@@ -219,6 +219,11 @@
   color: var(--red);
 }
 
+.catalogue_unlock_click {
+  background: #fff2cc;
+  color: #805b00;
+}
+
 .empty {
   padding: 50px !important;
   color: #8290a1 !important;

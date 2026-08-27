@@ -6,7 +6,13 @@ const VisitorActivitySchema = new mongoose.Schema(
     eventType: {
       type: String,
       required: true,
-      enum: ["page_view", "button_click", "link_click", "form_submit"],
+      enum: [
+        "page_view",
+        "button_click",
+        "link_click",
+        "form_submit",
+        "catalogue_unlock_click",
+      ],
       index: true,
     },
     label: { type: String, default: "", trim: true, maxlength: 300 },

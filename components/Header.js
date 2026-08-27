@@ -89,6 +89,7 @@ export default function Header({ hasCatalogueAccess = false }) {
                 className="navUnlockMobile"
                 type="button"
                 onClick={openCatalogueAccess}
+                data-activity-event="catalogue_unlock_click"
               >
                 🔓 Unlock Full Catalogue
               </button>
@@ -158,6 +159,7 @@ export default function Header({ hasCatalogueAccess = false }) {
                 className="navUnlock"
                 type="button"
                 onClick={openCatalogueAccess}
+                data-activity-event="catalogue_unlock_click"
               >
                 🔓 Unlock Full Catalogue
               </button>

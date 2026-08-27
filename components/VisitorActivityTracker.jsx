@@ -57,8 +57,9 @@ function ActivityListener() {
       const element = event.target.closest("a[href], button, [role='button']");
       if (!element || element.closest("[data-no-activity-tracking]")) return;
       const link = element.matches("a[href]") ? element : null;
+      const explicitEventType = element.getAttribute("data-activity-event");
       sendActivity({
-        eventType: link ? "link_click" : "button_click",
+        eventType: explicitEventType || (link ? "link_click" : "button_click"),
         label: elementLabel(element),
         pagePath: `${window.location.pathname}${window.location.search}`,
         destination: link?.href || "",

@@ -212,7 +212,12 @@ function UnlockForm({
           disabled={isSubmitting}
           autoFocus={modal}
         />
-        <button className="button navy" type="submit" disabled={isSubmitting}>
+        <button
+          className="button navy"
+          type="submit"
+          disabled={isSubmitting}
+          data-activity-event="catalogue_unlock_click"
+        >
           {isSubmitting ? "Checking…" : "Unlock catalogue"}
         </button>
       </div>
