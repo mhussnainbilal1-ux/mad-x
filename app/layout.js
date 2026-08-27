@@ -8,6 +8,7 @@ import ProductListDrawer from "@/components/ProductListDrawer";
 import { organizationJsonLd, siteUrl } from "@/lib/seo";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import VisitorActivityTracker from "@/components/VisitorActivityTracker";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import { headers } from "next/headers";
 import {
   getVisitorLocation,
@@ -94,6 +95,7 @@ export default async function RootLayout({ children }) {
           <Header hasCatalogueAccess={access.hasCatalogueAccess} />
           {children}
           <Footer />
+          <WhatsAppButton />
           {access.hasAdminAccess && (
             <>
               <ProductOptionsModal />
