@@ -1,5 +1,8 @@
-import { previewProducts } from "@/lib/products";
+import { allProducts, publicProducts } from "@/lib/products";
+import { isPublicCatalogueEnabled } from "@/lib/catalogue-settings";
 import { siteUrl } from "@/lib/seo";
+
+export const dynamic = "force-dynamic";
 
 const publicRoutes = [
   "",
@@ -16,8 +19,11 @@ const publicRoutes = [
   "/terms",
 ];
 
-export default function sitemap() {
+export default async function sitemap() {
   const lastModified = new Date();
+  const productsForSitemap = (await isPublicCatalogueEnabled())
+    ? allProducts
+    : publicProducts;
   const pages = publicRoutes?.map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified,
@@ -25,7 +31,7 @@ export default function sitemap() {
     priority: route === "" ? 1 : route === "/products" ? 0.9 : 0.7,
   }));
 
-  const products = previewProducts?.map((product) => ({
+  const products = productsForSitemap?.map((product) => ({
     url: `${siteUrl}/products/${product.slug}`,
     lastModified,
     changeFrequency: "monthly",

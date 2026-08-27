@@ -2,7 +2,7 @@ import ProductBrowser from "@/components/ProductBrowser";
 import CatalogueAccessControls from "@/components/CatalogueAccessControls";
 import Link from "next/link";
 import { allProducts, previewProducts } from "@/lib/products";
-import { hasCatalogueAccess } from "@/lib/catalogue-access";
+import { getCatalogueAccess } from "@/lib/catalogue-access";
 import { madxCategories } from "@/data/madxCategories";
 import MobileOnly from "../../components/MobileOnly";
 export const metadata = {
@@ -13,7 +13,8 @@ export const metadata = {
 };
 
 export default async function Page({ searchParams }) {
-  const hasAccess = await hasCatalogueAccess();
+  const access = await getCatalogueAccess();
+  const hasAccess = access.hasCatalogueAccess;
   const params = await searchParams;
 
   const selectedCategory =
@@ -115,7 +116,7 @@ export default async function Page({ searchParams }) {
                 </div>
               </div>
 
-              {!isApparelCatalogue && (
+              {!isApparelCatalogue && !access.isPublicCatalogue && (
                 <CatalogueAccessControls hasAccess={hasAccess} />
               )}
 
