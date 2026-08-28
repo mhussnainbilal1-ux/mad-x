@@ -1410,13 +1410,23 @@ export default function AdminLeads({ initialLeads }) {
                         </span>
                       </td>
                       <td className={tableStyles.longCell}>
-                        {lead.message || "—"}
+                        <div
+                          className={tableStyles.longCellPreview}
+                          title={lead.message || ""}
+                        >
+                          {lead.message || "—"}
+                        </div>
                       </td>
                       <td>{lead.researchSource || "—"}</td>
                       <td>{lead.lastContacted || "Never"}</td>
                       <td>{lead.source || "—"}</td>
                       <td className={tableStyles.longCell}>
-                        {lead.notes || "—"}
+                        <div
+                          className={tableStyles.longCellPreview}
+                          title={lead.notes || ""}
+                        >
+                          {lead.notes || "—"}
+                        </div>
                       </td>
                     </tr>
                   ))}

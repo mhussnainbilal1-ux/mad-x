@@ -37,6 +37,17 @@
   white-space: normal;
 }
 
+.longCellPreview {
+  display: -webkit-box;
+  max-height: 4.65em;
+  overflow: hidden;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
 .loadMore,
 .endMessage {
   position: sticky;
