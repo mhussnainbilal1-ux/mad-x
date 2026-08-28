@@ -253,6 +253,15 @@ export default function AdminLeads({ initialLeads }) {
       window.localStorage.setItem("madx-crm-clients-v3", JSON.stringify(leads));
   }, [leads, dataMode]);
 
+  useEffect(() => {
+    if (!importReport) return;
+    const timeout = window.setTimeout(
+      () => setImportReport(null),
+      importReport.success ? 4000 : 7000,
+    );
+    return () => window.clearTimeout(timeout);
+  }, [importReport]);
+
   const filtered = useMemo(
     () =>
       leads.filter((lead) => {
@@ -1019,11 +1028,18 @@ export default function AdminLeads({ initialLeads }) {
           {importReport && (
             <div
               className={`${tableStyles.importReport} ${importReport.success ? tableStyles.importSuccess : tableStyles.importError}`}
+              role={importReport.success ? "status" : "alert"}
+              aria-live={importReport.success ? "polite" : "assertive"}
             >
-              <span>{importReport.message}</span>
+              <span className={tableStyles.toastIcon} aria-hidden="true">
+                {importReport.success ? <Check size={18} /> : <X size={18} />}
+              </span>
+              <span className={tableStyles.toastMessage}>
+                {importReport.message}
+              </span>
               <button
                 onClick={() => setImportReport(null)}
-                aria-label="Dismiss import result"
+                aria-label="Dismiss notification"
               >
                 <X size={15} />
               </button>
