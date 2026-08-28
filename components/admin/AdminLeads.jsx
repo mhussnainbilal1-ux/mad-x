@@ -147,6 +147,7 @@ export default function AdminLeads({ initialLeads }) {
   const [importReport, setImportReport] = useState(null);
   const [columnsCopied, setColumnsCopied] = useState(false);
   const [copiedCompanyId, setCopiedCompanyId] = useState(null);
+  const [copiedReferralId, setCopiedReferralId] = useState(null);
   const [dataMode, setDataMode] = useState("checking");
   const [stageTooltip, setStageTooltip] = useState(null);
   const [pendingImport, setPendingImport] = useState(null);
@@ -549,6 +550,32 @@ export default function AdminLeads({ initialLeads }) {
     window.setTimeout(
       () =>
         setCopiedCompanyId((current) => (current === lead.id ? null : current)),
+      1600,
+    );
+  }
+
+  async function copyReferralLink(event, lead) {
+    event.stopPropagation();
+    if (!lead.referralKey) return;
+    const referralUrl = `https://www.madxsports.com/ref-${lead.referralKey}`;
+    try {
+      await navigator.clipboard.writeText(referralUrl);
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = referralUrl;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
+    }
+    setCopiedReferralId(lead.id);
+    window.setTimeout(
+      () =>
+        setCopiedReferralId((current) =>
+          current === lead.id ? null : current,
+        ),
       1600,
     );
   }
@@ -1249,6 +1276,7 @@ export default function AdminLeads({ initialLeads }) {
                 <thead>
                   <tr>
                     <th>COMPANY</th>
+                    <th>REFERRAL LINK</th>
                     <th>REGION</th>
                     <th>BUSINESS TYPE</th>
                     <th>NAMED PUBLIC CONTACT</th>
@@ -1321,6 +1349,24 @@ export default function AdminLeads({ initialLeads }) {
                             )}
                           </button>
                         </div>
+                      </td>
+                      <td>
+                        <button
+                          type="button"
+                          className={tableStyles.referralCopy}
+                          onClick={(event) => copyReferralLink(event, lead)}
+                          disabled={!lead.referralKey}
+                          title="Copy this client's tracked website link"
+                        >
+                          {copiedReferralId === lead.id ? (
+                            <Check size={14} />
+                          ) : (
+                            <ClipboardCopy size={14} />
+                          )}
+                          {copiedReferralId === lead.id
+                            ? "Copied"
+                            : "Copy link"}
+                        </button>
                       </td>
                       <td>{lead.country || "—"}</td>
                       <td>{lead.businessType || "—"}</td>

@@ -116,8 +116,9 @@ export default function VisitorActivityDashboard() {
             <span>FOREIGN VISITOR TRACKING</span>
             <h1>Visitor activity</h1>
             <p>
-              Clicks and page activity from confirmed visitors outside Pakistan.
-              Times are shown in Pakistan Standard Time.
+              Clicks and page activity from confirmed foreign visitors and
+              attributed client referrals. Times are shown in Pakistan Standard
+              Time.
             </p>
           </div>
           <div className={styles.headingActions}>
@@ -145,7 +146,7 @@ export default function VisitorActivityDashboard() {
         <div className={styles.filters}>
           <input
             aria-label="Search activity"
-            placeholder="Search label, page or city"
+            placeholder="Search company, label, page or city"
             value={query}
             onChange={(event) => updateFilter(setQuery, event.target.value)}
           />
@@ -194,6 +195,7 @@ export default function VisitorActivityDashboard() {
             <thead>
               <tr>
                 <th>Date & time (PKT)</th>
+                <th>Attributed client</th>
                 <th>Location</th>
                 <th>Activity</th>
                 <th>Button / link / page</th>
@@ -205,14 +207,14 @@ export default function VisitorActivityDashboard() {
             <tbody>
               {!loading && activities.length === 0 && (
                 <tr>
-                  <td className={styles.empty} colSpan="7">
+                  <td className={styles.empty} colSpan="8">
                     No visitor activity found.
                   </td>
                 </tr>
               )}
               {loading && (
                 <tr>
-                  <td className={styles.empty} colSpan="7">
+                  <td className={styles.empty} colSpan="8">
                     Loading activity…
                   </td>
                 </tr>
@@ -222,6 +224,16 @@ export default function VisitorActivityDashboard() {
                   <tr key={item._id}>
                     <td className={styles.date}>
                       {formatDate(item.occurredAt)}
+                    </td>
+                    <td>
+                      {item.clientCompany ? (
+                        <>
+                          <strong>{item.clientCompany}</strong>
+                          <small>Referral attributed</small>
+                        </>
+                      ) : (
+                        "—"
+                      )}
                     </td>
                     <td>
                       <strong>{item.country}</strong>

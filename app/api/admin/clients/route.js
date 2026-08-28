@@ -1,13 +1,39 @@
 import { NextResponse } from "next/server";
 import { connectMongoDB, isMongoConfigured } from "@/lib/mongodb";
 import { mongoErrorResponse, serializeClient } from "@/lib/client-api";
-import MadxClient, { buildCompanyCountryKey } from "@/models/MadxClient";
+import MadxClient, {
+  buildCompanyCountryKey,
+  generateReferralKey,
+} from "@/models/MadxClient";
+
+async function backfillReferralKeys() {
+  const clients = await MadxClient.find({
+    $or: [
+      { referralKey: { $exists: false } },
+      { referralKey: null },
+      { referralKey: "" },
+    ],
+  })
+    .select("_id")
+    .lean();
+  if (!clients.length) return;
+  await MadxClient.bulkWrite(
+    clients.map((client) => ({
+      updateOne: {
+        filter: { _id: client._id },
+        update: { $set: { referralKey: generateReferralKey() } },
+      },
+    })),
+    { ordered: false },
+  );
+}
 
 export async function GET(request) {
   if (!isMongoConfigured())
     return NextResponse.json({ configured: false, clients: [] });
   try {
     await connectMongoDB();
+    await backfillReferralKeys();
     const params = request.nextUrl.searchParams;
     if (params.get("summary") === "true") {
       const [total, active, won, overdue, stages] = await Promise.all([
@@ -16,9 +42,15 @@ export async function GET(request) {
         MadxClient.countDocuments({ status: "Won" }),
         MadxClient.countDocuments({
           status: { $ne: "Lost" },
-          nextFollowUp: { $exists: true, $nin: [null, ""], $lt: new Date().toISOString().slice(0, 10) },
+          nextFollowUp: {
+            $exists: true,
+            $nin: [null, ""],
+            $lt: new Date().toISOString().slice(0, 10),
+          },
         }),
-        MadxClient.aggregate([{ $group: { _id: "$status", count: { $sum: 1 } } }]),
+        MadxClient.aggregate([
+          { $group: { _id: "$status", count: { $sum: 1 } } },
+        ]),
       ]);
       return NextResponse.json({
         configured: true,
@@ -26,7 +58,9 @@ export async function GET(request) {
         active,
         won,
         overdue,
-        stages: Object.fromEntries(stages.map((stage) => [stage._id || "Unassigned", stage.count])),
+        stages: Object.fromEntries(
+          stages.map((stage) => [stage._id || "Unassigned", stage.count]),
+        ),
       });
     }
     const page = Math.max(1, Number(params.get("page")) || 1);

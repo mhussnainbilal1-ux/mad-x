@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import { connectMongoDB } from "@/lib/mongodb";
 import { mongoErrorResponse } from "@/lib/client-api";
-import MadxClient, { buildCompanyCountryKey } from "@/models/MadxClient";
+import MadxClient, {
+  buildCompanyCountryKey,
+  generateReferralKey,
+} from "@/models/MadxClient";
 
 export async function POST(request) {
   try {
@@ -52,7 +55,11 @@ export async function POST(request) {
       }
       if (companyCountryKey) seenKeys.add(companyCountryKey);
       seenIds.add(client.id);
-      accepted.push({ ...client, companyCountryKey });
+      accepted.push({
+        ...client,
+        companyCountryKey,
+        referralKey: client.referralKey || generateReferralKey(),
+      });
     }
     if (!accepted.length) {
       return NextResponse.json({

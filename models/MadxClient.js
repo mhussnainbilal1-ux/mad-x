@@ -1,4 +1,9 @@
 import mongoose from "mongoose";
+import { randomBytes } from "node:crypto";
+
+export function generateReferralKey() {
+  return randomBytes(6).toString("base64url").toLowerCase();
+}
 
 const MadxClientSchema = new mongoose.Schema(
   {
@@ -10,6 +15,14 @@ const MadxClientSchema = new mongoose.Schema(
       unique: true,
       sparse: true,
       index: true,
+    },
+    referralKey: {
+      type: String,
+      default: generateReferralKey,
+      unique: true,
+      sparse: true,
+      index: true,
+      trim: true,
     },
     businessType: { type: String, default: "", trim: true, index: true },
     name: { type: String, default: "", trim: true },
@@ -77,12 +90,21 @@ MadxClientSchema.index({
 // newly introduced paths to that cached schema so PATCH does not silently
 // discard them until the dev server is restarted.
 const existingMadxClient = mongoose.models.MadxClient;
-if (
-  existingMadxClient &&
-  !existingMadxClient.schema.path("pakistanFlagged")
-) {
+if (existingMadxClient && !existingMadxClient.schema.path("pakistanFlagged")) {
   existingMadxClient.schema.add({
     pakistanFlagged: { type: Boolean, default: false, index: true },
+  });
+}
+if (existingMadxClient && !existingMadxClient.schema.path("referralKey")) {
+  existingMadxClient.schema.add({
+    referralKey: {
+      type: String,
+      default: generateReferralKey,
+      unique: true,
+      sparse: true,
+      index: true,
+      trim: true,
+    },
   });
 }
 

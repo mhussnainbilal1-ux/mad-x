@@ -1928,6 +1928,34 @@ textarea {
   }
 }
 @media (max-width: 900px) {
+  .mobileNavigationLoader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(6, 17, 32, 0.78);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    backdrop-filter: blur(3px);
+  }
+  .mobileNavigationSpinner {
+    width: 28px;
+    height: 28px;
+    border: 3px solid rgba(255, 255, 255, 0.35);
+    border-top-color: var(--red);
+    border-radius: 50%;
+    animation: mobileNavigationSpin 0.7s linear infinite;
+  }
+  @keyframes mobileNavigationSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
   .menuButton {
     display: block;
   }

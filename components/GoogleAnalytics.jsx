@@ -63,9 +63,9 @@ function AnalyticsNavigation() {
   return null;
 }
 
-export default function GoogleAnalytics() {
+export default function GoogleAnalytics({ excludeTracking = false }) {
   const pathname = usePathname();
-  const excluded = isExcludedRoute(pathname);
+  const excluded = excludeTracking || isExcludedRoute(pathname);
 
   useEffect(() => {
     if (!measurementId) return;

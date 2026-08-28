@@ -264,6 +264,29 @@
   font-size: 9px;
   font-weight: 800;
 }
+.referralCopy {
+  padding: 6px 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #dfe3e8;
+  border-radius: 6px;
+  background: #fff;
+  color: #176b3b;
+  font: inherit;
+  font-size: 9px;
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: copy;
+}
+.referralCopy:hover:not(:disabled) {
+  border-color: #176b3b;
+  background: #f0faf4;
+}
+.referralCopy:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
 .starButton {
   width: 28px;
   height: 28px;
@@ -298,7 +321,9 @@
   border-radius: 6px;
   background: #eef0f2;
   cursor: pointer;
-  transition: background 0.16s, transform 0.16s;
+  transition:
+    background 0.16s,
+    transform 0.16s;
 }
 .pakistanButton span {
   font-size: 17px;

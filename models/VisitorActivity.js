@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 const VisitorActivitySchema = new mongoose.Schema(
   {
     visitorId: { type: String, required: true, maxlength: 100, index: true },
+    clientId: { type: String, default: "", maxlength: 160, index: true },
+    clientCompany: { type: String, default: "", maxlength: 300, index: true },
+    referralKey: { type: String, default: "", maxlength: 100, index: true },
     eventType: {
       type: String,
       required: true,

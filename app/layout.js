@@ -9,7 +9,7 @@ import { organizationJsonLd, siteUrl } from "@/lib/seo";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import VisitorActivityTracker from "@/components/VisitorActivityTracker";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 import {
   getVisitorLocation,
   isTrackableForeignVisitor,
@@ -79,12 +79,15 @@ export default async function RootLayout({ children }) {
   const access = await getCatalogueAccess();
   const location = getVisitorLocation(await headers());
   const trackActivity = isTrackableForeignVisitor(location);
+  const hasReferral = Boolean((await cookies()).get("madx_ref")?.value);
+  const excludeGoogleAnalytics =
+    location.city.trim().toLowerCase() === "lahore";
 
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body>
-        <GoogleAnalytics />
-        {trackActivity && <VisitorActivityTracker />}
+        <GoogleAnalytics excludeTracking={excludeGoogleAnalytics} />
+        {(trackActivity || hasReferral) && <VisitorActivityTracker />}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

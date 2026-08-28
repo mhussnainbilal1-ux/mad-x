@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
 import MadXLogo from "@/components/Logo";
@@ -15,10 +15,12 @@ const alphabeticalCategories = [...madxCategories].sort((a, b) =>
 
 export default function Header({ hasCatalogueAccess = false }) {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
   const { items, openDrawer, canUseProductLists } = useProductList();
 
   useEffect(() => {
@@ -30,6 +32,34 @@ export default function Header({ hasCatalogueAccess = false }) {
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
+  useEffect(() => {
+    setIsNavigating(false);
+  }, [pathname, searchParams]);
+
+  useEffect(() => {
+    if (!isNavigating) return;
+
+    const timeout = window.setTimeout(() => setIsNavigating(false), 10000);
+    return () => window.clearTimeout(timeout);
+  }, [isNavigating]);
+
+  function startMobileNavigation(event) {
+    setOpen(false);
+    setCategoriesOpen(false);
+
+    if (!isMobile) return;
+
+    const destination = new URL(event.currentTarget.href, window.location.href);
+    if (
+      destination.pathname === window.location.pathname &&
+      destination.search === window.location.search
+    ) {
+      return;
+    }
+
+    setIsNavigating(true);
+  }
+
   function openCatalogueAccess() {
     setOpen(false);
 
@@ -38,6 +68,7 @@ export default function Header({ hasCatalogueAccess = false }) {
       return;
     }
 
+    if (isMobile) setIsNavigating(true);
     router.push("/products?unlock=1");
   }
 
@@ -61,7 +92,7 @@ export default function Header({ hasCatalogueAccess = false }) {
           >
             ☰
           </button>
-          <Link href="/" className="brand" onClick={() => setOpen(false)}>
+          <Link href="/" className="brand" onClick={startMobileNavigation}>
             <Image
               src="/images/common/logo2.png"
               alt="MADX Sports"
@@ -78,10 +109,10 @@ export default function Header({ hasCatalogueAccess = false }) {
           </Link>
 
           <nav className={`nav ${open ? "open" : ""}`}>
-            <Link href="/" onClick={() => setOpen(false)}>
+            <Link href="/" onClick={startMobileNavigation}>
               Home
             </Link>
-            <Link href="/products" onClick={() => setOpen(false)}>
+            <Link href="/products" onClick={startMobileNavigation}>
               Products
             </Link>
             {!hasCatalogueAccess && (
@@ -109,32 +140,29 @@ export default function Header({ hasCatalogueAccess = false }) {
                   <Link
                     key={category.slug}
                     href={`/products?category=${encodeURIComponent(category.name)}`}
-                    onClick={() => {
-                      setCategoriesOpen(false);
-                      setOpen(false);
-                    }}
+                    onClick={startMobileNavigation}
                   >
                     {category.name}
                   </Link>
                 ))}
               </div>
             </div>
-            <Link href="/factory-tour" onClick={() => setOpen(false)}>
+            <Link href="/factory-tour" onClick={startMobileNavigation}>
               Factory
             </Link>
-            <Link href="/about" onClick={() => setOpen(false)}>
+            <Link href="/about" onClick={startMobileNavigation}>
               About
             </Link>
-            <Link href="/wholesale" onClick={() => setOpen(false)}>
+            <Link href="/wholesale" onClick={startMobileNavigation}>
               Wholesale
             </Link>
-            <Link href="/gallery" onClick={() => setOpen(false)}>
+            <Link href="/gallery" onClick={startMobileNavigation}>
               Gallery
             </Link>
-            <Link href="/blog" onClick={() => setOpen(false)}>
+            <Link href="/blog" onClick={startMobileNavigation}>
               Insights
             </Link>
-            <Link href="/contact" onClick={() => setOpen(false)}>
+            <Link href="/contact" onClick={startMobileNavigation}>
               Contact
             </Link>
           </nav>
@@ -170,6 +198,12 @@ export default function Header({ hasCatalogueAccess = false }) {
           </div>
         </div>
       </header>
+      {isNavigating && (
+        <div className="mobileNavigationLoader" role="status" aria-live="polite">
+          <span className="mobileNavigationSpinner" aria-hidden="true" />
+          <span>Loading page…</span>
+        </div>
+      )}
     </>
   );
 }

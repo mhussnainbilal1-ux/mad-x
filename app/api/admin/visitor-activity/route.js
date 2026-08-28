@@ -40,9 +40,15 @@ export async function GET(request) {
     }
     if (query) {
       const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      filter.$or = ["label", "pagePath", "destination", "city", "region"].map(
-        (field) => ({ [field]: { $regex: escaped, $options: "i" } }),
-      );
+      filter.$or = [
+        "label",
+        "pagePath",
+        "destination",
+        "city",
+        "region",
+        "clientCompany",
+        "referralKey",
+      ].map((field) => ({ [field]: { $regex: escaped, $options: "i" } }));
     }
 
     const [activities, total, countries] = await Promise.all([

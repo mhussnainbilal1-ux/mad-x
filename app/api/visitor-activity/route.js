@@ -5,6 +5,7 @@ import {
   isTrackableForeignVisitor,
 } from "@/lib/visitor-location";
 import VisitorActivity from "@/models/VisitorActivity";
+import MadxClient from "@/models/MadxClient";
 
 const eventTypes = new Set([
   "page_view",
@@ -22,9 +23,12 @@ function text(value, limit) {
 
 export async function POST(request) {
   const location = getVisitorLocation(request.headers);
+  const referralKey = text(request.cookies.get("madx_ref")?.value, 100);
+  const isForeignVisitor = isTrackableForeignVisitor(location);
 
-  // This decision deliberately occurs before request parsing or MongoDB access.
-  if (!isTrackableForeignVisitor(location)) {
+  // Ordinary domestic traffic remains excluded. A valid client referral is
+  // retained so its activity can still be attributed when geo headers fail.
+  if (!isForeignVisitor && !referralKey) {
     return new NextResponse(null, { status: 204 });
   }
 
@@ -47,8 +51,19 @@ export async function POST(request) {
     }
 
     await connectMongoDB();
+    const referralClient = referralKey
+      ? await MadxClient.findOne({ referralKey })
+          .select("id company referralKey")
+          .lean()
+      : null;
+    if (!isForeignVisitor && !referralClient) {
+      return new NextResponse(null, { status: 204 });
+    }
     await VisitorActivity.create({
       visitorId,
+      clientId: referralClient?.id || "",
+      clientCompany: referralClient?.company || "",
+      referralKey: referralClient?.referralKey || "",
       eventType: values.eventType,
       label: text(values.label, 300),
       pagePath,
