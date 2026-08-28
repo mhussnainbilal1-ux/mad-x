@@ -151,6 +151,7 @@ export default function AdminLeads({ initialLeads }) {
   const [dataMode, setDataMode] = useState("checking");
   const [stageTooltip, setStageTooltip] = useState(null);
   const [pendingImport, setPendingImport] = useState(null);
+  const [importing, setImporting] = useState(false);
   const [deleteTarget, setDeleteTarget] = useState(null);
   const [deleting, setDeleting] = useState(false);
   const [unreadMessages, setUnreadMessages] = useState(0);
@@ -731,6 +732,11 @@ export default function AdminLeads({ initialLeads }) {
       const mapped = headers.filter((column) =>
         supportedImportColumns.includes(column),
       );
+      if (!mapped.length) {
+        throw new Error(
+          `No recognized CRM columns were found. Include at least one of: ${csvColumns.join(", ")}.`,
+        );
+      }
       const unmapped = headers.filter(
         (column) => column && !supportedImportColumns.includes(column),
       );
@@ -795,7 +801,7 @@ export default function AdminLeads({ initialLeads }) {
   }
 
   async function confirmImport() {
-    if (!pendingImport) return;
+    if (!pendingImport || importing) return;
     const { missing } = pendingImport;
     const imported = pendingImport.records?.map((record, index) => {
       const extraNotes = pendingImport.unmappedToNotes
@@ -810,6 +816,7 @@ export default function AdminLeads({ initialLeads }) {
         notes: [record.notes, ...extraNotes].filter(Boolean).join("\n"),
       };
     });
+    setImporting(true);
     try {
       let recordsToAdd = imported;
       let duplicateCompanies = [];
@@ -819,10 +826,13 @@ export default function AdminLeads({ initialLeads }) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ clients: imported }),
         });
-        const result = await response.json();
+        const result = await response.json().catch(() => null);
         if (!response.ok)
           throw new Error(
-            result.error || "Unable to import records into MongoDB.",
+            result?.error ||
+              (response.status === 404
+                ? "The CSV import service was not found. Refresh the dashboard and try again."
+                : `Unable to import records into MongoDB (${response.status}).`),
           );
         const acceptedIds = new Set(result.acceptedIds || []);
         recordsToAdd = imported.filter((client) => acceptedIds.has(client.id));
@@ -848,6 +858,8 @@ export default function AdminLeads({ initialLeads }) {
         success: false,
         message: error.message || "Unable to import these records.",
       });
+    } finally {
+      setImporting(false);
     }
   }
 
@@ -1000,7 +1012,7 @@ export default function AdminLeads({ initialLeads }) {
                 accept=".csv,.xlsx,.xls,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
                 onChange={importCsv}
               />
-              <button onClick={() => fileInput.current?.click()}>
+              <button type="button" onClick={() => fileInput.current?.click()}>
                 <Upload size={16} /> Import file
               </button>
               <button onClick={copyColumns}>
@@ -1643,8 +1655,8 @@ export default function AdminLeads({ initialLeads }) {
                 <h3>Mapped columns</h3>
                 <p>These columns match CRM database fields.</p>
                 <div className={tableStyles.columnChips}>
-                  {pendingImport.maped.length ? (
-                    pendingImport.maped?.map((column) => (
+                  {pendingImport.mapped.length ? (
+                    pendingImport.mapped.map((column) => (
                       <span className={tableStyles.map} key={column}>
                         <Check size={13} /> {column}
                       </span>
@@ -1735,8 +1747,11 @@ export default function AdminLeads({ initialLeads }) {
                 className={styles.primary}
                 type="button"
                 onClick={confirmImport}
+                disabled={importing}
               >
-                Import {pendingImport.records.length} rows
+                {importing
+                  ? "Importing…"
+                  : `Import ${pendingImport.records.length} rows`}
               </button>
             </footer>
           </section>

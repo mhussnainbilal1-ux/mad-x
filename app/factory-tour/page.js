@@ -1,4 +1,5 @@
 import Link from "next/link";
+import GalleryVideos from "@/components/GalleryVideos";
 
 export const metadata = {
   title: "Factory Tour",
@@ -41,12 +42,36 @@ const steps = [
 ];
 
 const capabilities = [
-  ["01", "Product development", "Construction planning, material selection, measurements and sample refinement."],
-  ["02", "Cutting and preparation", "Panel cutting and component preparation for equipment and apparel."],
-  ["03", "Custom branding", "Printing, sublimation, embroidery, patches, labels and artwork placement."],
-  ["04", "Assembly and finishing", "Stitching, padding, shaping, reinforcement and final product finishing."],
-  ["05", "Quality inspection", "Checks against approved specifications before products are packed."],
-  ["06", "Retail-ready packing", "Custom packaging, hangtags, barcodes, labels and carton markings."],
+  [
+    "01",
+    "Product development",
+    "Construction planning, material selection, measurements and sample refinement.",
+  ],
+  [
+    "02",
+    "Cutting and preparation",
+    "Panel cutting and component preparation for equipment and apparel.",
+  ],
+  [
+    "03",
+    "Custom branding",
+    "Printing, sublimation, embroidery, patches, labels and artwork placement.",
+  ],
+  [
+    "04",
+    "Assembly and finishing",
+    "Stitching, padding, shaping, reinforcement and final product finishing.",
+  ],
+  [
+    "05",
+    "Quality inspection",
+    "Checks against approved specifications before products are packed.",
+  ],
+  [
+    "06",
+    "Retail-ready packing",
+    "Custom packaging, hangtags, barcodes, labels and carton markings.",
+  ],
 ];
 
 const qualityChecks = [
@@ -59,10 +84,22 @@ const qualityChecks = [
 ];
 
 const packagingItems = [
-  ["Individual packing", "Product-specific polybags, boxes or other approved retail packing."],
-  ["Brand presentation", "Hangtags, woven labels, care labels, size labels and branded inserts."],
-  ["Retail information", "Barcode placement, product stickers and requested package markings."],
-  ["Shipment preparation", "Carton quantities, carton marks and packing-list coordination."],
+  [
+    "Individual packing",
+    "Product-specific polybags, boxes or other approved retail packing.",
+  ],
+  [
+    "Brand presentation",
+    "Hangtags, woven labels, care labels, size labels and branded inserts.",
+  ],
+  [
+    "Retail information",
+    "Barcode placement, product stickers and requested package markings.",
+  ],
+  [
+    "Shipment preparation",
+    "Carton quantities, carton marks and packing-list coordination.",
+  ],
 ];
 
 export default function Page() {
@@ -113,8 +150,8 @@ export default function Page() {
               production.
             </p>
             <p>
-              Whether you provide a design, tech pack or physical reference,
-              the approved sample becomes the standard for the production run.
+              Whether you provide a design, tech pack or physical reference, the
+              approved sample becomes the standard for the production run.
             </p>
             <div className="noticeBox">
               <b>Built for private-label development</b>
@@ -134,6 +171,8 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <GalleryVideos />
 
       <section className="section cream" id="factory-process">
         <div className="shell">
@@ -222,8 +261,8 @@ export default function Page() {
               <h2>Prepared for your next destination</h2>
             </div>
             <p>
-              Packing details can be coordinated around your brand,
-              distribution requirements and approved order specification.
+              Packing details can be coordinated around your brand, distribution
+              requirements and approved order specification.
             </p>
           </div>
           <div className="valueGrid">
