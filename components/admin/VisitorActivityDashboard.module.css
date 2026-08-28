@@ -241,6 +241,49 @@
   font-size: 10px;
 }
 
+.success {
+  margin: 0 0 14px;
+  padding: 11px 13px;
+  border: 1px solid #b8dfc7;
+  border-radius: 7px;
+  background: #edf9f1;
+  color: #247346;
+  font-size: 10px;
+}
+
+.deleteRowButton {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #efc8cc;
+  border-radius: 6px;
+  background: #fff6f7;
+  color: #b42332;
+  cursor: pointer;
+}
+
+.deleteRowButton:hover:not(:disabled) {
+  border-color: #b42332;
+  background: #b42332;
+  color: #fff;
+}
+
+.deleteRowButton:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+.spinning {
+  animation: activitySpin 0.8s linear infinite;
+}
+
+@keyframes activitySpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .pagination {
   display: flex;
   justify-content: flex-end;

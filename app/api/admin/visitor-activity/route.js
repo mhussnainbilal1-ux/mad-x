@@ -88,7 +88,19 @@ export async function DELETE(request) {
   }
 
   try {
-    const { scope } = await request.json();
+    const { scope, id } = await request.json();
+    if (id) {
+      await connectMongoDB();
+      const activity = await VisitorActivity.findByIdAndDelete(id);
+      if (!activity) {
+        return NextResponse.json(
+          { error: "Visitor activity not found" },
+          { status: 404 },
+        );
+      }
+      return NextResponse.json({ success: true, deleted: 1 });
+    }
+
     if (!["older_than_three_weeks", "all"].includes(scope)) {
       return NextResponse.json(
         { error: "Invalid deletion scope" },

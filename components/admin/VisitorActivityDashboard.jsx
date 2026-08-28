@@ -1,5 +1,6 @@
 "use client";
 
+import { LoaderCircle, Trash2 } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import DashboardToolShell from "./DashboardToolShell";
 import styles from "./VisitorActivityDashboard.module.css";
@@ -40,7 +41,9 @@ export default function VisitorActivityDashboard() {
   const [to, setTo] = useState("");
   const [loading, setLoading] = useState(true);
   const [clearing, setClearing] = useState("");
+  const [deletingId, setDeletingId] = useState("");
   const [error, setError] = useState("");
+  const [notice, setNotice] = useState("");
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -74,6 +77,12 @@ export default function VisitorActivityDashboard() {
     return () => window.clearTimeout(timeout);
   }, [load]);
 
+  useEffect(() => {
+    if (!notice) return;
+    const timeout = window.setTimeout(() => setNotice(""), 4000);
+    return () => window.clearTimeout(timeout);
+  }, [notice]);
+
   function updateFilter(setter, value) {
     setPage(1);
     setter(value);
@@ -105,6 +114,40 @@ export default function VisitorActivityDashboard() {
       setError(clearError.message);
     } finally {
       setClearing("");
+    }
+  }
+
+  async function deleteActivity(item) {
+    const detail =
+      item.clientCompany || item.label || eventName(item.eventType);
+    const confirmed = window.confirm(
+      `Delete this activity for ${detail}? This cannot be undone.`,
+    );
+    if (!confirmed) return;
+
+    setDeletingId(item._id);
+    setError("");
+    setNotice("");
+    try {
+      const response = await fetch("/api/admin/visitor-activity", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: item._id }),
+      });
+      const result = await response.json();
+      if (!response.ok)
+        throw new Error(result.error || "Unable to delete activity");
+
+      setActivities((current) =>
+        current.filter((activity) => activity._id !== item._id),
+      );
+      setTotal((current) => Math.max(0, current - 1));
+      setNotice("Visitor activity deleted successfully.");
+      if (activities.length === 1 && page > 1) setPage((value) => value - 1);
+    } catch (deleteError) {
+      setError(deleteError.message);
+    } finally {
+      setDeletingId("");
     }
   }
 
@@ -189,7 +232,16 @@ export default function VisitorActivityDashboard() {
           </label>
         </div>
 
-        {error && <p className={styles.error}>{error}</p>}
+        {notice && (
+          <p className={styles.success} role="status">
+            {notice}
+          </p>
+        )}
+        {error && (
+          <p className={styles.error} role="alert">
+            {error}
+          </p>
+        )}
         <div className={styles.tableWrap}>
           <table>
             <thead>
@@ -202,19 +254,20 @@ export default function VisitorActivityDashboard() {
                 <th>Page</th>
                 <th>Destination</th>
                 <th>Visitor</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {!loading && activities.length === 0 && (
                 <tr>
-                  <td className={styles.empty} colSpan="8">
+                  <td className={styles.empty} colSpan="9">
                     No visitor activity found.
                   </td>
                 </tr>
               )}
               {loading && (
                 <tr>
-                  <td className={styles.empty} colSpan="8">
+                  <td className={styles.empty} colSpan="9">
                     Loading activity…
                   </td>
                 </tr>
@@ -271,6 +324,22 @@ export default function VisitorActivityDashboard() {
                       <code title={item.visitorId}>
                         {item.visitorId.slice(0, 8)}
                       </code>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className={styles.deleteRowButton}
+                        disabled={deletingId === item._id}
+                        onClick={() => deleteActivity(item)}
+                        aria-label={`Delete ${eventName(item.eventType)} activity`}
+                        title="Delete activity"
+                      >
+                        {deletingId === item._id ? (
+                          <LoaderCircle className={styles.spinning} size={15} />
+                        ) : (
+                          <Trash2 size={15} />
+                        )}
+                      </button>
                     </td>
                   </tr>
                 ))}
