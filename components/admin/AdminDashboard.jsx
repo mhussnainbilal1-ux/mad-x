@@ -22,6 +22,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./AdminDashboard.module.css";
 import DashboardNavigation from "./DashboardNavigation";
+import ReminderPanel from "./ReminderPanel";
 
 const navigation = [
   {
@@ -329,6 +330,7 @@ export default function AdminDashboard() {
               )}
             </article>
           </section>
+          <ReminderPanel />
           <section className={`${styles.panel} ${styles.recent}`}>
             <div className={styles.panelHead}>
               <div>
