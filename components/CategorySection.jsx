@@ -6,6 +6,7 @@ const categoryImages = {
   boxing: "/images/category/cat-boxing.png",
 
   mma: "/images/category/mma.png",
+  "bjj-no-gi": "/images/products/bjj/bjj-gis/product.png",
 
   fitness: "/images/category/fitness.png",
 
@@ -17,6 +18,7 @@ const categoryImages = {
 const categoryLabels = {
   boxing: "GLOVES • BAGS • PROTECTION",
   mma: "GLOVES • SHORTS • PROTECTION",
+  "bjj-no-gi": "GIS • RASH GUARDS • NO-GI",
   fitness: "GLOVES • BELTS • SUPPORT",
   yoga: "MATS • BLOCKS • STRAPS",
   apparel: "ACTIVEWEAR • COMPRESSION",

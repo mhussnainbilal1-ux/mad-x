@@ -121,6 +121,22 @@ export const madxCategories: ProductCategory[] = [
     ],
   },
   {
+    name: "BJJ & No-Gi",
+    slug: "bjj-no-gi",
+    groups: [
+      { name: "BJJ Gis", items: [] },
+      { name: "Gi Jackets", items: [] },
+      { name: "Gi Pants", items: [] },
+      { name: "Belts", items: [] },
+      { name: "Rash Guards", items: [] },
+      { name: "Spats", items: [] },
+      { name: "Grappling Shorts", items: [] },
+      { name: "Vale Tudo Shorts", items: [] },
+      { name: "Compression Shirts", items: [] },
+      { name: "Equipment Bags", items: [] },
+    ],
+  },
+  {
     name: "Fitness",
     slug: "fitness",
     groups: [

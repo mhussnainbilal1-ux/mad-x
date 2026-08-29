@@ -30,7 +30,7 @@ export default function Footer() {
           <Link href="/products">All Products</Link>
           <Link href="/products?category=Boxing">Boxing</Link>
           <Link href="/products?category=MMA">MMA</Link>
-          <Link href="/products?category=BJJ">BJJ & No-Gi</Link>
+          <Link href="/products?category=BJJ%20%26%20No-Gi">BJJ & No-Gi</Link>
         </div>
         <div>
           <h4>Company</h4>

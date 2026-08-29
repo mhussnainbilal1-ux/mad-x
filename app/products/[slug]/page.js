@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { allProducts, isApparelProduct, publicProducts } from "@/lib/products";
+import { allProducts, isPublicProduct, publicProducts } from "@/lib/products";
 import { hasCatalogueAccess } from "@/lib/catalogue-access";
 import { getProductRange } from "@/lib/common";
 import RangeProducts from "../../../components/RangeProducts";
@@ -42,7 +42,7 @@ export default async function Page({ params }) {
 
   if (!p) notFound();
   const rangeProducts =
-    hasAccess || isApparelProduct(p) ? allProducts : products;
+    hasAccess || isPublicProduct(p) ? allProducts : products;
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",

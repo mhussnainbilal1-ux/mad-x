@@ -28,6 +28,20 @@ const videoSlots = [
       "A close look at precision stitching and assembly for performance shirts.",
     poster: "/images/common/gallery/performance-apparel.png",
   },
+  {
+    file: "video-5.mp4",
+    title: "Skilled manufacturing process",
+    description:
+      "Behind-the-scenes craftsmanship during the product manufacturing process.",
+    poster: "/images/common/gallery/material-cutting.png",
+  },
+  {
+    file: "video-6.mp4",
+    title: "Production craftsmanship",
+    description:
+      "A closer view of hands-on production work inside MAD X Sports.",
+    poster: "/images/common/gallery/custom-branding.png",
+  },
 ];
 
 export default function GalleryVideos() {

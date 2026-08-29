@@ -23,9 +23,19 @@ export default async function Page({ searchParams }) {
   const selectedSubCategory = params?.subCategory || "";
   const isApparelCatalogue =
     selectedCategory.trim().toLowerCase() === "apparel";
+  const isBjjCatalogue =
+    selectedCategory.trim().toLowerCase() === "bjj & no-gi";
+  const isPublicCatalogue = isApparelCatalogue || isBjjCatalogue;
   const products =
-    hasAccess || isApparelCatalogue ? allProducts : previewProducts;
-  const canBrowseSelectedCatalogue = hasAccess || isApparelCatalogue;
+    hasAccess || isApparelCatalogue
+      ? allProducts
+      : isBjjCatalogue
+        ? allProducts.filter(
+            (product) =>
+              product.category?.trim().toLowerCase() === "bjj & no-gi",
+          )
+        : previewProducts;
+  const canBrowseSelectedCatalogue = hasAccess || isPublicCatalogue;
 
   let filteredProducts = products.filter((product) => {
     const matchesCategory = product.category?.includes(selectedCategory);
@@ -116,7 +126,7 @@ export default async function Page({ searchParams }) {
                 </div>
               </div>
 
-              {!isApparelCatalogue && !access.isPublicCatalogue && (
+              {!isPublicCatalogue && !access.isPublicCatalogue && (
                 <CatalogueAccessControls hasAccess={hasAccess} />
               )}
 
