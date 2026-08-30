@@ -138,6 +138,7 @@ export default function AdminLeads({ initialLeads }) {
   const [tableMaximized, setTableMaximized] = useState(false);
   const [qualityFilter, setQualityFilter] = useState("All");
   const [regionFilter, setRegionFilter] = useState("All");
+  const [regionMatchMode, setRegionMatchMode] = useState("Exact");
   const [typeFilter, setTypeFilter] = useState("All");
   const [sourceFilter, setSourceFilter] = useState("All");
   const [starredFilter, setStarredFilter] = useState("All");
@@ -270,11 +271,20 @@ export default function AdminLeads({ initialLeads }) {
           `${lead.company} ${lead.country} ${lead.businessType} ${lead.name} ${lead.publicContactRole} ${lead.decisionMaker} ${lead.researchSource} ${lead.source} ${lead.message}`
             .toLowerCase()
             .includes(query.toLowerCase());
+        const normalizedRegion = String(lead.country || "")
+          .trim()
+          .toLocaleLowerCase();
+        const normalizedRegionFilter = regionFilter.trim().toLocaleLowerCase();
+        const matchesRegion =
+          regionFilter === "All" ||
+          (regionMatchMode === "Contains"
+            ? normalizedRegion.includes(normalizedRegionFilter)
+            : normalizedRegion === normalizedRegionFilter);
         return (
           matchesText &&
           (status === "All" || lead.status === status) &&
           (qualityFilter === "All" || lead.contactQuality === qualityFilter) &&
-          (regionFilter === "All" || lead.country === regionFilter) &&
+          matchesRegion &&
           (typeFilter === "All" || lead.businessType === typeFilter) &&
           (sourceFilter === "All" || lead.source === sourceFilter) &&
           (starredFilter === "All" ||
@@ -295,6 +305,7 @@ export default function AdminLeads({ initialLeads }) {
       status,
       qualityFilter,
       regionFilter,
+      regionMatchMode,
       typeFilter,
       sourceFilter,
       starredFilter,
@@ -341,6 +352,7 @@ export default function AdminLeads({ initialLeads }) {
       status,
       qualityFilter,
       regionFilter,
+      regionMatchMode,
       typeFilter,
       sourceFilter,
       starredFilter,
@@ -678,6 +690,7 @@ export default function AdminLeads({ initialLeads }) {
     setStatus("All");
     setQualityFilter("All");
     setRegionFilter("All");
+    setRegionMatchMode("Exact");
     setTypeFilter("All");
     setSourceFilter("All");
     setStarredFilter("All");
@@ -1215,6 +1228,17 @@ export default function AdminLeads({ initialLeads }) {
                     {regions?.map((region) => (
                       <option key={region}>{region}</option>
                     ))}
+                  </select>
+                </label>
+                <label>
+                  Region match
+                  <select
+                    value={regionMatchMode}
+                    onChange={(e) => setRegionMatchMode(e.target.value)}
+                    disabled={regionFilter === "All"}
+                  >
+                    <option>Exact</option>
+                    <option>Contains</option>
                   </select>
                 </label>
                 <label>
