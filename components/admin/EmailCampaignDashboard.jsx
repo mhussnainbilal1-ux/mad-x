@@ -94,7 +94,9 @@ export default function EmailCampaignDashboard() {
           cache: "no-store",
         });
         const result = await response.json();
-        if (response.ok) setCampaigns(result.campaigns || []);
+        if (response.ok) {
+          setCampaigns(result.campaigns || []);
+        }
       } catch {}
     }, 3000);
     return () => window.clearInterval(interval);
@@ -336,6 +338,16 @@ export default function EmailCampaignDashboard() {
                     ? render(selected.message, previewRecipient)
                     : selected.message}
                 </p>
+                <div className={styles.whatsappPreview}>
+                  <span>Have questions? Contact us on WhatsApp:</span>
+                  <a
+                    href="https://wa.me/923044989753"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    WhatsApp +92 304 4989753
+                  </a>
+                </div>
                 {previewRecipient && (
                   <small>
                     Previewing for{" "}

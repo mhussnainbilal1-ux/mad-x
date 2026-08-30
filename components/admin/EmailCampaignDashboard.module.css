@@ -152,6 +152,24 @@
 .preview small {
   color: #8590a0;
 }
+.whatsappPreview {
+  margin-top: 8px;
+  padding-top: 17px;
+  display: grid;
+  justify-items: start;
+  gap: 9px;
+  border-top: 1px solid #e1e6ed;
+  color: #374151;
+  font-size: 12px;
+}
+.whatsappPreview a {
+  padding: 10px 16px;
+  border-radius: 6px;
+  background: #25d366;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
 .stageField {
   margin-bottom: 8px;
   padding-bottom: 18px;

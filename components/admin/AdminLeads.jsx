@@ -720,7 +720,10 @@ export default function AdminLeads({ initialLeads }) {
 
   function toggleVisibleCampaignLeads(event) {
     event.stopPropagation();
-    const eligible = filtered.slice(0, 50).map((lead) => lead.id);
+    const eligible = filtered
+      .filter((lead) => String(lead.email || "").trim())
+      .slice(0, 50)
+      .map((lead) => lead.id);
     const allSelected =
       eligible.length > 0 &&
       eligible.every((id) => selectedLeadIds.includes(id));
@@ -1398,8 +1401,11 @@ export default function AdminLeads({ initialLeads }) {
                         type="checkbox"
                         aria-label="Select up to 50 visible leads for a campaign"
                         checked={
-                          filtered.length > 0 &&
+                          filtered.some((lead) =>
+                            String(lead.email || "").trim(),
+                          ) &&
                           filtered
+                            .filter((lead) => String(lead.email || "").trim())
                             .slice(0, 50)
                             .every((lead) => selectedLeadIds.includes(lead.id))
                         }
@@ -1429,13 +1435,17 @@ export default function AdminLeads({ initialLeads }) {
                       className={lead.starred ? tableStyles.starredRow : ""}
                     >
                       <td>
-                        <input
-                          type="checkbox"
-                          aria-label={`Select ${lead.company || "lead"} for campaign`}
-                          checked={selectedLeadIds.includes(lead.id)}
-                          onClick={(event) => event.stopPropagation()}
-                          onChange={(event) => toggleCampaignLead(event, lead)}
-                        />
+                        {String(lead.email || "").trim() ? (
+                          <input
+                            type="checkbox"
+                            aria-label={`Select ${lead.company || "lead"} for campaign`}
+                            checked={selectedLeadIds.includes(lead.id)}
+                            onClick={(event) => event.stopPropagation()}
+                            onChange={(event) =>
+                              toggleCampaignLead(event, lead)
+                            }
+                          />
+                        ) : null}
                       </td>
                       <td>
                         <div className={tableStyles.companyCell}>
