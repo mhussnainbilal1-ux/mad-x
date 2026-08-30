@@ -28,6 +28,33 @@ function formatDate(value) {
   }).format(new Date(value));
 }
 
+function classifyUserAgent(value) {
+  const userAgent = String(value || "");
+  const botPatterns = [
+    ["Googlebot", /googlebot/i],
+    ["Bingbot", /bingbot/i],
+    ["GPTBot", /gptbot/i],
+    ["ClaudeBot", /claudebot|claude-web/i],
+    ["FacebookBot", /facebookexternalhit|facebot/i],
+    ["AhrefsBot", /ahrefsbot/i],
+    ["SemrushBot", /semrushbot/i],
+    ["Crawler", /bot|crawler|spider|slurp|headless|phantomjs|selenium/i],
+  ];
+  const bot = botPatterns.find(([, pattern]) => pattern.test(userAgent));
+
+  let device = "Desktop";
+  if (!userAgent) device = "Unknown";
+  else if (/ipad|tablet|kindle|silk|playbook/i.test(userAgent))
+    device = "Tablet";
+  else if (/mobi|iphone|ipod|android/i.test(userAgent)) device = "Mobile";
+
+  return {
+    device,
+    visitorType: bot ? "Bot" : userAgent ? "Human" : "Unknown",
+    botName: bot?.[0] || "",
+  };
+}
+
 export default function VisitorActivityDashboard() {
   const [activities, setActivities] = useState([]);
   const [countries, setCountries] = useState([]);
@@ -44,6 +71,7 @@ export default function VisitorActivityDashboard() {
   const [deletingId, setDeletingId] = useState("");
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
+  const [copying, setCopying] = useState(false);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -86,6 +114,62 @@ export default function VisitorActivityDashboard() {
   function updateFilter(setter, value) {
     setPage(1);
     setter(value);
+  }
+
+  async function copyRecords() {
+    const headers = [
+      "Date & time (PKT)",
+      "Attributed client",
+      "Location",
+      "Activity",
+      "Button / link / page",
+      "Page",
+      "Destination",
+      "Device",
+      "Visitor type",
+      "Bot name",
+      "Visitor ID",
+    ];
+    const clean = (value) =>
+      String(value ?? "")
+        .replaceAll("\t", " ")
+        .replace(/[\r\n]+/g, " ")
+        .trim();
+    const rows = activities.map((item) => {
+      const visitor = classifyUserAgent(item.userAgent);
+      const location = [item.country, item.city, item.region]
+        .filter((value) => value && value !== "Unknown")
+        .join(", ");
+      return [
+        formatDate(item.occurredAt),
+        item.clientCompany,
+        location,
+        eventName(item.eventType),
+        item.label,
+        item.pagePath,
+        item.destination,
+        visitor.device,
+        visitor.visitorType,
+        visitor.botName,
+        item.visitorId,
+      ].map(clean);
+    });
+    const output = [headers, ...rows].map((row) => row.join("\t")).join("\n");
+
+    setCopying(true);
+    setError("");
+    try {
+      await navigator.clipboard.writeText(output);
+      setNotice(
+        `${activities.length} record${activities.length === 1 ? "" : "s"} copied with column headers.`,
+      );
+    } catch {
+      setError(
+        "Unable to copy records. Please allow clipboard access and try again.",
+      );
+    } finally {
+      setCopying(false);
+    }
   }
 
   async function clearActivity(scope) {
@@ -166,6 +250,13 @@ export default function VisitorActivityDashboard() {
           </div>
           <div className={styles.headingActions}>
             <strong>{total.toLocaleString()} events · last 3 weeks</strong>
+            <button
+              type="button"
+              disabled={loading || copying || activities.length === 0}
+              onClick={copyRecords}
+            >
+              {copying ? "Copying…" : `Copy records (${activities.length})`}
+            </button>
             <button
               type="button"
               disabled={Boolean(clearing)}
@@ -253,6 +344,8 @@ export default function VisitorActivityDashboard() {
                 <th>Button / link / page</th>
                 <th>Page</th>
                 <th>Destination</th>
+                <th>Device</th>
+                <th>Visitor type</th>
                 <th>Visitor</th>
                 <th>Actions</th>
               </tr>
@@ -260,89 +353,116 @@ export default function VisitorActivityDashboard() {
             <tbody>
               {!loading && activities.length === 0 && (
                 <tr>
-                  <td className={styles.empty} colSpan="9">
+                  <td className={styles.empty} colSpan="11">
                     No visitor activity found.
                   </td>
                 </tr>
               )}
               {loading && (
                 <tr>
-                  <td className={styles.empty} colSpan="9">
+                  <td className={styles.empty} colSpan="11">
                     Loading activity…
                   </td>
                 </tr>
               )}
               {!loading &&
-                activities.map((item) => (
-                  <tr key={item._id}>
-                    <td className={styles.date}>
-                      {formatDate(item.occurredAt)}
-                    </td>
-                    <td>
-                      {item.clientCompany ? (
-                        <>
-                          <strong>{item.clientCompany}</strong>
-                          <small>Referral attributed</small>
-                        </>
-                      ) : (
-                        "—"
-                      )}
-                    </td>
-                    <td>
-                      <strong>{item.country}</strong>
-                      <small>
-                        {[item.city, item.region]
-                          .filter((value) => value && value !== "Unknown")
-                          .join(", ") || "Location unavailable"}
-                      </small>
-                    </td>
-                    <td>
-                      <span
-                        className={`${styles.badge} ${styles[item.eventType]}`}
-                      >
-                        {eventName(item.eventType)}
-                      </span>
-                    </td>
-                    <td className={styles.label}>{item.label || "—"}</td>
-                    <td>
-                      <code>{item.pagePath}</code>
-                    </td>
-                    <td>
-                      {item.destination ? (
-                        <a
-                          href={item.destination}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Open link
-                        </a>
-                      ) : (
-                        "—"
-                      )}
-                    </td>
-                    <td>
-                      <code title={item.visitorId}>
-                        {item.visitorId.slice(0, 8)}
-                      </code>
-                    </td>
-                    <td>
-                      <button
-                        type="button"
-                        className={styles.deleteRowButton}
-                        disabled={deletingId === item._id}
-                        onClick={() => deleteActivity(item)}
-                        aria-label={`Delete ${eventName(item.eventType)} activity`}
-                        title="Delete activity"
-                      >
-                        {deletingId === item._id ? (
-                          <LoaderCircle className={styles.spinning} size={15} />
+                activities.map((item) => {
+                  const visitor = classifyUserAgent(item.userAgent);
+                  return (
+                    <tr key={item._id} title={item.userAgent || undefined}>
+                      <td className={styles.date}>
+                        {formatDate(item.occurredAt)}
+                      </td>
+                      <td>
+                        {item.clientCompany ? (
+                          <>
+                            <strong>{item.clientCompany}</strong>
+                            <small>Referral attributed</small>
+                          </>
                         ) : (
-                          <Trash2 size={15} />
+                          "—"
                         )}
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                      </td>
+                      <td>
+                        <strong>{item.country}</strong>
+                        <small>
+                          {[item.city, item.region]
+                            .filter((value) => value && value !== "Unknown")
+                            .join(", ") || "Location unavailable"}
+                        </small>
+                      </td>
+                      <td>
+                        <span
+                          className={`${styles.badge} ${styles[item.eventType]}`}
+                        >
+                          {eventName(item.eventType)}
+                        </span>
+                      </td>
+                      <td className={styles.label}>{item.label || "—"}</td>
+                      <td>
+                        <code>{item.pagePath}</code>
+                      </td>
+                      <td>
+                        {item.destination ? (
+                          <a
+                            href={item.destination}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Open link
+                          </a>
+                        ) : (
+                          "—"
+                        )}
+                      </td>
+                      <td>
+                        <span
+                          className={`${styles.badge} ${styles.deviceBadge}`}
+                        >
+                          {visitor.device}
+                        </span>
+                      </td>
+                      <td>
+                        <span
+                          className={`${styles.badge} ${
+                            visitor.visitorType === "Bot"
+                              ? styles.botBadge
+                              : visitor.visitorType === "Human"
+                                ? styles.humanBadge
+                                : styles.unknownBadge
+                          }`}
+                        >
+                          {visitor.visitorType}
+                        </span>
+                        {visitor.botName && <small>{visitor.botName}</small>}
+                      </td>
+                      <td>
+                        <code title={item.visitorId}>
+                          {item.visitorId.slice(0, 8)}
+                        </code>
+                      </td>
+                      <td>
+                        <button
+                          type="button"
+                          className={styles.deleteRowButton}
+                          disabled={deletingId === item._id}
+                          onClick={() => deleteActivity(item)}
+                          aria-label={`Delete ${eventName(item.eventType)} activity`}
+                          title="Delete activity"
+                        >
+                          {deletingId === item._id ? (
+                            <LoaderCircle
+                              className={styles.spinning}
+                              size={15}
+                            />
+                          ) : (
+                            <Trash2 size={15} />
+                          )}
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>

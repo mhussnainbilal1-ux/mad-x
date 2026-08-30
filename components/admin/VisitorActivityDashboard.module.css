@@ -125,7 +125,7 @@
 
 .tableWrap table {
   width: 100%;
-  min-width: 1150px;
+  min-width: 1320px;
   border-collapse: collapse;
 }
 
@@ -222,6 +222,26 @@
 .catalogue_unlock_click {
   background: #fff2cc;
   color: #805b00;
+}
+
+.deviceBadge {
+  background: #eef2f6;
+  color: #344054;
+}
+
+.humanBadge {
+  background: #e9f7ef;
+  color: #067647;
+}
+
+.botBadge {
+  background: #fce8eb;
+  color: #b42318;
+}
+
+.unknownBadge {
+  background: #f2f4f7;
+  color: #667085;
 }
 
 .empty {
