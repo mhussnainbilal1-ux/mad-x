@@ -97,6 +97,55 @@
 .fileInput {
   display: none !important;
 }
+.campaignComposer {
+  width: min(760px, 100%);
+}
+.campaignFields {
+  padding: 24px;
+  display: grid;
+  gap: 15px;
+}
+.campaignFields label {
+  display: grid;
+  gap: 7px;
+  color: #354156;
+  font-size: 12px;
+  font-weight: 800;
+}
+.campaignFields input,
+.campaignFields textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #d8dee7;
+  border-radius: 7px;
+  font: inherit;
+  font-weight: 500;
+  resize: vertical;
+}
+.templateHelp {
+  padding: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  border-radius: 7px;
+  background: #f2f5f9;
+  color: #687386;
+  font-size: 11px;
+}
+.templateHelp strong {
+  width: 100%;
+  color: #263247;
+}
+.templateHelp code {
+  padding: 4px 7px;
+  border-radius: 4px;
+  background: #fff;
+  color: #c7192d;
+}
+.templateHelp span {
+  width: 100%;
+}
 .importReport {
   position: fixed;
   top: 20px;

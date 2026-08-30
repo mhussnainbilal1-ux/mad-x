@@ -45,3 +45,28 @@ server reporting credentials are present.
 3. Connect `components/InquiryForm.js` to your .NET API, email service or CRM.
 4. Review Privacy and Terms pages with a qualified professional.
 5. Add your real domain and GA4 credentials.
+
+## CRM email campaigns
+
+CRM campaigns can send through Gmail SMTP or the Resend HTTP API. Gmail is used
+when both Gmail variables are present. Configure a Google App Password, not the
+account's normal password:
+
+```bash
+GMAIL_USER=youraddress@gmail.com
+GMAIL_APP_PASSWORD=your-16-character-app-password
+CAMPAIGN_FROM_NAME="Madx Sports"
+CAMPAIGN_REPLY_TO=youraddress@gmail.com
+```
+
+Alternatively, configure Resend:
+
+```bash
+RESEND_API_KEY=...
+CAMPAIGN_FROM_EMAIL="Madx Sports <sales@your-verified-domain.com>"
+CAMPAIGN_REPLY_TO=sales@your-verified-domain.com
+```
+
+`RESEND_FROM_EMAIL` is also accepted as a fallback for the sender. The sending
+domain must be verified with Resend. Draft campaigns can be created and reviewed
+without email-provider configuration.

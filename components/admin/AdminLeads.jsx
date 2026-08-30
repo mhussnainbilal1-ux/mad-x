@@ -20,6 +20,7 @@ import {
   Phone,
   Plus,
   Search,
+  Send,
   Settings,
   SlidersHorizontal,
   Star,
@@ -139,6 +140,9 @@ export default function AdminLeads({ initialLeads }) {
   const [qualityFilter, setQualityFilter] = useState("All");
   const [regionFilter, setRegionFilter] = useState("All");
   const [regionMatchMode, setRegionMatchMode] = useState("Exact");
+  const [selectedLeadIds, setSelectedLeadIds] = useState([]);
+  const [campaignOpen, setCampaignOpen] = useState(false);
+  const [campaignSaving, setCampaignSaving] = useState(false);
   const [typeFilter, setTypeFilter] = useState("All");
   const [sourceFilter, setSourceFilter] = useState("All");
   const [starredFilter, setStarredFilter] = useState("All");
@@ -698,6 +702,60 @@ export default function AdminLeads({ initialLeads }) {
     setFollowUpFilter("All");
   }
 
+  function toggleCampaignLead(event, lead) {
+    event.stopPropagation();
+    setSelectedLeadIds((current) => {
+      if (current.includes(lead.id))
+        return current.filter((id) => id !== lead.id);
+      if (current.length >= 50) {
+        setImportReport({
+          success: false,
+          message: "A campaign can contain a maximum of 50 leads.",
+        });
+        return current;
+      }
+      return [...current, lead.id];
+    });
+  }
+
+  function toggleVisibleCampaignLeads(event) {
+    event.stopPropagation();
+    const eligible = filtered.slice(0, 50).map((lead) => lead.id);
+    const allSelected =
+      eligible.length > 0 &&
+      eligible.every((id) => selectedLeadIds.includes(id));
+    setSelectedLeadIds(allSelected ? [] : eligible);
+  }
+
+  async function saveCampaign(event) {
+    event.preventDefault();
+    if (campaignSaving) return;
+    const form = event.currentTarget;
+    const values = Object.fromEntries(new FormData(form));
+    setCampaignSaving(true);
+    setImportReport(null);
+    try {
+      const response = await fetch("/api/admin/campaigns", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, clientIds: selectedLeadIds }),
+      });
+      const result = await response.json();
+      if (!response.ok)
+        throw new Error(result.error || "Unable to save campaign");
+      setCampaignOpen(false);
+      setSelectedLeadIds([]);
+      setImportReport({
+        success: true,
+        message: `Campaign saved with ${result.campaign.recipients.length} recipients.${result.skipped?.length ? ` ${result.skipped.length} invalid or duplicate records skipped.` : ""}`,
+      });
+    } catch (error) {
+      setImportReport({ success: false, message: error.message });
+    } finally {
+      setCampaignSaving(false);
+    }
+  }
+
   function showStageTooltip(event, stage) {
     const description = stageDescriptions[stage];
     if (!description) return;
@@ -1040,6 +1098,14 @@ export default function AdminLeads({ initialLeads }) {
                 <Download size={16} /> Export CSV
               </button>
               <button
+                type="button"
+                onClick={() => setCampaignOpen(true)}
+                disabled={!selectedLeadIds.length}
+                title="Create an email campaign from selected leads"
+              >
+                <Send size={16} /> Campaign ({selectedLeadIds.length})
+              </button>
+              <button
                 className={styles.primary}
                 onClick={() => {
                   setEditing(null);
@@ -1327,6 +1393,19 @@ export default function AdminLeads({ initialLeads }) {
               <table>
                 <thead>
                   <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        aria-label="Select up to 50 visible leads for a campaign"
+                        checked={
+                          filtered.length > 0 &&
+                          filtered
+                            .slice(0, 50)
+                            .every((lead) => selectedLeadIds.includes(lead.id))
+                        }
+                        onChange={toggleVisibleCampaignLeads}
+                      />
+                    </th>
                     <th>COMPANY</th>
                     <th>REFERRAL LINK</th>
                     <th>REGION</th>
@@ -1349,6 +1428,15 @@ export default function AdminLeads({ initialLeads }) {
                       onClick={() => setSelected(lead)}
                       className={lead.starred ? tableStyles.starredRow : ""}
                     >
+                      <td>
+                        <input
+                          type="checkbox"
+                          aria-label={`Select ${lead.company || "lead"} for campaign`}
+                          checked={selectedLeadIds.includes(lead.id)}
+                          onClick={(event) => event.stopPropagation()}
+                          onChange={(event) => toggleCampaignLead(event, lead)}
+                        />
+                      </td>
                       <td>
                         <div className={tableStyles.companyCell}>
                           <div className={tableStyles.rowMarkers}>
@@ -1779,6 +1867,81 @@ export default function AdminLeads({ initialLeads }) {
               </button>
             </footer>
           </section>
+        </div>
+      )}
+      {campaignOpen && (
+        <div className={styles.modalBackdrop}>
+          <form
+            className={`${styles.modal} ${tableStyles.campaignComposer}`}
+            onSubmit={saveCampaign}
+          >
+            <header>
+              <div>
+                <span>NEW EMAIL CAMPAIGN</span>
+                <h2>Write campaign for {selectedLeadIds.length} leads</h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => setCampaignOpen(false)}
+                aria-label="Close campaign composer"
+              >
+                <X size={19} />
+              </button>
+            </header>
+            <div className={tableStyles.campaignFields}>
+              <label>
+                Campaign name
+                <input
+                  name="name"
+                  required
+                  maxLength="160"
+                  placeholder="September football outreach"
+                />
+              </label>
+              <label>
+                Email subject
+                <input
+                  name="subject"
+                  required
+                  maxLength="300"
+                  placeholder="Custom sportswear for {{company}}"
+                />
+              </label>
+              <label>
+                Message
+                <textarea
+                  name="message"
+                  required
+                  rows="13"
+                  placeholder={
+                    "Hello {{name}},\n\nWe would like to introduce Madx Sports to {{company}}.\n\nView our collection:\n{{referral_link}}"
+                  }
+                />
+              </label>
+              <div className={tableStyles.templateHelp}>
+                <strong>Available variables</strong>
+                <code>{"{{name}}"}</code>
+                <code>{"{{company}}"}</code>
+                <code>{"{{referral_link}}"}</code>
+                <span>
+                  The referral link is generated separately for every selected
+                  company.
+                </span>
+              </div>
+            </div>
+            <footer>
+              <button type="button" onClick={() => setCampaignOpen(false)}>
+                Cancel
+              </button>
+              <button
+                className={styles.primary}
+                type="submit"
+                disabled={campaignSaving}
+              >
+                {campaignSaving ? "Saving…" : "Save draft campaign"}
+              </button>
+            </footer>
+          </form>
         </div>
       )}
       {deleteTarget && (

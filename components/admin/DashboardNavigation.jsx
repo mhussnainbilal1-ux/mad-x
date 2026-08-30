@@ -8,6 +8,7 @@ import {
   KeyRound,
   LayoutDashboard,
   MessageSquareText,
+  Send,
   MousePointerClick,
   Users,
 } from "lucide-react";
@@ -18,6 +19,7 @@ const dashboardLinks = [
   ["Analytics", "/dashboard/analytics", BarChart3],
   ["Visitor Activity", "/dashboard/activity", MousePointerClick],
   ["Sales CRM", "/dashboard/crm", Users],
+  ["Email Campaigns", "/dashboard/campaigns", Send],
   ["Messages", "/dashboard/messages", MessageSquareText],
   ["Access Keys", "/dashboard/catalogue-keys", KeyRound],
   ["Photo Editor", "/dashboard/photo-editor", ImageIcon],
