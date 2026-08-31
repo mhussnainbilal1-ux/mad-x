@@ -222,7 +222,13 @@ export default function AdminLeads({ initialLeads }) {
         }
         if (cancelled) return;
         if (configured) {
-          setLeads(allClients);
+          setLeads(
+            Array.from(
+              new Map(
+                allClients.map((client) => [client.id || client._id, client]),
+              ).values(),
+            ),
+          );
           setDataMode("mongodb");
         } else {
           const saved = window.localStorage.getItem("madx-crm-clients-v3");
