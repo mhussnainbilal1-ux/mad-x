@@ -76,6 +76,28 @@ const supportedImportColumns = [
   "Source",
   "Notes",
 ];
+const bulkUpdateColumns = {
+  Region: "country",
+  "Business Type": "businessType",
+  "Named Public Contact": "name",
+  "Public Contact Role": "publicContactRole",
+  "Best Decision-Maker to Target": "decisionMaker",
+  "Contact Quality": "contactQuality",
+  "Why It Fits": "message",
+  "Research Source": "researchSource",
+  "Last Contacted": "lastContacted",
+  Source: "source",
+  Notes: "notes",
+  Email: "email",
+  Phone: "phone",
+  Status: "status",
+  "Next Follow Up": "nextFollowUp",
+  "Deal Value": "dealValue",
+  Owner: "owner",
+  Priority: "priority",
+  Product: "product",
+  Quantity: "quantity",
+};
 
 function parseCsv(text) {
   const rows = [];
@@ -157,10 +179,12 @@ export default function AdminLeads({ initialLeads }) {
   const [stageTooltip, setStageTooltip] = useState(null);
   const [pendingImport, setPendingImport] = useState(null);
   const [importing, setImporting] = useState(false);
+  const [bulkUpdating, setBulkUpdating] = useState(false);
   const [deleteTarget, setDeleteTarget] = useState(null);
   const [deleting, setDeleting] = useState(false);
   const [unreadMessages, setUnreadMessages] = useState(0);
   const fileInput = useRef(null);
+  const bulkUpdateInput = useRef(null);
   const tableScroll = useRef(null);
   const loadSentinel = useRef(null);
 
@@ -880,6 +904,110 @@ export default function AdminLeads({ initialLeads }) {
     }
   }
 
+  async function bulkUpdateFile(event) {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file || bulkUpdating) return;
+    setImportReport(null);
+    try {
+      const extension = file.name.split(".").pop()?.toLowerCase();
+      let rows;
+      if (extension === "xlsx" || extension === "xls") {
+        const XLSX = await import("xlsx");
+        const workbook = XLSX.read(await file.arrayBuffer(), { type: "array" });
+        const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+        if (!firstSheet)
+          throw new Error("The Excel workbook does not contain a worksheet.");
+        rows = XLSX.utils.sheet_to_json(firstSheet, {
+          header: 1,
+          defval: "",
+          raw: false,
+          dateNF: "yyyy-mm-dd",
+        });
+      } else if (extension === "csv") {
+        rows = parseCsv((await file.text()).replace(/^\uFEFF/, ""));
+      } else {
+        throw new Error("Choose a CSV, XLSX, or XLS file.");
+      }
+      if (rows?.length < 2)
+        throw new Error("The selected file contains no data rows.");
+
+      const headers = rows[0].map((header) => String(header).trim());
+      const companyIndex = headers.findIndex((header) =>
+        ["company", "company name"].includes(header.toLowerCase()),
+      );
+      if (companyIndex < 0)
+        throw new Error('Include a "Company" or "Company Name" column.');
+      const mapped = headers
+        .map((header, index) => ({
+          index,
+          header,
+          field: bulkUpdateColumns[header],
+        }))
+        .filter((column) => column.field);
+      if (!mapped.length)
+        throw new Error(
+          `Include at least one update column, such as Status, Email, Phone, Notes, Source, or Region.`,
+        );
+      const updates = rows
+        .slice(1)
+        .map((row) => ({
+          company: String(row[companyIndex] || "").trim(),
+          updates: Object.fromEntries(
+            mapped
+              .map(({ index, field }) => [
+                field,
+                String(row[index] ?? "").trim(),
+              ])
+              .filter(([, value]) => value !== ""),
+          ),
+        }))
+        .filter((row) => row.company && Object.keys(row.updates).length > 0);
+      if (!updates.length)
+        throw new Error(
+          "No rows contain both a company name and an update value.",
+        );
+      if (
+        !window.confirm(
+          `Update ${updates.length} CRM row${updates.length === 1 ? "" : "s"} by company name? Only nonblank ${mapped.map((column) => column.header).join(", ")} values will change.`,
+        )
+      )
+        return;
+
+      setBulkUpdating(true);
+      const response = await fetch("/api/admin/clients/bulk-update", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ rows: updates }),
+      });
+      const result = await response.json();
+      if (!response.ok)
+        throw new Error(result.error || "Unable to bulk update CRM records.");
+      const updatedById = new Map(
+        (result.clients || []).map((client) => [client.id, client]),
+      );
+      setLeads((current) =>
+        current.map((client) => updatedById.get(client.id) || client),
+      );
+      const details = [
+        `${result.updated} updated`,
+        result.unmatched?.length && `${result.unmatched.length} unmatched`,
+        result.ambiguous?.length && `${result.ambiguous.length} ambiguous`,
+        result.duplicateInput?.length &&
+          `${result.duplicateInput.length} duplicate file rows`,
+        result.unchanged?.length && `${result.unchanged.length} unchanged`,
+      ].filter(Boolean);
+      setImportReport({ success: true, message: details.join(" · ") });
+    } catch (error) {
+      setImportReport({
+        success: false,
+        message: error.message || "Unable to bulk update CRM records.",
+      });
+    } finally {
+      setBulkUpdating(false);
+    }
+  }
+
   async function confirmImport() {
     if (!pendingImport || importing) return;
     const { missing } = pendingImport;
@@ -1092,8 +1220,24 @@ export default function AdminLeads({ initialLeads }) {
                 accept=".csv,.xlsx,.xls,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
                 onChange={importCsv}
               />
+              <input
+                ref={bulkUpdateInput}
+                className={tableStyles.fileInput}
+                type="file"
+                accept=".csv,.xlsx,.xls,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+                onChange={bulkUpdateFile}
+              />
               <button type="button" onClick={() => fileInput.current?.click()}>
                 <Upload size={16} /> Import file
+              </button>
+              <button
+                type="button"
+                onClick={() => bulkUpdateInput.current?.click()}
+                disabled={dataMode !== "mongodb" || bulkUpdating}
+                title="Match Company and update only supplied nonblank columns"
+              >
+                <Upload size={16} />
+                {bulkUpdating ? "Updating…" : "Bulk update"}
               </button>
               <button onClick={copyColumns}>
                 {columnsCopied ? (

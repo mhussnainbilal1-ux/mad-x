@@ -6,6 +6,7 @@ import {
 } from "@/lib/visitor-location";
 import VisitorActivity from "@/models/VisitorActivity";
 import MadxClient from "@/models/MadxClient";
+import { isBotUserAgent } from "@/lib/visitor-user-agent";
 
 const eventTypes = new Set([
   "page_view",
@@ -25,6 +26,13 @@ export async function POST(request) {
   const location = getVisitorLocation(request.headers);
   const referralKey = text(request.cookies.get("madx_ref")?.value, 100);
   const isForeignVisitor = isTrackableForeignVisitor(location);
+  const userAgent = text(request.headers.get("user-agent"), 600);
+
+  // Crawlers execute client-side JavaScript too. Reject them at the API boundary
+  // so they cannot create activity records even if the tracker was rendered.
+  if (isBotUserAgent(userAgent)) {
+    return new NextResponse(null, { status: 204 });
+  }
 
   // Ordinary domestic traffic remains excluded. A valid client referral is
   // retained so its activity can still be attributed when geo headers fail.
@@ -70,7 +78,7 @@ export async function POST(request) {
       destination: text(values.destination, 1500),
       elementId: text(values.elementId, 160),
       ...location,
-      userAgent: text(request.headers.get("user-agent"), 600),
+      userAgent,
       occurredAt: new Date(),
     });
 

@@ -33,14 +33,32 @@ function classifyUserAgent(value) {
   const botPatterns = [
     ["Googlebot", /googlebot/i],
     ["Bingbot", /bingbot/i],
-    ["GPTBot", /gptbot/i],
+    ["OpenAI crawler", /gptbot|oai-searchbot|chatgpt-user/i],
     ["ClaudeBot", /claudebot|claude-web/i],
+    ["PerplexityBot", /perplexitybot/i],
+    ["Applebot", /applebot/i],
+    ["Amazonbot", /amazonbot/i],
+    ["Bytespider", /bytespider/i],
+    ["PetalBot", /petalbot/i],
+    ["YandexBot", /yandexbot/i],
+    ["Baiduspider", /baiduspider/i],
+    ["DuckDuckBot", /duckduckbot/i],
     ["FacebookBot", /facebookexternalhit|facebot/i],
     ["AhrefsBot", /ahrefsbot/i],
     ["SemrushBot", /semrushbot/i],
-    ["Crawler", /bot|crawler|spider|slurp|headless|phantomjs|selenium/i],
+    ["MJ12bot", /mj12bot/i],
+    ["DotBot", /dotbot/i],
+    ["Common Crawl", /ccbot/i],
+    ["DataForSeoBot", /dataforseobot/i],
+    ["Automated browser", /headless|phantomjs|selenium/i],
   ];
-  const bot = botPatterns.find(([, pattern]) => pattern.test(userAgent));
+  let bot = botPatterns.find(([, pattern]) => pattern.test(userAgent));
+  if (!bot && /bot|crawler|spider|slurp/i.test(userAgent)) {
+    const agentToken = userAgent.match(
+      /(?:^|[\s;(])([^\s;/()]+(?:bot|crawler|spider|slurp))(?=\/|[\s;)]|$)/i,
+    );
+    bot = [agentToken?.[1] || "Unknown crawler"];
+  }
 
   let device = "Desktop";
   if (!userAgent) device = "Unknown";
@@ -345,8 +363,8 @@ export default function VisitorActivityDashboard() {
                 <th>Page</th>
                 <th>Destination</th>
                 <th>Device</th>
-                <th>Visitor type</th>
-                <th>Visitor</th>
+                <th>Visitor / agent</th>
+                <th>Visitor ID</th>
                 <th>Actions</th>
               </tr>
             </thead>
