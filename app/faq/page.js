@@ -7,7 +7,7 @@ export const metadata = {
 const faqs = [
   [
     "What is your minimum order quantity?",
-    "MOQ depends on product type, materials, branding method and packaging. Typical programs start from 50 apparel pieces or 100 pairs of gloves and protective items.",
+    "MOQ depends on product type, materials, branding method and packaging. Typical programs start from 50 apparel pieces or 50 Pairs of gloves and protective items.",
   ],
   [
     "Can you manufacture from our design?",
