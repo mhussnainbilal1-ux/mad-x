@@ -10,6 +10,7 @@ import { isBotUserAgent } from "@/lib/visitor-user-agent";
 
 const eventTypes = new Set([
   "page_view",
+  "section_view",
   "button_click",
   "link_click",
   "form_submit",

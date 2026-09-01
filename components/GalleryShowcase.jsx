@@ -49,10 +49,10 @@ const galleryItems = [
   },
   {
     title: "Performance Apparel",
-    category: "Apparel",
+    category: "Activewear",
     description: "Rashguards, training shirts and fight shorts developed around custom artwork.",
     image: "/images/common/gallery/performance-apparel.png",
-    href: "/products?category=Apparel",
+    href: "/products?category=Activewear",
   },
   {
     title: "Product Development",
@@ -91,7 +91,14 @@ const galleryItems = [
   },
 ];
 
-const categories = ["All", "Boxing", "MMA", "Fitness", "Apparel", "Manufacturing"];
+const categories = [
+  "All",
+  "Boxing",
+  "MMA",
+  "Fitness",
+  "Activewear",
+  "Manufacturing",
+];
 
 export default function GalleryShowcase() {
   const [activeCategory, setActiveCategory] = useState("All");

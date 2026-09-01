@@ -176,6 +176,86 @@ textarea {
 .nav .navDropdownMenu a:after {
   display: none;
 }
+.navSportLinks {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 2px;
+  padding: 0 14px;
+  border-right: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.navSportLinks::before {
+  content: "CUSTOM TEAMWEAR";
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  color: var(--red);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+.nav .navSportLinks .navSportLink {
+  padding: 18px 0 13px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.nav .navSportLinks .navSportLink:hover {
+  color: var(--red);
+}
+.nav .navSportLinks .navSportLink::after {
+  bottom: 7px;
+}
+.navCascadeItem {
+  position: relative;
+}
+.navCascadeTrigger {
+  display: flex;
+  align-items: stretch;
+}
+.nav .navCascadeTrigger > a {
+  flex: 1;
+}
+.navCascadeTrigger > button {
+  width: 34px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 20px;
+  cursor: pointer;
+}
+.navCascadeTrigger > button:hover {
+  background: var(--surface-3);
+  color: var(--red);
+}
+.navCascadeMenu {
+  position: absolute;
+  top: -8px;
+  left: 100%;
+  z-index: 61;
+  display: none;
+  width: 245px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.navCascadeItem:hover > .navCascadeMenu,
+.navCascadeItem.open > .navCascadeMenu {
+  display: grid;
+}
+.navProductTypeCascade {
+  z-index: 62;
+  width: 270px;
+}
 .navCta,
 .button {
   display: inline-flex;
@@ -2111,6 +2191,46 @@ textarea {
   .nav .navDropdownMenu a {
     padding: 9px 12px;
   }
+  .navSportLinks {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+    margin: 12px 0 6px;
+    padding: 4px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--surface-3);
+  }
+  .navSportLinks::before {
+    top: -10px;
+  }
+  .nav .navSportLinks .navSportLink {
+    padding: 9px 7px;
+    text-align: center;
+  }
+  .navCascadeTrigger > button {
+    transform: rotate(90deg);
+  }
+  .navCascadeItem.open > .navCascadeTrigger > button {
+    transform: rotate(-90deg);
+  }
+  .navCascadeMenu {
+    position: static;
+    width: auto;
+    margin: 2px 0 4px 12px;
+    padding: 2px 0 2px 10px;
+    border: 0;
+    border-left: 1px solid var(--line);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .navCascadeItem:hover > .navCascadeMenu {
+    display: none;
+  }
+  .navCascadeItem.open > .navCascadeMenu {
+    display: grid;
+  }
   .navUnlock {
     display: none;
   }
@@ -2417,6 +2537,212 @@ html[data-theme="dark"] .announcement {
 }
 html[data-theme="dark"] .success {
   color: #57d68d !important;
+}
+
+/* Rugby catalogue */
+.rugbyHero {
+  min-height: 610px;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(circle at 82% 45%, rgba(209, 29, 42, 0.5), transparent 26%),
+    linear-gradient(115deg, rgba(3, 11, 23, 0.99) 0%, rgba(8, 27, 44, 0.94) 60%, rgba(17, 38, 45, 0.92) 100%);
+}
+.rugbyHero::after {
+  content: "RUGBY";
+  position: absolute;
+  right: -0.04em;
+  bottom: -0.18em;
+  color: rgba(255, 255, 255, 0.035);
+  font-size: clamp(110px, 23vw, 360px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.08em;
+  pointer-events: none;
+}
+.hockeyHero {
+  background:
+    radial-gradient(circle at 82% 45%, rgba(62, 154, 205, 0.42), transparent 27%),
+    linear-gradient(115deg, rgba(3, 11, 23, 0.99) 0%, rgba(8, 27, 44, 0.95) 58%, rgba(14, 51, 68, 0.92) 100%);
+}
+.hockeyHero::after {
+  content: "HOCKEY";
+  font-size: clamp(90px, 20vw, 310px);
+}
+.hockeyEmptyState .rugbyEmptyNumber {
+  color: #2389bd;
+}
+.soccerHero {
+  background:
+    radial-gradient(circle at 82% 45%, rgba(45, 156, 89, 0.42), transparent 27%),
+    linear-gradient(115deg, rgba(3, 11, 23, 0.99) 0%, rgba(7, 31, 30, 0.95) 58%, rgba(14, 61, 42, 0.92) 100%);
+}
+.soccerHero::after {
+  content: "SOCCER";
+  font-size: clamp(90px, 20vw, 310px);
+}
+.soccerEmptyState .rugbyEmptyNumber {
+  color: #238c50;
+}
+.rugbyHeroContent {
+  position: relative;
+  z-index: 1;
+}
+.rugbyHero h1 {
+  max-width: 790px;
+}
+.rugbyHeroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.rugbyCatalogue {
+  background: var(--surface-2, #f7f8fa);
+}
+.rugbyHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 38px;
+}
+.rugbyHeading h2 {
+  margin: 9px 0 0;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+.rugbyHeading > p {
+  width: min(520px, 48%);
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.rugbyPosterGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.rugbyPosterCard {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface, #fff);
+  box-shadow: var(--soft-shadow, 0 14px 38px rgba(11, 27, 50, 0.08));
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.rugbyPosterCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 55px rgba(11, 27, 50, 0.16);
+}
+.rugbyPosterImage {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: #0b1b32;
+}
+.rugbyPosterImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+.rugbyPosterCard:hover img {
+  transform: scale(1.025);
+}
+.rugbyPosterImage span {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  color: #fff;
+  background: rgba(6, 17, 32, 0.88);
+  font-size: 12px;
+  font-weight: 800;
+}
+.rugbyPosterMeta {
+  padding: 18px 20px 21px;
+}
+.rugbyPosterMeta small {
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+.rugbyPosterMeta h3 {
+  margin: 7px 0 0;
+  font-size: 20px;
+}
+.rugbyEmptyState {
+  min-height: 340px;
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+  align-items: center;
+  gap: 55px;
+  padding: 48px clamp(28px, 6vw, 80px);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface, #fff);
+}
+.rugbyEmptyNumber {
+  color: var(--red);
+  font-size: clamp(130px, 21vw, 260px);
+  font-weight: 900;
+  line-height: 0.72;
+  letter-spacing: -0.1em;
+}
+.rugbyEmptyState h3 {
+  margin: 0 0 12px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1;
+}
+.rugbyEmptyState p,
+.rugbyFinal p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+.rugbyEmptyState .button {
+  margin-top: 10px;
+}
+.rugbyFinal .center > p {
+  max-width: 670px;
+  margin: 0 auto 25px;
+  color: #b9c4d3;
+}
+
+@media (max-width: 900px) {
+  .rugbyPosterGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .rugbyHero {
+    min-height: 520px;
+  }
+  .rugbyHeroActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .rugbyHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .rugbyHeading > p {
+    width: 100%;
+  }
+  .rugbyPosterGrid {
+    grid-template-columns: 1fr;
+  }
+  .rugbyEmptyState {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
 
 @media (max-width: 1050px) {

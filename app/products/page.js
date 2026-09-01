@@ -16,13 +16,15 @@ export default async function Page({ searchParams }) {
   const access = await getCatalogueAccess();
   const hasAccess = access.hasCatalogueAccess;
   const params = await searchParams;
+  const requestedCategory =
+    params?.category === "Apparel" ? "Activewear" : params?.category;
 
   const selectedCategory =
-    madxCategories.find((category) => category.name === params?.category)
+    madxCategories.find((category) => category.name === requestedCategory)
       ?.name || madxCategories[0].name;
   const selectedSubCategory = params?.subCategory || "";
   const isApparelCatalogue =
-    selectedCategory.trim().toLowerCase() === "apparel";
+    selectedCategory.trim().toLowerCase() === "activewear";
   const isBjjCatalogue =
     selectedCategory.trim().toLowerCase() === "bjj & no-gi";
   const isPublicCatalogue = isApparelCatalogue || isBjjCatalogue;

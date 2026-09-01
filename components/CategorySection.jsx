@@ -34,7 +34,7 @@ export default function CategorySection() {
   );
 
   return (
-    <section className="section">
+    <section className="section" data-activity-section="Product capabilities">
       <div className="shell">
         <div className="heading">
           <div>

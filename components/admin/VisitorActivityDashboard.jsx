@@ -8,6 +8,7 @@ import styles from "./VisitorActivityDashboard.module.css";
 const eventTypes = [
   "All",
   "page_view",
+  "section_view",
   "button_click",
   "link_click",
   "form_submit",
@@ -140,7 +141,7 @@ export default function VisitorActivityDashboard() {
       "Attributed client",
       "Location",
       "Activity",
-      "Button / link / page",
+        "Section / button / link / page",
       "Page",
       "Destination",
       "Device",
@@ -359,7 +360,7 @@ export default function VisitorActivityDashboard() {
                 <th>Attributed client</th>
                 <th>Location</th>
                 <th>Activity</th>
-                <th>Button / link / page</th>
+                <th>Section / button / link / page</th>
                 <th>Page</th>
                 <th>Destination</th>
                 <th>Device</th>

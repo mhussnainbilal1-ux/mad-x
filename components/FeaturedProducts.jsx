@@ -17,7 +17,10 @@ export default async function FeaturedProducts({
     .slice(0, limit);
 
   return (
-    <section className={`section ${background}`}>
+    <section
+      className={`section ${background}`}
+      data-activity-section="Featured products"
+    >
       <div className="shell">
         <div className="heading">
           <div>

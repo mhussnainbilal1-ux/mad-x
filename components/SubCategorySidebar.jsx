@@ -57,43 +57,48 @@ export default function SubCategorySidebar() {
                       All {category.name}
                     </Link>
 
-                    {category.groups?.map((group) => (
-                      <div key={group.name}>
-                        <Link
-                          scroll={true}
-                          href={`/products?category=${encodeURIComponent(
-                            category.name,
-                          )}&subCategory=${encodeURIComponent(group.name)}`}
-                          className={
-                            selectedSubCategory === group.name ? "active" : ""
-                          }
-                        >
-                          {group.name}
-                          <span>→</span>
-                        </Link>
+                    {category.groups?.map((group) => {
+                      const isGroupActive =
+                        selectedSubCategory === group.name ||
+                        group.items.includes(selectedSubCategory);
 
-                        {category.slug === "apparel" &&
-                          group.items.length > 0 && (
-                            <div className="apparelSidebarChildren">
-                              {group.items?.map((item) => (
-                                <Link
-                                  scroll={true}
-                                  key={item}
-                                  href={`/products?category=${encodeURIComponent(
-                                    category.name,
-                                  )}&subCategory=${encodeURIComponent(item)}`}
-                                  className={
-                                    selectedSubCategory === item ? "active" : ""
-                                  }
-                                >
-                                  <span aria-hidden="true">›</span>
-                                  {item}
-                                </Link>
-                              ))}
-                            </div>
-                          )}
-                      </div>
-                    ))}
+                      return (
+                        <div key={group.name}>
+                          <Link
+                            scroll={true}
+                            href={`/products?category=${encodeURIComponent(
+                              category.name,
+                            )}&subCategory=${encodeURIComponent(group.name)}`}
+                            className={isGroupActive ? "active" : ""}
+                          >
+                            {group.name}
+                            <span>→</span>
+                          </Link>
+
+                          {category.slug === "apparel" &&
+                            isGroupActive &&
+                            group.items.length > 0 && (
+                              <div className="apparelSidebarChildren">
+                                {group.items?.map((item) => (
+                                  <Link
+                                    scroll={true}
+                                    key={item}
+                                    href={`/products?category=${encodeURIComponent(
+                                      category.name,
+                                    )}&subCategory=${encodeURIComponent(item)}`}
+                                    className={
+                                      selectedSubCategory === item ? "active" : ""
+                                    }
+                                  >
+                                    <span aria-hidden="true">›</span>
+                                    {item}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
               </div>

@@ -19,6 +19,9 @@ export default function Header({ hasCatalogueAccess = false }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const [exploreOpen, setExploreOpen] = useState(false);
+  const [apparelOpen, setApparelOpen] = useState(false);
+  const [apparelGroupOpen, setApparelGroupOpen] = useState("");
   const [isMobile, setIsMobile] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const { items, openDrawer, canUseProductLists } = useProductList();
@@ -46,6 +49,9 @@ export default function Header({ hasCatalogueAccess = false }) {
   function startMobileNavigation(event) {
     setOpen(false);
     setCategoriesOpen(false);
+    setExploreOpen(false);
+    setApparelOpen(false);
+    setApparelGroupOpen("");
 
     if (!isMobile) return;
 
@@ -85,7 +91,12 @@ export default function Header({ hasCatalogueAccess = false }) {
             className="menuButton"
             onClick={() => {
               setOpen(!open);
-              if (open) setCategoriesOpen(false);
+              if (open) {
+                setCategoriesOpen(false);
+                setExploreOpen(false);
+                setApparelOpen(false);
+                setApparelGroupOpen("");
+              }
             }}
             aria-label="Toggle navigation"
             aria-expanded={open}
@@ -129,39 +140,166 @@ export default function Header({ hasCatalogueAccess = false }) {
               <button
                 type="button"
                 className="navDropdownToggle"
-                onClick={() => setCategoriesOpen(!categoriesOpen)}
+                onClick={() => {
+                  setCategoriesOpen(!categoriesOpen);
+                  setExploreOpen(false);
+                  if (categoriesOpen) {
+                    setApparelOpen(false);
+                    setApparelGroupOpen("");
+                  }
+                }}
                 aria-expanded={categoriesOpen}
                 aria-controls="category-navigation"
               >
                 Categories
               </button>
               <div className="navDropdownMenu" id="category-navigation">
-                {alphabeticalCategories.map((category) => (
-                  <Link
-                    key={category.slug}
-                    href={`/products?category=${encodeURIComponent(category.name)}`}
-                    onClick={startMobileNavigation}
-                  >
-                    {category.name}
-                  </Link>
-                ))}
+                {alphabeticalCategories.map((category) => {
+                  if (category.slug !== "apparel") {
+                    return (
+                      <Link
+                        key={category.slug}
+                        href={`/products?category=${encodeURIComponent(category.name)}`}
+                        onClick={startMobileNavigation}
+                      >
+                        {category.name}
+                      </Link>
+                    );
+                  }
+
+                  return (
+                    <div
+                      className={`navCascadeItem ${apparelOpen ? "open" : ""}`}
+                      key={category.slug}
+                    >
+                      <div className="navCascadeTrigger">
+                        <Link
+                          href={`/products?category=${encodeURIComponent(category.name)}`}
+                          onClick={startMobileNavigation}
+                        >
+                          {category.name}
+                        </Link>
+                        <button
+                          type="button"
+                          aria-label="Show Apparel categories"
+                          aria-expanded={apparelOpen}
+                          onClick={() => {
+                            setApparelOpen((value) => !value);
+                            setApparelGroupOpen("");
+                          }}
+                        >
+                          ›
+                        </button>
+                      </div>
+
+                      <div className="navCascadeMenu navApparelCascade">
+                        {category.groups.map((group) => (
+                          <div
+                            className={`navCascadeItem ${
+                              apparelGroupOpen === group.name ? "open" : ""
+                            }`}
+                            key={group.name}
+                          >
+                            <div className="navCascadeTrigger">
+                              <Link
+                                href={`/products?category=${encodeURIComponent(
+                                  category.name,
+                                )}&subCategory=${encodeURIComponent(group.name)}`}
+                                onClick={startMobileNavigation}
+                              >
+                                {group.name}
+                              </Link>
+                              <button
+                                type="button"
+                                aria-label={`Show ${group.name} product types`}
+                                aria-expanded={apparelGroupOpen === group.name}
+                                onClick={() =>
+                                  setApparelGroupOpen((value) =>
+                                    value === group.name ? "" : group.name,
+                                  )
+                                }
+                              >
+                                ›
+                              </button>
+                            </div>
+
+                            <div className="navCascadeMenu navProductTypeCascade">
+                              {group.items.map((item) => (
+                                <Link
+                                  key={item}
+                                  href={`/products?category=${encodeURIComponent(
+                                    category.name,
+                                  )}&subCategory=${encodeURIComponent(item)}`}
+                                  onClick={startMobileNavigation}
+                                >
+                                  {item}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
-            <Link href="/factory-tour" onClick={startMobileNavigation}>
-              Factory
-            </Link>
-            <Link href="/about" onClick={startMobileNavigation}>
-              About
-            </Link>
-            <Link href="/wholesale" onClick={startMobileNavigation}>
-              Wholesale
-            </Link>
-            <Link href="/gallery" onClick={startMobileNavigation}>
-              Gallery
-            </Link>
-            <Link href="/blog" onClick={startMobileNavigation}>
-              Insights
-            </Link>
+            <div className="navSportLinks" aria-label="Custom teamwear">
+              <Link
+                className="navSportLink"
+                href="/rugby"
+                onClick={startMobileNavigation}
+              >
+                Rugby
+              </Link>
+              <Link
+                className="navSportLink"
+                href="/ice-hockey"
+                onClick={startMobileNavigation}
+              >
+                Ice Hockey
+              </Link>
+              <Link
+                className="navSportLink"
+                href="/soccer"
+                onClick={startMobileNavigation}
+              >
+                Soccer
+              </Link>
+            </div>
+            <div className={`navDropdown ${exploreOpen ? "open" : ""}`}>
+              <button
+                type="button"
+                className="navDropdownToggle"
+                onClick={() => {
+                  setExploreOpen(!exploreOpen);
+                  setCategoriesOpen(false);
+                  setApparelOpen(false);
+                  setApparelGroupOpen("");
+                }}
+                aria-expanded={exploreOpen}
+                aria-controls="explore-navigation"
+              >
+                Explore
+              </button>
+              <div className="navDropdownMenu" id="explore-navigation">
+                <Link href="/factory-tour" onClick={startMobileNavigation}>
+                  Factory
+                </Link>
+                <Link href="/about" onClick={startMobileNavigation}>
+                  About
+                </Link>
+                <Link href="/wholesale" onClick={startMobileNavigation}>
+                  Wholesale
+                </Link>
+                <Link href="/gallery" onClick={startMobileNavigation}>
+                  Gallery
+                </Link>
+                <Link href="/blog" onClick={startMobileNavigation}>
+                  Insights
+                </Link>
+              </div>
+            </div>
             <Link href="/contact" onClick={startMobileNavigation}>
               Contact
             </Link>

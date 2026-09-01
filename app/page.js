@@ -10,10 +10,10 @@ export const metadata = {
 export default function Home() {
   return (
     <main>
-      <section className="hero">
+      <section className="hero" data-activity-section="Hero">
         <HeroSlider />
       </section>
-      <section className="stats">
+      <section className="stats" data-activity-section="Company statistics">
         <div className="shell statsGrid">
           <div>
             <b>80+</b>
@@ -38,7 +38,7 @@ export default function Home() {
 
       <FeaturedProducts limit={18} />
 
-      <section className="section">
+      <section className="section" data-activity-section="How production works">
         <div className="shell">
           <div className="heading">
             <div>
@@ -85,7 +85,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" data-activity-section="Why MADX Sports">
         <div className="shell split">
           <div className="largeImage">
 
@@ -121,7 +121,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section cream">
+      <section className="section cream" data-activity-section="Customization options">
         <div className="shell">
           <div className="heading">
             <div>
@@ -157,7 +157,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section darkPanel">
+      <section className="section darkPanel" data-activity-section="Start your next collection">
         <div className="shell center">
           <span className="kicker">START YOUR NEXT COLLECTION</span>
           <h2>Ready to develop your next product range?</h2>

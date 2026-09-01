@@ -90,6 +90,40 @@ function ActivityListener() {
     };
   }, [pathname]);
 
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const sections = document.querySelectorAll("[data-activity-section]");
+    const viewedSections = new Set();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const section = entry.target;
+          const label = section.getAttribute("data-activity-section");
+          if (!label || viewedSections.has(label)) return;
+
+          viewedSections.add(label);
+          sendActivity({
+            eventType: "section_view",
+            label,
+            pagePath: `${window.location.pathname}${window.location.search}`,
+            elementId: section.id || "",
+          });
+        });
+      },
+      {
+        // Count a section when it reaches the central part of the viewport.
+        // This also works for sections taller than the viewport.
+        rootMargin: "-20% 0px -55% 0px",
+        threshold: 0,
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [pathname]);
+
   return null;
 }
 
