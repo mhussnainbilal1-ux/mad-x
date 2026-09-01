@@ -4,11 +4,27 @@ import { trackEvent } from "@/lib/analytics";
 
 export default function InquiryForm({ compact = false, source }) {
   const [status, setStatus] = useState("idle");
+  const [emailError, setEmailError] = useState("");
+
+  function validateEmail(value) {
+    const email = String(value || "").trim();
+    if (!email) return "Please enter your email address.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      return "Please enter a valid email address.";
+    return "";
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
     const form = event.currentTarget;
     const formValues = Object.fromEntries(new FormData(form).entries());
+    const validationMessage = validateEmail(formValues.email);
+    setEmailError(validationMessage);
+    if (validationMessage) {
+      setStatus("idle");
+      form.elements.email.focus();
+      return;
+    }
     setStatus("sending");
     try {
       const response = await fetch("/api/inquiry", {
@@ -41,14 +57,31 @@ export default function InquiryForm({ compact = false, source }) {
         <input id="inquiry-name" name="name" />
       </div>
       <div>
-        <label htmlFor="inquiry-email">Business email</label>
+        <label htmlFor="inquiry-email">
+          Business email{" "}
+          <span className="requiredMark" aria-hidden="true">
+            *
+          </span>
+        </label>
         <input
           id="inquiry-email"
-          type="text"
+          type="email"
           inputMode="email"
           autoComplete="email"
           name="email"
+          required
+          aria-invalid={Boolean(emailError)}
+          aria-describedby={emailError ? "inquiry-email-error" : undefined}
+          onChange={(event) => {
+            if (emailError) setEmailError(validateEmail(event.target.value));
+          }}
+          onBlur={(event) => setEmailError(validateEmail(event.target.value))}
         />
+        {emailError && (
+          <p id="inquiry-email-error" className="emailError" role="alert">
+            {emailError}
+          </p>
+        )}
       </div>
       <div>
         <label>Company / Brand</label>

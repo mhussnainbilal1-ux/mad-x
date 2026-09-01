@@ -1441,12 +1441,21 @@ textarea {
   font-size: 13px;
   font-weight: 800;
 }
+.inquiryForm .requiredMark {
+  color: #c62828;
+}
 .inquiryForm .full {
   grid-column: 1/-1;
 }
 .inquiryForm [aria-invalid="true"] {
   border-color: #c62828;
   box-shadow: 0 0 0 1px #c62828;
+}
+.inquiryForm .emailError {
+  color: #c62828;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 6px 0 0;
 }
 .fieldError,
 .error {

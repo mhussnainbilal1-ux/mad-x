@@ -10,6 +10,7 @@ const fieldNames = [
   "quantity",
   "message",
 ];
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request) {
   try {
@@ -17,6 +18,18 @@ export async function POST(request) {
     const fields = Object.fromEntries(
       fieldNames.map((field) => [field, String(values?.[field] || "").trim()]),
     );
+    if (!fields.email) {
+      return NextResponse.json(
+        { error: "Please enter your email address." },
+        { status: 400 },
+      );
+    }
+    if (!emailPattern.test(fields.email)) {
+      return NextResponse.json(
+        { error: "Please enter a valid email address." },
+        { status: 400 },
+      );
+    }
     await sendInquiryEmail({ source: values?.source, fields });
     return NextResponse.json({ success: true });
   } catch (error) {
