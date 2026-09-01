@@ -2546,8 +2546,8 @@ html[data-theme="dark"] .success {
   overflow: hidden;
   position: relative;
   background:
-    radial-gradient(circle at 82% 45%, rgba(209, 29, 42, 0.5), transparent 26%),
-    linear-gradient(115deg, rgba(3, 11, 23, 0.99) 0%, rgba(8, 27, 44, 0.94) 60%, rgba(17, 38, 45, 0.92) 100%);
+    linear-gradient(90deg, rgba(3, 11, 23, 0.98) 0%, rgba(3, 11, 23, 0.84) 35%, rgba(3, 11, 23, 0.18) 67%, rgba(3, 11, 23, 0.04) 100%),
+    url("/images/rugby/hero-banner-v3.png") center/cover no-repeat;
 }
 .rugbyHero::after {
   content: "RUGBY";
@@ -2563,8 +2563,8 @@ html[data-theme="dark"] .success {
 }
 .hockeyHero {
   background:
-    radial-gradient(circle at 82% 45%, rgba(62, 154, 205, 0.42), transparent 27%),
-    linear-gradient(115deg, rgba(3, 11, 23, 0.99) 0%, rgba(8, 27, 44, 0.95) 58%, rgba(14, 51, 68, 0.92) 100%);
+    linear-gradient(90deg, rgba(3, 11, 23, 0.98) 0%, rgba(3, 11, 23, 0.84) 35%, rgba(3, 11, 23, 0.18) 67%, rgba(3, 11, 23, 0.04) 100%),
+    url("/images/ice-hockey/hero-banner-v2.png") center/cover no-repeat;
 }
 .hockeyHero::after {
   content: "HOCKEY";
@@ -2575,8 +2575,8 @@ html[data-theme="dark"] .success {
 }
 .soccerHero {
   background:
-    radial-gradient(circle at 82% 45%, rgba(45, 156, 89, 0.42), transparent 27%),
-    linear-gradient(115deg, rgba(3, 11, 23, 0.99) 0%, rgba(7, 31, 30, 0.95) 58%, rgba(14, 61, 42, 0.92) 100%);
+    linear-gradient(90deg, rgba(3, 11, 23, 0.98) 0%, rgba(3, 11, 23, 0.84) 35%, rgba(3, 11, 23, 0.18) 67%, rgba(3, 11, 23, 0.04) 100%),
+    url("/images/soccer/hero-banner-v2.png") center/cover no-repeat;
 }
 .soccerHero::after {
   content: "SOCCER";
