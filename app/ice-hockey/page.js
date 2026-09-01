@@ -1,6 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
 import Link from "next/link";
+import RugbyPosterList from "@/components/RugbyPosterList";
 
 export const metadata = {
   title: "Ice Hockey Catalogue",
@@ -9,43 +8,7 @@ export const metadata = {
   alternates: { canonical: "/ice-hockey" },
 };
 
-const posterDirectory = path.join(
-  process.cwd(),
-  "public",
-  "images",
-  "ice-hockey",
-);
-const posterExtensions = new Set([".avif", ".jpeg", ".jpg", ".png", ".webp"]);
-
-function getPosters() {
-  if (!fs.existsSync(posterDirectory)) return [];
-
-  return fs
-    .readdirSync(posterDirectory, { withFileTypes: true })
-    .filter(
-      (entry) =>
-        entry.isFile() && posterExtensions.has(path.extname(entry.name).toLowerCase()),
-    )
-    .map((entry) => {
-      const extension = path.extname(entry.name);
-      const title = path
-        .basename(entry.name, extension)
-        .replace(/^\d+[-_ ]*/, "")
-        .replace(/[-_]+/g, " ")
-        .replace(/\b\w/g, (character) => character.toUpperCase());
-
-      return {
-        src: `/images/ice-hockey/${encodeURIComponent(entry.name)}`,
-        title: title || "Ice hockey catalogue poster",
-        fileName: entry.name,
-      };
-    })
-    .sort((a, b) => a.fileName.localeCompare(b.fileName, undefined, { numeric: true }));
-}
-
 export default function IceHockeyPage() {
-  const posters = getPosters();
-
   return (
     <main>
       <section className="pageHero rugbyHero hockeyHero">
@@ -80,50 +43,19 @@ export default function IceHockeyPage() {
             </p>
           </div>
 
-          {posters.length > 0 ? (
-            <div className="rugbyPosterGrid">
-              {posters.map((poster, index) => (
-                <a
-                  className="rugbyPosterCard"
-                  href={poster.src}
-                  target="_blank"
-                  rel="noreferrer"
-                  key={poster.src}
-                  aria-label={`Open ${poster.title} poster`}
-                >
-                  <div className="rugbyPosterImage">
-                    <img
-                      src={poster.src}
-                      alt={poster.title}
-                      loading={index < 2 ? "eager" : "lazy"}
-                      decoding="async"
-                    />
-                    <span>View full poster ↗</span>
-                  </div>
-                  <div className="rugbyPosterMeta">
-                    <small>
-                      ICE HOCKEY • {String(index + 1).padStart(2, "0")}
-                    </small>
-                    <h3>{poster.title}</h3>
-                  </div>
-                </a>
-              ))}
-            </div>
-          ) : (
-            <div className="rugbyEmptyState hockeyEmptyState">
-              <span className="rugbyEmptyNumber">60</span>
-              <div>
-                <h3>Catalogue posters coming soon.</h3>
-                <p>
-                  Our ice hockey collection is being prepared. Contact us now
-                  to discuss custom teamwear or private-label production.
-                </p>
-                <Link className="button navy" href="/contact">
-                  Contact our team
-                </Link>
-              </div>
-            </div>
-          )}
+          <RugbyPosterList
+            dialogLabel="Ice hockey catalogue poster viewer"
+            posters={[
+              {
+                src: "/images/ice-hockey/1.png",
+                alt: "MADX Sports ice hockey catalogue poster 1",
+              },
+              {
+                src: "/images/ice-hockey/2.png",
+                alt: "MADX Sports ice hockey catalogue poster 2",
+              },
+            ]}
+          />
         </div>
       </section>
 

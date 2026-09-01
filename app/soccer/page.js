@@ -1,6 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
 import Link from "next/link";
+import RugbyPosterList from "@/components/RugbyPosterList";
 
 export const metadata = {
   title: "Soccer Catalogue",
@@ -9,38 +8,7 @@ export const metadata = {
   alternates: { canonical: "/soccer" },
 };
 
-const posterDirectory = path.join(process.cwd(), "public", "images", "soccer");
-const posterExtensions = new Set([".avif", ".jpeg", ".jpg", ".png", ".webp"]);
-
-function getPosters() {
-  if (!fs.existsSync(posterDirectory)) return [];
-
-  return fs
-    .readdirSync(posterDirectory, { withFileTypes: true })
-    .filter(
-      (entry) =>
-        entry.isFile() && posterExtensions.has(path.extname(entry.name).toLowerCase()),
-    )
-    .map((entry) => {
-      const extension = path.extname(entry.name);
-      const title = path
-        .basename(entry.name, extension)
-        .replace(/^\d+[-_ ]*/, "")
-        .replace(/[-_]+/g, " ")
-        .replace(/\b\w/g, (character) => character.toUpperCase());
-
-      return {
-        src: `/images/soccer/${encodeURIComponent(entry.name)}`,
-        title: title || "Soccer catalogue poster",
-        fileName: entry.name,
-      };
-    })
-    .sort((a, b) => a.fileName.localeCompare(b.fileName, undefined, { numeric: true }));
-}
-
 export default function SoccerPage() {
-  const posters = getPosters();
-
   return (
     <main>
       <section className="pageHero rugbyHero soccerHero">
@@ -75,48 +43,19 @@ export default function SoccerPage() {
             </p>
           </div>
 
-          {posters.length > 0 ? (
-            <div className="rugbyPosterGrid">
-              {posters.map((poster, index) => (
-                <a
-                  className="rugbyPosterCard"
-                  href={poster.src}
-                  target="_blank"
-                  rel="noreferrer"
-                  key={poster.src}
-                  aria-label={`Open ${poster.title} poster`}
-                >
-                  <div className="rugbyPosterImage">
-                    <img
-                      src={poster.src}
-                      alt={poster.title}
-                      loading={index < 2 ? "eager" : "lazy"}
-                      decoding="async"
-                    />
-                    <span>View full poster ↗</span>
-                  </div>
-                  <div className="rugbyPosterMeta">
-                    <small>SOCCER • {String(index + 1).padStart(2, "0")}</small>
-                    <h3>{poster.title}</h3>
-                  </div>
-                </a>
-              ))}
-            </div>
-          ) : (
-            <div className="rugbyEmptyState soccerEmptyState">
-              <span className="rugbyEmptyNumber">90</span>
-              <div>
-                <h3>Catalogue posters coming soon.</h3>
-                <p>
-                  Our soccer collection is being prepared. Contact us now to
-                  discuss custom teamwear or private-label production.
-                </p>
-                <Link className="button navy" href="/contact">
-                  Contact our team
-                </Link>
-              </div>
-            </div>
-          )}
+          <RugbyPosterList
+            dialogLabel="Soccer catalogue poster viewer"
+            posters={[
+              {
+                src: "/images/soccer/1.png",
+                alt: "MADX Sports soccer catalogue poster 1",
+              },
+              {
+                src: "/images/soccer/2.png",
+                alt: "MADX Sports soccer catalogue poster 2",
+              },
+            ]}
+          />
         </div>
       </section>
 

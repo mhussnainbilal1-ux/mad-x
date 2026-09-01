@@ -2192,21 +2192,20 @@ textarea {
     padding: 9px 12px;
   }
   .navSportLinks {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 4px;
-    margin: 12px 0 6px;
-    padding: 4px;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    background: var(--surface-3);
+    display: contents;
   }
   .navSportLinks::before {
-    top: -10px;
+    display: none;
   }
   .nav .navSportLinks .navSportLink {
-    padding: 9px 7px;
-    text-align: center;
+    padding: 8px;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+  }
+  .nav .navSportLinks .navSportLink::after {
+    bottom: 2px;
   }
   .navCascadeTrigger > button {
     transform: rotate(90deg);
@@ -2625,6 +2624,106 @@ html[data-theme="dark"] .success {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+}
+.rugbyPosterList {
+  display: grid;
+  gap: 30px;
+}
+.rugbyListPoster {
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface, #fff);
+  box-shadow: var(--soft-shadow, 0 14px 38px rgba(11, 27, 50, 0.08));
+  cursor: zoom-in;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.rugbyListPoster:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 55px rgba(11, 27, 50, 0.16);
+}
+.rugbyListPoster img {
+  width: 100%;
+  height: auto;
+}
+.rugbyLightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: 18px;
+  background: rgba(2, 7, 14, 0.78);
+  backdrop-filter: blur(7px);
+}
+.rugbyLightboxToolbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto 14px;
+  padding: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(11, 27, 50, 0.92);
+}
+.rugbyLightboxToolbar button {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+.rugbyLightboxToolbar button:hover {
+  background: var(--red);
+}
+.rugbyLightboxToolbar button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.rugbyLightboxToolbar span {
+  min-width: 58px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 900;
+}
+.rugbyLightboxToolbar .rugbyLightboxClose {
+  margin-left: 5px;
+  background: var(--red);
+}
+.rugbyLightboxViewport {
+  overflow: auto;
+  border-radius: 12px;
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+.rugbyLightboxViewport.canDrag {
+  cursor: grab;
+}
+.rugbyLightboxViewport.dragging {
+  cursor: grabbing;
+}
+.rugbyLightboxCanvas {
+  min-width: 0;
+  margin: 0 auto;
+  transition: width 0.18s ease;
+}
+.rugbyLightboxCanvas img {
+  width: 100%;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
 }
 .rugbyPosterCard {
   overflow: hidden;
