@@ -1428,6 +1428,9 @@ textarea {
   font-size: 14px;
   color: var(--muted);
 }
+.productWhatsAppButton {
+  display: none;
+}
 .valueGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2259,6 +2262,22 @@ textarea {
   }
 }
 @media (max-width: 620px) {
+  .productWhatsAppButton {
+    display: flex;
+    width: 100%;
+    gap: 9px;
+    margin-top: 10px;
+    background: #25d366;
+    color: #fff;
+  }
+  .productWhatsAppButton:hover {
+    background: #20bd5a;
+  }
+  .productWhatsAppButton svg {
+    width: 23px;
+    height: 23px;
+    flex: 0 0 auto;
+  }
   .announcement {
     justify-content: center;
     text-align: center;
